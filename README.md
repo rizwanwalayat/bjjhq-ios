@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ![Mobile Buy SDK](https://cloud.githubusercontent.com/assets/5244861/26738020/885c12ac-479a-11e7-8914-2853ec09f89f.png)
 
 [![Test](https://github.com/Shopify/mobile-buy-sdk-ios-sample/workflows/Test/badge.svg?event=push)](https://github.com/Shopify/mobile-buy-sdk-ios-sample/actions?query=workflow%3ATest)
@@ -34,3 +35,6 @@ final class Client {
 ## License
 
 The Mobile Buy SDK is provided under an MIT License.  See the [LICENSE](../../LICENSE) file
+=======
+# BJJHQ-IOS
+>>>>>>> 1c112a4a58ff090c09ea6d087ec854a40ed86e7b
