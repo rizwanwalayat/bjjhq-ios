@@ -23,7 +23,13 @@ class MainCoordinator: Coordinator {
         navigationController.navigationBar.isHidden = true
     }
     
-    func landingPage() {
+    func welcomePage() {
+        let vc = LandingPageViewController()
+        vc.coordinator = self
+        navigationController.setViewControllers([vc], animated: true)
+    }
+    
+    func landedPage() {
         let vc = LandingPageViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
@@ -38,11 +44,22 @@ class MainCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    func forgetPage() {
+        let vc = ForgetViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    func signInPage() {
+        let vc = SignInViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
     
     
     func popVc() {
         navigationController.popViewController(animated: true)
     }
+    
 }
 
 //MARK: - StoryBoard Reference

@@ -67,7 +67,7 @@ class SignUpViewController: BaseViewController {
     }
     
     @IBAction func backAction(_ sender: Any) {
-        coordinator?.popVc()
+        coordinator?.welcomePage()
     }
     
     @IBAction func signUpAction(_ sender: Any) {
@@ -75,11 +75,11 @@ class SignUpViewController: BaseViewController {
     }
     
     @IBAction func signInAction(_ sender: Any) {
-        
+        coordinator?.signInPage()
     }
     
     @IBAction func skipAction(_ sender: Any) {
-        
+//        coordinator?.homePage()
     }
     
     

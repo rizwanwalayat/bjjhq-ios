@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1842EDF227BBE84800A4DA1D /* ForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842EDF027BBE84800A4DA1D /* ForgetViewController.swift */; };
+		1842EDF327BBE84800A4DA1D /* ForgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1842EDF127BBE84800A4DA1D /* ForgetViewController.xib */; };
 		1863836827BB9BFE0080FC80 /* LandingPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1863835C27BB9BFD0080FC80 /* LandingPageViewController.xib */; };
 		1863836927BB9BFE0080FC80 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863835D27BB9BFD0080FC80 /* LandingPageViewController.swift */; };
 		1863836A27BB9BFE0080FC80 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863835F27BB9BFD0080FC80 /* DataManager.swift */; };
@@ -131,6 +133,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1842EDF027BBE84800A4DA1D /* ForgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewController.swift; sourceTree = "<group>"; };
+		1842EDF127BBE84800A4DA1D /* ForgetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgetViewController.xib; sourceTree = "<group>"; };
 		1863835C27BB9BFD0080FC80 /* LandingPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingPageViewController.xib; sourceTree = "<group>"; };
 		1863835D27BB9BFD0080FC80 /* LandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		1863835F27BB9BFD0080FC80 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -268,6 +272,8 @@
 				18A6679D27BBC391005FE8C1 /* SignUpViewController.xib */,
 				18937FB727BBE04C00702FB0 /* SignInViewController.swift */,
 				18937FB827BBE04C00702FB0 /* SignInViewController.xib */,
+				1842EDF027BBE84800A4DA1D /* ForgetViewController.swift */,
+				1842EDF127BBE84800A4DA1D /* ForgetViewController.xib */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -737,6 +743,7 @@
 				9AC583D01E81BF96005DB319 /* CartCell.xib in Resources */,
 				9A4EDDE721270F620071BA56 /* OrderCell.xib in Resources */,
 				1863837027BB9BFE0080FC80 /* HomeViewController.xib in Resources */,
+				1842EDF327BBE84800A4DA1D /* ForgetViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,6 +820,7 @@
 				9A9FFEFD1E78432F00F6DFF7 /* Currency.swift in Sources */,
 				9A9FFF111E79C0AD00F6DFF7 /* Fragment+VariantConnectionQuery.swift in Sources */,
 				9A27C32F1E91218100218EE8 /* AddressViewModel+PayAddress.swift in Sources */,
+				1842EDF227BBE84800A4DA1D /* ForgetViewController.swift in Sources */,
 				9A4EDDD22126116E0071BA56 /* CustomerCoordinator.swift in Sources */,
 				9A67117A2166801A00A57A3F /* Fragment+DiscountAllocation.swift in Sources */,
 				9AAFAB921E60D11000864A17 /* StorefrontCollectionView.swift in Sources */,
