@@ -20,6 +20,9 @@
 		1863836F27BB9BFE0080FC80 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863836427BB9BFD0080FC80 /* Coordinator.swift */; };
 		1863837027BB9BFE0080FC80 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1863836627BB9BFE0080FC80 /* HomeViewController.xib */; };
 		1863837127BB9BFE0080FC80 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863836727BB9BFE0080FC80 /* HomeViewController.swift */; };
+		18A6679B27BBB9BC005FE8C1 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A6679A27BBB9BC005FE8C1 /* UIView.swift */; };
+		18A6679E27BBC391005FE8C1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A6679C27BBC391005FE8C1 /* SignUpViewController.swift */; };
+		18A6679F27BBC391005FE8C1 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A6679D27BBC391005FE8C1 /* SignUpViewController.xib */; };
 		18E299AE27BBA3010087D0ED /* Barlow-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18E299AC27BBA3010087D0ED /* Barlow-BoldItalic.ttf */; };
 		18E299AF27BBA3010087D0ED /* neusa-next-std-compact-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18E299AD27BBA3010087D0ED /* neusa-next-std-compact-regular.ttf */; };
 		4BCFFBC636F044FF8234FD2F /* Pods_BJJHQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5D9263BFB2A5B97C243957 /* Pods_BJJHQ.framework */; };
@@ -141,6 +144,9 @@
 		1863836427BB9BFD0080FC80 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1863836627BB9BFE0080FC80 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		1863836727BB9BFE0080FC80 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		18A6679A27BBB9BC005FE8C1 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		18A6679C27BBC391005FE8C1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		18A6679D27BBC391005FE8C1 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		18E299AC27BBA3010087D0ED /* Barlow-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-BoldItalic.ttf"; sourceTree = "<group>"; };
 		18E299AD27BBA3010087D0ED /* neusa-next-std-compact-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "neusa-next-std-compact-regular.ttf"; sourceTree = "<group>"; };
 		733A59A78DD90F2477EDCC2D /* Pods-BJJHQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJJHQ.release.xcconfig"; path = "Target Support Files/Pods-BJJHQ/Pods-BJJHQ.release.xcconfig"; sourceTree = "<group>"; };
@@ -266,6 +272,8 @@
 			children = (
 				1863835C27BB9BFD0080FC80 /* LandingPageViewController.xib */,
 				1863835D27BB9BFD0080FC80 /* LandingPageViewController.swift */,
+				18A6679C27BBC391005FE8C1 /* SignUpViewController.swift */,
+				18A6679D27BBC391005FE8C1 /* SignUpViewController.xib */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -273,6 +281,7 @@
 		1863835E27BB9BFD0080FC80 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				18A6679A27BBB9BC005FE8C1 /* UIView.swift */,
 				1863835F27BB9BFD0080FC80 /* DataManager.swift */,
 				1863836027BB9BFD0080FC80 /* Global.swift */,
 				1863836127BB9BFD0080FC80 /* BaseViewController.swift */,
@@ -723,6 +732,7 @@
 			files = (
 				18E299AF27BBA3010087D0ED /* neusa-next-std-compact-regular.ttf in Resources */,
 				9ADAD4751E563091008AC561 /* LaunchScreen.storyboard in Resources */,
+				18A6679F27BBC391005FE8C1 /* SignUpViewController.xib in Resources */,
 				1863836827BB9BFE0080FC80 /* LandingPageViewController.xib in Resources */,
 				9ADAD4721E563091008AC561 /* Assets.xcassets in Resources */,
 				9AAFAB8A1E60C17100864A17 /* ProductCell.xib in Resources */,
@@ -800,6 +810,7 @@
 				1863836A27BB9BFE0080FC80 /* DataManager.swift in Sources */,
 				9A21F2981E7AD30F00E00F4B /* ProductDetailsViewController.swift in Sources */,
 				9A4EDDE9212ADDF10071BA56 /* CustomerViewModel.swift in Sources */,
+				18A6679B27BBB9BC005FE8C1 /* UIView.swift in Sources */,
 				9A8E88511E719A6E0042879D /* Client.swift in Sources */,
 				9AAFAB861E60C15300864A17 /* ProductViewModel.swift in Sources */,
 				9AAFAB7E1E60BE6500864A17 /* ViewModeling.swift in Sources */,
@@ -863,6 +874,7 @@
 				9A9FFF271E80172C00F6DFF7 /* ProductDetailsCell.swift in Sources */,
 				9A4EDDE221270E660071BA56 /* CustomerViewController.swift in Sources */,
 				9AC583C91E81BEF8005DB319 /* CartViewController.swift in Sources */,
+				18A6679E27BBC391005FE8C1 /* SignUpViewController.swift in Sources */,
 				9A21F29A1E7AD4FD00E00F4B /* ParallaxViewController.swift in Sources */,
 				9A9FFF1C1E7FF3A800F6DFF7 /* ImageViewModel.swift in Sources */,
 				9A27C3201E8FD99200218EE8 /* CheckoutViewModel.swift in Sources */,

@@ -9,10 +9,43 @@ import UIKit
 
 class LandingPageViewController: BaseViewController {
 
+    @IBOutlet weak var skipButton: UIButton!
+    
+    //MARK: - LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setup()
     }
+    
+    
+    
+    //MARK: - Functions
+    
+    func setup() {
+        skipButton.setTitle("", for: .normal)
+        setupButtonUnderlineText(skipButton, "SKIP")
+    }
+    
+    
+    //MARK: - IBAction
+    
+    
+    @IBAction func signInAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func signUpAction(_ sender: Any) {
+        coordinator?.signUpPage()
+    }
+    
+    @IBAction func facebookAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func skipAction(_ sender: Any) {
+        
+    }
+    
     
 }
