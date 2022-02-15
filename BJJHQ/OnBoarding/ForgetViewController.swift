@@ -9,10 +9,10 @@
 import UIKit
 
 class ForgetViewController: BaseViewController {
-
+    
     
     //MARK: - IBOutlets
-
+    
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var signInBUtton: UIButton!
@@ -32,8 +32,10 @@ class ForgetViewController: BaseViewController {
     
     
     func setup() {
-        signInBUtton.setTitle("", for: .normal)
-        setupButtonUnderlineText(signInBUtton, "Sign Up", color: "#DF6565",1.0)
+        skipButton.setTitle("", for: .normal)
+        setupButtonUnderlineText(skipButton, "SKIP", color: "BCBFCC")
+        skipButton.setTitle("", for: .normal)
+        setupButtonUnderlineText(signInBUtton, "Try Signing In", color: "#DF6565",1.0)
         changeButtonState(state: false)
     }
     
@@ -50,11 +52,15 @@ class ForgetViewController: BaseViewController {
     
     
     @IBAction func backAction(_ sender: Any) {
-        coordinator?.welcomePage()
+        coordinator?.signInPage()
     }
     
     @IBAction func submitAction(_ sender: Any) {
-        coordinator?.homePage()
+        //        coordinator?.homePage()
+    }
+    
+    @IBAction func skipAction(_ sender: Any) {
+        //        coordinator?.homePage()
     }
     
     @IBAction func signInAction(_ sender: Any) {

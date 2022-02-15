@@ -167,6 +167,9 @@
                                     <size key="value" width="0.0" height="2"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="skipAction:" destination="-1" eventType="touchUpInside" id="MNe-fJ-WPA"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Forgot Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Uf-eP-6QV">
                             <rect key="frame" x="30" y="90" width="354" height="41"/>
