@@ -26,10 +26,16 @@
 
 import UIKit
 
-protocol LoginControllerDelegate: class {
+protocol LoginControllerDelegate: AnyObject {
     func loginControllerDidCancel(_ loginController: LoginViewController)
     func loginController(_ loginController: LoginViewController, didLoginWith email: String, passowrd: String)
+    func singupController(email: String, password: String, firstName: String, lastName: String )
+
 }
+
+//protocol SignupControllerDelegate: AnyObject {
+//    func signupControllerDidCancel(_ signupController: SignupViewController)
+//}
 
 class LoginViewController: UIViewController {
     
@@ -82,5 +88,10 @@ extension LoginViewController {
     
     @IBAction private func cancelAction(_ sender: UIButton) {
         self.delegate?.loginControllerDidCancel(self)
+    }
+    
+    @IBAction private func singupAction(_ sender: UIButton) {
+        
+        self.delegate?.singupController(email: "test3@test.com", password: "123456", firstName: "Test3First", lastName: "Test3Last")
     }
 }
