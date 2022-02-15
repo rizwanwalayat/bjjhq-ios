@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5HA-7N-vXJ">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -105,16 +105,26 @@
                                     <action selector="loginAction:" destination="5Xs-ss-CF5" eventType="touchUpInside" id="4HZ-50-p84"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEz-Cl-bya">
+                                <rect key="frame" x="153" y="213" width="69" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Signup"/>
+                                <connections>
+                                    <action selector="singupAction:" destination="5Xs-ss-CF5" eventType="touchUpInside" id="kie-mb-q42"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hft-5a-cry"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0MY-jJ-Z5Z" firstAttribute="leading" secondItem="kq3-xS-4ew" secondAttribute="leading" id="AaY-hH-QYz"/>
+                            <constraint firstItem="dEz-Cl-bya" firstAttribute="centerX" secondItem="6cl-2u-O12" secondAttribute="centerX" id="ECl-hA-ld9"/>
                             <constraint firstItem="acg-ZT-UIP" firstAttribute="leading" secondItem="Dq5-2j-FEU" secondAttribute="leading" id="JTO-Jy-n42"/>
                             <constraint firstItem="Ofp-jd-uzq" firstAttribute="leading" secondItem="6cl-2u-O12" secondAttribute="leading" constant="40" id="Wbo-cd-Lwa"/>
                             <constraint firstItem="0MY-jJ-Z5Z" firstAttribute="top" secondItem="kq3-xS-4ew" secondAttribute="bottom" id="bdP-Md-2Sg"/>
                             <constraint firstItem="acg-ZT-UIP" firstAttribute="trailing" secondItem="Dq5-2j-FEU" secondAttribute="trailing" id="cEL-7D-5Z4"/>
                             <constraint firstItem="0MY-jJ-Z5Z" firstAttribute="trailing" secondItem="kq3-xS-4ew" secondAttribute="trailing" id="dG2-y6-DNc"/>
+                            <constraint firstItem="dEz-Cl-bya" firstAttribute="top" secondItem="acg-ZT-UIP" secondAttribute="bottom" constant="15" id="gnx-R2-VJ2"/>
                             <constraint firstAttribute="trailing" secondItem="Ofp-jd-uzq" secondAttribute="trailing" constant="40" id="kFo-Rq-xe6"/>
                             <constraint firstItem="Ofp-jd-uzq" firstAttribute="top" secondItem="Hft-5a-cry" secondAttribute="top" constant="20" id="lJW-Tq-0sU"/>
                             <constraint firstItem="acg-ZT-UIP" firstAttribute="top" secondItem="Dq5-2j-FEU" secondAttribute="bottom" constant="10" id="rZi-Js-n8U"/>
