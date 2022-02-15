@@ -56,7 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                 }
                 else {
-                    coordinator?.landedPage()
+                    //coordinator?.landedPage()
+                    coordinator?.homePage()
                 }
                 
                 window = UIWindow(frame: UIScreen.main.bounds)
