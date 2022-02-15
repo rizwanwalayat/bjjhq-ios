@@ -17,6 +17,8 @@
 		1863836F27BB9BFE0080FC80 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863836427BB9BFD0080FC80 /* Coordinator.swift */; };
 		1863837027BB9BFE0080FC80 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1863836627BB9BFE0080FC80 /* HomeViewController.xib */; };
 		1863837127BB9BFE0080FC80 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863836727BB9BFE0080FC80 /* HomeViewController.swift */; };
+		18E299AE27BBA3010087D0ED /* Barlow-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18E299AC27BBA3010087D0ED /* Barlow-BoldItalic.ttf */; };
+		18E299AF27BBA3010087D0ED /* neusa-next-std-compact-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18E299AD27BBA3010087D0ED /* neusa-next-std-compact-regular.ttf */; };
 		4BCFFBC636F044FF8234FD2F /* Pods_BJJHQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5D9263BFB2A5B97C243957 /* Pods_BJJHQ.framework */; };
 		9A0ED6861E83F120008C605E /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0ED6851E83F120008C605E /* Serializable.swift */; };
 		9A0ED68A1E83FF2D008C605E /* GraphQL+Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0ED6891E83FF2D008C605E /* GraphQL+Serializable.swift */; };
@@ -133,6 +135,8 @@
 		1863836427BB9BFD0080FC80 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1863836627BB9BFE0080FC80 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		1863836727BB9BFE0080FC80 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		18E299AC27BBA3010087D0ED /* Barlow-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-BoldItalic.ttf"; sourceTree = "<group>"; };
+		18E299AD27BBA3010087D0ED /* neusa-next-std-compact-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "neusa-next-std-compact-regular.ttf"; sourceTree = "<group>"; };
 		733A59A78DD90F2477EDCC2D /* Pods-BJJHQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJJHQ.release.xcconfig"; path = "Target Support Files/Pods-BJJHQ/Pods-BJJHQ.release.xcconfig"; sourceTree = "<group>"; };
 		9A0ED6851E83F120008C605E /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		9A0ED6891E83FF2D008C605E /* GraphQL+Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GraphQL+Serializable.swift"; sourceTree = "<group>"; };
@@ -271,6 +275,15 @@
 				1863836727BB9BFE0080FC80 /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		18E299AB27BBA3010087D0ED /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				18E299AC27BBA3010087D0ED /* Barlow-BoldItalic.ttf */,
+				18E299AD27BBA3010087D0ED /* neusa-next-std-compact-regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		810E2562243D1F970025B670 /* Frameworks */ = {
@@ -573,6 +586,7 @@
 		9ADAD47C1E5630CB008AC561 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				18E299AB27BBA3010087D0ED /* Fonts */,
 				9ADAD4711E563091008AC561 /* Assets.xcassets */,
 				9ADAD4731E563091008AC561 /* LaunchScreen.storyboard */,
 				9ADAD4761E563091008AC561 /* Info.plist */,
@@ -690,6 +704,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E299AF27BBA3010087D0ED /* neusa-next-std-compact-regular.ttf in Resources */,
 				9ADAD4751E563091008AC561 /* LaunchScreen.storyboard in Resources */,
 				1863836827BB9BFE0080FC80 /* LandingPageViewController.xib in Resources */,
 				9ADAD4721E563091008AC561 /* Assets.xcassets in Resources */,
@@ -698,6 +713,7 @@
 				9ADAD4701E563091008AC561 /* Main.storyboard in Resources */,
 				9A9FFF231E800D9600F6DFF7 /* ProductHeaderCell.xib in Resources */,
 				9AAFAB841E60BF4400864A17 /* CollectionCell.xib in Resources */,
+				18E299AE27BBA3010087D0ED /* Barlow-BoldItalic.ttf in Resources */,
 				9AC583D01E81BF96005DB319 /* CartCell.xib in Resources */,
 				9A4EDDE721270F620071BA56 /* OrderCell.xib in Resources */,
 				1863837027BB9BFE0080FC80 /* HomeViewController.xib in Resources */,
