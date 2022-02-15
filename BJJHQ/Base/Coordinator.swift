@@ -12,6 +12,8 @@ protocol Coordinator {
     var navigationController: UINavigationController { get set }
     func landedPage()
     func homePage()
+    func signUpPage()
+    
 }
 
 class MainCoordinator: Coordinator {
@@ -31,6 +33,11 @@ class MainCoordinator: Coordinator {
     }
     func homePage() {
         let vc = HomeViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    func signUpPage() {
+        let vc = SignUpViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }

@@ -312,7 +312,7 @@ private class BadgeView: UIView {
         self.label.lineBreakMode = .byClipping
         self.label.numberOfLines = 1
         self.label.textColor     = .white
-        self.label.shadowColor   = .clear
+//        self.label.shadowColor   = .clear
         
         self.addSubview(self.label)
     }
