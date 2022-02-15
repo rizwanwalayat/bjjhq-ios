@@ -25,6 +25,7 @@
 		18E299AE27BBA3010087D0ED /* Barlow-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18E299AC27BBA3010087D0ED /* Barlow-BoldItalic.ttf */; };
 		18E299AF27BBA3010087D0ED /* neusa-next-std-compact-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18E299AD27BBA3010087D0ED /* neusa-next-std-compact-regular.ttf */; };
 		4BCFFBC636F044FF8234FD2F /* Pods_BJJHQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5D9263BFB2A5B97C243957 /* Pods_BJJHQ.framework */; };
+		96FA6B0A27BC105800307B2F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FA6B0927BC105800307B2F /* SignUpViewModel.swift */; };
 		9A0ED6861E83F120008C605E /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0ED6851E83F120008C605E /* Serializable.swift */; };
 		9A0ED68A1E83FF2D008C605E /* GraphQL+Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0ED6891E83FF2D008C605E /* GraphQL+Serializable.swift */; };
 		9A0ED6911E842467008C605E /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0ED6901E842467008C605E /* CartButton.swift */; };
@@ -148,6 +149,7 @@
 		18E299AC27BBA3010087D0ED /* Barlow-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-BoldItalic.ttf"; sourceTree = "<group>"; };
 		18E299AD27BBA3010087D0ED /* neusa-next-std-compact-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "neusa-next-std-compact-regular.ttf"; sourceTree = "<group>"; };
 		733A59A78DD90F2477EDCC2D /* Pods-BJJHQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJJHQ.release.xcconfig"; path = "Target Support Files/Pods-BJJHQ/Pods-BJJHQ.release.xcconfig"; sourceTree = "<group>"; };
+		96FA6B0927BC105800307B2F /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		9A0ED6851E83F120008C605E /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		9A0ED6891E83FF2D008C605E /* GraphQL+Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GraphQL+Serializable.swift"; sourceTree = "<group>"; };
 		9A0ED6901E842467008C605E /* CartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 		1863835B27BB9BFD0080FC80 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
+				96FA6B0927BC105800307B2F /* SignUpViewModel.swift */,
 				1863835C27BB9BFD0080FC80 /* LandingPageViewController.xib */,
 				1863835D27BB9BFD0080FC80 /* LandingPageViewController.swift */,
 				18A6679C27BBC391005FE8C1 /* SignUpViewController.swift */,
@@ -815,6 +818,7 @@
 				9AAFAB921E60D11000864A17 /* StorefrontCollectionView.swift in Sources */,
 				1863837127BB9BFE0080FC80 /* HomeViewController.swift in Sources */,
 				9AE776342166AB6700A02112 /* ManualCodeViewModel.swift in Sources */,
+				96FA6B0A27BC105800307B2F /* SignUpViewModel.swift in Sources */,
 				1863836E27BB9BFE0080FC80 /* ImagePickerVC.swift in Sources */,
 				9A9FFF4C1E81B61200F6DFF7 /* CartItem.swift in Sources */,
 				9A15B73A1E64627A0078E7C5 /* StorefrontTableView.swift in Sources */,

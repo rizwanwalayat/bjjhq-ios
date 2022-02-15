@@ -51,18 +51,18 @@ final class Client {
     //
     
     @discardableResult
-    func createCustomer(email: String, password: String, firstName: String, lastName: String, completion: @escaping (String?) -> Void) -> Task {
+    func createCustomer(email: String, password: String, firstName: String, lastName: String, completion: @escaping (String?, Error?) -> Void) -> Task {
         
         let mutation = ClientQuery.mutationForSignup(email: email, password: password, firstName: firstName, lastName: lastName)
         let task = self.client.mutateGraphWith(mutation) { (mutation, error) in
             error.debugPrint()
             
             if let container = mutation?.customerCreate?.customer {
-                completion(container.firstName)
+                completion(container.firstName, nil)
             } else {
                 let errors = mutation?.customerCreate?.customerUserErrors ?? []
                 print("Failed to create customer: \(errors)")
-                completion(nil)
+                completion(nil, error)
             }
         }
         

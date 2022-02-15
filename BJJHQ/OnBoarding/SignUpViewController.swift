@@ -8,17 +8,26 @@
 
 import UIKit
 
+protocol SignUpControllerDelegate: AnyObject {
+    func signUpCustomer(email: String, password: String, firstName: String, lastName: String )
+}
+
 class SignUpViewController: BaseViewController {
+    var viewModel = SignUpViewModel()
     
+    
+    weak var delegate: SignUpControllerDelegate?
     
     //MARK: - IBOutlets
     
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var userNameview: UIView!
     @IBOutlet weak var emailView: UIView!
-    @IBOutlet weak var fullNameView: UIView!
+    @IBOutlet weak var firstNameView: UIView!
+    @IBOutlet weak var lastNameView: UIView!
     @IBOutlet weak var passwordTF: UITextField!
-    @IBOutlet weak var fullNameTF: UITextField!
+    @IBOutlet weak var firstNameTF: UITextField!
+    @IBOutlet weak var lastNameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var skipButton: UIButton!
@@ -62,7 +71,7 @@ class SignUpViewController: BaseViewController {
     }
     
     @IBAction func signUpAction(_ sender: Any) {
-        
+        viewModel.signUpCustomer(email: emailTF.text!, password: passwordTF.text!, firstName: firstNameTF.text!, lastName: lastNameTF.text!)
     }
     
     @IBAction func signInAction(_ sender: Any) {
@@ -89,15 +98,21 @@ class SignUpViewController: BaseViewController {
 
 extension SignUpViewController : UITextFieldDelegate {
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         var enable = false
 
-        if fullNameTF.text == "" {
-            self.fullNameView.backgroundColor = UIColor(hexString: "#7C808F")
+        if firstNameTF.text == "" {
+            self.firstNameView.backgroundColor = UIColor(hexString: "#7C808F")
+        }
+        else {
+            self.firstNameView.backgroundColor = UIColor(hexString: "#DF6565")
         }
         
+        if lastNameTF.text == "" {
+            self.lastNameView.backgroundColor = UIColor(hexString: "#7C808F")
+        }
         else {
-            self.fullNameView.backgroundColor = UIColor(hexString: "#DF6565")
+            self.lastNameView.backgroundColor = UIColor(hexString: "#DF6565")
         }
         
         if ((emailTF.text?.isValidEmail()) == false) {
@@ -126,7 +141,7 @@ extension SignUpViewController : UITextFieldDelegate {
         
 
 
-        if passwordTF.text == "" || ((emailTF.text?.isValidEmail()) == false) || userNameTF.text == "" || fullNameTF.text == "" {
+        if passwordTF.text == "" || ((emailTF.text?.isValidEmail()) == false) || userNameTF.text == "" || firstNameTF.text == "" {
             enable = false
         }
 

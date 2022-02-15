@@ -60,6 +60,7 @@ class CustomerCoordinator: UIViewController {
         loginController.delegate = self
         self.hostController.setViewControllers([loginController], animated: animated)
     }
+    
 }
 
 // ----------------------------------
@@ -88,12 +89,6 @@ extension CustomerCoordinator: CustomerControllerDelegate {
 //  MARK: - LoginControllerDelegate -
 //
 extension CustomerCoordinator: LoginControllerDelegate {
-    func singupController(email: String, password: String, firstName: String, lastName: String) {
-        Client.shared.createCustomer(email: email, password: password, firstName: firstName, lastName: lastName) { customerName in
-            print("\(customerName)")
-        }
-    }
-    
     
     func loginControllerDidCancel(_ loginController: LoginViewController) {
         self.dismiss(animated: true, completion: nil)

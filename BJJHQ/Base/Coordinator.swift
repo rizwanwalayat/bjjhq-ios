@@ -10,10 +10,7 @@ import UIKit
 protocol Coordinator {
     var childCoordinators: [Coordinator] { get set }
     var navigationController: UINavigationController { get set }
-    func landedPage()
-    func homePage()
-    func signUpPage()
-    
+
 }
 
 class MainCoordinator: Coordinator {
@@ -26,7 +23,7 @@ class MainCoordinator: Coordinator {
         navigationController.navigationBar.isHidden = true
     }
     
-    func landedPage() {
+    func landingPage() {
         let vc = LandingPageViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
@@ -41,6 +38,7 @@ class MainCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    
     
     func popVc() {
         navigationController.popViewController(animated: true)
@@ -61,3 +59,11 @@ extension NSObject {
         return String(describing: self.self)
     }
 }
+
+//extension MainCoordinator: SignUpControllerDelegate {
+//    func signUpCustomer(email: String, password: String, firstName: String, lastName: String) {
+//        Client.shared.createCustomer(email: email, password: password, firstName: firstName, lastName: lastName) { customerName in
+//            print("\(customerName)")
+//        }
+//    }
+//}
