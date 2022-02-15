@@ -32,7 +32,7 @@ class LandingPageViewController: BaseViewController {
     
     
     @IBAction func signInAction(_ sender: Any) {
-        
+        coordinator?.signInPage()
     }
     
     @IBAction func signUpAction(_ sender: Any) {
@@ -44,7 +44,7 @@ class LandingPageViewController: BaseViewController {
     }
     
     @IBAction func skipAction(_ sender: Any) {
-        
+        coordinator?.homePage()
     }
     
     

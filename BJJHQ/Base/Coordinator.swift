@@ -13,6 +13,7 @@ protocol Coordinator {
     func landedPage()
     func homePage()
     func signUpPage()
+    func signInPage()
     
 }
 
@@ -24,6 +25,12 @@ class MainCoordinator: Coordinator {
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         navigationController.navigationBar.isHidden = true
+    }
+    
+    func welcomePage() {
+        let vc = LandingPageViewController()
+        vc.coordinator = self
+        navigationController.setViewControllers([vc], animated: true)
     }
     
     func landedPage() {
@@ -41,10 +48,21 @@ class MainCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    func forgetPage() {
+        let vc = ForgetViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    func signInPage() {
+        let vc = SignInViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
     
     func popVc() {
         navigationController.popViewController(animated: true)
     }
+    
 }
 
 //MARK: - StoryBoard Reference
