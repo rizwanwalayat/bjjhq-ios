@@ -24,7 +24,7 @@ class LandingPageViewController: BaseViewController {
     
     func setup() {
         skipButton.setTitle("", for: .normal)
-        setupButtonUnderlineText(skipButton, "SKIP")
+        setupButtonUnderlineText(skipButton, "SKIP", color: "BCBFCC")
     }
     
     

@@ -13,12 +13,17 @@ class SignUpViewController: BaseViewController {
     
     //MARK: - IBOutlets
     
+    @IBOutlet weak var passwordView: UIView!
+    @IBOutlet weak var userNameview: UIView!
+    @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var fullNameView: UIView!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var fullNameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var signInButton: UIButton!
     
     
     //MARK: - LifeCycle
@@ -33,7 +38,9 @@ class SignUpViewController: BaseViewController {
     
     func setup() {
         skipButton.setTitle("", for: .normal)
-        setupButtonUnderlineText(skipButton, "SKIP")
+        setupButtonUnderlineText(skipButton, "SKIP", color: "BCBFCC")
+        signInButton.setTitle("", for: .normal)
+        setupButtonUnderlineText(signInButton, "Sign In", color: "#DF6565",1.0)
         changeButtonState(state: false)
     }
     
@@ -54,6 +61,17 @@ class SignUpViewController: BaseViewController {
         coordinator?.popVc()
     }
     
+    @IBAction func signUpAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func signInAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func skipAction(_ sender: Any) {
+        
+    }
     
     
     //MARK: - Functions
@@ -74,9 +92,44 @@ extension SignUpViewController : UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         var enable = false
 
-        if passwordTF.text == "" || emailTF.text == "" || userNameTF.text == "" || fullNameTF.text == "" {
+        if fullNameTF.text == "" {
+            self.fullNameView.backgroundColor = UIColor(hexString: "#7C808F")
+        }
+        
+        else {
+            self.fullNameView.backgroundColor = UIColor(hexString: "#DF6565")
+        }
+        
+        if ((emailTF.text?.isValidEmail()) == false) {
+            self.emailView.backgroundColor = UIColor(hexString: "#7C808F")
+        }
+        
+        else {
+            self.emailView.backgroundColor = UIColor(hexString: "#DF6565")
+        }
+        
+        if userNameTF.text == "" {
+            self.userNameview.backgroundColor = UIColor(hexString: "#7C808F")
+        }
+        
+        else {
+            self.userNameview.backgroundColor = UIColor(hexString: "#DF6565")
+        }
+        
+        if passwordTF.text!.count < 8 {
+            self.passwordView.backgroundColor = UIColor(hexString: "#7C808F")
+        }
+        
+        else {
+            self.passwordView.backgroundColor = UIColor(hexString: "#DF6565")
+        }
+        
+
+
+        if passwordTF.text == "" || ((emailTF.text?.isValidEmail()) == false) || userNameTF.text == "" || fullNameTF.text == "" {
             enable = false
         }
+
         else {
             if passwordTF.text!.count < 8 {
                 enable = false
@@ -85,8 +138,9 @@ extension SignUpViewController : UITextFieldDelegate {
                 enable = true
             }
         }
-        
+
         print(enable)
+
         changeButtonState(state: enable)
     }
     

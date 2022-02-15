@@ -17,6 +17,8 @@
 		1863836F27BB9BFE0080FC80 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863836427BB9BFD0080FC80 /* Coordinator.swift */; };
 		1863837027BB9BFE0080FC80 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1863836627BB9BFE0080FC80 /* HomeViewController.xib */; };
 		1863837127BB9BFE0080FC80 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863836727BB9BFE0080FC80 /* HomeViewController.swift */; };
+		18937FB927BBE04C00702FB0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18937FB727BBE04C00702FB0 /* SignInViewController.swift */; };
+		18937FBA27BBE04C00702FB0 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18937FB827BBE04C00702FB0 /* SignInViewController.xib */; };
 		18A6679B27BBB9BC005FE8C1 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A6679A27BBB9BC005FE8C1 /* UIView.swift */; };
 		18A6679E27BBC391005FE8C1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A6679C27BBC391005FE8C1 /* SignUpViewController.swift */; };
 		18A6679F27BBC391005FE8C1 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A6679D27BBC391005FE8C1 /* SignUpViewController.xib */; };
@@ -138,6 +140,8 @@
 		1863836427BB9BFD0080FC80 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1863836627BB9BFE0080FC80 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		1863836727BB9BFE0080FC80 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		18937FB727BBE04C00702FB0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		18937FB827BBE04C00702FB0 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		18A6679A27BBB9BC005FE8C1 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		18A6679C27BBC391005FE8C1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		18A6679D27BBC391005FE8C1 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
@@ -259,6 +263,8 @@
 				1863835D27BB9BFD0080FC80 /* LandingPageViewController.swift */,
 				18A6679C27BBC391005FE8C1 /* SignUpViewController.swift */,
 				18A6679D27BBC391005FE8C1 /* SignUpViewController.xib */,
+				18937FB727BBE04C00702FB0 /* SignInViewController.swift */,
+				18937FB827BBE04C00702FB0 /* SignInViewController.xib */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -723,6 +729,7 @@
 				9ADAD4701E563091008AC561 /* Main.storyboard in Resources */,
 				9A9FFF231E800D9600F6DFF7 /* ProductHeaderCell.xib in Resources */,
 				9AAFAB841E60BF4400864A17 /* CollectionCell.xib in Resources */,
+				18937FBA27BBE04C00702FB0 /* SignInViewController.xib in Resources */,
 				18E299AE27BBA3010087D0ED /* Barlow-BoldItalic.ttf in Resources */,
 				9AC583D01E81BF96005DB319 /* CartCell.xib in Resources */,
 				9A4EDDE721270F620071BA56 /* OrderCell.xib in Resources */,
@@ -867,6 +874,7 @@
 				9A4EDDDB2126E9A70071BA56 /* Fragment+OrderConnectionQuery.swift in Sources */,
 				9A9C92BC1ED5BDE80027F049 /* Fragment+PaymentQuery.swift in Sources */,
 				9A8E885A1E719EB20042879D /* ClientQuery.swift in Sources */,
+				18937FB927BBE04C00702FB0 /* SignInViewController.swift in Sources */,
 				9AFA3B7F1E6DC5FD0056C5AA /* Storyboard+ViewController.swift in Sources */,
 				9A7E3F6F1E89615E00713740 /* UICollectionView+Touch.swift in Sources */,
 				9ADCC88B1E82FE2900F5B6DD /* TotalsViewController.swift in Sources */,
