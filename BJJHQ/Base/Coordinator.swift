@@ -15,6 +15,7 @@ protocol Coordinator {
     func signUpPage()
     func signInPage()
     func emailPage()
+    func orderSuccesfullPopUp()
     
 }
 
@@ -53,6 +54,11 @@ class MainCoordinator: Coordinator {
     
     func emailPage() {
         let vc = EmailUpdateViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    func orderSuccesfullPopUp() {
+        let vc = OrderSuccesFullViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }

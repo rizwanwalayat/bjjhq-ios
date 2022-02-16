@@ -9,24 +9,24 @@
 import UIKit
 
 class EmailUpdateViewController: BaseViewController {
-
+    
     
     //MARK: - IBOutlets
-
+    
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var desriptionLbl: UILabel!
-    
-    
+    @IBOutlet weak var fullemailView: UIView!
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         changeButtonState(state: false)
-            self.popUpView.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+        self.popUpView.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -78,7 +78,7 @@ class EmailUpdateViewController: BaseViewController {
         }
     }
     
-
+    
 }
 
 extension EmailUpdateViewController:UITextFieldDelegate {
@@ -102,3 +102,4 @@ extension EmailUpdateViewController:UITextFieldDelegate {
     }
     
 }
+

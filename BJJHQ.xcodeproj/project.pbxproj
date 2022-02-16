@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1835898B27BD564600F293B6 /* AddressBookPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835898927BD564600F293B6 /* AddressBookPopUpViewController.swift */; };
+		1835898C27BD564600F293B6 /* AddressBookPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1835898A27BD564600F293B6 /* AddressBookPopUpViewController.xib */; };
 		1842EDF227BBE84800A4DA1D /* ForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842EDF027BBE84800A4DA1D /* ForgetViewController.swift */; };
 		1842EDF327BBE84800A4DA1D /* ForgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1842EDF127BBE84800A4DA1D /* ForgetViewController.xib */; };
 		185C706E27BCEE7E008F2FB3 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C706C27BCEE7E008F2FB3 /* SuccessViewController.swift */; };
 		185C706F27BCEE7E008F2FB3 /* SuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185C706D27BCEE7E008F2FB3 /* SuccessViewController.xib */; };
 		185C707427BCEF41008F2FB3 /* EmailUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C707227BCEF41008F2FB3 /* EmailUpdateViewController.swift */; };
 		185C707527BCEF41008F2FB3 /* EmailUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185C707327BCEF41008F2FB3 /* EmailUpdateViewController.xib */; };
+		185C707927BD069A008F2FB3 /* OrderSuccesFullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C707727BD069A008F2FB3 /* OrderSuccesFullViewController.swift */; };
+		185C707A27BD069A008F2FB3 /* OrderSuccesFullViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185C707827BD069A008F2FB3 /* OrderSuccesFullViewController.xib */; };
+		185C707E27BD38EA008F2FB3 /* DeletePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C707C27BD38EA008F2FB3 /* DeletePopUpViewController.swift */; };
+		185C707F27BD38EA008F2FB3 /* DeletePopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185C707D27BD38EA008F2FB3 /* DeletePopUpViewController.xib */; };
 		1863836827BB9BFE0080FC80 /* LandingPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1863835C27BB9BFD0080FC80 /* LandingPageViewController.xib */; };
 		1863836927BB9BFE0080FC80 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863835D27BB9BFD0080FC80 /* LandingPageViewController.swift */; };
 		1863836A27BB9BFE0080FC80 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863835F27BB9BFD0080FC80 /* DataManager.swift */; };
@@ -23,6 +29,10 @@
 		1863836F27BB9BFE0080FC80 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863836427BB9BFD0080FC80 /* Coordinator.swift */; };
 		1863837027BB9BFE0080FC80 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1863836627BB9BFE0080FC80 /* HomeViewController.xib */; };
 		1863837127BB9BFE0080FC80 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863836727BB9BFE0080FC80 /* HomeViewController.swift */; };
+		188E5A6F27BD4A98003FB613 /* NotificationHoursCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E5A6D27BD4A98003FB613 /* NotificationHoursCollectionViewCell.swift */; };
+		188E5A7027BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188E5A6E27BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib */; };
+		188E5A7427BD518B003FB613 /* NotificationPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E5A7227BD518A003FB613 /* NotificationPopUpViewController.swift */; };
+		188E5A7527BD518B003FB613 /* NotificationPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188E5A7327BD518B003FB613 /* NotificationPopUpViewController.xib */; };
 		18937FB927BBE04C00702FB0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18937FB727BBE04C00702FB0 /* SignInViewController.swift */; };
 		18937FBA27BBE04C00702FB0 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18937FB827BBE04C00702FB0 /* SignInViewController.xib */; };
 		18A6679B27BBB9BC005FE8C1 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A6679A27BBB9BC005FE8C1 /* UIView.swift */; };
@@ -136,12 +146,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1835898927BD564600F293B6 /* AddressBookPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookPopUpViewController.swift; sourceTree = "<group>"; };
+		1835898A27BD564600F293B6 /* AddressBookPopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressBookPopUpViewController.xib; sourceTree = "<group>"; };
 		1842EDF027BBE84800A4DA1D /* ForgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewController.swift; sourceTree = "<group>"; };
 		1842EDF127BBE84800A4DA1D /* ForgetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgetViewController.xib; sourceTree = "<group>"; };
 		185C706C27BCEE7E008F2FB3 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		185C706D27BCEE7E008F2FB3 /* SuccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessViewController.xib; sourceTree = "<group>"; };
 		185C707227BCEF41008F2FB3 /* EmailUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailUpdateViewController.swift; sourceTree = "<group>"; };
 		185C707327BCEF41008F2FB3 /* EmailUpdateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmailUpdateViewController.xib; sourceTree = "<group>"; };
+		185C707727BD069A008F2FB3 /* OrderSuccesFullViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSuccesFullViewController.swift; sourceTree = "<group>"; };
+		185C707827BD069A008F2FB3 /* OrderSuccesFullViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSuccesFullViewController.xib; sourceTree = "<group>"; };
+		185C707C27BD38EA008F2FB3 /* DeletePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePopUpViewController.swift; sourceTree = "<group>"; };
+		185C707D27BD38EA008F2FB3 /* DeletePopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeletePopUpViewController.xib; sourceTree = "<group>"; };
 		1863835C27BB9BFD0080FC80 /* LandingPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingPageViewController.xib; sourceTree = "<group>"; };
 		1863835D27BB9BFD0080FC80 /* LandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		1863835F27BB9BFD0080FC80 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -152,6 +168,10 @@
 		1863836427BB9BFD0080FC80 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1863836627BB9BFE0080FC80 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		1863836727BB9BFE0080FC80 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		188E5A6D27BD4A98003FB613 /* NotificationHoursCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHoursCollectionViewCell.swift; sourceTree = "<group>"; };
+		188E5A6E27BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationHoursCollectionViewCell.xib; sourceTree = "<group>"; };
+		188E5A7227BD518A003FB613 /* NotificationPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPopUpViewController.swift; sourceTree = "<group>"; };
+		188E5A7327BD518B003FB613 /* NotificationPopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationPopUpViewController.xib; sourceTree = "<group>"; };
 		18937FB727BBE04C00702FB0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		18937FB827BBE04C00702FB0 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		18A6679A27BBB9BC005FE8C1 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -271,6 +291,10 @@
 		185C707027BCEF12008F2FB3 /* PopUps */ = {
 			isa = PBXGroup;
 			children = (
+				188E5A7127BD516D003FB613 /* Notifcation */,
+				188E5A6727BD48BF003FB613 /* AddressPopUp */,
+				185C707B27BD38CD008F2FB3 /* DeletePopUp */,
+				185C707627BD0677008F2FB3 /* Order */,
 				185C707127BCEF2B008F2FB3 /* Email */,
 			);
 			name = PopUps;
@@ -283,6 +307,24 @@
 				185C707327BCEF41008F2FB3 /* EmailUpdateViewController.xib */,
 			);
 			name = Email;
+			sourceTree = "<group>";
+		};
+		185C707627BD0677008F2FB3 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				185C707727BD069A008F2FB3 /* OrderSuccesFullViewController.swift */,
+				185C707827BD069A008F2FB3 /* OrderSuccesFullViewController.xib */,
+			);
+			name = Order;
+			sourceTree = "<group>";
+		};
+		185C707B27BD38CD008F2FB3 /* DeletePopUp */ = {
+			isa = PBXGroup;
+			children = (
+				185C707C27BD38EA008F2FB3 /* DeletePopUpViewController.swift */,
+				185C707D27BD38EA008F2FB3 /* DeletePopUpViewController.xib */,
+			);
+			name = DeletePopUp;
 			sourceTree = "<group>";
 		};
 		1863835B27BB9BFD0080FC80 /* OnBoarding */ = {
@@ -323,6 +365,34 @@
 				1863836727BB9BFE0080FC80 /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		188E5A6727BD48BF003FB613 /* AddressPopUp */ = {
+			isa = PBXGroup;
+			children = (
+				1835898927BD564600F293B6 /* AddressBookPopUpViewController.swift */,
+				1835898A27BD564600F293B6 /* AddressBookPopUpViewController.xib */,
+			);
+			name = AddressPopUp;
+			sourceTree = "<group>";
+		};
+		188E5A6827BD4A0A003FB613 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				188E5A6D27BD4A98003FB613 /* NotificationHoursCollectionViewCell.swift */,
+				188E5A6E27BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		188E5A7127BD516D003FB613 /* Notifcation */ = {
+			isa = PBXGroup;
+			children = (
+				188E5A6827BD4A0A003FB613 /* Views */,
+				188E5A7227BD518A003FB613 /* NotificationPopUpViewController.swift */,
+				188E5A7327BD518B003FB613 /* NotificationPopUpViewController.xib */,
+			);
+			name = Notifcation;
 			sourceTree = "<group>";
 		};
 		18E299AB27BBA3010087D0ED /* Fonts */ = {
@@ -752,6 +822,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185C707F27BD38EA008F2FB3 /* DeletePopUpViewController.xib in Resources */,
 				18E299AF27BBA3010087D0ED /* neusa-next-std-compact-regular.ttf in Resources */,
 				9ADAD4751E563091008AC561 /* LaunchScreen.storyboard in Resources */,
 				18A6679F27BBC391005FE8C1 /* SignUpViewController.xib in Resources */,
@@ -763,12 +834,16 @@
 				9ADAD4701E563091008AC561 /* Main.storyboard in Resources */,
 				9A9FFF231E800D9600F6DFF7 /* ProductHeaderCell.xib in Resources */,
 				9AAFAB841E60BF4400864A17 /* CollectionCell.xib in Resources */,
+				1835898C27BD564600F293B6 /* AddressBookPopUpViewController.xib in Resources */,
+				188E5A7027BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib in Resources */,
 				18937FBA27BBE04C00702FB0 /* SignInViewController.xib in Resources */,
 				18E299AE27BBA3010087D0ED /* Barlow-BoldItalic.ttf in Resources */,
 				9AC583D01E81BF96005DB319 /* CartCell.xib in Resources */,
 				185C707527BCEF41008F2FB3 /* EmailUpdateViewController.xib in Resources */,
+				185C707A27BD069A008F2FB3 /* OrderSuccesFullViewController.xib in Resources */,
 				9A4EDDE721270F620071BA56 /* OrderCell.xib in Resources */,
 				1863837027BB9BFE0080FC80 /* HomeViewController.xib in Resources */,
+				188E5A7527BD518B003FB613 /* NotificationPopUpViewController.xib in Resources */,
 				1842EDF327BBE84800A4DA1D /* ForgetViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -842,6 +917,7 @@
 				1863836C27BB9BFE0080FC80 /* BaseViewController.swift in Sources */,
 				9AAFAB891E60C17100864A17 /* ProductCell.swift in Sources */,
 				9A9FFF131E79CCC800F6DFF7 /* PaginatedArray.swift in Sources */,
+				1835898B27BD564600F293B6 /* AddressBookPopUpViewController.swift in Sources */,
 				9AE776322166AB5A00A02112 /* DiscountCodeViewModel.swift in Sources */,
 				9A9FFEFD1E78432F00F6DFF7 /* Currency.swift in Sources */,
 				9A9FFF111E79C0AD00F6DFF7 /* Fragment+VariantConnectionQuery.swift in Sources */,
@@ -887,8 +963,10 @@
 				1863836D27BB9BFE0080FC80 /* Utility.swift in Sources */,
 				9AAFAB821E60BEE000864A17 /* CollectionViewModel.swift in Sources */,
 				9A27C3281E8FDB6B00218EE8 /* LineItemViewModel.swift in Sources */,
+				188E5A7427BD518B003FB613 /* NotificationPopUpViewController.swift in Sources */,
 				9A0ED68A1E83FF2D008C605E /* GraphQL+Serializable.swift in Sources */,
 				9AFA3B871E6DFF530056C5AA /* SelectableCell.swift in Sources */,
+				185C707927BD069A008F2FB3 /* OrderSuccesFullViewController.swift in Sources */,
 				9A9FFEEA1E772DF500F6DFF7 /* VariantViewModel.swift in Sources */,
 				9A9FFF4A1E81B59700F6DFF7 /* CartController.swift in Sources */,
 				9A4EDDD9212611A60071BA56 /* AccountController.swift in Sources */,
@@ -898,6 +976,7 @@
 				9A9FFF271E80172C00F6DFF7 /* ProductDetailsCell.swift in Sources */,
 				9A4EDDE221270E660071BA56 /* CustomerViewController.swift in Sources */,
 				9AC583C91E81BEF8005DB319 /* CartViewController.swift in Sources */,
+				188E5A6F27BD4A98003FB613 /* NotificationHoursCollectionViewCell.swift in Sources */,
 				18A6679E27BBC391005FE8C1 /* SignUpViewController.swift in Sources */,
 				9A21F29A1E7AD4FD00E00F4B /* ParallaxViewController.swift in Sources */,
 				9A9FFF1C1E7FF3A800F6DFF7 /* ImageViewModel.swift in Sources */,
@@ -910,6 +989,7 @@
 				9ADAD46B1E563091008AC561 /* AppDelegate.swift in Sources */,
 				9AC583D41E829597005DB319 /* CartItemViewModel.swift in Sources */,
 				9A27C3311E91232500218EE8 /* ShippingRateViewModel+PayShippingRate.swift in Sources */,
+				185C707E27BD38EA008F2FB3 /* DeletePopUpViewController.swift in Sources */,
 				9A4EDDDB2126E9A70071BA56 /* Fragment+OrderConnectionQuery.swift in Sources */,
 				9A9C92BC1ED5BDE80027F049 /* Fragment+PaymentQuery.swift in Sources */,
 				9A8E885A1E719EB20042879D /* ClientQuery.swift in Sources */,

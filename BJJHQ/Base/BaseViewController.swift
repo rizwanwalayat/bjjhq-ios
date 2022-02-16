@@ -24,7 +24,7 @@ class BaseViewController: UIViewController {
     
     //MARK: - Coordinator
     
-    weak var coordinator: MainCoordinator?
+    var coordinator: MainCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
