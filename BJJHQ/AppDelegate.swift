@@ -52,11 +52,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //MARK: - UserState
                 if DataManager.shared.getUser() ?? false {
 
-                    coordinator?.homePage()
+                    coordinator?.emailPage()
 
                 }
                 else {
-                    coordinator?.landedPage()
+                    coordinator?.emailPage()
+//                    coordinator?.landedPage()
                 }
 
                 window = UIWindow(frame: UIScreen.main.bounds)

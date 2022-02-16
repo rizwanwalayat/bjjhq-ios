@@ -14,6 +14,7 @@ protocol Coordinator {
     func homePage()
     func signUpPage()
     func signInPage()
+    func emailPage()
     
 }
 
@@ -43,16 +44,25 @@ class MainCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    
     func signUpPage() {
         let vc = SignUpViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func emailPage() {
+        let vc = EmailUpdateViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
     func forgetPage() {
         let vc = ForgetViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    
     func signInPage() {
         let vc = SignInViewController()
         vc.coordinator = self
