@@ -32,7 +32,12 @@ class LandingPageViewController: BaseViewController {
     
     
     @IBAction func signInAction(_ sender: Any) {
-        coordinator?.signInPage()
+        let vc = AddressBookPopUpViewController(nibName: "AddressBookPopUpViewController", bundle: nil)
+        vc.modalPresentationStyle = .overFullScreen
+//        vc.isFromSignOut = false
+//        vc.isFromAddress = true
+        vc.coordinator = MainCoordinator(navigationController: coordinator!.navigationController)
+        self.present(vc, animated: false, completion: nil)
     }
     
     @IBAction func signUpAction(_ sender: Any) {

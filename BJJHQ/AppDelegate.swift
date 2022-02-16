@@ -52,17 +52,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //MARK: - UserState
                 if DataManager.shared.getUser() ?? false {
 
-                    coordinator?.homePage()
+                    coordinator?.landedPage()
 
                 }
                 else {
-                    coordinator?.landingPage()
+//                    coordinator?.emailPage()
+                    coordinator?.landedPage()
                 }
 
                 window = UIWindow(frame: UIScreen.main.bounds)
                 window?.rootViewController = navController
                 window?.makeKeyAndVisible()
-//
+
         return true
     }
 }

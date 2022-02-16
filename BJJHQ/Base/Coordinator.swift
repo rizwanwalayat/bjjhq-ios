@@ -10,7 +10,13 @@ import UIKit
 protocol Coordinator {
     var childCoordinators: [Coordinator] { get set }
     var navigationController: UINavigationController { get set }
-
+    func landedPage()
+    func homePage()
+    func signUpPage()
+    func signInPage()
+    func emailPage()
+    func orderSuccesfullPopUp()
+    
 }
 
 class MainCoordinator: Coordinator {
@@ -39,17 +45,31 @@ class MainCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    
     func signUpPage() {
         let vc = SignUpViewController()
         vc.coordinator = self
         vc.viewModel = SignUpViewModel.init()
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func emailPage() {
+        let vc = EmailUpdateViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    func orderSuccesfullPopUp() {
+        let vc = OrderSuccesFullViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
     func forgetPage() {
         let vc = ForgetViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    
     func signInPage() {
         let vc = SignInViewController()
         vc.coordinator = self

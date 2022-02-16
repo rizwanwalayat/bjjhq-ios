@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-BoldItalic.ttf">
+            <string>Barlow-BoldItalic</string>
+        </array>
+        <array key="Barlow-Regular.ttf">
+            <string>Barlow-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" indentationWidth="10" rowHeight="159" id="KGk-i7-Jjw" customClass="SubCommentsTableViewCell" customModule="BJJHQ" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="445" height="159"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="445" height="159"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ih7-Wb-VDZ" userLabel="MainHolderView">
+                        <rect key="frame" x="0.0" y="0.0" width="445" height="159"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default User" translatesAutoresizingMaskIntoConstraints="NO" id="3Tp-Rq-FdV">
+                                <rect key="frame" x="8" y="8" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3Tp-Rq-FdV" secondAttribute="height" multiplier="1:1" id="SxA-sL-AX5"/>
+                                    <constraint firstAttribute="height" constant="24" id="lsm-4Q-bN9"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albert Flores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0M7-Bj-fRl">
+                                <rect key="frame" x="42" y="11.5" width="393" height="17"/>
+                                <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFQ-hR-GaW">
+                                <rect key="frame" x="8" y="43" width="427" height="58"/>
+                                <string key="text">Thank you for such an beautiful hoodie, and what an amazing range! The only difficulty was in choosing which one! Super happy with my hoodie, and the awesome and friendly service</string>
+                                <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FmT-n5-6zu">
+                                <rect key="frame" x="8" y="121" width="265" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTY-WJ-esK">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="Xjf-LC-RGM"/>
+                                            <constraint firstAttribute="height" constant="30" id="ktG-ys-aX9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="00" image="like">
+                                            <color key="titleColor" name="timespaleColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="timespaleColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qg1-Yo-Oae">
+                                        <rect key="frame" x="70" y="0.0" width="60" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="3FC-Lc-3Nc"/>
+                                            <constraint firstAttribute="height" constant="30" id="dOK-Dw-IcF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="00" image="unlike">
+                                            <color key="titleColor" red="0.14372619989999999" green="0.17454522850000001" blue="0.26580613850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jSA-gf-fHY" userLabel="seprator">
+                                        <rect key="frame" x="140" y="5" width="1" height="20"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1" id="jgm-gF-shH"/>
+                                            <constraint firstAttribute="height" constant="20" id="roY-Yt-Kju"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pl-EB-mk5">
+                                        <rect key="frame" x="151" y="0.0" width="60" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="TX8-e6-SM9"/>
+                                            <constraint firstAttribute="height" constant="30" id="uky-Nj-Fcd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                                        <state key="normal" title="Reply">
+                                            <color key="titleColor" red="0.08235294118" green="0.078431372550000003" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYU-0P-HLD" userLabel="seprator">
+                                        <rect key="frame" x="221" y="5" width="1" height="20"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="BFn-Yk-7Ve"/>
+                                            <constraint firstAttribute="width" constant="1" id="L8q-8c-DQW"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKd-ho-fgz">
+                                        <rect key="frame" x="232" y="6.5" width="33" height="17"/>
+                                        <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
+                                        <color key="textColor" red="0.48627450979999998" green="0.50196078430000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="0M7-Bj-fRl" secondAttribute="trailing" constant="10" id="2vs-NM-brf"/>
+                            <constraint firstItem="FmT-n5-6zu" firstAttribute="leading" secondItem="EFQ-hR-GaW" secondAttribute="leading" id="H1R-AK-4d2"/>
+                            <constraint firstItem="0M7-Bj-fRl" firstAttribute="leading" secondItem="3Tp-Rq-FdV" secondAttribute="trailing" constant="10" id="MgO-XS-9hM"/>
+                            <constraint firstAttribute="bottom" secondItem="FmT-n5-6zu" secondAttribute="bottom" constant="8" id="Pyl-1E-Veb"/>
+                            <constraint firstItem="3Tp-Rq-FdV" firstAttribute="leading" secondItem="Ih7-Wb-VDZ" secondAttribute="leading" constant="8" id="QJG-t9-gVg"/>
+                            <constraint firstItem="EFQ-hR-GaW" firstAttribute="trailing" secondItem="0M7-Bj-fRl" secondAttribute="trailing" id="TG8-eB-N5I"/>
+                            <constraint firstItem="EFQ-hR-GaW" firstAttribute="top" secondItem="3Tp-Rq-FdV" secondAttribute="bottom" constant="11" id="WfF-vX-fI2"/>
+                            <constraint firstItem="FmT-n5-6zu" firstAttribute="top" secondItem="EFQ-hR-GaW" secondAttribute="bottom" constant="20" id="XNj-kf-qWO"/>
+                            <constraint firstItem="3Tp-Rq-FdV" firstAttribute="top" secondItem="Ih7-Wb-VDZ" secondAttribute="top" constant="8" id="YKx-Fk-S01"/>
+                            <constraint firstItem="0M7-Bj-fRl" firstAttribute="centerY" secondItem="3Tp-Rq-FdV" secondAttribute="centerY" id="hE7-SP-b1i"/>
+                            <constraint firstItem="EFQ-hR-GaW" firstAttribute="leading" secondItem="3Tp-Rq-FdV" secondAttribute="leading" id="tu9-Pg-buF"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Ih7-Wb-VDZ" secondAttribute="trailing" id="7JQ-Lr-xne"/>
+                    <constraint firstItem="Ih7-Wb-VDZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="EaT-zY-UbE"/>
+                    <constraint firstItem="Ih7-Wb-VDZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="PGu-lz-DFN"/>
+                    <constraint firstAttribute="bottom" secondItem="Ih7-Wb-VDZ" secondAttribute="bottom" id="kQb-ZJ-ovM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="commentsText" destination="EFQ-hR-GaW" id="lhR-Dy-fGg"/>
+                <outlet property="likeButton" destination="rTY-WJ-esK" id="7rP-6W-YxM"/>
+                <outlet property="mainHolderView" destination="Ih7-Wb-VDZ" id="Zoc-K5-GDp"/>
+                <outlet property="replyButton" destination="1pl-EB-mk5" id="mFq-OR-sVD"/>
+                <outlet property="timeLabel" destination="oKd-ho-fgz" id="JdB-te-e0H"/>
+                <outlet property="unlikeButton" destination="qg1-Yo-Oae" id="AbV-E1-dNO"/>
+                <outlet property="userName" destination="0M7-Bj-fRl" id="koB-41-131"/>
+                <outlet property="userProfile" destination="3Tp-Rq-FdV" id="qne-gk-dWf"/>
+            </connections>
+            <point key="canvasLocation" x="228.2608695652174" y="135.26785714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="default User" width="15" height="15"/>
+        <image name="like" width="14.5" height="13.5"/>
+        <image name="unlike" width="14.5" height="13.5"/>
+        <namedColor name="timespaleColor">
+            <color red="0.875" green="0.39599999785423279" blue="0.39599999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
