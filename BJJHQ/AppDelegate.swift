@@ -42,27 +42,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          ** load any cached cart items.
          */
         _ = CartController.shared
-//        Thread.sleep(forTimeInterval: 0.5)
-//                let navController = UINavigationController()
-//                coordinator = MainCoordinator(navigationController: navController)
-//                IQKeyboardManager.shared.enable = true
-//                IQKeyboardManager.shared.shouldResignOnTouchOutside = true
-//
-//
-//                //MARK: - UserState
-//                if DataManager.shared.getUser() ?? false {
-//
-//                    coordinator?.homePage()
-//
-//                }
-//                else {
-//                    coordinator?.landedPage()
-//                }
-//
-//                window = UIWindow(frame: UIScreen.main.bounds)
-//                window?.rootViewController = navController
-//                window?.makeKeyAndVisible()
-//
+        Thread.sleep(forTimeInterval: 0.5)
+                let navController = UINavigationController()
+                coordinator = MainCoordinator(navigationController: navController)
+                IQKeyboardManager.shared.enable = true
+                IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+
+
+                //MARK: - UserState
+                if DataManager.shared.getUser() ?? false {
+
+                    coordinator?.homePage()
+
+                }
+                else {
+                    coordinator?.landedPage()
+                }
+
+                window = UIWindow(frame: UIScreen.main.bounds)
+                window?.rootViewController = navController
+                window?.makeKeyAndVisible()
+
         return true
     }
 }
