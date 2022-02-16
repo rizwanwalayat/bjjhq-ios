@@ -33,9 +33,6 @@ protocol LoginControllerDelegate: AnyObject {
 
 }
 
-//protocol SignupControllerDelegate: AnyObject {
-//    func signupControllerDidCancel(_ signupController: SignupViewController)
-//}
 
 class LoginViewController: UIViewController {
     

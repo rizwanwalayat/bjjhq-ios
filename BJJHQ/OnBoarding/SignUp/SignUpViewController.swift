@@ -8,16 +8,11 @@
 
 import UIKit
 
-protocol SignUpControllerDelegate: AnyObject {
-    func signUpCustomer(email: String, password: String, firstName: String, lastName: String )
-}
 
 class SignUpViewController: BaseViewController {
-    var viewModel = SignUpViewModel()
     
-    
-    weak var delegate: SignUpControllerDelegate?
-    
+    var viewModel: SignUpViewModel?
+        
     //MARK: - IBOutlets
     
     @IBOutlet weak var passwordView: UIView!
@@ -71,7 +66,11 @@ class SignUpViewController: BaseViewController {
     }
     
     @IBAction func signUpAction(_ sender: Any) {
-        viewModel.signUpCustomer(email: emailTF.text!, password: passwordTF.text!, firstName: firstNameTF.text!, lastName: lastNameTF.text!)
+        viewModel?.signUpCustomer(email: emailTF.text!, password: passwordTF.text!, firstName: firstNameTF.text!, lastName: lastNameTF.text!) { customer, error in
+            if error != nil {
+                self.showToast(message: error ?? "Error")
+            }
+        }
     }
     
     @IBAction func signInAction(_ sender: Any) {
@@ -98,7 +97,7 @@ class SignUpViewController: BaseViewController {
 
 extension SignUpViewController : UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         var enable = false
 
         if firstNameTF.text == "" {

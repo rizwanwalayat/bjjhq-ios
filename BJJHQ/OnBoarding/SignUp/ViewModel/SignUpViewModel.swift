@@ -25,21 +25,19 @@
 //
 
 import Foundation
-import UIKit
+import Buy
 
-final class SignUpViewModel: NSObject {
+typealias SignUpCompletionHandler = (_ data: Storefront.Customer?, _ error: String?) -> Void
+
+final class SignUpViewModel: BaseViewModel {
     
-    func signUpCustomer(email: String, password: String, firstName: String, lastName: String) {
-        Client.shared.createCustomer(email: email, password: password, firstName: firstName, lastName: lastName) { customerName, error in
-            if (customerName != nil) {
-                print("\(customerName)")
-            }
-            else if error != nil {
-                print(error)
-            }
+    func signUpCustomer(email: String, password: String, firstName: String, lastName: String, completion: @escaping SignUpCompletionHandler) {
+        Client.shared.createCustomer(email: email, password: password, firstName: firstName, lastName: lastName) { customer, error in
+            
+            completion(customer, error)
+            
         }
     }
-    
     
 }
 
