@@ -10,10 +10,7 @@ import UIKit
 protocol Coordinator {
     var childCoordinators: [Coordinator] { get set }
     var navigationController: UINavigationController { get set }
-    func landedPage()
-    func homePage()
-    func signUpPage()
-    
+
 }
 
 class MainCoordinator: Coordinator {
@@ -24,6 +21,12 @@ class MainCoordinator: Coordinator {
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         navigationController.navigationBar.isHidden = true
+    }
+    
+    func welcomePage() {
+        let vc = LandingPageViewController()
+        vc.coordinator = self
+        navigationController.setViewControllers([vc], animated: true)
     }
     
     func landedPage() {
@@ -41,10 +44,22 @@ class MainCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    func forgetPage() {
+        let vc = ForgetViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    func signInPage() {
+        let vc = SignInViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
     
     func popVc() {
         navigationController.popViewController(animated: true)
     }
+    
 }
 
 //MARK: - StoryBoard Reference
@@ -61,3 +76,11 @@ extension NSObject {
         return String(describing: self.self)
     }
 }
+
+//extension MainCoordinator: SignUpControllerDelegate {
+//    func signUpCustomer(email: String, password: String, firstName: String, lastName: String) {
+//        Client.shared.createCustomer(email: email, password: password, firstName: firstName, lastName: lastName) { customerName in
+//            print("\(customerName)")
+//        }
+//    }
+//}

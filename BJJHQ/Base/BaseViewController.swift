@@ -31,10 +31,10 @@ class BaseViewController: UIViewController {
         
     }
     
-    func setupButtonUnderlineText(_ button: UIButton, _ text : String)
+    func setupButtonUnderlineText(_ button: UIButton, _ text : String,color:String,_ alpha : Double = 0.6)
     {
         let yourAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(hexString: "#BCBFCC", alpha: 0.6),
+            .foregroundColor: UIColor(hexString: color, alpha: alpha),
               .underlineStyle: NSUnderlineStyle.single.rawValue
           ]
         
@@ -44,6 +44,7 @@ class BaseViewController: UIViewController {
         )
         button.setAttributedTitle(attributeString, for: .normal)
     }
+    
     @objc func imageSelectedFromGalleryOrCamera(selectedImage:UIImage){
         
     }

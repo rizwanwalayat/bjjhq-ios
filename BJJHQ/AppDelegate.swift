@@ -47,23 +47,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 coordinator = MainCoordinator(navigationController: navController)
                 IQKeyboardManager.shared.enable = true
                 IQKeyboardManager.shared.shouldResignOnTouchOutside = true
-                
-                
+
+
                 //MARK: - UserState
                 if DataManager.shared.getUser() ?? false {
-                    
+
                     coordinator?.homePage()
-                    
+
                 }
                 else {
-                    //coordinator?.landedPage()
-                    coordinator?.homePage()
+                    coordinator?.landingPage()
                 }
-                
+
                 window = UIWindow(frame: UIScreen.main.bounds)
                 window?.rootViewController = navController
                 window?.makeKeyAndVisible()
-        
+//
         return true
     }
 }
