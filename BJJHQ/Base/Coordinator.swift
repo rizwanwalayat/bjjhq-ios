@@ -75,6 +75,7 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    
     func popVc() {
         navigationController.popViewController(animated: true)
     }
@@ -95,3 +96,11 @@ extension NSObject {
         return String(describing: self.self)
     }
 }
+
+//extension MainCoordinator: SignUpControllerDelegate {
+//    func signUpCustomer(email: String, password: String, firstName: String, lastName: String) {
+//        Client.shared.createCustomer(email: email, password: password, firstName: firstName, lastName: lastName) { customerName in
+//            print("\(customerName)")
+//        }
+//    }
+//}
