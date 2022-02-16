@@ -362,6 +362,14 @@ extension UIView {
         }
     }
     
+    
+    func roundCornersTopView(_ radius: CGFloat)
+    {
+        layer.cornerRadius = radius
+        layer.maskedCorners = [.layerMaxXMinYCorner,.layerMinXMinYCorner]
+        layer.masksToBounds = true
+    }
+    
     func addRoundCorners(cornerRadius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
         self.layer.masksToBounds = false
         self.layer.cornerRadius = cornerRadius

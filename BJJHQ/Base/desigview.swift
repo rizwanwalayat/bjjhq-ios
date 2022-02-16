@@ -36,20 +36,17 @@ class CustomView: UIView {
 @IBDesignable
 class CcardView: UIView {
     
-    @IBInspectable var cornerRadius: CGFloat = 2
     
     @IBInspectable var SshadowOffsetWidth: Int = 0
     @IBInspectable var SshadowOffsetHeight: Int = 3
-    @IBInspectable var shadowColor: UIColor? = UIColor.black
     @IBInspectable var SshadowOpacity: Float = 0.5
     
     
     override func layoutSubviews() {
-        layer.cornerRadius = cornerRadius
+        
         let SshadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
         
         layer.masksToBounds = false
-        layer.shadowColor = shadowColor?.cgColor
         layer.shadowOffset = CGSize(width: SshadowOffsetWidth, height: SshadowOffsetHeight);
         layer.shadowOpacity = SshadowOpacity
         layer.shadowPath = SshadowPath.cgPath

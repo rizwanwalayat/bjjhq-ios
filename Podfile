@@ -10,6 +10,7 @@ target 'BJJHQ' do
   pod 'NVActivityIndicatorView'
   pod 'Alamofire', '~> 4.2'
   pod 'SwiftyJSON', '~> 4.0'
-  pod 'CHIPageControl/Jaloro'
+  pod "PageControls/PillPageControl"
+  pod 'iOSDropDown'
 
 end
