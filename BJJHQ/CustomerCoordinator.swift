@@ -95,16 +95,16 @@ extension CustomerCoordinator: LoginControllerDelegate {
     }
     
     func loginController(_ loginController: LoginViewController, didLoginWith email: String, passowrd: String) {
-        Client.shared.login(email: email, password: passowrd) { accessToken in
-            if let accessToken = accessToken {
-                AccountController.shared.save(accessToken: accessToken)
-                self.showOrders(animated: true)
-            } else {
-                let alert = UIAlertController(title: "Login Error", message: "Failed to login a customer with this email and password. Please check your credentials and try again.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
+//        Client.shared.login(email: email, password: passowrd) { accessToken in
+//            if let accessToken = accessToken {
+//                AccountController.shared.save(accessToken: accessToken)
+//                self.showOrders(animated: true)
+//            } else {
+//                let alert = UIAlertController(title: "Login Error", message: "Failed to login a customer with this email and password. Please check your credentials and try again.", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
+//            }
+//        }
     }
 }
 

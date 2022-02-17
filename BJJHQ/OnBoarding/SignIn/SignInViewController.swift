@@ -10,6 +10,7 @@ import UIKit
 
 class SignInViewController: BaseViewController {
 
+    var viewModel: SignInViewModel?
     
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var passwordView: UIView!
@@ -63,7 +64,12 @@ class SignInViewController: BaseViewController {
     }
     
     @IBAction func signInAction(_ sender: Any) {
-        coordinator?.homePage()
+        viewModel?.signInCustomer(email: emailTF.text!, password: passwordTF.text!,  completion: { data, error in
+            if error != nil {
+                self.showToast(message: error ?? "Error")
+            }
+        })
+    
     }
     
     @IBAction func signUpAction(_ sender: Any) {

@@ -51,18 +51,19 @@ final class Client {
     //
     
     @discardableResult
-    func createCustomer(email: String, password: String, firstName: String, lastName: String, completion: @escaping (String?, Error?) -> Void) -> Task {
+    func createCustomer(email: String, password: String, firstName: String, lastName: String, completion: @escaping (Storefront.Customer?, String?) -> Void) -> Task {
         
         let mutation = ClientQuery.mutationForSignup(email: email, password: password, firstName: firstName, lastName: lastName)
         let task = self.client.mutateGraphWith(mutation) { (mutation, error) in
             error.debugPrint()
             
-            if let container = mutation?.customerCreate?.customer {
-                completion(container.firstName, nil)
+            if let customer = mutation?.customerCreate?.customer {
+                completion(customer, nil)
             } else {
                 let errors = mutation?.customerCreate?.customerUserErrors ?? []
                 print("Failed to create customer: \(errors)")
-                completion(nil, error)
+                let errorDetail = errors[0].message
+                completion(nil, errorDetail)
             }
         }
         
@@ -71,18 +72,19 @@ final class Client {
     }
     
     @discardableResult
-    func login(email: String, password: String, completion: @escaping (String?) -> Void) -> Task {
+    func login(email: String, password: String, completion: @escaping (String?, String?) -> Void) -> Task {
         
         let mutation = ClientQuery.mutationForLogin(email: email, password: password)
         let task     = self.client.mutateGraphWith(mutation) { (mutation, error) in
             error.debugPrint()
             
             if let container = mutation?.customerAccessTokenCreate?.customerAccessToken {
-                completion(container.accessToken)
+                completion(container.accessToken, nil)
             } else {
                 let errors = mutation?.customerAccessTokenCreate?.customerUserErrors ?? []
                 print("Failed to login customer: \(errors)")
-                completion(nil)
+                let errorDetail = errors[0].message
+                completion(nil, errorDetail)
             }
         }
         
