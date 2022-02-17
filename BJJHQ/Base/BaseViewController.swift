@@ -19,14 +19,14 @@ struct ScreenSize
     static let SCREEN_MIN_LENGTH = min(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
 }
 
-class BaseViewController: UIViewController {
+open class BaseViewController: UIViewController {
     
     
     //MARK: - Coordinator
     
     var coordinator: MainCoordinator?
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
     }

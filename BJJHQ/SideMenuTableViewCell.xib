@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="83" id="KGk-i7-Jjw" customClass="SideMenuTableViewCell" customModule="BJJHQ" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="340" height="83"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="340" height="83"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAG-H0-C9m">
+                        <rect key="frame" x="10" y="10" width="320" height="60"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Obp-LR-Zux">
+                                <rect key="frame" x="20" y="20" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="PdZ-Lh-EVz"/>
+                                    <constraint firstAttribute="height" constant="20" id="hLT-VR-NDb"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ME-a5-09f">
+                                <rect key="frame" x="60" y="20" width="240" height="20"/>
+                                <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="16"/>
+                                <color key="textColor" name="blue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Obp-LR-Zux" firstAttribute="centerY" secondItem="dAG-H0-C9m" secondAttribute="centerY" id="7dA-uQ-ER2"/>
+                            <constraint firstItem="Obp-LR-Zux" firstAttribute="top" secondItem="dAG-H0-C9m" secondAttribute="top" constant="20" id="ZgT-Pj-Uet"/>
+                            <constraint firstAttribute="trailing" secondItem="8ME-a5-09f" secondAttribute="trailing" constant="20" id="c7J-97-z9G"/>
+                            <constraint firstItem="8ME-a5-09f" firstAttribute="leading" secondItem="Obp-LR-Zux" secondAttribute="trailing" constant="20" id="cYd-ny-v7O"/>
+                            <constraint firstItem="Obp-LR-Zux" firstAttribute="leading" secondItem="dAG-H0-C9m" secondAttribute="leading" constant="20" id="imV-2j-Elo"/>
+                            <constraint firstAttribute="bottom" secondItem="Obp-LR-Zux" secondAttribute="bottom" constant="20" id="knN-Vs-587"/>
+                            <constraint firstItem="8ME-a5-09f" firstAttribute="centerY" secondItem="Obp-LR-Zux" secondAttribute="centerY" id="vZu-An-URQ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dAG-H0-C9m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Zjt-br-e0d"/>
+                    <constraint firstAttribute="bottom" secondItem="dAG-H0-C9m" secondAttribute="bottom" id="hEu-FU-gzH"/>
+                    <constraint firstItem="dAG-H0-C9m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="lVN-Yv-IRf"/>
+                    <constraint firstAttribute="trailing" secondItem="dAG-H0-C9m" secondAttribute="trailing" constant="10" id="pva-Bk-IGB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="sideMenuImage" destination="Obp-LR-Zux" id="qIu-no-WYj"/>
+                <outlet property="titleLbl" destination="8ME-a5-09f" id="WxJ-o3-dXq"/>
+            </connections>
+            <point key="canvasLocation" x="-24.637681159420293" y="1.6741071428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="blue">
+            <color red="0.14499999582767487" green="0.17299999296665192" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -86,10 +86,12 @@ class DeletePopUpViewController: BaseViewController {
     }
     
     @IBAction func cancelAction(_ sender: Any) {
-//        coordinator?.homePage()
+        hidePopup()
     }
     @IBAction func yesAction(_ sender: Any) {
-        
+        DataManager.shared.setUser(value: false)
+        hidePopup()
+        coordinator?.landedPage()
     }
     
 }

@@ -79,7 +79,7 @@ class SignUpViewController: BaseViewController {
     }
     
     @IBAction func skipAction(_ sender: Any) {
-//        coordinator?.homePage()
+        coordinator?.homePage()
     }
     
     

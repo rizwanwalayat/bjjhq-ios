@@ -56,11 +56,11 @@ class ForgetViewController: BaseViewController {
     }
     
     @IBAction func submitAction(_ sender: Any) {
-        //        coordinator?.homePage()
+        coordinator?.signInPage()
     }
     
     @IBAction func skipAction(_ sender: Any) {
-        //        coordinator?.homePage()
+       coordinator?.homePage()
     }
     
     @IBAction func signInAction(_ sender: Any) {

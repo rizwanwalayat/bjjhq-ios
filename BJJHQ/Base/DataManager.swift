@@ -29,4 +29,13 @@ class DataManager {
         UserDefaults.standard.removeObject(forKey: "userState")
     }
     
+    func setNotificationSwitch(value: [Bool]?) {
+        UserDefaults.standard.set(value, forKey: "NotificationSwitch")
+    }
+    
+    func getNotificationSwitch() -> [Any]? {
+        return UserDefaults.standard.array(forKey: "NotificationSwitch")
+    }
+    
+    
 }

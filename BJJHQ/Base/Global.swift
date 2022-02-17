@@ -20,5 +20,10 @@ class Global {
     var shareString = "BJJHQ"
     var shareUrl = "Link for the app"
     
+    //MARK: - Notifications
+    var tasbeeh = true
+    var salaat = true
+    var goal = true
+    var notifications = true
     
 }

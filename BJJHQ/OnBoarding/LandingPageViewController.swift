@@ -32,12 +32,7 @@ class LandingPageViewController: BaseViewController {
     
     
     @IBAction func signInAction(_ sender: Any) {
-        let vc = AddressBookPopUpViewController(nibName: "AddressBookPopUpViewController", bundle: nil)
-        vc.modalPresentationStyle = .overFullScreen
-//        vc.isFromSignOut = false
-//        vc.isFromAddress = true
-        vc.coordinator = MainCoordinator(navigationController: coordinator!.navigationController)
-        self.present(vc, animated: false, completion: nil)
+        coordinator?.signInPage()
     }
     
     @IBAction func signUpAction(_ sender: Any) {
@@ -49,6 +44,7 @@ class LandingPageViewController: BaseViewController {
     }
     
     @IBAction func skipAction(_ sender: Any) {
+        DataManager.shared.setUser(value: true)
         coordinator?.homePage()
     }
     

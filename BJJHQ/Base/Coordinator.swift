@@ -15,7 +15,10 @@ protocol Coordinator {
     func signUpPage()
     func signInPage()
     func emailPage()
+    func addressPage()
     func orderSuccesfullPopUp()
+    func notificationPage()
+    func changePasswordPage ()
     
 }
 
@@ -38,13 +41,24 @@ class MainCoordinator: Coordinator {
     func landedPage() {
         let vc = LandingPageViewController()
         vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
+        navigationController.setViewControllers([vc], animated: true)
     }
+    
     func homePage() {
-        let vc = HomeViewController()
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
+        let homeController = HomeViewController(nibName: "HomeViewController", bundle: nil)
+        let leftViewController = SideMenuViewController()
+        leftViewController.coordinator = self
+        homeController.coordinator = self
+        let mainViewController = homeController
+        let sideMenuController: SlideMenuController?
+        sideMenuController =  SlideMenuController(mainViewController: mainViewController, rightMenuViewController: leftViewController)
+        sideMenuController!.delegate = leftViewController
+        sideMenuController!.changeRightViewWidth(UIScreen.main.bounds.width)
+        sideMenuController!.removeLeftGestures()
+        sideMenuController!.removeRightGestures()
+        navigationController.setViewControllers([sideMenuController!], animated: true)
     }
+    
     
     func signUpPage() {
         let vc = SignUpViewController()
@@ -57,8 +71,19 @@ class MainCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    func changePasswordPage() {
+        let vc = ChangePasswordViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
     func orderSuccesfullPopUp() {
         let vc = OrderSuccesFullViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func addressPage() {
+        let vc = MyAddressesViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
@@ -75,6 +100,11 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func notificationPage() {
+        let vc = NotificationViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
     
     func popVc() {
         navigationController.popViewController(animated: true)

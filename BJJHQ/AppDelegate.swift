@@ -36,11 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //  MARK: - Application Launch -
     //
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        /* ----------------------------------------
-         ** Initialize the cart controller and pre-
-         ** load any cached cart items.
-         */
         _ = CartController.shared
         Thread.sleep(forTimeInterval: 0.5)
                 let navController = UINavigationController()
@@ -52,11 +47,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //MARK: - UserState
                 if DataManager.shared.getUser() ?? false {
 
-                    coordinator?.landedPage()
+                    coordinator?.homePage()
 
                 }
                 else {
-//                    coordinator?.emailPage()
                     coordinator?.landedPage()
                 }
 

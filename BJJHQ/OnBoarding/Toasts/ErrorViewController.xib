@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-BoldItalic.ttf">
+            <string>Barlow-BoldItalic</string>
+        </array>
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ErrorViewController" customModule="BJJHQ" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdT-sq-HuH">
+                    <rect key="frame" x="30" y="762" width="354" height="50"/>
+                    <color key="backgroundColor" name="blue"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="CO9-32-hM7"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="14"/>
+                    <color key="tintColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Try Again">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="0.10000000000000001"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                            <size key="value" width="0.0" height="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="ADv-Bk-POl">
+                    <rect key="frame" x="62" y="144" width="290" height="268"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OOPS!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6z-Tp-DWo">
+                    <rect key="frame" x="161" y="442" width="92" height="41"/>
+                    <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="34"/>
+                    <color key="textColor" name="sky"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVN-ds-hHQ">
+                    <rect key="frame" x="20" y="503" width="374" height="48"/>
+                    <string key="text">No internet connection found
+Check your connection.</string>
+                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="20"/>
+                    <color key="textColor" red="0.29803921568627451" green="0.30196078431372547" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="ADv-Bk-POl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="0WU-MJ-uMM"/>
+                <constraint firstItem="NdT-sq-HuH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cVN-ds-hHQ" secondAttribute="bottom" constant="10" id="3Ys-fY-25O"/>
+                <constraint firstItem="Z6z-Tp-DWo" firstAttribute="top" secondItem="ADv-Bk-POl" secondAttribute="bottom" constant="30" id="KHg-Ml-E9K"/>
+                <constraint firstItem="Z6z-Tp-DWo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Kkc-Hs-wZ7"/>
+                <constraint firstItem="ADv-Bk-POl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="L06-FP-FGV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="NdT-sq-HuH" secondAttribute="bottom" constant="50" id="QwG-vd-4oZ"/>
+                <constraint firstAttribute="trailing" secondItem="NdT-sq-HuH" secondAttribute="trailing" constant="30" id="TPt-bC-lrc"/>
+                <constraint firstItem="ADv-Bk-POl" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.299107" id="V9p-zu-vjN"/>
+                <constraint firstItem="cVN-ds-hHQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XWf-MY-QBR"/>
+                <constraint firstItem="cVN-ds-hHQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="hGz-11-Wut"/>
+                <constraint firstItem="cVN-ds-hHQ" firstAttribute="top" secondItem="Z6z-Tp-DWo" secondAttribute="bottom" constant="20" id="o7f-l6-6Lv"/>
+                <constraint firstItem="NdT-sq-HuH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="qhc-2b-gND"/>
+                <constraint firstItem="ADv-Bk-POl" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.7" id="vge-ML-5s1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cVN-ds-hHQ" secondAttribute="trailing" constant="20" id="xhm-AW-B38"/>
+            </constraints>
+            <point key="canvasLocation" x="-39" y="-11"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="welcome" width="293.5" height="194.5"/>
+        <namedColor name="blue">
+            <color red="0.14499999582767487" green="0.17299999296665192" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="sky">
+            <color red="0.35699999332427979" green="0.83899998664855957" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

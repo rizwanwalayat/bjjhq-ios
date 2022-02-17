@@ -9,14 +9,39 @@
 import UIKit
 
 class AddressBookPopUpViewController: BaseViewController {
+    
+    
+    //MARK: - IBOutlets
+
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
-    var isfromAddNewAddress = true
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var countryTF: UITextField!
+    @IBOutlet weak var countryView: UIView!
+    @IBOutlet weak var cityTF: UITextField!
+    @IBOutlet weak var cityView: UIView!
+    @IBOutlet weak var postalView: UIView!
+    @IBOutlet weak var postalTF: UITextField!
+    @IBOutlet weak var districtView: UIView!
+    @IBOutlet weak var address1View: UIView!
+    @IBOutlet weak var address2View: UIView!
+    @IBOutlet weak var districtTF: UITextField!
+    @IBOutlet weak var addressTF: UITextField!
+    
+    //MARK: - Variables
+    
+    var isfromAddNewAddress = false
+    var textForNow = ""
+    var descriptionMessage : String?
+    
+    
+    //MARK: - LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.textView.textColor = UIColor.init(hexString: "000000", alpha: 0.25)
         self.popUpView.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
         if isfromAddNewAddress {
             self.titleLbl.text = "Add New Address"
@@ -25,6 +50,7 @@ class AddressBookPopUpViewController: BaseViewController {
         }
         
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.setupDidappear()
@@ -60,4 +86,24 @@ class AddressBookPopUpViewController: BaseViewController {
     }
     
 
+}
+
+extension AddressBookPopUpViewController: UITextViewDelegate,UITextFieldDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.textColor = UIColor(named: "blue")
+        textView.text = ""
+        if self.textForNow != "" {
+            textView.text = textForNow
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        self.textForNow = textView.text
+        if textView.text == "" {
+            textView.text = "Address1"
+            textView.textColor = UIColor.init(hexString: "000000", alpha: 0.25)
+        }
+        
+    }
+    
 }
