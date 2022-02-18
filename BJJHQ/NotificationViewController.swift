@@ -22,7 +22,7 @@ class NotificationViewController: BaseViewController, notificatioSwitch {
         super.viewDidLoad()
     }
     @IBAction func backAction(_ sender: Any) {
-        
+        coordinator?.popVc()
     }
     
     func switchState(state: Bool, index: Int) {

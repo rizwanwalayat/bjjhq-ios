@@ -150,6 +150,7 @@ class HomeViewController: BaseViewController {
     // MARK: - Actions -
     
     @IBAction func menuAction(_ sender: Any) {
+        openRight()
     }
     
     @IBAction func upButtonAction(_ sender: Any) {

@@ -19,6 +19,7 @@ protocol Coordinator {
     func orderSuccesfullPopUp()
     func notificationPage()
     func changePasswordPage ()
+    func orderPage()
     
 }
 
@@ -74,6 +75,12 @@ class MainCoordinator: Coordinator {
     }
     func changePasswordPage() {
         let vc = ChangePasswordViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func orderPage() {
+        let vc = OrderViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
