@@ -16,19 +16,21 @@ class CommentsData : NSObject
     var likeCount = ""
     var unlikeCount = ""
     var time = ""
+    var commentImage : UIImage?
     var replies = [CommentsReplyData]()
     
     override init() {
         super.init()
     }
     
-    init(_ userName: String, _ comments: String, _ likeCount : String, _ unlikeCount: String, _ time: String, _ replies : [CommentsReplyData] ) {
+    init(_ userName: String, _ comments: String, _ likeCount : String, _ unlikeCount: String, _ time: String,_ commentImage: UIImage?, _ replies : [CommentsReplyData] ) {
         
         self.userName = userName
         self.commentText = comments
         self.likeCount = likeCount
         self.unlikeCount = unlikeCount
         self.time = time
+        self.commentImage = commentImage
         self.replies = replies
     }
 }
@@ -41,17 +43,19 @@ class CommentsReplyData : NSObject
     var likeCount = ""
     var unlikeCount = ""
     var time = ""
+    var commentImage : UIImage?
     
     override init() {
         super.init()
     }
     
-    init(_ userName: String, _ comments: String, _ likeCount : String, _ unlikeCount: String, _ time: String ) {
+    init(_ userName: String, _ comments: String, _ likeCount : String, _ unlikeCount: String, _ time: String, _ commentImage: UIImage? ) {
         
         self.userName = userName
         self.commentText = comments
         self.likeCount = likeCount
         self.unlikeCount = unlikeCount
         self.time = time
+        self.commentImage = commentImage
     }
 }

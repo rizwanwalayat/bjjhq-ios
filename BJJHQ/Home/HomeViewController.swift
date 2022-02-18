@@ -39,6 +39,8 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var userImageComments: UIImageView!
     @IBOutlet weak var writeCommentsTF: UITextField!
     @IBOutlet weak var addCommebtImageBtn: UIButton!
+    @IBOutlet weak var imageCommentHolder: UIView!
+    @IBOutlet weak var imageComment: UIImageView!
     @IBOutlet weak var sendCommentsBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var constTableViewHeight: NSLayoutConstraint!
@@ -82,8 +84,10 @@ class HomeViewController: BaseViewController {
                 let updatedVal  = newvalue as! CGSize
                 let viewHeight  = updatedVal.height
                 constTableViewHeight.constant    = viewHeight
-                tableView.layoutIfNeeded()
-                self.view.layoutIfNeeded()
+                DispatchQueue.main.async {
+                    self.tableView.layoutIfNeeded()
+                    self.view.layoutIfNeeded()
+                }
             }
         }
     }
@@ -129,15 +133,15 @@ class HomeViewController: BaseViewController {
     
     fileprivate func addCommentsData()
     {
-        let commentsObject = CommentsData("Rizwan07", "very nice", "10", "15", "3 min",  [])
+        let commentsObject = CommentsData("Rizwan07", "very nice", "10", "15", "3 min",  nil, [])
         comments.append(commentsObject)
         
-        let subComments = CommentsReplyData("Rizwan07", "zahir ha", "100", "2", "30 min")
-        let commentsObject2 = CommentsData("Haider003", "fazool", "100", "300", "1 hour",  [subComments])
+        let subComments = CommentsReplyData("Rizwan07", "zahir ha", "100", "2", "30 min", nil)
+        let commentsObject2 = CommentsData("Haider003", "fazool", "100", "300", "1 hour",  nil, [subComments])
         comments.append(commentsObject2)
         
-        let subComments1 = CommentsReplyData("Haider003", "Thank you so much for these kind words.", "100", "2", "30 min")
-        let commentsObject3 = CommentsData("asad01", "Amazing hoodies!! Just received my first order and they are fantastic quality and perfect fit.", "33", "0", "1 day",  [subComments, subComments1])
+        let subComments1 = CommentsReplyData("Haider003", "Thank you so much for these kind words.", "100", "2", "30 min", nil)
+        let commentsObject3 = CommentsData("asad01", "Amazing hoodies!! Just received my first order and they are fantastic quality and perfect fit.", "33", "0", "1 day", nil , [subComments, subComments1])
         comments.append(commentsObject3)
         
         tableView.reloadData()
@@ -146,7 +150,6 @@ class HomeViewController: BaseViewController {
     // MARK: - Actions -
     
     @IBAction func menuAction(_ sender: Any) {
-        openRight()
     }
     
     @IBAction func upButtonAction(_ sender: Any) {
@@ -170,27 +173,50 @@ class HomeViewController: BaseViewController {
 
     }
     @IBAction func uploadImageAction(_ sender: Any) {
+        
+        ImagePickerVC.shared.showImagePickerFromVC(fromVC: self)
     }
     
     @IBAction func sendCommentsAction(_ sender: Any) {
         
+        var  index = comments.count - 1
+        
         if writeCommentsTF.text!.count > 0{
             if let commentObj = replayComment{
                 
-                let subComments = CommentsReplyData("unknown", writeCommentsTF.text ?? "Nothing", "0", "0", "Now")
+                let subComments = CommentsReplyData("unknown", writeCommentsTF.text ?? "Nothing", "0", "0", "Now", imageComment.image)
                 commentObj.replies.append(subComments)
+                
+                index = comments.firstIndex{$0 === commentObj} ?? comments.count - 1
             }
             else {
                 
-                let commentsObject = CommentsData("unknown", writeCommentsTF.text ?? "Nothing", "0", "0", "Now",  [])
+                let commentsObject = CommentsData("unknown", writeCommentsTF.text ?? "Nothing", "0", "0", "Now",  imageComment.image, [])
                 comments.append(commentsObject)
+                index = comments.count - 1
             }
         }
         
+        crossImageAction(imageComment!)
+        writeCommentsTF.text = ""
         replayComment = nil
         tableView.reloadData()
+        tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .bottom, animated: true)
         
     }
+    
+    @IBAction func crossImageAction(_ sender: Any) {
+        
+        imageComment.image = nil
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: []) {
+            
+            self.imageCommentHolder.isHidden = true
+        } completion: { animated in
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     
     @objc func likeButtonPressed (_ sender: UIButton)
     {
@@ -198,8 +224,8 @@ class HomeViewController: BaseViewController {
         var commentsLike = Int(obj.likeCount) ?? 0
         commentsLike += 1
         obj.likeCount = "\(commentsLike)"
-        let indexpath = IndexPath(row: sender.tag, section: 0)
-        tableView.reloadRows(at: [indexpath], with: .automatic)
+        //let indexpath = IndexPath(row: sender.tag, section: 0)
+        tableView.reloadData()//reloadRows(at: [indexpath], with: .automatic)
     }
     
     @objc func unLikeButtonPressed (_ sender: UIButton)
@@ -208,8 +234,8 @@ class HomeViewController: BaseViewController {
         var commentsLike = Int(obj.unlikeCount) ?? 0
         commentsLike -= 1
         obj.unlikeCount = "\(commentsLike)"
-        let indexpath = IndexPath(row: sender.tag, section: 0)
-        tableView.reloadRows(at: [indexpath], with: .automatic)
+        //let indexpath = IndexPath(row: sender.tag, section: 0)
+        tableView.reloadData()//reloadRows(at: [indexpath], with: .automatic)
         
     }
     
@@ -219,6 +245,17 @@ class HomeViewController: BaseViewController {
         replayComment = obj
         writeCommentsTF.text = obj.userName
         writeCommentsTF.becomeFirstResponder()
+    }
+    
+    override func imageSelectedFromGalleryOrCamera(selectedImage: UIImage) {
+        imageComment.image = selectedImage
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: []) {
+            
+            self.imageCommentHolder.isHidden = false
+        } completion: { animated in
+            self.view.layoutIfNeeded()
+        }
     }
 }
 
@@ -323,10 +360,24 @@ extension HomeViewController: UITableViewDataSource
         cell.likeButton.addTarget(self, action: #selector(likeButtonPressed(_:)), for: .touchUpInside)
         cell.unlikeButton.addTarget(self, action: #selector(unLikeButtonPressed(_:)), for: .touchUpInside)
         cell.replyButton.addTarget(self, action: #selector(replyPressed(_:)), for: .touchUpInside)
+        
+        cell.delegate = self
         return cell
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+}
+
+// MARK: - Custom TableView Delegate  -
+
+extension HomeViewController : commentsTableViewDelegate {
+    func didTapOnRepliy(_ superComment: CommentsData, subComment: CommentsReplyData) {
+        
+        replayComment = superComment
+        writeCommentsTF.text = subComment.userName
+        writeCommentsTF.becomeFirstResponder()
+    }
+    
 }

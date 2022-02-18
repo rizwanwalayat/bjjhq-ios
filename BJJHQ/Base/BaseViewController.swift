@@ -30,6 +30,22 @@ open class BaseViewController: UIViewController {
         super.viewDidLoad()
         
     }
+    func setupLabelUnderlineText(_ label: UILabel, _ text : String)
+    {
+        let font = UIFont(name: "Barlow-BoldItalic", size: 16) ?? UIFont.systemFont(ofSize: 16, weight: .bold)
+        let yourAttributes: [NSAttributedString.Key: Any] = [
+              .font: font,
+              .foregroundColor: label.textColor ?? UIColor(named: "borderColor"),
+              .underlineStyle: NSUnderlineStyle.single.rawValue
+          ]
+        
+        let attributeString = NSMutableAttributedString(
+            string: text,
+            attributes: yourAttributes
+        )
+        
+        label.attributedText = attributeString
+    }
     
     func setupButtonUnderlineText(_ button: UIButton, _ text : String,color:String,_ alpha : Double = 0.6)
     {
