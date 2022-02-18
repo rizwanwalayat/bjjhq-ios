@@ -18,6 +18,8 @@ class SubCommentsTableViewCell: UITableViewCell {
     @IBOutlet weak var unlikeButton: UIButton!
     @IBOutlet weak var replyButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var imageHolderView: UIView!
+    @IBOutlet weak var commentImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,6 +40,15 @@ class SubCommentsTableViewCell: UITableViewCell {
         self.likeButton.setTitle(commentsData.likeCount, for: .normal)
         self.unlikeButton.setTitle(commentsData.unlikeCount, for: .normal)
         self.timeLabel.text = commentsData.time
+        
+        if let image = commentsData.commentImage {
+            self.imageHolderView.isHidden = false
+            self.commentImage.image = image
+        }
+        else {
+            self.imageHolderView.isHidden = true
+            self.commentImage.image = nil
+        }
         
     }
 }

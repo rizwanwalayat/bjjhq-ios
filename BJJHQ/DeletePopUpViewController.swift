@@ -91,7 +91,7 @@ class DeletePopUpViewController: BaseViewController {
     @IBAction func yesAction(_ sender: Any) {
         DataManager.shared.setUser(value: false)
         hidePopup()
-        coordinator?.landedPage()
+        coordinator?.landingPage()
     }
     
 }

@@ -50,7 +50,7 @@ extension SideMenuViewController : UITableViewDelegate,UITableViewDataSource{
         case 0:
             coordinator?.changePasswordPage()
         case 1:
-            print("Orders")
+            coordinator?.orderPage()
         case 2:
             coordinator?.addressPage()
         case 3:
