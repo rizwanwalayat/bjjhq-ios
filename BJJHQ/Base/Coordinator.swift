@@ -38,7 +38,7 @@ class MainCoordinator: Coordinator {
         navigationController.setViewControllers([vc], animated: true)
     }
     
-    func landingPage() {
+    func landedPage() {
         let vc = LandingPageViewController()
         vc.coordinator = self
         navigationController.setViewControllers([vc], animated: true)

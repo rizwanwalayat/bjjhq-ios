@@ -60,13 +60,9 @@
 		188E5A7027BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188E5A6E27BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib */; };
 		188E5A7427BD518B003FB613 /* NotificationPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E5A7227BD518A003FB613 /* NotificationPopUpViewController.swift */; };
 		188E5A7527BD518B003FB613 /* NotificationPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188E5A7327BD518B003FB613 /* NotificationPopUpViewController.xib */; };
-		18937FB927BBE04C00702FB0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18937FB727BBE04C00702FB0 /* SignInViewController.swift */; };
-		18937FBA27BBE04C00702FB0 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18937FB827BBE04C00702FB0 /* SignInViewController.xib */; };
 		18958BD827BE6BDE00696B8E /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18958BD627BE6BDE00696B8E /* ErrorViewController.swift */; };
 		18958BD927BE6BDE00696B8E /* ErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18958BD727BE6BDE00696B8E /* ErrorViewController.xib */; };
 		18A6679B27BBB9BC005FE8C1 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A6679A27BBB9BC005FE8C1 /* UIView.swift */; };
-		18A6679E27BBC391005FE8C1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A6679C27BBC391005FE8C1 /* SignUpViewController.swift */; };
-		18A6679F27BBC391005FE8C1 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A6679D27BBC391005FE8C1 /* SignUpViewController.xib */; };
 		18C3C1EB27BD5C0500B7C73F /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3C1E127BD5C0500B7C73F /* HomeCollectionViewCell.swift */; };
 		18C3C1EC27BD5C0500B7C73F /* CommentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C3C1E227BD5C0500B7C73F /* CommentsTableViewCell.xib */; };
 		18C3C1ED27BD5C0500B7C73F /* ColorsSelectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C3C1E327BD5C0500B7C73F /* ColorsSelectionCollectionViewCell.xib */; };
@@ -85,8 +81,14 @@
 		18FCF6C627BE951100D5DF17 /* SideMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FCF6C427BE951100D5DF17 /* SideMenuTableViewCell.xib */; };
 		4BCFFBC636F044FF8234FD2F /* Pods_BJJHQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5D9263BFB2A5B97C243957 /* Pods_BJJHQ.framework */; };
 		9617354027BD0CB300E9FC3C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617353F27BD0CB300E9FC3C /* BaseViewModel.swift */; };
-		9617354627BD16B200E9FC3C /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617354527BD16B200E9FC3C /* SignInViewModel.swift */; };
-		96FA6B0A27BC105800307B2F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FA6B0927BC105800307B2F /* SignUpViewModel.swift */; };
+		96DD6C2727BFB03400DDA0DC /* ContactUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96DD6C2527BFB03400DDA0DC /* ContactUsViewController.xib */; };
+		96DD6C2827BFB03400DDA0DC /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD6C2627BFB03400DDA0DC /* ContactUsViewController.swift */; };
+		96DD6C3327BFB35800DDA0DC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD6C2A27BFB35800DDA0DC /* SignUpViewController.swift */; };
+		96DD6C3427BFB35800DDA0DC /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD6C2C27BFB35800DDA0DC /* SignUpViewModel.swift */; };
+		96DD6C3527BFB35800DDA0DC /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96DD6C2D27BFB35800DDA0DC /* SignUpViewController.xib */; };
+		96DD6C3627BFB35800DDA0DC /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD6C3027BFB35800DDA0DC /* SignInViewModel.swift */; };
+		96DD6C3727BFB35800DDA0DC /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96DD6C3127BFB35800DDA0DC /* SignInViewController.xib */; };
+		96DD6C3827BFB35800DDA0DC /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD6C3227BFB35800DDA0DC /* SignInViewController.swift */; };
 		9A0ED6861E83F120008C605E /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0ED6851E83F120008C605E /* Serializable.swift */; };
 		9A0ED68A1E83FF2D008C605E /* GraphQL+Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0ED6891E83FF2D008C605E /* GraphQL+Serializable.swift */; };
 		9A0ED6911E842467008C605E /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0ED6901E842467008C605E /* CartButton.swift */; };
@@ -271,7 +273,14 @@
 		733A59A78DD90F2477EDCC2D /* Pods-BJJHQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJJHQ.release.xcconfig"; path = "Target Support Files/Pods-BJJHQ/Pods-BJJHQ.release.xcconfig"; sourceTree = "<group>"; };
 		9617353F27BD0CB300E9FC3C /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		9617354527BD16B200E9FC3C /* SignInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
-		96FA6B0927BC105800307B2F /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		96DD6C2527BFB03400DDA0DC /* ContactUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactUsViewController.xib; sourceTree = "<group>"; };
+		96DD6C2627BFB03400DDA0DC /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		96DD6C2A27BFB35800DDA0DC /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		96DD6C2C27BFB35800DDA0DC /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		96DD6C2D27BFB35800DDA0DC /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		96DD6C3027BFB35800DDA0DC /* SignInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		96DD6C3127BFB35800DDA0DC /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		96DD6C3227BFB35800DDA0DC /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9A0ED6851E83F120008C605E /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		9A0ED6891E83FF2D008C605E /* GraphQL+Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GraphQL+Serializable.swift"; sourceTree = "<group>"; };
 		9A0ED6901E842467008C605E /* CartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
@@ -441,8 +450,9 @@
 		1863835B27BB9BFD0080FC80 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
+				96DD6C2E27BFB35800DDA0DC /* SignIn */,
+				96DD6C2927BFB35800DDA0DC /* SignUp */,
 				18958BD527BE6BBA00696B8E /* Toasts */,
-				96FA6B0927BC105800307B2F /* SignUpViewModel.swift */,
 				1863835C27BB9BFD0080FC80 /* LandingPageViewController.xib */,
 				1863835D27BB9BFD0080FC80 /* LandingPageViewController.swift */,
 				1842EDF027BBE84800A4DA1D /* ForgetViewController.swift */,
@@ -616,38 +626,59 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		9617354127BD15C100E9FC3C /* ViewModel */ = {
+		96DD6C2327BFAEE500DDA0DC /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				96FA6B0927BC105800307B2F /* SignUpViewModel.swift */,
+				9617354527BD16B200E9FC3C /* SignInViewModel.swift */,
+				18A6679C27BBC391005FE8C1 /* SignUpViewController.swift */,
+				18937FB727BBE04C00702FB0 /* SignInViewController.swift */,
+				18A6679D27BBC391005FE8C1 /* SignUpViewController.xib */,
+				18937FB827BBE04C00702FB0 /* SignInViewController.xib */,
 			);
-			path = ViewModel;
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		9617354227BD15EF00E9FC3C /* SignUp */ = {
+		96DD6C2427BFB00A00DDA0DC /* ContactUs */ = {
 			isa = PBXGroup;
 			children = (
-				18A6679C27BBC391005FE8C1 /* SignUpViewController.swift */,
-				18A6679D27BBC391005FE8C1 /* SignUpViewController.xib */,
-				9617354127BD15C100E9FC3C /* ViewModel */,
+				96DD6C2627BFB03400DDA0DC /* ContactUsViewController.swift */,
+				96DD6C2527BFB03400DDA0DC /* ContactUsViewController.xib */,
+			);
+			name = ContactUs;
+			sourceTree = "<group>";
+		};
+		96DD6C2927BFB35800DDA0DC /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				96DD6C2A27BFB35800DDA0DC /* SignUpViewController.swift */,
+				96DD6C2D27BFB35800DDA0DC /* SignUpViewController.xib */,
+				96DD6C2B27BFB35800DDA0DC /* ViewModel */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
 		};
-		9617354327BD168300E9FC3C /* SignIn */ = {
+		96DD6C2B27BFB35800DDA0DC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9617354427BD16B200E9FC3C /* ViewModel */,
-				18937FB727BBE04C00702FB0 /* SignInViewController.swift */,
-				18937FB827BBE04C00702FB0 /* SignInViewController.xib */,
+				96DD6C2C27BFB35800DDA0DC /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		96DD6C2E27BFB35800DDA0DC /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				96DD6C2F27BFB35800DDA0DC /* ViewModel */,
+				96DD6C3127BFB35800DDA0DC /* SignInViewController.xib */,
+				96DD6C3227BFB35800DDA0DC /* SignInViewController.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
 		};
-		9617354427BD16B200E9FC3C /* ViewModel */ = {
+		96DD6C2F27BFB35800DDA0DC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9617354527BD16B200E9FC3C /* SignInViewModel.swift */,
+				96DD6C3027BFB35800DDA0DC /* SignInViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -899,6 +930,7 @@
 				9ADAD4681E563091008AC561 /* Products */,
 				810E2562243D1F970025B670 /* Frameworks */,
 				85DCFA3656868A18F1471DD8 /* Pods */,
+				96DD6C2327BFAEE500DDA0DC /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -927,6 +959,7 @@
 				1863835E27BB9BFD0080FC80 /* Base */,
 				1863836527BB9BFE0080FC80 /* Home */,
 				18D766C027BE8D180076A12B /* SideMenu */,
+				96DD6C2427BFB00A00DDA0DC /* ContactUs */,
 				185C707027BCEF12008F2FB3 /* PopUps */,
 				1847907D27BE447800D98451 /* Address */,
 				1863835B27BB9BFD0080FC80 /* OnBoarding */,
@@ -1059,8 +1092,8 @@
 				18E299AF27BBA3010087D0ED /* neusa-next-std-compact-regular.ttf in Resources */,
 				1847909A27BE454000D98451 /* Barlow-Thin.ttf in Resources */,
 				1847909D27BE454000D98451 /* Barlow-ExtraBoldItalic.ttf in Resources */,
+				96DD6C3527BFB35800DDA0DC /* SignUpViewController.xib in Resources */,
 				9ADAD4751E563091008AC561 /* LaunchScreen.storyboard in Resources */,
-				18A6679F27BBC391005FE8C1 /* SignUpViewController.xib in Resources */,
 				1847909727BE454000D98451 /* Barlow-Medium.ttf in Resources */,
 				18C3C1F027BD5C0500B7C73F /* SubCommentsTableViewCell.xib in Resources */,
 				18D766C427BE8D290076A12B /* SideMenuViewController.xib in Resources */,
@@ -1077,12 +1110,14 @@
 				184790A127BE454000D98451 /* Barlow-ExtraLightItalic.ttf in Resources */,
 				1847909B27BE454000D98451 /* Barlow-Bold.ttf in Resources */,
 				18737E4827BE6DF700C4F438 /* MainNotificationTableViewCell.xib in Resources */,
+				96DD6C2727BFB03400DDA0DC /* ContactUsViewController.xib in Resources */,
 				1847909327BE454000D98451 /* Barlow-Italic.ttf in Resources */,
 				18737E4D27BE7A5900C4F438 /* ChangePasswordViewController.xib in Resources */,
 				18737E4327BE6D3A00C4F438 /* NotificationViewController.xib in Resources */,
 				9A9FFF231E800D9600F6DFF7 /* ProductHeaderCell.xib in Resources */,
 				1847909627BE454000D98451 /* Barlow-SemiBoldItalic.ttf in Resources */,
 				18C3C1EC27BD5C0500B7C73F /* CommentsTableViewCell.xib in Resources */,
+				96DD6C3727BFB35800DDA0DC /* SignInViewController.xib in Resources */,
 				18C3C1F227BD5C0600B7C73F /* HomeCollectionViewCell.xib in Resources */,
 				1847909C27BE454000D98451 /* Barlow-BlackItalic.ttf in Resources */,
 				184790A327BE454000D98451 /* Barlow-SemiBold.ttf in Resources */,
@@ -1091,7 +1126,6 @@
 				18958BD927BE6BDE00696B8E /* ErrorViewController.xib in Resources */,
 				1835898C27BD564600F293B6 /* AddressBookPopUpViewController.xib in Resources */,
 				188E5A7027BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib in Resources */,
-				18937FBA27BBE04C00702FB0 /* SignInViewController.xib in Resources */,
 				1847909927BE454000D98451 /* Barlow-LightItalic.ttf in Resources */,
 				18E299AE27BBA3010087D0ED /* Barlow-BoldItalic.ttf in Resources */,
 				9AC583D01E81BF96005DB319 /* CartCell.xib in Resources */,
@@ -1178,6 +1212,7 @@
 				9AAFAB861E60C15300864A17 /* ProductViewModel.swift in Sources */,
 				18C3C1F327BD5C0600B7C73F /* CommentsDataModel.swift in Sources */,
 				9AAFAB7E1E60BE6500864A17 /* ViewModeling.swift in Sources */,
+				96DD6C2827BFB03400DDA0DC /* ContactUsViewController.swift in Sources */,
 				9ABEB3D6212446F000A373F2 /* GiftCardViewModel.swift in Sources */,
 				9A27C32A1E8FDF7C00218EE8 /* Fragment+CheckoutQuery.swift in Sources */,
 				1863836C27BB9BFE0080FC80 /* BaseViewController.swift in Sources */,
@@ -1194,9 +1229,9 @@
 				9A4EDDD22126116E0071BA56 /* CustomerCoordinator.swift in Sources */,
 				9A67117A2166801A00A57A3F /* Fragment+DiscountAllocation.swift in Sources */,
 				9AAFAB921E60D11000864A17 /* StorefrontCollectionView.swift in Sources */,
+				96DD6C3327BFB35800DDA0DC /* SignUpViewController.swift in Sources */,
 				1863837127BB9BFE0080FC80 /* HomeViewController.swift in Sources */,
 				9AE776342166AB6700A02112 /* ManualCodeViewModel.swift in Sources */,
-				96FA6B0A27BC105800307B2F /* SignUpViewModel.swift in Sources */,
 				1863836E27BB9BFE0080FC80 /* ImagePickerVC.swift in Sources */,
 				9A9FFF4C1E81B61200F6DFF7 /* CartItem.swift in Sources */,
 				9A15B73A1E64627A0078E7C5 /* StorefrontTableView.swift in Sources */,
@@ -1239,11 +1274,11 @@
 				9A27C3281E8FDB6B00218EE8 /* LineItemViewModel.swift in Sources */,
 				188E5A7427BD518B003FB613 /* NotificationPopUpViewController.swift in Sources */,
 				9A0ED68A1E83FF2D008C605E /* GraphQL+Serializable.swift in Sources */,
+				96DD6C3427BFB35800DDA0DC /* SignUpViewModel.swift in Sources */,
 				9AFA3B871E6DFF530056C5AA /* SelectableCell.swift in Sources */,
 				185C707927BD069A008F2FB3 /* OrderSuccesFullViewController.swift in Sources */,
 				9A9FFEEA1E772DF500F6DFF7 /* VariantViewModel.swift in Sources */,
 				9A9FFF4A1E81B59700F6DFF7 /* CartController.swift in Sources */,
-				9617354627BD16B200E9FC3C /* SignInViewModel.swift in Sources */,
 				9A4EDDD9212611A60071BA56 /* AccountController.swift in Sources */,
 				9A27C32D1E9120AD00218EE8 /* CheckoutViewModel+PayCheckout.swift in Sources */,
 				9A4EDDE0212706B20071BA56 /* OrderViewModel.swift in Sources */,
@@ -1252,13 +1287,13 @@
 				9A4EDDE221270E660071BA56 /* CustomerViewController.swift in Sources */,
 				9AC583C91E81BEF8005DB319 /* CartViewController.swift in Sources */,
 				188E5A6F27BD4A98003FB613 /* NotificationHoursCollectionViewCell.swift in Sources */,
-				18A6679E27BBC391005FE8C1 /* SignUpViewController.swift in Sources */,
 				9A21F29A1E7AD4FD00E00F4B /* ParallaxViewController.swift in Sources */,
 				9A9FFF1C1E7FF3A800F6DFF7 /* ImageViewModel.swift in Sources */,
 				9A27C3201E8FD99200218EE8 /* CheckoutViewModel.swift in Sources */,
 				9AAFAB801E60BE9800864A17 /* ViewModelConfigurable.swift in Sources */,
 				9A9FFF2C1E8144F300F6DFF7 /* RoundedButton.swift in Sources */,
 				9617354027BD0CB300E9FC3C /* BaseViewModel.swift in Sources */,
+				96DD6C3627BFB35800DDA0DC /* SignInViewModel.swift in Sources */,
 				9A4EDDF4212B30510071BA56 /* WebViewController.swift in Sources */,
 				9AEF61CE1E606F100067FA90 /* Fragment+ImageConnectionQuery.swift in Sources */,
 				184790A727BE462700D98451 /* AddressTableViewCell.swift in Sources */,
@@ -1269,9 +1304,9 @@
 				185C707E27BD38EA008F2FB3 /* DeletePopUpViewController.swift in Sources */,
 				9A4EDDDB2126E9A70071BA56 /* Fragment+OrderConnectionQuery.swift in Sources */,
 				18C3C1EF27BD5C0500B7C73F /* SubCommentsTableViewCell.swift in Sources */,
+				96DD6C3827BFB35800DDA0DC /* SignInViewController.swift in Sources */,
 				9A9C92BC1ED5BDE80027F049 /* Fragment+PaymentQuery.swift in Sources */,
 				9A8E885A1E719EB20042879D /* ClientQuery.swift in Sources */,
-				18937FB927BBE04C00702FB0 /* SignInViewController.swift in Sources */,
 				9AFA3B7F1E6DC5FD0056C5AA /* Storyboard+ViewController.swift in Sources */,
 				9A7E3F6F1E89615E00713740 /* UICollectionView+Touch.swift in Sources */,
 				9ADCC88B1E82FE2900F5B6DD /* TotalsViewController.swift in Sources */,
