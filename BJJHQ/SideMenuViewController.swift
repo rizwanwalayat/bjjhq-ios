@@ -54,7 +54,7 @@ extension SideMenuViewController : UITableViewDelegate,UITableViewDataSource{
         case 2:
             coordinator?.addressPage()
         case 3:
-            print("Contact us")
+            coordinator?.contactUsPage()
         case 4:
             coordinator?.notificationPage()
         case 5:

@@ -13,6 +13,12 @@
         <array key="Barlow-BoldItalic.ttf">
             <string>Barlow-BoldItalic</string>
         </array>
+        <array key="Barlow-LightItalic.ttf">
+            <string>Barlow-LightItalic</string>
+        </array>
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
         <array key="neusa-next-std-compact-regular.ttf">
             <string>NeusaNextStd-CompactRegular</string>
         </array>
@@ -20,7 +26,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactUsViewController">
             <connections>
+                <outlet property="contactTextView" destination="ZlT-G6-5Ph" id="uK6-Ki-g8r"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wordCount" destination="RIK-wm-YZX" id="zOb-il-2o4"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -80,14 +88,55 @@
                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZlT-G6-5Ph">
-                            <rect key="frame" x="35" y="194" width="344" height="129"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ldx-8w-FG6">
+                            <rect key="frame" x="35" y="176" width="344" height="327"/>
+                            <subviews>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZlT-G6-5Ph">
+                                    <rect key="frame" x="14" y="14" width="316" height="276"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="textColor" name="blue"/>
+                                    <fontDescription key="fontDescription" name="Barlow-LightItalic" family="Barlow" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="5MK-7B-2W1"/>
+                                    </connections>
+                                </textView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/200" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iui-nQ-507">
+                                    <rect key="frame" x="302" y="295" width="29" height="17"/>
+                                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="14"/>
+                                    <color key="textColor" name="lightGrey"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIK-wm-YZX">
+                                    <rect key="frame" x="294" y="295" width="8" height="17"/>
+                                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="14"/>
+                                    <color key="textColor" name="lightGrey"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                            <color key="textColor" systemColor="labelColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        </textView>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="ZlT-G6-5Ph" secondAttribute="trailing" constant="14" id="2Ue-Kg-hhr"/>
+                                <constraint firstItem="Iui-nQ-507" firstAttribute="top" secondItem="ZlT-G6-5Ph" secondAttribute="bottom" constant="5" id="Bc3-9g-QAZ"/>
+                                <constraint firstItem="ZlT-G6-5Ph" firstAttribute="leading" secondItem="Ldx-8w-FG6" secondAttribute="leading" constant="14" id="DYU-bM-NmX"/>
+                                <constraint firstItem="RIK-wm-YZX" firstAttribute="centerY" secondItem="Iui-nQ-507" secondAttribute="centerY" id="bjk-rN-mWz"/>
+                                <constraint firstItem="ZlT-G6-5Ph" firstAttribute="top" secondItem="Ldx-8w-FG6" secondAttribute="top" constant="14" id="jnI-AR-nrT"/>
+                                <constraint firstAttribute="bottom" secondItem="Iui-nQ-507" secondAttribute="bottom" constant="15" id="lC2-UR-lu1"/>
+                                <constraint firstAttribute="trailing" secondItem="Iui-nQ-507" secondAttribute="trailing" constant="13" id="nbW-f9-ULN"/>
+                                <constraint firstItem="Iui-nQ-507" firstAttribute="leading" secondItem="RIK-wm-YZX" secondAttribute="trailing" id="xRU-jD-KSa"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" name="sky"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibt-Wg-6RW">
                             <rect key="frame" x="35" y="693" width="344" height="50"/>
                             <color key="backgroundColor" name="blue"/>
@@ -118,18 +167,18 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="bXj-qw-duu" firstAttribute="top" secondItem="PjN-J7-gtr" secondAttribute="top" constant="20" id="1Nj-vJ-Szy"/>
-                        <constraint firstAttribute="trailing" secondItem="ZlT-G6-5Ph" secondAttribute="trailing" constant="35" id="2Zp-sK-02B"/>
+                        <constraint firstItem="Ibt-Wg-6RW" firstAttribute="leading" secondItem="Ldx-8w-FG6" secondAttribute="leading" id="6uA-sC-o1k"/>
                         <constraint firstItem="bXj-qw-duu" firstAttribute="leading" secondItem="Ae2-oO-UAj" secondAttribute="trailing" constant="20" id="EeZ-Db-l8T"/>
                         <constraint firstAttribute="trailing" secondItem="bXj-qw-duu" secondAttribute="trailing" constant="60" id="G17-l2-C68"/>
-                        <constraint firstItem="Ibt-Wg-6RW" firstAttribute="trailing" secondItem="ZlT-G6-5Ph" secondAttribute="trailing" id="Kpg-oH-rre"/>
-                        <constraint firstItem="Ibt-Wg-6RW" firstAttribute="top" secondItem="ZlT-G6-5Ph" secondAttribute="bottom" constant="370" id="Mgg-4a-6Ze"/>
-                        <constraint firstItem="ZlT-G6-5Ph" firstAttribute="top" secondItem="iQh-wo-6cY" secondAttribute="bottom" constant="30" id="Sek-06-GOY"/>
-                        <constraint firstItem="ZlT-G6-5Ph" firstAttribute="leading" secondItem="PjN-J7-gtr" secondAttribute="leading" constant="35" id="VjU-H5-fLd"/>
+                        <constraint firstItem="Ibt-Wg-6RW" firstAttribute="trailing" secondItem="Ldx-8w-FG6" secondAttribute="trailing" id="GhD-U5-lTi"/>
+                        <constraint firstAttribute="trailing" secondItem="Ldx-8w-FG6" secondAttribute="trailing" constant="35" id="TXU-f2-m0y"/>
                         <constraint firstItem="iQh-wo-6cY" firstAttribute="top" secondItem="bXj-qw-duu" secondAttribute="bottom" constant="59" id="Wyk-fz-jCC"/>
                         <constraint firstItem="bXj-qw-duu" firstAttribute="centerY" secondItem="Ae2-oO-UAj" secondAttribute="centerY" id="aKa-Yn-zJw"/>
+                        <constraint firstItem="Ldx-8w-FG6" firstAttribute="height" secondItem="PjN-J7-gtr" secondAttribute="height" multiplier="0.4" id="eHq-MM-X1A"/>
+                        <constraint firstItem="Ldx-8w-FG6" firstAttribute="top" secondItem="iQh-wo-6cY" secondAttribute="bottom" constant="12" id="m2c-pb-Vvz"/>
                         <constraint firstItem="Ae2-oO-UAj" firstAttribute="top" secondItem="PjN-J7-gtr" secondAttribute="top" constant="20" id="mTd-Sk-j2i"/>
                         <constraint firstItem="Ae2-oO-UAj" firstAttribute="leading" secondItem="PjN-J7-gtr" secondAttribute="leading" constant="20" id="rbf-Ok-fXJ"/>
-                        <constraint firstItem="Ibt-Wg-6RW" firstAttribute="leading" secondItem="ZlT-G6-5Ph" secondAttribute="leading" id="xJr-ah-GM3"/>
+                        <constraint firstItem="Ldx-8w-FG6" firstAttribute="leading" secondItem="PjN-J7-gtr" secondAttribute="leading" constant="35" id="tAo-cw-ShF"/>
                         <constraint firstItem="iQh-wo-6cY" firstAttribute="leading" secondItem="PjN-J7-gtr" secondAttribute="leading" constant="47" id="z0a-9G-gDZ"/>
                         <constraint firstAttribute="bottom" secondItem="Ibt-Wg-6RW" secondAttribute="bottom" constant="75" id="zNi-zc-jz3"/>
                     </constraints>
@@ -151,9 +200,12 @@
         <namedColor name="blue">
             <color red="0.14499999582767487" green="0.17299999296665192" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="lightGrey">
+            <color red="0.74117647058823533" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="sky">
+            <color red="0.35699999332427979" green="0.83899998664855957" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

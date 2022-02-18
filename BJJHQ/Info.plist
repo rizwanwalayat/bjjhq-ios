@@ -34,11 +34,27 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    
-    <key>UIAppFonts</key>
-    <array>
-        <string>neusa-next-std-compact-regular</string>
-        <string>neusa-next-std-compact-regular</string>
-    </array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>neusa-next-std-compact-regular</string>
+		<string>Barlow-Black.tff</string>
+		<string>Barlow-BlackItalic.tff</string>
+		<string>Barlow-Bold.tff</string>
+		<string>Barlow-ExtraBold.tff</string>
+		<string>Barlow-ExtraBoldItalic.tff</string>
+		<string>Barlow-ExtraLight.tff</string>
+		<string>Barlow-ExtraLightItalic.tff</string>
+		<string>Barlow-Italic.tff</string>
+		<string>Barlow-Light.tff</string>
+		<string>Barlow-LightItalic.tff</string>
+		<string>Barlow-Medium.tff</string>
+		<string>Barlow-MediumItalic.tff</string>
+		<string>Barlow-Regular.tff</string>
+		<string>Barlow-SemiBold.tff</string>
+		<string>Barlow-SemiBoldItalic.tff</string>
+		<string>Barlow-Thin.tff</string>
+		<string>Barlow-ThinItalic.tff</string>
+		<string>Barlow-BoldItalic.tff</string>
+	</array>
 </dict>
 </plist>

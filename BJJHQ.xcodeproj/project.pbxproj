@@ -89,6 +89,8 @@
 		18FCF6C627BE951100D5DF17 /* SideMenuTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 18FCF6C427BE951100D5DF17 /* SideMenuTableViewCell.xib */; };
 		4BCFFBC636F044FF8234FD2F /* Pods_BJJHQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5D9263BFB2A5B97C243957 /* Pods_BJJHQ.framework */; };
 		9617354027BD0CB300E9FC3C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617353F27BD0CB300E9FC3C /* BaseViewModel.swift */; };
+		96DD6C3F27BFE84600DDA0DC /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD6C3D27BFE84600DDA0DC /* ContactUsViewController.swift */; };
+		96DD6C4027BFE84600DDA0DC /* ContactUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96DD6C3E27BFE84600DDA0DC /* ContactUsViewController.xib */; };
 		9A0ED6861E83F120008C605E /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0ED6851E83F120008C605E /* Serializable.swift */; };
 		9A0ED68A1E83FF2D008C605E /* GraphQL+Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0ED6891E83FF2D008C605E /* GraphQL+Serializable.swift */; };
 		9A0ED6911E842467008C605E /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0ED6901E842467008C605E /* CartButton.swift */; };
@@ -281,6 +283,8 @@
 		733A59A78DD90F2477EDCC2D /* Pods-BJJHQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJJHQ.release.xcconfig"; path = "Target Support Files/Pods-BJJHQ/Pods-BJJHQ.release.xcconfig"; sourceTree = "<group>"; };
 		9617353F27BD0CB300E9FC3C /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		9617354527BD16B200E9FC3C /* SignInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		96DD6C3D27BFE84600DDA0DC /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		96DD6C3E27BFE84600DDA0DC /* ContactUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactUsViewController.xib; sourceTree = "<group>"; };
 		9A0ED6851E83F120008C605E /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		9A0ED6891E83FF2D008C605E /* GraphQL+Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GraphQL+Serializable.swift"; sourceTree = "<group>"; };
 		9A0ED6901E842467008C605E /* CartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
@@ -442,8 +446,8 @@
 			children = (
 				1816884A27BFD13200C9D962 /* Cells */,
 				1816885327BFD13200C9D962 /* HomeViewController.xib */,
-				1816885427BFD13200C9D962 /* Models */,
 				1816885627BFD13200C9D962 /* HomeViewController.swift */,
+				1816885427BFD13200C9D962 /* Models */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -674,6 +678,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		96DD6C3C27BFE82C00DDA0DC /* ContactUs */ = {
+			isa = PBXGroup;
+			children = (
+				96DD6C3D27BFE84600DDA0DC /* ContactUsViewController.swift */,
+				96DD6C3E27BFE84600DDA0DC /* ContactUsViewController.xib */,
+			);
+			name = ContactUs;
+			sourceTree = "<group>";
+		};
 		9A0ED6881E83FF1B008C605E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -825,6 +838,7 @@
 		9AAFAB781E60BD5800864A17 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				96DD6C3C27BFE82C00DDA0DC /* ContactUs */,
 				9ABEB3EB21260C1F00A373F2 /* Account */,
 				9AAFAB791E60BDED00864A17 /* Collections */,
 				9AFA3B781E6DB6FE0056C5AA /* Products */,
@@ -1084,6 +1098,7 @@
 				1816886527BFD13200C9D962 /* OrderViewController.xib in Resources */,
 				1816885B27BFD13200C9D962 /* ColorsSelectionCollectionViewCell.xib in Resources */,
 				1816886127BFD13200C9D962 /* HomeViewController.xib in Resources */,
+				96DD6C4027BFE84600DDA0DC /* ContactUsViewController.xib in Resources */,
 				1816885E27BFD13200C9D962 /* SubCommentsTableViewCell.xib in Resources */,
 				1816886027BFD13200C9D962 /* HomeCollectionViewCell.xib in Resources */,
 			);
@@ -1203,6 +1218,7 @@
 				9AC583CF1E81BF96005DB319 /* CartCell.swift in Sources */,
 				1863836927BB9BFE0080FC80 /* LandingPageViewController.swift in Sources */,
 				9AAFAB8F1E60C6AC00864A17 /* UIImageView+Remote.swift in Sources */,
+				96DD6C3F27BFE84600DDA0DC /* ContactUsViewController.swift in Sources */,
 				9AFA3B7D1E6DB7110056C5AA /* ProductsViewController.swift in Sources */,
 				9A0ED6861E83F120008C605E /* Serializable.swift in Sources */,
 				9A9FFF051E796F2100F6DFF7 /* Paginating.swift in Sources */,

@@ -39,7 +39,7 @@ class MainCoordinator: Coordinator {
         navigationController.setViewControllers([vc], animated: true)
     }
     
-    func landedPage() {
+    func landingPage() {
         let vc = LandingPageViewController()
         vc.coordinator = self
         navigationController.setViewControllers([vc], animated: true)
@@ -95,6 +95,13 @@ class MainCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func contactUsPage() {
+        let vc = ContactUsViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+
     
     func forgetPage() {
         let vc = ForgetViewController()
