@@ -84,6 +84,13 @@ class MainCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func myOrdersPage() {
+        let vc = MyOrdersViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
     func orderSuccesfullPopUp() {
         let vc = OrderSuccesFullViewController()
         vc.coordinator = self
@@ -95,6 +102,13 @@ class MainCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func contactUsPage() {
+        let vc = ContactUsViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+
     
     func forgetPage() {
         let vc = ForgetViewController()

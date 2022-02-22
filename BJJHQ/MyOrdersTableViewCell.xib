@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-BoldItalic.ttf">
+            <string>Barlow-BoldItalic</string>
+        </array>
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="199" id="KGk-i7-Jjw" customClass="MyOrdersTableViewCell" customModule="BJJHQ" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="479" height="199"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="479" height="199"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfa-TB-AZK">
+                        <rect key="frame" x="10" y="10" width="459" height="95"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="e16-jr-AZ5">
+                                <rect key="frame" x="10" y="10" width="439" height="75"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProductSample" translatesAutoresizingMaskIntoConstraints="NO" id="KFf-YO-GtO">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="KFf-YO-GtO" secondAttribute="height" multiplier="1:1" id="Amd-mg-eGa"/>
+                                            <constraint firstAttribute="width" constant="62" id="mUR-Yt-YZE"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btb-Bx-uq5" userLabel="Order Details View">
+                                        <rect key="frame" x="83" y="0.0" width="304.5" height="75"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Order #203" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lj6-On-6yo">
+                                                <rect key="frame" x="0.0" y="6" width="68.5" height="48.5"/>
+                                                <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gs4-qM-bNl">
+                                                <rect key="frame" x="0.0" y="60.5" width="304.5" height="14.5"/>
+                                                <string key="text">Order Details Order Details Order Details Order Details Order Details Order Details Order Details Order Details Order Details Order Details  Order Details Order Details Order Details Order Details</string>
+                                                <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="12"/>
+                                                <color key="textColor" name="blue"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="gs4-qM-bNl" secondAttribute="trailing" id="FaU-3s-rww"/>
+                                            <constraint firstItem="gs4-qM-bNl" firstAttribute="top" secondItem="lj6-On-6yo" secondAttribute="bottom" constant="6" id="hG1-4Y-PhH"/>
+                                            <constraint firstItem="lj6-On-6yo" firstAttribute="leading" secondItem="btb-Bx-uq5" secondAttribute="leading" id="oEF-KJ-8nA"/>
+                                            <constraint firstItem="lj6-On-6yo" firstAttribute="top" secondItem="btb-Bx-uq5" secondAttribute="top" constant="6" id="qcL-Q0-VZ3"/>
+                                            <constraint firstAttribute="bottom" secondItem="gs4-qM-bNl" secondAttribute="bottom" id="qyT-70-o0e"/>
+                                            <constraint firstItem="gs4-qM-bNl" firstAttribute="leading" secondItem="lj6-On-6yo" secondAttribute="leading" id="val-R9-g9v"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ada-f2-Vto" userLabel="Price and Date View">
+                                        <rect key="frame" x="395.5" y="0.0" width="43.5" height="75"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="$40.8" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnI-Pt-1bK">
+                                                <rect key="frame" x="0.0" y="0.0" width="43.5" height="19.5"/>
+                                                <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="16"/>
+                                                <color key="textColor" name="blue"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Friday" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUY-Uc-E2R">
+                                                <rect key="frame" x="0.0" y="34.5" width="43.5" height="14.5"/>
+                                                <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="12"/>
+                                                <color key="textColor" name="textLight"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="12:51 am" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdU-Po-509">
+                                                <rect key="frame" x="0.0" y="53" width="43.5" height="14.5"/>
+                                                <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="12"/>
+                                                <color key="textColor" name="textLight"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="RUY-Uc-E2R" firstAttribute="leading" secondItem="Ada-f2-Vto" secondAttribute="leading" id="4FV-nu-bJ2"/>
+                                            <constraint firstItem="cdU-Po-509" firstAttribute="top" secondItem="RUY-Uc-E2R" secondAttribute="bottom" constant="4" id="9pu-M1-jMg"/>
+                                            <constraint firstItem="cdU-Po-509" firstAttribute="trailing" secondItem="RUY-Uc-E2R" secondAttribute="trailing" id="IqU-tE-YLA"/>
+                                            <constraint firstItem="wnI-Pt-1bK" firstAttribute="leading" secondItem="Ada-f2-Vto" secondAttribute="leading" id="TRc-TO-Rtc"/>
+                                            <constraint firstItem="RUY-Uc-E2R" firstAttribute="top" secondItem="wnI-Pt-1bK" secondAttribute="bottom" constant="15" id="ffh-kk-ZjI"/>
+                                            <constraint firstAttribute="trailing" secondItem="wnI-Pt-1bK" secondAttribute="trailing" id="jnS-Kh-3ee"/>
+                                            <constraint firstItem="RUY-Uc-E2R" firstAttribute="trailing" secondItem="wnI-Pt-1bK" secondAttribute="trailing" id="ml1-qB-QBH"/>
+                                            <constraint firstItem="wnI-Pt-1bK" firstAttribute="top" secondItem="Ada-f2-Vto" secondAttribute="top" id="o6l-tL-B2h"/>
+                                            <constraint firstItem="cdU-Po-509" firstAttribute="leading" secondItem="Ada-f2-Vto" secondAttribute="leading" id="xAV-tz-IgM"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="e16-jr-AZ5" firstAttribute="top" secondItem="hfa-TB-AZK" secondAttribute="top" constant="10" id="Aji-M5-dEO"/>
+                            <constraint firstAttribute="bottom" secondItem="e16-jr-AZ5" secondAttribute="bottom" constant="10" id="WtY-6h-Zpk"/>
+                            <constraint firstAttribute="trailing" secondItem="e16-jr-AZ5" secondAttribute="trailing" constant="10" id="mra-Ih-yks"/>
+                            <constraint firstItem="e16-jr-AZ5" firstAttribute="leading" secondItem="hfa-TB-AZK" secondAttribute="leading" constant="10" id="qlj-bA-liW"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="sky"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hfa-TB-AZK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="bOQ-b5-OEB"/>
+                    <constraint firstAttribute="bottom" secondItem="hfa-TB-AZK" secondAttribute="bottom" constant="10" id="drO-X2-iOp"/>
+                    <constraint firstAttribute="trailing" secondItem="hfa-TB-AZK" secondAttribute="trailing" constant="10" id="hD3-uS-ria"/>
+                    <constraint firstItem="hfa-TB-AZK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="lV6-fN-oXP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="mainView" destination="hfa-TB-AZK" id="uSA-1N-hWL"/>
+            </connections>
+            <point key="canvasLocation" x="252.89855072463769" y="133.59375"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ProductSample" width="80" height="80"/>
+        <namedColor name="blue">
+            <color red="0.14499999582767487" green="0.17299999296665192" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="sky">
+            <color red="0.35699999332427979" green="0.83899998664855957" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textLight">
+            <color red="0.14499999582767487" green="0.17299999296665192" blue="0.2669999897480011" alpha="0.68999999761581421" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
