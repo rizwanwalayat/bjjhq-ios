@@ -91,6 +91,10 @@
 		9617354027BD0CB300E9FC3C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617353F27BD0CB300E9FC3C /* BaseViewModel.swift */; };
 		96DD6C3F27BFE84600DDA0DC /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD6C3D27BFE84600DDA0DC /* ContactUsViewController.swift */; };
 		96DD6C4027BFE84600DDA0DC /* ContactUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96DD6C3E27BFE84600DDA0DC /* ContactUsViewController.xib */; };
+		96DD6C4627C3790B00DDA0DC /* MyOrdersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96DD6C4227C3790A00DDA0DC /* MyOrdersViewController.xib */; };
+		96DD6C4727C3790B00DDA0DC /* MyOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD6C4327C3790A00DDA0DC /* MyOrdersViewController.swift */; };
+		96DD6C4827C3790B00DDA0DC /* MyOrdersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96DD6C4427C3790B00DDA0DC /* MyOrdersTableViewCell.xib */; };
+		96DD6C4927C3790B00DDA0DC /* MyOrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD6C4527C3790B00DDA0DC /* MyOrdersTableViewCell.swift */; };
 		9A0ED6861E83F120008C605E /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0ED6851E83F120008C605E /* Serializable.swift */; };
 		9A0ED68A1E83FF2D008C605E /* GraphQL+Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0ED6891E83FF2D008C605E /* GraphQL+Serializable.swift */; };
 		9A0ED6911E842467008C605E /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0ED6901E842467008C605E /* CartButton.swift */; };
@@ -285,6 +289,10 @@
 		9617354527BD16B200E9FC3C /* SignInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		96DD6C3D27BFE84600DDA0DC /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		96DD6C3E27BFE84600DDA0DC /* ContactUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactUsViewController.xib; sourceTree = "<group>"; };
+		96DD6C4227C3790A00DDA0DC /* MyOrdersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrdersViewController.xib; sourceTree = "<group>"; };
+		96DD6C4327C3790A00DDA0DC /* MyOrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOrdersViewController.swift; sourceTree = "<group>"; };
+		96DD6C4427C3790B00DDA0DC /* MyOrdersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrdersTableViewCell.xib; sourceTree = "<group>"; };
+		96DD6C4527C3790B00DDA0DC /* MyOrdersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOrdersTableViewCell.swift; sourceTree = "<group>"; };
 		9A0ED6851E83F120008C605E /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		9A0ED6891E83FF2D008C605E /* GraphQL+Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GraphQL+Serializable.swift"; sourceTree = "<group>"; };
 		9A0ED6901E842467008C605E /* CartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
@@ -687,6 +695,25 @@
 			name = ContactUs;
 			sourceTree = "<group>";
 		};
+		96DD6C4127C378FB00DDA0DC /* MyOrders */ = {
+			isa = PBXGroup;
+			children = (
+				96DD6C4A27C379BB00DDA0DC /* Views */,
+				96DD6C4327C3790A00DDA0DC /* MyOrdersViewController.swift */,
+				96DD6C4227C3790A00DDA0DC /* MyOrdersViewController.xib */,
+			);
+			name = MyOrders;
+			sourceTree = "<group>";
+		};
+		96DD6C4A27C379BB00DDA0DC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				96DD6C4527C3790B00DDA0DC /* MyOrdersTableViewCell.swift */,
+				96DD6C4427C3790B00DDA0DC /* MyOrdersTableViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		9A0ED6881E83FF1B008C605E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -838,6 +865,7 @@
 		9AAFAB781E60BD5800864A17 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				96DD6C4127C378FB00DDA0DC /* MyOrders */,
 				96DD6C3C27BFE82C00DDA0DC /* ContactUs */,
 				9ABEB3EB21260C1F00A373F2 /* Account */,
 				9AAFAB791E60BDED00864A17 /* Collections */,
@@ -1098,9 +1126,11 @@
 				1816886527BFD13200C9D962 /* OrderViewController.xib in Resources */,
 				1816885B27BFD13200C9D962 /* ColorsSelectionCollectionViewCell.xib in Resources */,
 				1816886127BFD13200C9D962 /* HomeViewController.xib in Resources */,
+				96DD6C4827C3790B00DDA0DC /* MyOrdersTableViewCell.xib in Resources */,
 				96DD6C4027BFE84600DDA0DC /* ContactUsViewController.xib in Resources */,
 				1816885E27BFD13200C9D962 /* SubCommentsTableViewCell.xib in Resources */,
 				1816886027BFD13200C9D962 /* HomeCollectionViewCell.xib in Resources */,
+				96DD6C4627C3790B00DDA0DC /* MyOrdersViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1280,6 +1310,7 @@
 				9ADAD4751E563091008AC561 /* LaunchScreen.storyboard in Sources */,
 				1847909727BE454000D98451 /* Barlow-Medium.ttf in Sources */,
 				18D766C427BE8D290076A12B /* SideMenuViewController.xib in Sources */,
+				96DD6C4927C3790B00DDA0DC /* MyOrdersTableViewCell.swift in Sources */,
 				1863836827BB9BFE0080FC80 /* LandingPageViewController.xib in Sources */,
 				1847909527BE454000D98451 /* Barlow-Black.ttf in Sources */,
 				9ADAD4721E563091008AC561 /* Assets.xcassets in Sources */,
@@ -1311,6 +1342,7 @@
 				9AC583D01E81BF96005DB319 /* CartCell.xib in Sources */,
 				185C707527BCEF41008F2FB3 /* EmailUpdateViewController.xib in Sources */,
 				184790A027BE454000D98451 /* Barlow-MediumItalic.ttf in Sources */,
+				96DD6C4727C3790B00DDA0DC /* MyOrdersViewController.swift in Sources */,
 				1847909427BE454000D98451 /* Barlow-Regular.ttf in Sources */,
 				1816884327BFCED900C9D962 /* SignUpViewController.xib in Sources */,
 				1847908127BE448A00D98451 /* MyAddressesViewController.xib in Sources */,

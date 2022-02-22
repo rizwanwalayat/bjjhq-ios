@@ -19,7 +19,7 @@ class ContactUsViewController: BaseViewController {
         super.viewDidLoad()
     }
     @IBAction func backAction(_ sender: Any) {
-        
+        coordinator?.popVc()
     }
     
    
