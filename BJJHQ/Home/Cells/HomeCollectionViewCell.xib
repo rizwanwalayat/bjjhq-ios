@@ -18,10 +18,9 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p1Q-DD-bx9">
-                        <rect key="frame" x="34" y="30" width="151" height="151"/>
+                        <rect key="frame" x="20" y="16" width="179" height="179"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="p1Q-DD-bx9" secondAttribute="height" multiplier="1:1" id="iuQ-jM-UUB"/>
-                            <constraint firstAttribute="height" constant="151" id="mSc-Wg-tES"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -31,6 +30,7 @@
             <constraints>
                 <constraint firstItem="p1Q-DD-bx9" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="J29-xS-axJ"/>
                 <constraint firstItem="p1Q-DD-bx9" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Jwt-V9-hmC"/>
+                <constraint firstItem="p1Q-DD-bx9" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.85" id="eog-94-3hz"/>
             </constraints>
             <size key="customSize" width="219" height="211"/>
             <connections>

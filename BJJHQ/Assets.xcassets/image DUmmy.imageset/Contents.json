@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Group 6555.png",
+      "filename" : "sneaker-2768733_1920.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Group 6555@2x.png",
+      "filename" : "sneaker-2768733_1920@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Group 6555@3x.png",
+      "filename" : "sneaker-2768733_1920@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -19,8 +19,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "template-rendering-intent" : "template"
   }
 }

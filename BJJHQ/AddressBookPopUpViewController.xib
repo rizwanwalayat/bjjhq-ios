@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -59,7 +59,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27D-zQ-C5Y">
                                             <rect key="frame" x="0.0" y="49" width="314" height="1"/>
-                                            <color key="backgroundColor" red="0.48627450979999998" green="0.50196078430000002" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="sky"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="i1B-Lt-HIN"/>
                                             </constraints>
@@ -88,7 +88,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcb-Bo-AwH">
                                             <rect key="frame" x="0.0" y="49" width="314" height="1"/>
-                                            <color key="backgroundColor" red="0.48627450979999998" green="0.50196078430000002" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="sky"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="OuZ-P7-8LD"/>
                                             </constraints>
@@ -117,7 +117,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZe-h6-NnQ">
                                             <rect key="frame" x="0.0" y="49" width="314" height="1"/>
-                                            <color key="backgroundColor" red="0.48627450979999998" green="0.50196078430000002" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="sky"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="ine-Kn-Kof"/>
                                             </constraints>
@@ -146,7 +146,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKN-dq-PBD">
                                             <rect key="frame" x="0.0" y="49" width="314" height="1"/>
-                                            <color key="backgroundColor" red="0.48627450979999998" green="0.50196078430000002" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="sky"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="Bfn-H3-Ldb"/>
                                             </constraints>
@@ -175,7 +175,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fen-BD-b5v">
                                             <rect key="frame" x="0.0" y="79" width="314" height="1"/>
-                                            <color key="backgroundColor" red="0.48627450979999998" green="0.50196078430000002" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="sky"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="WBu-ao-BOf"/>
                                             </constraints>
@@ -208,7 +208,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4r-6y-ADr">
                                             <rect key="frame" x="0.0" y="49" width="314" height="1"/>
-                                            <color key="backgroundColor" red="0.48627450979999998" green="0.50196078430000002" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="sky"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="3iE-Kr-End"/>
                                             </constraints>
@@ -239,14 +239,13 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boa-Ib-6U8">
                                     <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
-                                    <color key="backgroundColor" name="blue"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="fPR-QJ-q0u"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="14"/>
                                     <color key="tintColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <state key="normal" title="Delete this Address">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="titleColor" red="0.1450980392" green="0.1764705882" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -261,11 +260,17 @@
                                         <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
                                             <size key="value" width="0.0" height="2"/>
                                         </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.1450980392" green="0.1764705882" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDU-wK-OU9">
                                     <rect key="frame" x="0.0" y="70" width="314" height="50"/>
-                                    <color key="backgroundColor" name="marinda"/>
+                                    <color key="backgroundColor" name="blue"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="k7v-rC-eGh"/>
                                     </constraints>

@@ -33,13 +33,13 @@ class SignInViewController: BaseViewController {
         skipButton.setTitle("", for: .normal)
         setupButtonUnderlineText(skipButton, "SKIP", color: "BCBFCC")
         signupButton.setTitle("", for: .normal)
-        setupButtonUnderlineText(signupButton, "Sign Up", color: "#DF6565",1.0)
+        setupButtonUnderlineText(signupButton, "Sign Up", color: "5BD6CD",1.0)
         changeButtonState(state: false)
     }
     
     func changeButtonState(state:Bool) {
         if state {
-            signInButton.backgroundColor = UIColor(hexString: "DF6565")
+            signInButton.backgroundColor = UIColor(hexString: "#252C44")
         }
         else {
             signInButton.backgroundColor = UIColor(hexString: "#E2E3E7")
@@ -95,7 +95,7 @@ extension SignInViewController : UITextFieldDelegate {
         }
         
         else {
-            self.emailView.backgroundColor = UIColor(hexString: "#DF6565")
+            self.emailView.backgroundColor = UIColor(hexString: "#5BD6CD")
         }
         
         if passwordTF.text!.count < 8 {
@@ -103,7 +103,7 @@ extension SignInViewController : UITextFieldDelegate {
         }
         
         else {
-            self.passwordView.backgroundColor = UIColor(hexString: "#DF6565")
+            self.passwordView.backgroundColor = UIColor(hexString: "#5BD6CD")
         }
         
         if passwordTF.text == "" || ((emailTF.text?.isValidEmail()) == false) {

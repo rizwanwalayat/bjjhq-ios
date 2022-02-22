@@ -42,6 +42,11 @@ class UserProfileViewController: BaseViewController {
     
     @IBAction func saveChangeAction(_ sender: Any) {
     }
+    
+    @IBAction func backAction(_ sender: Any) {
+        
+        coordinator?.popVc()
+    }
 }
 
 extension UserProfileViewController : UITextViewDelegate{

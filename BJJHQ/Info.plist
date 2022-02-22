@@ -34,11 +34,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    
-    <key>UIAppFonts</key>
-    <array>
-        <string>neusa-next-std-compact-regular</string>
-        <string>neusa-next-std-compact-regular</string>
-    </array>
 </dict>
 </plist>

@@ -35,13 +35,13 @@ class ForgetViewController: BaseViewController {
         skipButton.setTitle("", for: .normal)
         setupButtonUnderlineText(skipButton, "SKIP", color: "BCBFCC")
         skipButton.setTitle("", for: .normal)
-        setupButtonUnderlineText(signInBUtton, "Try Signing In", color: "#DF6565",1.0)
+        setupButtonUnderlineText(signInBUtton, "Try Signing In", color: "#5BD6CD",1.0)
         changeButtonState(state: false)
     }
     
     func changeButtonState(state:Bool) {
         if state {
-            submitButton.backgroundColor = UIColor(hexString: "DF6565")
+            submitButton.backgroundColor = UIColor(hexString: "#252C44")
         }
         else {
             submitButton.backgroundColor = UIColor(hexString: "#E2E3E7")

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,6 +12,9 @@
     <customFonts key="customFonts">
         <array key="Barlow-BoldItalic.ttf">
             <string>Barlow-BoldItalic</string>
+        </array>
+        <array key="Barlow-Medium.ttf">
+            <string>Barlow-Medium</string>
         </array>
         <array key="neusa-next-std-compact-regular.ttf">
             <string>NeusaNextStd-CompactRegular</string>
@@ -37,18 +40,18 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't worry! Resetting your password is easy. Just type your email below and we'll send you the reset password." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRN-68-Xcu">
-                            <rect key="frame" x="30" y="143" width="354" height="28"/>
-                            <fontDescription key="fontDescription" name="NeusaNextStd-CompactRegular" family="Neusa Next Std" pointSize="14"/>
+                            <rect key="frame" x="40" y="143" width="334" height="50.5"/>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="14"/>
                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zO-f2-TeN">
-                            <rect key="frame" x="20" y="484" width="374" height="50"/>
-                            <color key="backgroundColor" red="0.87450980389999999" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <rect key="frame" x="20" y="388" width="374" height="50"/>
+                            <color key="backgroundColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="J0w-GJ-le0"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="NeusaNextStd-CompactRegular" family="Neusa Next Std" pointSize="20"/>
+                            <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="14"/>
                             <color key="tintColor" red="1" green="0.52549019610000003" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="Submit">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -105,14 +108,14 @@
                             </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YZE-jY-fBt">
-                            <rect key="frame" x="20" y="384" width="374" height="50"/>
+                            <rect key="frame" x="20" y="278" width="374" height="50"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ohd-rP-3Gz">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOk-2c-3am">
                                             <rect key="frame" x="0.0" y="49" width="374" height="1"/>
-                                            <color key="backgroundColor" red="0.48627450979999998" green="0.50196078430000002" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="sky"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="eiN-rh-m22"/>
                                             </constraints>
@@ -120,7 +123,7 @@
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5d2-S4-agB">
                                             <rect key="frame" x="10" y="0.0" width="354" height="49"/>
                                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" name="NeusaNextStd-CompactRegular" family="Neusa Next Std" pointSize="18"/>
+                                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="18"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
                                                 <outlet property="delegate" destination="-1" id="Ln5-xY-7kd"/>
@@ -142,8 +145,8 @@
                             </subviews>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you remember your password?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pl4-gs-R4U">
-                            <rect key="frame" x="103" y="564" width="208.5" height="18"/>
-                            <fontDescription key="fontDescription" name="NeusaNextStd-CompactRegular" family="Neusa Next Std" pointSize="18"/>
+                            <rect key="frame" x="90" y="468" width="234.5" height="19.5"/>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="16"/>
                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -183,12 +186,12 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Qf-Bj-Hot">
-                            <rect key="frame" x="166" y="602" width="82" height="30"/>
+                            <rect key="frame" x="160" y="507.5" width="94" height="32"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" name="NeusaNextStd-CompactRegular" family="Neusa Next Std" pointSize="18"/>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="16"/>
                             <color key="tintColor" red="1" green="0.52549019610000003" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="Try Signing In">
-                                <color key="titleColor" red="0.87450980389999999" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleColor" name="sky"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -211,23 +214,22 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="YZE-jY-fBt" firstAttribute="centerY" secondItem="fQA-X0-B7b" secondAttribute="centerY" id="41E-n3-ZfO"/>
+                        <constraint firstItem="YZE-jY-fBt" firstAttribute="centerY" secondItem="fQA-X0-B7b" secondAttribute="centerY" constant="-106" id="41E-n3-ZfO"/>
                         <constraint firstItem="pl4-gs-R4U" firstAttribute="top" secondItem="1zO-f2-TeN" secondAttribute="bottom" constant="30" id="Fvu-Jf-FqF"/>
                         <constraint firstItem="8Uf-eP-6QV" firstAttribute="leading" secondItem="fQA-X0-B7b" secondAttribute="leading" constant="30" id="Nzd-4q-9XD"/>
                         <constraint firstItem="YZE-jY-fBt" firstAttribute="leading" secondItem="fQA-X0-B7b" secondAttribute="leading" constant="20" id="Rd9-io-tg9"/>
                         <constraint firstItem="6Qf-Bj-Hot" firstAttribute="centerX" secondItem="fQA-X0-B7b" secondAttribute="centerX" id="SAR-1u-wqQ"/>
                         <constraint firstItem="6Qf-Bj-Hot" firstAttribute="top" secondItem="pl4-gs-R4U" secondAttribute="bottom" constant="20" id="UWL-9A-rs0"/>
-                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="6Qf-Bj-Hot" secondAttribute="bottom" constant="30" id="WcR-YI-sKV"/>
                         <constraint firstItem="YZE-jY-fBt" firstAttribute="centerX" secondItem="fQA-X0-B7b" secondAttribute="centerX" id="X0m-u1-I9B"/>
                         <constraint firstAttribute="trailing" secondItem="YZE-jY-fBt" secondAttribute="trailing" constant="20" id="dGc-jM-QaW"/>
                         <constraint firstItem="1zO-f2-TeN" firstAttribute="leading" secondItem="fQA-X0-B7b" secondAttribute="leading" constant="20" id="er4-Cb-WFN"/>
-                        <constraint firstItem="1zO-f2-TeN" firstAttribute="top" secondItem="YZE-jY-fBt" secondAttribute="bottom" constant="50" id="f3j-0K-Vj8"/>
+                        <constraint firstItem="1zO-f2-TeN" firstAttribute="top" secondItem="YZE-jY-fBt" secondAttribute="bottom" constant="60" id="f3j-0K-Vj8"/>
                         <constraint firstItem="KCe-vZ-uhc" firstAttribute="top" secondItem="fQA-X0-B7b" secondAttribute="top" constant="20" id="ijN-5o-K7f"/>
-                        <constraint firstItem="aRN-68-Xcu" firstAttribute="leading" secondItem="fQA-X0-B7b" secondAttribute="leading" constant="30" id="j4T-nK-bqh"/>
+                        <constraint firstItem="aRN-68-Xcu" firstAttribute="leading" secondItem="fQA-X0-B7b" secondAttribute="leading" constant="40" id="j4T-nK-bqh"/>
                         <constraint firstItem="KCe-vZ-uhc" firstAttribute="leading" secondItem="fQA-X0-B7b" secondAttribute="leading" constant="30" id="kaJ-fF-Rxw"/>
                         <constraint firstItem="tdO-L4-C7P" firstAttribute="top" secondItem="fQA-X0-B7b" secondAttribute="top" constant="30" id="oz5-Tt-jvJ"/>
                         <constraint firstItem="8Uf-eP-6QV" firstAttribute="top" secondItem="KCe-vZ-uhc" secondAttribute="bottom" constant="30" id="pGg-xi-YCe"/>
-                        <constraint firstAttribute="trailing" secondItem="aRN-68-Xcu" secondAttribute="trailing" constant="30" id="piy-0x-5EC"/>
+                        <constraint firstAttribute="trailing" secondItem="aRN-68-Xcu" secondAttribute="trailing" constant="40" id="piy-0x-5EC"/>
                         <constraint firstAttribute="trailing" secondItem="8Uf-eP-6QV" secondAttribute="trailing" constant="30" id="sWK-92-DmI"/>
                         <constraint firstItem="aRN-68-Xcu" firstAttribute="top" secondItem="8Uf-eP-6QV" secondAttribute="bottom" constant="12" id="wO4-mJ-TTh"/>
                         <constraint firstAttribute="trailing" secondItem="1zO-f2-TeN" secondAttribute="trailing" constant="20" id="xfI-Wi-lzp"/>
@@ -251,6 +253,9 @@
         <image name="backButton" width="8" height="14.5"/>
         <namedColor name="blue">
             <color red="0.14499999582767487" green="0.17299999296665192" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="sky">
+            <color red="0.35699999332427979" green="0.83899998664855957" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

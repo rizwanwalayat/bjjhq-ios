@@ -80,6 +80,9 @@
                                             <size key="value" width="0.0" height="2"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="backAction:" destination="-1" eventType="touchUpInside" id="kNq-vp-PjI"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wr-Sj-sJK">
                                     <rect key="frame" x="164.5" y="72" width="85.5" height="24"/>

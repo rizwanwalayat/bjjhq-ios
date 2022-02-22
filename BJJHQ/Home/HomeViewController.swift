@@ -329,7 +329,7 @@ extension HomeViewController: UICollectionViewDataSource
            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as! HomeCollectionViewCell
             
-            cell.productImageView.image = UIImage(named: "welcome")
+            cell.productImageView.image = UIImage(named: "image DUmmy")
             return cell
         }
         

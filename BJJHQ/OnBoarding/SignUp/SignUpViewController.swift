@@ -28,6 +28,7 @@ class SignUpViewController: BaseViewController {
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var checkButtonImageView: UIImageView!
     
     
     //MARK: - LifeCycle
@@ -44,7 +45,7 @@ class SignUpViewController: BaseViewController {
         skipButton.setTitle("", for: .normal)
         setupButtonUnderlineText(skipButton, "SKIP", color: "BCBFCC")
         signInButton.setTitle("", for: .normal)
-        setupButtonUnderlineText(signInButton, "Sign In", color: "#DF6565",1.0)
+        setupButtonUnderlineText(signInButton, "Sign In", color: "5BD6CD",1.0)
         changeButtonState(state: false)
     }
     
@@ -81,12 +82,21 @@ class SignUpViewController: BaseViewController {
         coordinator?.homePage()
     }
     
+    @IBAction func checkButtonAction(_ sender: Any) {
+        
+        if checkButtonImageView.backgroundColor == .clear {
+            checkButtonImageView.backgroundColor = UIColor(hexString: "252C44")
+        }
+        else {
+            checkButtonImageView.backgroundColor = .clear
+        }
+    }
     
     //MARK: - Functions
     
     func changeButtonState(state:Bool) {
         if state {
-            signUpButton.backgroundColor = UIColor(hexString: "DF6565")
+            signUpButton.backgroundColor = UIColor(hexString: "#252C44")
         }
         else {
             signUpButton.backgroundColor = UIColor(hexString: "#E2E3E7")
@@ -104,14 +114,14 @@ extension SignUpViewController : UITextFieldDelegate {
             self.firstNameView.backgroundColor = UIColor(hexString: "#7C808F")
         }
         else {
-            self.firstNameView.backgroundColor = UIColor(hexString: "#DF6565")
+            self.firstNameView.backgroundColor = UIColor(hexString: "#5BD6CD")
         }
         
         if lastNameTF.text == "" {
             self.lastNameView.backgroundColor = UIColor(hexString: "#7C808F")
         }
         else {
-            self.lastNameView.backgroundColor = UIColor(hexString: "#DF6565")
+            self.lastNameView.backgroundColor = UIColor(hexString: "#5BD6CD")
         }
         
         if ((emailTF.text?.isValidEmail()) == false) {
@@ -119,7 +129,7 @@ extension SignUpViewController : UITextFieldDelegate {
         }
         
         else {
-            self.emailView.backgroundColor = UIColor(hexString: "#DF6565")
+            self.emailView.backgroundColor = UIColor(hexString: "#5BD6CD")
         }
         
         if userNameTF.text == "" {
@@ -127,7 +137,7 @@ extension SignUpViewController : UITextFieldDelegate {
         }
         
         else {
-            self.userNameview.backgroundColor = UIColor(hexString: "#DF6565")
+            self.userNameview.backgroundColor = UIColor(hexString: "#5BD6CD")
         }
         
         if passwordTF.text!.count < 8 {
@@ -135,7 +145,7 @@ extension SignUpViewController : UITextFieldDelegate {
         }
         
         else {
-            self.passwordView.backgroundColor = UIColor(hexString: "#DF6565")
+            self.passwordView.backgroundColor = UIColor(hexString: "#5BD6CD")
         }
         
 
