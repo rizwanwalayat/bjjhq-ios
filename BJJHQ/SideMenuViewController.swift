@@ -52,11 +52,11 @@ extension SideMenuViewController : UITableViewDelegate,UITableViewDataSource{
         case 0:
             coordinator?.changePasswordPage()
         case 1:
-            coordinator?.orderPage()
+            coordinator?.myOrdersPage()
         case 2:
             coordinator?.addressPage()
         case 3:
-            print("Contact us")
+            coordinator?.contactUsPage()
         case 4:
             coordinator?.notificationPage()
         case 5:
