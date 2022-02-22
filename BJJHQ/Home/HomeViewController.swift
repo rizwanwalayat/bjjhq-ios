@@ -133,15 +133,15 @@ class HomeViewController: BaseViewController {
     
     fileprivate func addCommentsData()
     {
-        let commentsObject = CommentsData("Rizwan07", "very nice", "10", "15", "3 min",  nil, [])
+        let commentsObject = CommentsData("Rizwan07", "very nice", "10", "15", "3 min",  nil, [], nil)
         comments.append(commentsObject)
         
-        let subComments = CommentsReplyData("Rizwan07", "zahir ha", "100", "2", "30 min", nil)
-        let commentsObject2 = CommentsData("Haider003", "fazool", "100", "300", "1 hour",  nil, [subComments])
+        let subComments = CommentsReplyData("Rizwan07", "zahir ha", "100", "2", "30 min", nil, nil)
+        let commentsObject2 = CommentsData("Haider003", "fazool", "100", "300", "1 hour",  nil, [subComments], nil)
         comments.append(commentsObject2)
         
-        let subComments1 = CommentsReplyData("Haider003", "Thank you so much for these kind words.", "100", "2", "30 min", nil)
-        let commentsObject3 = CommentsData("asad01", "Amazing hoodies!! Just received my first order and they are fantastic quality and perfect fit.", "33", "0", "1 day", nil , [subComments, subComments1])
+        let subComments1 = CommentsReplyData("Haider003", "Thank you so much for these kind words.", "100", "2", "30 min", nil, nil)
+        let commentsObject3 = CommentsData("asad01", "Amazing hoodies!! Just received my first order and they are fantastic quality and perfect fit.", "33", "0", "1 day", nil , [subComments, subComments1], nil)
         comments.append(commentsObject3)
         
         tableView.reloadData()
@@ -185,14 +185,14 @@ class HomeViewController: BaseViewController {
         if writeCommentsTF.text!.count > 0{
             if let commentObj = replayComment{
                 
-                let subComments = CommentsReplyData("unknown", writeCommentsTF.text ?? "Nothing", "0", "0", "Now", imageComment.image)
+                let subComments = CommentsReplyData("unknown", writeCommentsTF.text ?? "Nothing", "0", "0", "Now", imageComment.image, nil)
                 commentObj.replies.append(subComments)
                 
                 index = comments.firstIndex{$0 === commentObj} ?? comments.count - 1
             }
             else {
                 
-                let commentsObject = CommentsData("unknown", writeCommentsTF.text ?? "Nothing", "0", "0", "Now",  imageComment.image, [])
+                let commentsObject = CommentsData("unknown", writeCommentsTF.text ?? "Nothing", "0", "0", "Now",  imageComment.image, [], nil)
                 comments.append(commentsObject)
                 index = comments.count - 1
             }
@@ -222,9 +222,14 @@ class HomeViewController: BaseViewController {
     @objc func likeButtonPressed (_ sender: UIButton)
     {
         let obj = comments[sender.tag]
-        var commentsLike = Int(obj.likeCount) ?? 0
-        commentsLike += 1
-        obj.likeCount = "\(commentsLike)"
+        
+        if obj.isLiked == nil || obj.isLiked == false
+        {
+            obj.isLiked = true
+        }else {
+            obj.isLiked = nil
+        }
+        
         //let indexpath = IndexPath(row: sender.tag, section: 0)
         tableView.reloadData()//reloadRows(at: [indexpath], with: .automatic)
     }
@@ -232,9 +237,15 @@ class HomeViewController: BaseViewController {
     @objc func unLikeButtonPressed (_ sender: UIButton)
     {
         let obj = comments[sender.tag]
-        var commentsLike = Int(obj.unlikeCount) ?? 0
-        commentsLike -= 1
-        obj.unlikeCount = "\(commentsLike)"
+        
+        
+        if obj.isLiked == nil || obj.isLiked == true
+        {
+            obj.isLiked = false
+        }else {
+            obj.isLiked = nil
+        }
+    
         //let indexpath = IndexPath(row: sender.tag, section: 0)
         tableView.reloadData()//reloadRows(at: [indexpath], with: .automatic)
         

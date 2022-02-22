@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04E692D327C385D100DF3750 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E692D127C385D100DF3750 /* UserProfileViewController.swift */; };
+		04E692D427C385D100DF3750 /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E692D227C385D100DF3750 /* UserProfileViewController.xib */; };
 		1816884127BFCED900C9D962 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816883827BFCED900C9D962 /* SignUpViewController.swift */; };
 		1816884227BFCED900C9D962 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816883A27BFCED900C9D962 /* SignUpViewModel.swift */; };
 		1816884327BFCED900C9D962 /* SignUpViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 1816883B27BFCED900C9D962 /* SignUpViewController.xib */; };
@@ -194,6 +196,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04E692D127C385D100DF3750 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		04E692D227C385D100DF3750 /* UserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileViewController.xib; sourceTree = "<group>"; };
 		1816883827BFCED900C9D962 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1816883A27BFCED900C9D962 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		1816883B27BFCED900C9D962 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
@@ -953,6 +957,8 @@
 				1816884927BFD13200C9D962 /* Home */,
 				1816885727BFD13200C9D962 /* OrderViewController.swift */,
 				1816885827BFD13200C9D962 /* OrderViewController.xib */,
+				04E692D127C385D100DF3750 /* UserProfileViewController.swift */,
+				04E692D227C385D100DF3750 /* UserProfileViewController.xib */,
 				1847907D27BE447800D98451 /* Address */,
 				1863835B27BB9BFD0080FC80 /* OnBoarding */,
 				9ADAD47C1E5630CB008AC561 /* Supporting Files */,
@@ -1086,6 +1092,7 @@
 				1816886127BFD13200C9D962 /* HomeViewController.xib in Resources */,
 				1816885E27BFD13200C9D962 /* SubCommentsTableViewCell.xib in Resources */,
 				1816886027BFD13200C9D962 /* HomeCollectionViewCell.xib in Resources */,
+				04E692D427C385D100DF3750 /* UserProfileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1304,6 +1311,7 @@
 				188E5A7527BD518B003FB613 /* NotificationPopUpViewController.xib in Sources */,
 				1842EDF327BBE84800A4DA1D /* ForgetViewController.xib in Sources */,
 				18FCF6C627BE951100D5DF17 /* SideMenuTableViewCell.xib in Sources */,
+				04E692D327C385D100DF3750 /* UserProfileViewController.swift in Sources */,
 				9A9FFF2E1E8150F100F6DFF7 /* SubtitleButton.swift in Sources */,
 				9AC583D21E81C165005DB319 /* CartNavigationController.swift in Sources */,
 				1863836B27BB9BFE0080FC80 /* Global.swift in Sources */,
@@ -1452,7 +1460,7 @@
 				CODE_SIGN_ENTITLEMENTS = Storefront/Storefront.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XY338TPK8F;
+				DEVELOPMENT_TEAM = 58BQNDK7NR;
 				INFOPLIST_FILE = BJJHQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1473,7 +1481,7 @@
 				CODE_SIGN_ENTITLEMENTS = Storefront/Storefront.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XY338TPK8F;
+				DEVELOPMENT_TEAM = 58BQNDK7NR;
 				INFOPLIST_FILE = BJJHQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -50,5 +50,39 @@ class SubCommentsTableViewCell: UITableViewCell {
             self.commentImage.image = nil
         }
         
+        if let isLiked = commentsData.isLiked {
+            switch isLiked {
+            case true:
+                
+                self.likeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
+                self.likeButton.tintColor = UIColor(hexString: "5BD6CD")
+                self.likeButton.borderColor = UIColor(hexString: "5BD6CD")
+                
+                self.unlikeButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
+                self.unlikeButton.tintColor = UIColor(hexString: "252C44")
+                self.unlikeButton.borderColor = UIColor(hexString: "252C44")
+                
+            case false:
+                
+                self.likeButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
+                self.likeButton.tintColor = UIColor(hexString: "252C44")
+                self.likeButton.borderColor = UIColor(hexString: "252C44")
+                
+                self.unlikeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
+                self.unlikeButton.tintColor = UIColor(hexString: "5BD6CD")
+                self.unlikeButton.borderColor = UIColor(hexString: "5BD6CD")
+            }
+        }
+        else {
+            
+            self.likeButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
+            self.likeButton.tintColor = UIColor(hexString: "252C44")
+            self.likeButton.borderColor = UIColor(hexString: "252C44")
+            
+            self.unlikeButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
+            self.unlikeButton.tintColor = UIColor(hexString: "252C44")
+            self.unlikeButton.borderColor = UIColor(hexString: "252C44")
+        }
+        
     }
 }

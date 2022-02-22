@@ -87,6 +87,41 @@ class CommentsTableViewCell: UITableViewCell {
             self.imageCommentHolder.isHidden = true
             self.imageComment.image = nil
         }
+        
+        if let isLiked = commentsData.isLiked {
+            switch isLiked {
+            case true:
+                
+                self.likeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
+                self.likeButton.tintColor = UIColor(hexString: "5BD6CD")
+                self.likeButton.borderColor = UIColor(hexString: "5BD6CD")
+                
+                self.unlikeButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
+                self.unlikeButton.tintColor = UIColor(hexString: "252C44")
+                self.unlikeButton.borderColor = UIColor(hexString: "252C44")
+                
+            case false:
+                
+                self.likeButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
+                self.likeButton.tintColor = UIColor(hexString: "252C44")
+                self.likeButton.borderColor = UIColor(hexString: "252C44")
+                
+                self.unlikeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
+                self.unlikeButton.tintColor = UIColor(hexString: "5BD6CD")
+                self.unlikeButton.borderColor = UIColor(hexString: "5BD6CD")
+            }
+        }
+        else {
+            
+            self.likeButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
+            self.likeButton.tintColor = UIColor(hexString: "252C44")
+            self.likeButton.borderColor = UIColor(hexString: "252C44")
+            
+            self.unlikeButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
+            self.unlikeButton.tintColor = UIColor(hexString: "252C44")
+            self.unlikeButton.borderColor = UIColor(hexString: "252C44")
+        }
+        
         replies = commentsData.replies
         tableView.reloadData()
     }
@@ -94,9 +129,16 @@ class CommentsTableViewCell: UITableViewCell {
     @objc fileprivate func likeButtonPressed (_ sender: UIButton)
     {
         let obj = superComment.replies[sender.tag]
-        var commentsLike = Int(obj.likeCount) ?? 0
-        commentsLike += 1
-        obj.likeCount = "\(commentsLike)"
+       
+        
+        if obj.isLiked == nil || obj.isLiked == false
+        {
+            obj.isLiked = true
+        }else {
+            obj.isLiked = nil
+        }
+        
+        
         //let indexpath = IndexPath(row: sender.tag, section: 0)
         tableView.reloadData()//reloadRows(at: [indexpath], with: .automatic)
     }
@@ -104,9 +146,14 @@ class CommentsTableViewCell: UITableViewCell {
     @objc fileprivate func unLikeButtonPressed (_ sender: UIButton)
     {
         let obj = superComment.replies[sender.tag]
-        var commentsLike = Int(obj.unlikeCount) ?? 0
-        commentsLike -= 1
-        obj.unlikeCount = "\(commentsLike)"
+        
+        
+        if obj.isLiked == nil || obj.isLiked == true
+        {
+            obj.isLiked = false
+        }else {
+            obj.isLiked = nil
+        }
         //let indexpath = IndexPath(row: sender.tag, section: 0)
         tableView.reloadData()//reloadRows(at: [indexpath], with: .automatic)
         

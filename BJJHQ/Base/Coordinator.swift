@@ -20,7 +20,7 @@ protocol Coordinator {
     func notificationPage()
     func changePasswordPage ()
     func orderPage()
-    
+    func profilePage()
 }
 
 class MainCoordinator: Coordinator {
@@ -111,6 +111,12 @@ class MainCoordinator: Coordinator {
     
     func notificationPage() {
         let vc = NotificationViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func profilePage() {
+        let vc = UserProfileViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }

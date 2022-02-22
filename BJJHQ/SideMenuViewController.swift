@@ -20,6 +20,8 @@ class SideMenuViewController: BaseViewController, SlideMenuControllerDelegate {
         side?.closeRight()
     }
     @IBAction func editProfile(_ sender: Any) {
+        
+        coordinator?.profilePage()
     }
     
     @IBAction func signOutAction(_ sender: Any) {
