@@ -558,6 +558,20 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		181AF2B927C6577E00AB6760 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Order;
+			sourceTree = "<group>";
+		};
+		181AF2BA27C6578800AB6760 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UserProfile;
+			sourceTree = "<group>";
+		};
 		1847907D27BE447800D98451 /* Address */ = {
 			isa = PBXGroup;
 			children = (
@@ -915,12 +929,8 @@
 			isa = PBXGroup;
 			children = (
 				04460F4827C5010100D9DDDE /* Faq */,
-				18D766C027BE8D180076A12B /* SideMenu */,
-				185C707027BCEF12008F2FB3 /* PopUps */,
 				049F854027C4F3E100848214 /* ordersViewController */,
-				1816884927BFD13200C9D962 /* Home */,
 				049F854127C4F40600848214 /* UserProfile */,
-				1847907D27BE447800D98451 /* Address */,
 				96DD6C4127C378FB00DDA0DC /* MyOrders */,
 				96DD6C3C27BFE82C00DDA0DC /* ContactUs */,
 				9ABEB3EB21260C1F00A373F2 /* Account */,
@@ -928,7 +938,6 @@
 				9AFA3B781E6DB6FE0056C5AA /* Products */,
 				9A21F29B1E7ADF9000E00F4B /* Details */,
 				9AC583CB1E81BEFA005DB319 /* Cart */,
-				1863835B27BB9BFD0080FC80 /* OnBoarding */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1035,6 +1044,8 @@
 		9ADAD4691E563091008AC561 /* BJJHQ */ = {
 			isa = PBXGroup;
 			children = (
+				181AF2BA27C6578800AB6760 /* UserProfile */,
+				181AF2B927C6577E00AB6760 /* Order */,
 				9ADAD46A1E563091008AC561 /* AppDelegate.swift */,
 				9A9FFEFB1E78431C00F6DFF7 /* Formatters */,
 				9AAFAB901E60D0F900864A17 /* UI */,
@@ -1047,6 +1058,11 @@
 				9ADAD46E1E563091008AC561 /* Main.storyboard */,
 				9A52D3BB1F3F25C300C093C8 /* Storefront.entitlements */,
 				1863835E27BB9BFD0080FC80 /* Base */,
+				18D766C027BE8D180076A12B /* SideMenu */,
+				185C707027BCEF12008F2FB3 /* PopUps */,
+				1816884927BFD13200C9D962 /* Home */,
+				1847907D27BE447800D98451 /* Address */,
+				1863835B27BB9BFD0080FC80 /* OnBoarding */,
 				9ADAD47C1E5630CB008AC561 /* Supporting Files */,
 			);
 			path = BJJHQ;
@@ -1553,10 +1569,10 @@
 			baseConfigurationReference = E4C82AACD612C7240878752F /* Pods-BJJHQ.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Storefront/Storefront.entitlements;
+				CODE_SIGN_ENTITLEMENTS = BJJHQ/Storefront.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58BQNDK7NR;
+				DEVELOPMENT_TEAM = XY338TPK8F;
 				INFOPLIST_FILE = BJJHQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1574,10 +1590,10 @@
 			baseConfigurationReference = 733A59A78DD90F2477EDCC2D /* Pods-BJJHQ.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Storefront/Storefront.entitlements;
+				CODE_SIGN_ENTITLEMENTS = BJJHQ/Storefront.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58BQNDK7NR;
+				DEVELOPMENT_TEAM = XY338TPK8F;
 				INFOPLIST_FILE = BJJHQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

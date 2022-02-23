@@ -64,12 +64,12 @@ class SignInViewController: BaseViewController {
     }
     
     @IBAction func signInAction(_ sender: Any) {
-        viewModel?.signInCustomer(email: emailTF.text!, password: passwordTF.text!,  completion: { data, error in
-            if error != nil {
-                self.showToast(message: error ?? "Error")
-            }
-        })
-    
+//        viewModel?.signInCustomer(email: emailTF.text!, password: passwordTF.text!,  completion: { data, error in
+//            if error != nil {
+//                self.showToast(message: error ?? "Error")
+//            }
+//        })
+//    
     }
     
     @IBAction func signUpAction(_ sender: Any) {
