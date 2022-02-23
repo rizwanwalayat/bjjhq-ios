@@ -561,8 +561,6 @@
 		181AF2B927C6577E00AB6760 /* Order */ = {
 			isa = PBXGroup;
 			children = (
-				1816885727BFD13200C9D962 /* OrderViewController.swift */,
-				1816885827BFD13200C9D962 /* OrderViewController.xib */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -570,8 +568,6 @@
 		181AF2BA27C6578800AB6760 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
-				04E692D127C385D100DF3750 /* UserProfileViewController.swift */,
-				04E692D227C385D100DF3750 /* UserProfileViewController.xib */,
 			);
 			name = UserProfile;
 			sourceTree = "<group>";
@@ -933,12 +929,8 @@
 			isa = PBXGroup;
 			children = (
 				04460F4827C5010100D9DDDE /* Faq */,
-				18D766C027BE8D180076A12B /* SideMenu */,
-				185C707027BCEF12008F2FB3 /* PopUps */,
 				049F854027C4F3E100848214 /* ordersViewController */,
-				1816884927BFD13200C9D962 /* Home */,
 				049F854127C4F40600848214 /* UserProfile */,
-				1847907D27BE447800D98451 /* Address */,
 				96DD6C4127C378FB00DDA0DC /* MyOrders */,
 				96DD6C3C27BFE82C00DDA0DC /* ContactUs */,
 				9ABEB3EB21260C1F00A373F2 /* Account */,
@@ -946,7 +938,6 @@
 				9AFA3B781E6DB6FE0056C5AA /* Products */,
 				9A21F29B1E7ADF9000E00F4B /* Details */,
 				9AC583CB1E81BEFA005DB319 /* Cart */,
-				1863835B27BB9BFD0080FC80 /* OnBoarding */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
