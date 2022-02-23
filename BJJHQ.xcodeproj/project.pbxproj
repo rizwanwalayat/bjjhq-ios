@@ -1351,9 +1351,7 @@
 				188E5A7027BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib in Sources */,
 				9AC583D01E81BF96005DB319 /* CartCell.xib in Sources */,
 				185C707527BCEF41008F2FB3 /* EmailUpdateViewController.xib in Sources */,
-				184790A027BE454000D98451 /* Barlow-MediumItalic.ttf in Sources */,
 				96DD6C4727C3790B00DDA0DC /* MyOrdersViewController.swift in Sources */,
-				1847909427BE454000D98451 /* Barlow-Regular.ttf in Sources */,
 				1816884327BFCED900C9D962 /* SignUpViewController.xib in Sources */,
 				1847908127BE448A00D98451 /* MyAddressesViewController.xib in Sources */,
 				185C707A27BD069A008F2FB3 /* OrderSuccesFullViewController.xib in Sources */,
@@ -1507,10 +1505,10 @@
 			baseConfigurationReference = E4C82AACD612C7240878752F /* Pods-BJJHQ.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Storefront/Storefront.entitlements;
+				CODE_SIGN_ENTITLEMENTS = BJJHQ/Storefront.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58BQNDK7NR;
+				DEVELOPMENT_TEAM = XY338TPK8F;
 				INFOPLIST_FILE = BJJHQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1528,10 +1526,10 @@
 			baseConfigurationReference = 733A59A78DD90F2477EDCC2D /* Pods-BJJHQ.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Storefront/Storefront.entitlements;
+				CODE_SIGN_ENTITLEMENTS = BJJHQ/Storefront.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58BQNDK7NR;
+				DEVELOPMENT_TEAM = XY338TPK8F;
 				INFOPLIST_FILE = BJJHQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

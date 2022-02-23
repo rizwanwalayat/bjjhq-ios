@@ -83,7 +83,8 @@ final class Client {
             } else {
                 let errors = mutation?.customerAccessTokenCreate?.customerUserErrors ?? []
                 print("Failed to login customer: \(errors)")
-                let errorDetail = errors[0].message
+//                let errorDetail = errors[0].message
+                let errorDetail = ""
                 completion(nil, errorDetail)
             }
         }

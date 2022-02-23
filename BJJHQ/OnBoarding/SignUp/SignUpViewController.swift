@@ -67,11 +67,11 @@ class SignUpViewController: BaseViewController {
     }
     
     @IBAction func signUpAction(_ sender: Any) {
-        viewModel?.signUpCustomer(email: emailTF.text!, password: passwordTF.text!, firstName: firstNameTF.text!, lastName: lastNameTF.text!) { customer, error in
-            if error != nil {
-                self.showToast(message: error ?? "Error")
-            }
-        }
+//        viewModel?.signUpCustomer(email: emailTF.text!, password: passwordTF.text!, firstName: firstNameTF.text!, lastName: lastNameTF.text!) { customer, error in
+//            if error != nil {
+//                self.showToast(message: error ?? "Error")
+//            }
+//        }
     }
     
     @IBAction func signInAction(_ sender: Any) {
