@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -84,10 +84,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FpN-gt-qF7">
-                    <rect key="frame" x="0.0" y="96" width="375" height="716"/>
+                    <rect key="frame" x="0.0" y="106" width="375" height="706"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="zaN-ds-4o4">
-                            <rect key="frame" x="15" y="0.0" width="345" height="716"/>
+                            <rect key="frame" x="15" y="0.0" width="345" height="706"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -106,11 +106,12 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="KEc-PG-pvn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="4Yw-JY-xi3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FpN-gt-qF7" secondAttribute="trailing" id="E9U-c5-5yZ"/>
                 <constraint firstAttribute="trailing" secondItem="DEa-dQ-psa" secondAttribute="trailing" id="HhT-7H-7Il"/>
-                <constraint firstItem="FpN-gt-qF7" firstAttribute="top" secondItem="DEa-dQ-psa" secondAttribute="bottom" id="WJX-3z-bP1"/>
+                <constraint firstItem="FpN-gt-qF7" firstAttribute="top" secondItem="DEa-dQ-psa" secondAttribute="bottom" constant="10" id="WJX-3z-bP1"/>
                 <constraint firstItem="FpN-gt-qF7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bfU-4Z-Jre"/>
                 <constraint firstItem="DEa-dQ-psa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dxv-KA-UPH"/>
                 <constraint firstAttribute="bottom" secondItem="FpN-gt-qF7" secondAttribute="bottom" id="nhW-PK-DcF"/>
@@ -128,7 +129,7 @@
             <color red="0.35699999332427979" green="0.83899998664855957" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
