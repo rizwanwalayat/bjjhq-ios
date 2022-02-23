@@ -267,6 +267,9 @@
                                             <real key="value" value="1"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="deletePopupAction:" destination="-1" eventType="touchUpInside" id="Igh-3X-wSL"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDU-wK-OU9">
                                     <rect key="frame" x="0.0" y="70" width="314" height="50"/>

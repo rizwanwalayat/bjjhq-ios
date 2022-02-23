@@ -60,7 +60,7 @@ extension SideMenuViewController : UITableViewDelegate,UITableViewDataSource{
         case 4:
             coordinator?.notificationPage()
         case 5:
-            print("Faq")
+            coordinator?.FAQPage()
         default :
             print("Default")
         }

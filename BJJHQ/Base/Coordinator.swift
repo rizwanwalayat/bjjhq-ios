@@ -21,6 +21,7 @@ protocol Coordinator {
     func changePasswordPage ()
     func orderPage()
     func profilePage()
+    func FAQPage()
 }
 
 class MainCoordinator: Coordinator {
@@ -131,6 +132,12 @@ class MainCoordinator: Coordinator {
     
     func profilePage() {
         let vc = UserProfileViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func FAQPage() {
+        let vc = FaqViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }

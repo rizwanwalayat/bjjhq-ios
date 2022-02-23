@@ -62,6 +62,7 @@ class SubCommentsTableViewCell: UITableViewCell {
                 self.unlikeButton.setTitleColor(UIColor(hexString: "#252C44"), for: .normal)
                 self.unlikeButton.tintColor = UIColor(hexString: "#252C44")
                 self.unlikeButton.borderColor = UIColor(hexString: "#252C44")
+                self.unlikeButton.backgroundColor = .clear
                 
             case false:
                 
@@ -73,7 +74,18 @@ class SubCommentsTableViewCell: UITableViewCell {
                 self.likeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
                 self.likeButton.tintColor = UIColor(hexString: "5BD6CD")
                 self.likeButton.borderColor = UIColor(hexString: "5BD6CD")
+                self.likeButton.backgroundColor = .clear
             }
+        }
+        else {
+
+            self.likeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
+            self.likeButton.tintColor = UIColor(hexString: "5BD6CD")
+            self.likeButton.borderColor = UIColor(hexString: "5BD6CD")
+
+            self.unlikeButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
+            self.unlikeButton.tintColor = UIColor(hexString: "252C44")
+            self.unlikeButton.borderColor = UIColor(hexString: "252C44")
         }
         
         

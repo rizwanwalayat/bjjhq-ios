@@ -85,6 +85,13 @@ class AddressBookPopUpViewController: BaseViewController {
         hidePopup()
     }
     
+    @IBAction func deletePopupAction(_ sender: Any) {
+        let vc = DeletePopUpViewController(nibName: "DeletePopUpViewController", bundle: nil)
+        vc.isFromAddress = true
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: false, completion: nil)
+    }
+    
 
 }
 

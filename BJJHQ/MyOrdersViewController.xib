@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -46,7 +46,7 @@
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="10"/>
+                                    <real key="value" value="4"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                     <real key="value" value="2"/>
@@ -72,58 +72,26 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dna-lA-CEi">
-                            <rect key="frame" x="20" y="115" width="374" height="607"/>
+                            <rect key="frame" x="20" y="115" width="374" height="737"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="5Xz-BR-MfG"/>
                                 <outlet property="delegate" destination="-1" id="oWo-LV-tCq"/>
                             </connections>
                         </tableView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQY-ph-mou">
-                            <rect key="frame" x="30" y="752" width="354" height="50"/>
-                            <color key="backgroundColor" name="blue"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="rYL-rb-RMt"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="14"/>
-                            <color key="tintColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="Add New Address">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="16"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                    <real key="value" value="2"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                    <real key="value" value="0.10000000000000001"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                    <size key="value" width="0.0" height="2"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="addNewAddress:" destination="-1" eventType="touchUpInside" id="Xhg-Yo-8ME"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="dna-lA-CEi" secondAttribute="trailing" constant="20" id="4qb-qc-hFJ"/>
-                        <constraint firstAttribute="trailing" secondItem="QQY-ph-mou" secondAttribute="trailing" constant="30" id="7rs-Rf-7Lt"/>
-                        <constraint firstItem="QQY-ph-mou" firstAttribute="top" secondItem="dna-lA-CEi" secondAttribute="bottom" constant="30" id="HbG-gx-uZ1"/>
+                        <constraint firstAttribute="bottom" secondItem="dna-lA-CEi" secondAttribute="bottom" id="IHz-vV-JgK"/>
                         <constraint firstItem="dna-lA-CEi" firstAttribute="leading" secondItem="0bb-Kk-55z" secondAttribute="leading" constant="20" id="IYQ-tr-ka3"/>
                         <constraint firstItem="NgH-mX-7vw" firstAttribute="top" secondItem="0bb-Kk-55z" secondAttribute="top" constant="20" id="MJ8-5E-g4x"/>
-                        <constraint firstItem="QQY-ph-mou" firstAttribute="leading" secondItem="0bb-Kk-55z" secondAttribute="leading" constant="30" id="R1C-AA-fkP"/>
                         <constraint firstItem="NgH-mX-7vw" firstAttribute="leading" secondItem="0bb-Kk-55z" secondAttribute="leading" constant="20" id="YjU-T9-Sz7"/>
                         <constraint firstItem="7Jm-3j-DXB" firstAttribute="centerY" secondItem="NgH-mX-7vw" secondAttribute="centerY" id="h1K-EH-5b5"/>
                         <constraint firstItem="7Jm-3j-DXB" firstAttribute="leading" secondItem="NgH-mX-7vw" secondAttribute="trailing" constant="20" id="iWW-WD-cE5"/>
                         <constraint firstItem="7Jm-3j-DXB" firstAttribute="top" secondItem="0bb-Kk-55z" secondAttribute="top" constant="20" id="ieL-zH-Pyi"/>
                         <constraint firstItem="dna-lA-CEi" firstAttribute="top" secondItem="7Jm-3j-DXB" secondAttribute="bottom" constant="55" id="j05-Bh-9gA"/>
                         <constraint firstAttribute="trailing" secondItem="7Jm-3j-DXB" secondAttribute="trailing" constant="60" id="lle-OU-LXF"/>
-                        <constraint firstAttribute="bottom" secondItem="QQY-ph-mou" secondAttribute="bottom" constant="50" id="yD3-aq-MGV"/>
                     </constraints>
                 </view>
             </subviews>
