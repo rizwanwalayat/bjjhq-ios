@@ -40,13 +40,7 @@ class MyOrdersViewController: BaseViewController , myOrdersAction {
     @IBAction func backAction(_ sender: Any) {
         coordinator?.popVc()
     }
-    
-    @IBAction func addNewAddress(_ sender: Any) {
-        let vc = AddressBookPopUpViewController(nibName: "AddressBookPopUpViewController", bundle: nil)
-        vc.isfromAddNewAddress = true
-        vc.modalPresentationStyle = .overFullScreen
-        self.present(vc, animated: false, completion: nil)
-    }
+  
     
     
     //MARK: - Functions

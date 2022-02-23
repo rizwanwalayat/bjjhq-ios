@@ -22,6 +22,13 @@ class ContactUsViewController: BaseViewController {
         coordinator?.popVc()
     }
     
+    @IBAction func sendAction(_ sender: Any) {
+    
+        let vc = OrderSuccesFullViewController(nibName: "OrderSuccesFullViewController", bundle: nil)
+        vc.isFromFeedBack = true
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: false, completion: nil)
+    }
    
 }
 

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04460F4E27C5010100D9DDDE /* FaqViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04460F4927C5010100D9DDDE /* FaqViewController.xib */; };
+		04460F4F27C5010100D9DDDE /* FaqTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04460F4B27C5010100D9DDDE /* FaqTableViewCell.xib */; };
+		04460F5027C5010100D9DDDE /* FaqTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04460F4C27C5010100D9DDDE /* FaqTableViewCell.swift */; };
+		04460F5127C5010100D9DDDE /* FaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04460F4D27C5010100D9DDDE /* FaqViewController.swift */; };
 		0487AC3827C4C47D00A3422B /* Barlow-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0487AC2527C4C47D00A3422B /* Barlow-Light.ttf */; };
 		0487AC3927C4C47D00A3422B /* Barlow-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0487AC2627C4C47D00A3422B /* Barlow-SemiBoldItalic.ttf */; };
 		0487AC3A27C4C47D00A3422B /* Barlow-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0487AC2727C4C47D00A3422B /* Barlow-BoldItalic.ttf */; };
@@ -202,6 +206,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04460F4927C5010100D9DDDE /* FaqViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FaqViewController.xib; sourceTree = "<group>"; };
+		04460F4B27C5010100D9DDDE /* FaqTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FaqTableViewCell.xib; sourceTree = "<group>"; };
+		04460F4C27C5010100D9DDDE /* FaqTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqTableViewCell.swift; sourceTree = "<group>"; };
+		04460F4D27C5010100D9DDDE /* FaqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqViewController.swift; sourceTree = "<group>"; };
 		0487AC2527C4C47D00A3422B /* Barlow-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Light.ttf"; sourceTree = "<group>"; };
 		0487AC2627C4C47D00A3422B /* Barlow-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		0487AC2727C4C47D00A3422B /* Barlow-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -405,6 +413,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04460F4827C5010100D9DDDE /* Faq */ = {
+			isa = PBXGroup;
+			children = (
+				04460F4927C5010100D9DDDE /* FaqViewController.xib */,
+				04460F4A27C5010100D9DDDE /* Views */,
+				04460F4D27C5010100D9DDDE /* FaqViewController.swift */,
+			);
+			path = Faq;
+			sourceTree = "<group>";
+		};
+		04460F4A27C5010100D9DDDE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				04460F4B27C5010100D9DDDE /* FaqTableViewCell.xib */,
+				04460F4C27C5010100D9DDDE /* FaqTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0487AC2427C4C47D00A3422B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +456,24 @@
 				0487AC3727C4C47D00A3422B /* neusa-next-std-compact-regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		049F854027C4F3E100848214 /* ordersViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1816885727BFD13200C9D962 /* OrderViewController.swift */,
+				1816885827BFD13200C9D962 /* OrderViewController.xib */,
+			);
+			path = ordersViewController;
+			sourceTree = "<group>";
+		};
+		049F854127C4F40600848214 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				04E692D127C385D100DF3750 /* UserProfileViewController.swift */,
+				04E692D227C385D100DF3750 /* UserProfileViewController.xib */,
+			);
+			name = UserProfile;
 			sourceTree = "<group>";
 		};
 		1816883627BFCE9E00C9D962 /* Recovered References */ = {
@@ -869,6 +914,13 @@
 		9AAFAB781E60BD5800864A17 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				04460F4827C5010100D9DDDE /* Faq */,
+				18D766C027BE8D180076A12B /* SideMenu */,
+				185C707027BCEF12008F2FB3 /* PopUps */,
+				049F854027C4F3E100848214 /* ordersViewController */,
+				1816884927BFD13200C9D962 /* Home */,
+				049F854127C4F40600848214 /* UserProfile */,
+				1847907D27BE447800D98451 /* Address */,
 				96DD6C4127C378FB00DDA0DC /* MyOrders */,
 				96DD6C3C27BFE82C00DDA0DC /* ContactUs */,
 				9ABEB3EB21260C1F00A373F2 /* Account */,
@@ -876,6 +928,7 @@
 				9AFA3B781E6DB6FE0056C5AA /* Products */,
 				9A21F29B1E7ADF9000E00F4B /* Details */,
 				9AC583CB1E81BEFA005DB319 /* Cart */,
+				1863835B27BB9BFD0080FC80 /* OnBoarding */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -994,15 +1047,6 @@
 				9ADAD46E1E563091008AC561 /* Main.storyboard */,
 				9A52D3BB1F3F25C300C093C8 /* Storefront.entitlements */,
 				1863835E27BB9BFD0080FC80 /* Base */,
-				18D766C027BE8D180076A12B /* SideMenu */,
-				185C707027BCEF12008F2FB3 /* PopUps */,
-				1816884927BFD13200C9D962 /* Home */,
-				1816885727BFD13200C9D962 /* OrderViewController.swift */,
-				1816885827BFD13200C9D962 /* OrderViewController.xib */,
-				04E692D127C385D100DF3750 /* UserProfileViewController.swift */,
-				04E692D227C385D100DF3750 /* UserProfileViewController.xib */,
-				1847907D27BE447800D98451 /* Address */,
-				1863835B27BB9BFD0080FC80 /* OnBoarding */,
 				9ADAD47C1E5630CB008AC561 /* Supporting Files */,
 			);
 			path = BJJHQ;
@@ -1128,6 +1172,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04460F4F27C5010100D9DDDE /* FaqTableViewCell.xib in Resources */,
 				0487AC3827C4C47D00A3422B /* Barlow-Light.ttf in Resources */,
 				0487AC3E27C4C47D00A3422B /* Barlow-Italic.ttf in Resources */,
 				0487AC3927C4C47D00A3422B /* Barlow-SemiBoldItalic.ttf in Resources */,
@@ -1155,6 +1200,7 @@
 				0487AC4427C4C47D00A3422B /* Barlow-Bold.ttf in Resources */,
 				1816885E27BFD13200C9D962 /* SubCommentsTableViewCell.xib in Resources */,
 				1816886027BFD13200C9D962 /* HomeCollectionViewCell.xib in Resources */,
+				04460F4E27C5010100D9DDDE /* FaqViewController.xib in Resources */,
 				96DD6C4627C3790B00DDA0DC /* MyOrdersViewController.xib in Resources */,
 				04E692D427C385D100DF3750 /* UserProfileViewController.xib in Resources */,
 			);
@@ -1244,6 +1290,7 @@
 				1816884427BFCED900C9D962 /* SignInViewModel.swift in Sources */,
 				1842EDF227BBE84800A4DA1D /* ForgetViewController.swift in Sources */,
 				9A4EDDD22126116E0071BA56 /* CustomerCoordinator.swift in Sources */,
+				04460F5027C5010100D9DDDE /* FaqTableViewCell.swift in Sources */,
 				9A67117A2166801A00A57A3F /* Fragment+DiscountAllocation.swift in Sources */,
 				9AAFAB921E60D11000864A17 /* StorefrontCollectionView.swift in Sources */,
 				9AE776342166AB6700A02112 /* ManualCodeViewModel.swift in Sources */,
@@ -1274,6 +1321,7 @@
 				9AC583CF1E81BF96005DB319 /* CartCell.swift in Sources */,
 				1863836927BB9BFE0080FC80 /* LandingPageViewController.swift in Sources */,
 				9AAFAB8F1E60C6AC00864A17 /* UIImageView+Remote.swift in Sources */,
+				04460F5127C5010100D9DDDE /* FaqViewController.swift in Sources */,
 				96DD6C3F27BFE84600DDA0DC /* ContactUsViewController.swift in Sources */,
 				9AFA3B7D1E6DB7110056C5AA /* ProductsViewController.swift in Sources */,
 				9A0ED6861E83F120008C605E /* Serializable.swift in Sources */,
@@ -1351,9 +1399,7 @@
 				188E5A7027BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib in Sources */,
 				9AC583D01E81BF96005DB319 /* CartCell.xib in Sources */,
 				185C707527BCEF41008F2FB3 /* EmailUpdateViewController.xib in Sources */,
-				184790A027BE454000D98451 /* Barlow-MediumItalic.ttf in Sources */,
 				96DD6C4727C3790B00DDA0DC /* MyOrdersViewController.swift in Sources */,
-				1847909427BE454000D98451 /* Barlow-Regular.ttf in Sources */,
 				1816884327BFCED900C9D962 /* SignUpViewController.xib in Sources */,
 				1847908127BE448A00D98451 /* MyAddressesViewController.xib in Sources */,
 				185C707A27BD069A008F2FB3 /* OrderSuccesFullViewController.xib in Sources */,

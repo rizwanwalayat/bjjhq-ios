@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Buy
 
 
 class SignUpViewController: BaseViewController {
@@ -15,11 +16,13 @@ class SignUpViewController: BaseViewController {
         
     //MARK: - IBOutlets
     
+    @IBOutlet weak var confirmPasswordView: UIView!
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var userNameview: UIView!
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var firstNameView: UIView!
     @IBOutlet weak var lastNameView: UIView!
+    @IBOutlet weak var confirmPasswordTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var firstNameTF: UITextField!
     @IBOutlet weak var lastNameTF: UITextField!
@@ -29,6 +32,8 @@ class SignUpViewController: BaseViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var checkButtonImageView: UIImageView!
+    @IBOutlet weak var passwordTFStatus: UILabel!
+    @IBOutlet weak var comfirmPasswordTFStatus: UILabel!
     
     
     //MARK: - LifeCycle
@@ -92,6 +97,46 @@ class SignUpViewController: BaseViewController {
         }
     }
     
+    @IBAction func passwordTFChanged(_ sender: Any) {
+        
+        if passwordTF.text!.count == 0{
+            passwordTFStatus.text = ""
+        }
+        else if passwordTF.text!.count < 8 {
+            passwordTFStatus.text = "weak"
+            passwordTFStatus.textColor = UIColor(hexString: "#BB0808")
+        }
+        else if passwordTF.text!.count >= 8 {
+            if checkTextSufficientComplexity(text: passwordTF.text!) {
+                
+                passwordTFStatus.text = "Strong"
+                passwordTFStatus.textColor = UIColor(hexString: "#28A938")
+            }
+            else {
+                
+                passwordTFStatus.text = "Normal"
+                passwordTFStatus.textColor = UIColor(hexString: "#C4C436")
+            }
+        }
+    }
+    
+    @IBAction func comfirmPasswordChanged(_ sender: Any) {
+        
+        if confirmPasswordTF.text!.count == 0{
+            comfirmPasswordTFStatus.text = ""
+        }
+        else if confirmPasswordTF.text! == passwordTF.text!
+        {
+            comfirmPasswordTFStatus.text = "✓ Matched"
+            comfirmPasswordTFStatus.textColor = UIColor(hexString: "#28A938")
+        }
+        else {
+            
+            comfirmPasswordTFStatus.text = "! Not Matched"
+            comfirmPasswordTFStatus.textColor = UIColor(hexString: "#BB0808")
+        }
+    }
+    
     //MARK: - Functions
     
     func changeButtonState(state:Bool) {
@@ -101,6 +146,31 @@ class SignUpViewController: BaseViewController {
         else {
             signUpButton.backgroundColor = UIColor(hexString: "#E2E3E7")
         }
+    }
+    
+    func checkTextSufficientComplexity(text : String) -> Bool{
+
+
+        let capitalLetterRegEx  = ".*[A-Z]+.*"
+        let texttest = NSPredicate(format:"SELF MATCHES %@", capitalLetterRegEx)
+        let capitalresult = texttest.evaluate(with: text)
+        print(capitalresult)
+
+
+        let numberRegEx  = ".*[0-9]+.*"
+        let texttest1 = NSPredicate(format:"SELF MATCHES %@", numberRegEx)
+        let numberresult = texttest1.evaluate(with: text)
+        print(numberresult)
+
+
+        let specialCharacterRegEx  = ".*[!&^%$#@()/]+.*"
+        let texttest2 = NSPredicate(format:"SELF MATCHES %@", specialCharacterRegEx)
+
+        let specialresult = texttest2.evaluate(with: text)
+        print(numberresult)
+
+        return capitalresult || numberresult || specialresult
+
     }
     
 }
@@ -148,9 +218,17 @@ extension SignUpViewController : UITextFieldDelegate {
             self.passwordView.backgroundColor = UIColor(hexString: "#5BD6CD")
         }
         
+        if confirmPasswordTF.text!.count < 8 {
+            self.confirmPasswordView.backgroundColor = UIColor(hexString: "#7C808F")
+        }
+        
+        else {
+            self.confirmPasswordView.backgroundColor = UIColor(hexString: "#5BD6CD")
+        }
+        
 
 
-        if passwordTF.text == "" || ((emailTF.text?.isValidEmail()) == false) || userNameTF.text == "" || firstNameTF.text == "" {
+        if passwordTF.text == "" || ((emailTF.text?.isValidEmail()) == false) || userNameTF.text == "" || firstNameTF.text == "" || confirmPasswordTF.text == "" {
             enable = false
         }
 

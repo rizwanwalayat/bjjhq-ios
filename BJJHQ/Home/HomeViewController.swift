@@ -28,6 +28,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var sizeHolderView: UIView!
     @IBOutlet weak var sizeButton: UIButton!
     @IBOutlet weak var dropDownTF: DropDown!
+    @IBOutlet weak var dropDownFilled: UITextField!
     @IBOutlet weak var colorsHolderView: UIView!
     @IBOutlet weak var colorLabel: UILabel!
     @IBOutlet weak var colorsCollectionView: UICollectionView!
@@ -126,7 +127,8 @@ class HomeViewController: BaseViewController {
 
         // The the Closure returns Selected Index and String
         dropDownTF.didSelect{(selectedText , index ,id) in
-            self.dropDownTF.text = selectedText
+            self.dropDownFilled.text = selectedText
+            //self.dropDownTF.text = ""
         }
     }
     
@@ -374,6 +376,46 @@ extension HomeViewController: UITableViewDataSource
         cell.replyButton.addTarget(self, action: #selector(replyPressed(_:)), for: .touchUpInside)
         
         cell.delegate = self
+        
+        cell.likeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
+        cell.likeButton.tintColor = UIColor(hexString: "5BD6CD")
+        cell.likeButton.borderColor = UIColor(hexString: "5BD6CD")
+        cell.likeButton.backgroundColor = .clear
+
+        cell.unlikeButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
+        cell.unlikeButton.tintColor = UIColor(hexString: "252C44")
+        cell.unlikeButton.borderColor = UIColor(hexString: "252C44")
+        cell.likeButton.backgroundColor = .clear
+        
+        
+        if let isLiked = comments[indexPath.row].isLiked {
+            if isLiked {
+                
+                cell.likeButton.setTitleColor(UIColor.white, for: .normal)
+                cell.likeButton.tintColor = .white
+                cell.likeButton.borderColor = UIColor(hexString: "5BD6CD")
+                cell.likeButton.backgroundColor = UIColor(hexString: "5BD6CD")
+                
+                cell.unlikeButton.setTitleColor(UIColor(hexString: "#252C44"), for: .normal)
+                cell.unlikeButton.tintColor = UIColor(hexString: "#252C44")
+                cell.unlikeButton.borderColor = UIColor(hexString: "#252C44")
+                cell.unlikeButton.backgroundColor = .clear
+                
+            }
+            else {
+                
+                cell.unlikeButton.setTitleColor(UIColor.white, for: .normal)
+                cell.unlikeButton.tintColor = .white
+                cell.unlikeButton.borderColor = UIColor(hexString: "#252C44")
+                cell.unlikeButton.backgroundColor = UIColor(hexString: "#252C44")
+                
+                cell.likeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
+                cell.likeButton.tintColor = UIColor(hexString: "5BD6CD")
+                cell.likeButton.borderColor = UIColor(hexString: "5BD6CD")
+                cell.likeButton.backgroundColor = .clear
+            }
+        }
+    
         return cell
     }
     

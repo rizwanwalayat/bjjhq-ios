@@ -220,7 +220,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="RWb-oD-PDM" secondAttribute="trailing" id="2pP-iC-p2D"/>
                         <constraint firstAttribute="bottom" secondItem="RWb-oD-PDM" secondAttribute="bottom" id="6c4-uT-o92"/>
