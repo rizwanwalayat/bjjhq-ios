@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -87,18 +87,23 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="679-pi-Ci9">
                                     <rect key="frame" x="30" y="24" width="80" height="80"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="XTj-jq-M13">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timelapse_icon" translatesAutoresizingMaskIntoConstraints="NO" id="XTj-jq-M13">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
+                                        <constraint firstItem="XTj-jq-M13" firstAttribute="centerX" secondItem="679-pi-Ci9" secondAttribute="centerX" id="0M9-6A-5pl"/>
                                         <constraint firstAttribute="height" constant="80" id="6eU-yE-Tu8"/>
                                         <constraint firstItem="XTj-jq-M13" firstAttribute="top" secondItem="679-pi-Ci9" secondAttribute="top" id="95s-Qy-Lo8"/>
+                                        <constraint firstItem="XTj-jq-M13" firstAttribute="leading" secondItem="679-pi-Ci9" secondAttribute="leading" id="JvR-8x-bt5"/>
                                         <constraint firstAttribute="trailing" secondItem="XTj-jq-M13" secondAttribute="trailing" id="MBm-Js-dna"/>
+                                        <constraint firstAttribute="bottom" secondItem="XTj-jq-M13" secondAttribute="bottom" id="T5P-5U-abd"/>
+                                        <constraint firstItem="XTj-jq-M13" firstAttribute="top" secondItem="679-pi-Ci9" secondAttribute="top" id="a5C-hb-Kdy"/>
                                         <constraint firstAttribute="width" constant="80" id="lwn-qu-qp8"/>
                                         <constraint firstAttribute="bottom" secondItem="XTj-jq-M13" secondAttribute="bottom" id="maX-RS-YPi"/>
                                         <constraint firstItem="XTj-jq-M13" firstAttribute="leading" secondItem="679-pi-Ci9" secondAttribute="leading" id="qGK-ab-HMr"/>
+                                        <constraint firstAttribute="trailing" secondItem="XTj-jq-M13" secondAttribute="trailing" id="ztL-NG-ZPg"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -183,7 +188,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dln-J5-IcS">
-                            <rect key="frame" x="0.0" y="238" width="414" height="1"/>
+                            <rect key="frame" x="20" y="238" width="374" height="1"/>
                             <color key="backgroundColor" name="sky"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="yuj-Yt-8AA"/>
@@ -219,7 +224,7 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83O-7P-uik">
-                            <rect key="frame" x="0.0" y="737" width="414" height="1"/>
+                            <rect key="frame" x="20" y="737" width="374" height="1"/>
                             <color key="backgroundColor" name="sky"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="A7p-hS-Ftg"/>
@@ -228,14 +233,14 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="83O-7P-uik" secondAttribute="trailing" id="6OX-qf-qaP"/>
+                        <constraint firstAttribute="trailing" secondItem="83O-7P-uik" secondAttribute="trailing" constant="20" id="6OX-qf-qaP"/>
                         <constraint firstItem="fSF-pt-Bd5" firstAttribute="leading" secondItem="vxa-IK-rOg" secondAttribute="leading" constant="30" id="7WI-B2-BEP"/>
                         <constraint firstItem="oPE-wJ-djG" firstAttribute="leading" secondItem="vxa-IK-rOg" secondAttribute="leading" constant="20" id="EWR-aE-YCq"/>
                         <constraint firstItem="fSF-pt-Bd5" firstAttribute="top" secondItem="83O-7P-uik" secondAttribute="bottom" constant="20" id="GdP-AJ-0wY"/>
                         <constraint firstItem="uvx-mh-2ET" firstAttribute="top" secondItem="dln-J5-IcS" secondAttribute="bottom" id="Gdv-Dd-xvK"/>
-                        <constraint firstItem="83O-7P-uik" firstAttribute="leading" secondItem="vxa-IK-rOg" secondAttribute="leading" id="HGj-X8-mXV"/>
+                        <constraint firstItem="83O-7P-uik" firstAttribute="leading" secondItem="vxa-IK-rOg" secondAttribute="leading" constant="20" id="HGj-X8-mXV"/>
                         <constraint firstAttribute="bottom" secondItem="fSF-pt-Bd5" secondAttribute="bottom" constant="10" id="Mpn-Rh-UVC"/>
-                        <constraint firstItem="dln-J5-IcS" firstAttribute="leading" secondItem="vxa-IK-rOg" secondAttribute="leading" id="SCa-KY-4gd"/>
+                        <constraint firstItem="dln-J5-IcS" firstAttribute="leading" secondItem="vxa-IK-rOg" secondAttribute="leading" constant="20" id="SCa-KY-4gd"/>
                         <constraint firstAttribute="trailing" secondItem="uqA-vv-7aq" secondAttribute="trailing" constant="60" id="Tef-JH-BZb"/>
                         <constraint firstItem="dln-J5-IcS" firstAttribute="top" secondItem="EGS-aL-wfv" secondAttribute="bottom" constant="30" id="UFK-Ft-jOT"/>
                         <constraint firstAttribute="trailing" secondItem="EGS-aL-wfv" secondAttribute="trailing" constant="20" id="UlF-yl-Dcz"/>
@@ -248,7 +253,7 @@
                         <constraint firstItem="83O-7P-uik" firstAttribute="top" secondItem="uvx-mh-2ET" secondAttribute="bottom" id="nLX-XM-Jzj"/>
                         <constraint firstItem="uvx-mh-2ET" firstAttribute="leading" secondItem="vxa-IK-rOg" secondAttribute="leading" constant="20" id="sww-G7-3mI"/>
                         <constraint firstItem="uqA-vv-7aq" firstAttribute="centerY" secondItem="oPE-wJ-djG" secondAttribute="centerY" id="ugq-Pi-qoc"/>
-                        <constraint firstAttribute="trailing" secondItem="dln-J5-IcS" secondAttribute="trailing" id="vKw-BL-shB"/>
+                        <constraint firstAttribute="trailing" secondItem="dln-J5-IcS" secondAttribute="trailing" constant="20" id="vKw-BL-shB"/>
                         <constraint firstItem="uqA-vv-7aq" firstAttribute="leading" secondItem="oPE-wJ-djG" secondAttribute="trailing" constant="20" id="wMV-eM-oKB"/>
                         <constraint firstItem="oPE-wJ-djG" firstAttribute="top" secondItem="vxa-IK-rOg" secondAttribute="top" constant="20" id="xxd-go-cXK"/>
                     </constraints>
@@ -268,7 +273,7 @@
     <resources>
         <image name="backButtonRight" width="8" height="14.5"/>
         <image name="edit" width="14" height="14"/>
-        <image name="profile" width="118" height="118"/>
+        <image name="timelapse_icon" width="23" height="23"/>
         <namedColor name="blue">
             <color red="0.14499999582767487" green="0.17299999296665192" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
@@ -276,7 +281,7 @@
             <color red="0.35699999332427979" green="0.83899998664855957" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

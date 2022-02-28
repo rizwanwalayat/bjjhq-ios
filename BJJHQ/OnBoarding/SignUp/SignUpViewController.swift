@@ -87,7 +87,7 @@ class SignUpViewController: BaseViewController {
         coordinator?.homePage()
     }
     
-    @IBAction func checkButtonAction(_ sender: Any) {
+    @IBAction func checkButtonAction(_ sender: UIButton) {
         
         if checkButtonImageView.backgroundColor == .clear {
             checkButtonImageView.backgroundColor = UIColor(hexString: "252C44")

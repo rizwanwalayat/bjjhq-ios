@@ -458,13 +458,13 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		049F854027C4F3E100848214 /* ordersViewController */ = {
+		049F854027C4F3E100848214 /* OrdersViewController */ = {
 			isa = PBXGroup;
 			children = (
 				1816885727BFD13200C9D962 /* OrderViewController.swift */,
 				1816885827BFD13200C9D962 /* OrderViewController.xib */,
 			);
-			path = ordersViewController;
+			path = OrdersViewController;
 			sourceTree = "<group>";
 		};
 		049F854127C4F40600848214 /* UserProfile */ = {
@@ -929,7 +929,7 @@
 			isa = PBXGroup;
 			children = (
 				04460F4827C5010100D9DDDE /* Faq */,
-				049F854027C4F3E100848214 /* ordersViewController */,
+				049F854027C4F3E100848214 /* OrdersViewController */,
 				049F854127C4F40600848214 /* UserProfile */,
 				96DD6C4127C378FB00DDA0DC /* MyOrders */,
 				96DD6C3C27BFE82C00DDA0DC /* ContactUs */,
