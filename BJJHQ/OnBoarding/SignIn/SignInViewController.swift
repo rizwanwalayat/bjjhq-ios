@@ -64,12 +64,22 @@ class SignInViewController: BaseViewController {
     }
     
     @IBAction func signInAction(_ sender: Any) {
-//        viewModel?.signInCustomer(email: emailTF.text!, password: passwordTF.text!,  completion: { data, error in
-//            if error != nil {
-//                self.showToast(message: error ?? "Error")
-//            }
-//        })
-//    
+        
+        self.view.activityStartAnimating()
+        viewModel?.signInCustomer(email: emailTF.text!, password: passwordTF.text!,  completion: { data, error in
+        
+            self.view.activityStopAnimating()
+            
+            if let accessToken = data {
+                
+                DataManager.shared.saveUserAccessToken(value: accessToken)
+                self.coordinator?.homePage()
+            }
+            
+            if error != nil {
+                self.showToast(message: error ?? "Error")
+            }
+        })
     }
     
     @IBAction func signUpAction(_ sender: Any) {
@@ -81,7 +91,17 @@ class SignInViewController: BaseViewController {
     }
     
     @IBAction func skipAction(_ sender: Any) {
-        coordinator?.homePage()
+        //coordinator?.homePage()
+        
+        self.view.activityStartAnimating()
+        viewModel?.guestUser( { success in
+            
+            self.view.activityStopAnimating()
+            if success {
+                
+                self.coordinator?.homePage()
+            }
+        })
     }
     
 }

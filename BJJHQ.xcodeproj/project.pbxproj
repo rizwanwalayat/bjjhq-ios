@@ -11,6 +11,13 @@
 		04460F4F27C5010100D9DDDE /* FaqTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04460F4B27C5010100D9DDDE /* FaqTableViewCell.xib */; };
 		04460F5027C5010100D9DDDE /* FaqTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04460F4C27C5010100D9DDDE /* FaqTableViewCell.swift */; };
 		04460F5127C5010100D9DDDE /* FaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04460F4D27C5010100D9DDDE /* FaqViewController.swift */; };
+		0481A26C27CCBA9900277E21 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481A26527CCBA9900277E21 /* Constants.swift */; };
+		0481A26E27CCBA9900277E21 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481A26827CCBA9900277E21 /* ApiClient.swift */; };
+		0481A26F27CCBA9900277E21 /* ApiResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481A26927CCBA9900277E21 /* ApiResponseHandler.swift */; };
+		0481A27027CCBA9900277E21 /* ApiClientHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481A26A27CCBA9900277E21 /* ApiClientHandler.swift */; };
+		0481A27127CCBA9900277E21 /* FileTSAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481A26B27CCBA9900277E21 /* FileTSAPIClient.swift */; };
+		0481A27627CCE53300277E21 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481A27427CCE53300277E21 /* UserDataModel.swift */; };
+		0481A27927CD04A500277E21 /* DeleteLogoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481A27827CD04A500277E21 /* DeleteLogoutViewModel.swift */; };
 		0487AC3827C4C47D00A3422B /* Barlow-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0487AC2527C4C47D00A3422B /* Barlow-Light.ttf */; };
 		0487AC3927C4C47D00A3422B /* Barlow-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0487AC2627C4C47D00A3422B /* Barlow-SemiBoldItalic.ttf */; };
 		0487AC3A27C4C47D00A3422B /* Barlow-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0487AC2727C4C47D00A3422B /* Barlow-BoldItalic.ttf */; };
@@ -210,6 +217,13 @@
 		04460F4B27C5010100D9DDDE /* FaqTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FaqTableViewCell.xib; sourceTree = "<group>"; };
 		04460F4C27C5010100D9DDDE /* FaqTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqTableViewCell.swift; sourceTree = "<group>"; };
 		04460F4D27C5010100D9DDDE /* FaqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqViewController.swift; sourceTree = "<group>"; };
+		0481A26527CCBA9900277E21 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0481A26827CCBA9900277E21 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		0481A26927CCBA9900277E21 /* ApiResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResponseHandler.swift; sourceTree = "<group>"; };
+		0481A26A27CCBA9900277E21 /* ApiClientHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClientHandler.swift; sourceTree = "<group>"; };
+		0481A26B27CCBA9900277E21 /* FileTSAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTSAPIClient.swift; sourceTree = "<group>"; };
+		0481A27427CCE53300277E21 /* UserDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
+		0481A27827CD04A500277E21 /* DeleteLogoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteLogoutViewModel.swift; sourceTree = "<group>"; };
 		0487AC2527C4C47D00A3422B /* Barlow-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Light.ttf"; sourceTree = "<group>"; };
 		0487AC2627C4C47D00A3422B /* Barlow-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		0487AC2727C4C47D00A3422B /* Barlow-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -432,6 +446,34 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		0481A26727CCBA9900277E21 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0481A26527CCBA9900277E21 /* Constants.swift */,
+				0481A26827CCBA9900277E21 /* ApiClient.swift */,
+				0481A26927CCBA9900277E21 /* ApiResponseHandler.swift */,
+				0481A26A27CCBA9900277E21 /* ApiClientHandler.swift */,
+				0481A26B27CCBA9900277E21 /* FileTSAPIClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		0481A27227CCCDC200277E21 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				0481A27427CCE53300277E21 /* UserDataModel.swift */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		0481A27727CD048B00277E21 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0481A27827CD04A500277E21 /* DeleteLogoutViewModel.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
 		0487AC2427C4C47D00A3422B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,20 +600,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		181AF2B927C6577E00AB6760 /* Order */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Order;
-			sourceTree = "<group>";
-		};
-		181AF2BA27C6578800AB6760 /* UserProfile */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = UserProfile;
-			sourceTree = "<group>";
-		};
 		1847907D27BE447800D98451 /* Address */ = {
 			isa = PBXGroup;
 			children = (
@@ -624,6 +652,7 @@
 		185C707B27BD38CD008F2FB3 /* DeletePopUp */ = {
 			isa = PBXGroup;
 			children = (
+				0481A27727CD048B00277E21 /* ViewModel */,
 				185C707C27BD38EA008F2FB3 /* DeletePopUpViewController.swift */,
 				185C707D27BD38EA008F2FB3 /* DeletePopUpViewController.xib */,
 			);
@@ -876,6 +905,7 @@
 			isa = PBXGroup;
 			children = (
 				9A9FFF121E79CCC800F6DFF7 /* PaginatedArray.swift */,
+				0481A27227CCCDC200277E21 /* Onboarding */,
 				9A27C3261E8FDB5600218EE8 /* Storefront */,
 				9A27C3251E8FDB4E00218EE8 /* Checkout */,
 				9A27C32B1E8FE0D500218EE8 /* Pay Conversions */,
@@ -1044,9 +1074,8 @@
 		9ADAD4691E563091008AC561 /* BJJHQ */ = {
 			isa = PBXGroup;
 			children = (
-				181AF2BA27C6578800AB6760 /* UserProfile */,
-				181AF2B927C6577E00AB6760 /* Order */,
 				9ADAD46A1E563091008AC561 /* AppDelegate.swift */,
+				0481A26727CCBA9900277E21 /* Network */,
 				9A9FFEFB1E78431C00F6DFF7 /* Formatters */,
 				9AAFAB901E60D0F900864A17 /* UI */,
 				9AAFAB8D1E60C69C00864A17 /* Extensions */,
@@ -1257,14 +1286,20 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PageControls/PageControls.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PageControls.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDropDown.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1290,6 +1325,7 @@
 				18D766C627BE8DE70076A12B /* SlideMenuController.swift in Sources */,
 				18958BD827BE6BDE00696B8E /* ErrorViewController.swift in Sources */,
 				9AAFAB861E60C15300864A17 /* ProductViewModel.swift in Sources */,
+				0481A27027CCBA9900277E21 /* ApiClientHandler.swift in Sources */,
 				9AAFAB7E1E60BE6500864A17 /* ViewModeling.swift in Sources */,
 				9ABEB3D6212446F000A373F2 /* GiftCardViewModel.swift in Sources */,
 				9A27C32A1E8FDF7C00218EE8 /* Fragment+CheckoutQuery.swift in Sources */,
@@ -1376,6 +1412,8 @@
 				9A9FFF2C1E8144F300F6DFF7 /* RoundedButton.swift in Sources */,
 				9617354027BD0CB300E9FC3C /* BaseViewModel.swift in Sources */,
 				9A4EDDF4212B30510071BA56 /* WebViewController.swift in Sources */,
+				0481A27927CD04A500277E21 /* DeleteLogoutViewModel.swift in Sources */,
+				0481A26F27CCBA9900277E21 /* ApiResponseHandler.swift in Sources */,
 				9AEF61CE1E606F100067FA90 /* Fragment+ImageConnectionQuery.swift in Sources */,
 				184790A727BE462700D98451 /* AddressTableViewCell.swift in Sources */,
 				9AE776422167E2A700A02112 /* Fragment+DiscountApplication.swift in Sources */,
@@ -1384,6 +1422,7 @@
 				9A27C3311E91232500218EE8 /* ShippingRateViewModel+PayShippingRate.swift in Sources */,
 				185C707E27BD38EA008F2FB3 /* DeletePopUpViewController.swift in Sources */,
 				9A4EDDDB2126E9A70071BA56 /* Fragment+OrderConnectionQuery.swift in Sources */,
+				0481A26E27CCBA9900277E21 /* ApiClient.swift in Sources */,
 				1816884127BFCED900C9D962 /* SignUpViewController.swift in Sources */,
 				9A9C92BC1ED5BDE80027F049 /* Fragment+PaymentQuery.swift in Sources */,
 				9A8E885A1E719EB20042879D /* ClientQuery.swift in Sources */,
@@ -1397,18 +1436,21 @@
 				9ADAD4751E563091008AC561 /* LaunchScreen.storyboard in Sources */,
 				18D766C427BE8D290076A12B /* SideMenuViewController.xib in Sources */,
 				96DD6C4927C3790B00DDA0DC /* MyOrdersTableViewCell.swift in Sources */,
+				0481A27127CCBA9900277E21 /* FileTSAPIClient.swift in Sources */,
 				1863836827BB9BFE0080FC80 /* LandingPageViewController.xib in Sources */,
 				9ADAD4721E563091008AC561 /* Assets.xcassets in Sources */,
 				9AAFAB8A1E60C17100864A17 /* ProductCell.xib in Sources */,
 				185C706F27BCEE7E008F2FB3 /* SuccessViewController.xib in Sources */,
 				184790A827BE462700D98451 /* AddressTableViewCell.xib in Sources */,
 				9A9FFF281E80172C00F6DFF7 /* ProductDetailsCell.xib in Sources */,
+				0481A26C27CCBA9900277E21 /* Constants.swift in Sources */,
 				9ADAD4701E563091008AC561 /* Main.storyboard in Sources */,
 				18737E4827BE6DF700C4F438 /* MainNotificationTableViewCell.xib in Sources */,
 				18737E4D27BE7A5900C4F438 /* ChangePasswordViewController.xib in Sources */,
 				18737E4327BE6D3A00C4F438 /* NotificationViewController.xib in Sources */,
 				9A9FFF231E800D9600F6DFF7 /* ProductHeaderCell.xib in Sources */,
 				9AAFAB841E60BF4400864A17 /* CollectionCell.xib in Sources */,
+				0481A27627CCE53300277E21 /* UserDataModel.swift in Sources */,
 				18958BD927BE6BDE00696B8E /* ErrorViewController.xib in Sources */,
 				1816884527BFCED900C9D962 /* SignInViewController.xib in Sources */,
 				1835898C27BD564600F293B6 /* AddressBookPopUpViewController.xib in Sources */,

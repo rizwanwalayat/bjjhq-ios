@@ -82,12 +82,6 @@ final class ClientQuery {
                 }
             }
         }
-        
-        Storefront.buildMutation { $0
-                .customerResetByUrl(resetUrl: <#T##URL#>, password: <#T##String#>) { <#Storefront.CustomerResetByUrlPayloadQuery#> in
-                    <#code#>
-                }
-        }
     }
     
     static func queryForCustomer(limit: Int, after cursor: String? = nil, accessToken: String) -> Storefront.QueryRootQuery {

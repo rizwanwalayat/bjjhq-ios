@@ -38,25 +38,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         _ = CartController.shared
         Thread.sleep(forTimeInterval: 1)
-                let navController = UINavigationController()
-                coordinator = MainCoordinator(navigationController: navController)
-                IQKeyboardManager.shared.enable = true
-                IQKeyboardManager.shared.shouldResignOnTouchOutside = true
-
-
-                //MARK: - UserState
-                if DataManager.shared.getUser() ?? false {
-
-                    coordinator?.homePage()
-
-                }
-                else {
-                    coordinator?.landingPage()
-                }
-
-                window = UIWindow(frame: UIScreen.main.bounds)
-                window?.rootViewController = navController
-                window?.makeKeyAndVisible()
+        let navController = UINavigationController()
+        coordinator = MainCoordinator(navigationController: navController)
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        
+        
+        //MARK: - UserState
+    
+        if let accessToken = DataManager.shared.getUserAccessToekn(), accessToken.count > 0 {
+            
+            coordinator?.homePage()
+            
+        }
+        else {
+            coordinator?.landingPage()
+        }
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navController
+        window?.makeKeyAndVisible()
 
         return true
     }

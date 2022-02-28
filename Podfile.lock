@@ -5,6 +5,7 @@ PODS:
   - NVActivityIndicatorView (5.1.1):
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
+  - ObjectMapper (4.2.0)
   - PageControls/PillPageControl (1.0.1)
   - SwiftyJSON (4.3.0)
 
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - iOSDropDown
   - IQKeyboardManagerSwift
   - NVActivityIndicatorView
+  - ObjectMapper
   - PageControls/PillPageControl
   - SwiftyJSON (~> 4.0)
 
@@ -22,6 +24,7 @@ SPEC REPOS:
     - iOSDropDown
     - IQKeyboardManagerSwift
     - NVActivityIndicatorView
+    - ObjectMapper
     - PageControls
     - SwiftyJSON
 
@@ -30,9 +33,10 @@ SPEC CHECKSUMS:
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   PageControls: fc2436c93e79419521a6de5d46d84722593e2949
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: cdd2f972958d383ea6b5adbffa8c7fbbf44893a7
+PODFILE CHECKSUM: e466b424e3c2b7be4404facd2931dd1e7eedc47d
 
 COCOAPODS: 1.11.2

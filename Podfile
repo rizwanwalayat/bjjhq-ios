@@ -12,5 +12,6 @@ target 'BJJHQ' do
   pod 'SwiftyJSON', '~> 4.0'
   pod "PageControls/PillPageControl"
   pod 'iOSDropDown'
+  pod 'ObjectMapper' #, '~> 3.4'
 
 end

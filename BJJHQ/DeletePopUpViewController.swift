@@ -24,6 +24,7 @@ class DeletePopUpViewController: BaseViewController {
     
     var isFromSignOut = false
     var isFromAddress = false
+    var viewModel : DeleteLogoutViewModel?
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -46,6 +47,7 @@ class DeletePopUpViewController: BaseViewController {
             // Default
         }
         
+        viewModel = DeleteLogoutViewModel()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -89,9 +91,20 @@ class DeletePopUpViewController: BaseViewController {
         hidePopup()
     }
     @IBAction func yesAction(_ sender: Any) {
-        DataManager.shared.setUser(value: false)
-        hidePopup()
-        coordinator?.landingPage()
+        
+        self.view.activityStartAnimating()
+        viewModel?.logoutUser({ success, message in
+            
+            if success {
+                DataManager.shared.removeUserAccessToken()
+                self.hidePopup()
+                self.coordinator?.landingPage()
+            }
+            else {
+                self.showToast(message: message ?? "Somthing went wrong, please try again later")
+            }
+        })
+        
     }
     
 }

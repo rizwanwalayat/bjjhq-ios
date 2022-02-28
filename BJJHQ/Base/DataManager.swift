@@ -17,17 +17,6 @@ class DataManager {
     
     //MARK: - UserState
     
-    func setUser(value: Bool) {
-        UserDefaults.standard.set(value, forKey: "userState")
-    }
-    
-    func getUser() -> Bool? {
-        return UserDefaults.standard.bool(forKey: "userState")
-    }
-    
-    func removeUser() {
-        UserDefaults.standard.removeObject(forKey: "userState")
-    }
     
     func setNotificationSwitch(value: [Bool]?) {
         UserDefaults.standard.set(value, forKey: "NotificationSwitch")
@@ -38,4 +27,17 @@ class DataManager {
     }
     
     
+    //MARK: - Access Token  -
+    
+    func saveUserAccessToken(value: String) {
+        UserDefaults.standard.set(value, forKey: "userAccessToken")
+    }
+    
+    func getUserAccessToekn() -> String? {
+        return UserDefaults.standard.string(forKey: "userAccessToken") ?? nil
+    }
+    
+    func removeUserAccessToken() {
+        UserDefaults.standard.removeObject(forKey: "userAccessToken")
+    }
 }

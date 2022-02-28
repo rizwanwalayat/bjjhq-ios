@@ -25,20 +25,68 @@
 //
 
 import Foundation
+import ObjectMapper
+import UIKit
 import Buy
 
 typealias SignUpCompletionHandler = (_ data: Storefront.Customer?, _ error: String?) -> Void
 
 final class SignUpViewModel: BaseViewModel {
     
-    func signUpCustomer(email: String, password: String, firstName: String, lastName: String, completion: @escaping SignUpCompletionHandler) {
-        Client.shared.createCustomer(email: email, password: password, firstName: firstName, lastName: lastName) { customer, error in
+    
+    
+    func signUpCustomer(fName: String, lName: String, uName: String, email: String, password: String, cPassword: String,  completion: @escaping (_ result: UserDataModel?,_ error: NSError?) -> Void ) {
+        
+        //        Client.shared.createCustomer(email: email, password: password, firstName: firstName, lastName: lastName) { customer, error in
+        //
+        //            completion(customer, error)
+        //
+        //        }
+        
+        APIClient.shared.Signup(firstName: fName, LastName: lName, userName: uName, email: email, password: password, cPassword: cPassword) { result, error, statusCode, messsage in
             
-            completion(customer, error)
-            
+            if let response = result {
+                
+                let newResult = ["result" : response]
+                if let resultData = Mapper<UserDataModel>().map(JSON: newResult as [String : Any]) {
+                    
+                    completion(resultData, nil)
+                    
+                } else {
+                    
+                    completion(nil, nil)
+                }
+            }
+            else {
+                
+                completion(nil, error)
+            }
         }
     }
     
+    func guestUser(_ completionHandler: @escaping(_ success: Bool) -> Void) {
+        
+        let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        APIClient.shared.guestUser(uuid: uuid) { result, error, statusCode, messsage in
+            
+            if let response = result {
+                
+                let newResult = ["result" : response]
+                if let _ = Mapper<UserDataModel>().map(JSON: newResult as [String : Any]) {
+                    
+                    completionHandler(true)
+                    
+                } else {
+                    
+                    completionHandler(false)
+                }
+            }
+            else {
+                
+                completionHandler(false)
+            }
+        }
+    }
 }
 
 

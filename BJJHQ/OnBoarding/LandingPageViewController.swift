@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class LandingPageViewController: BaseViewController {
 
@@ -44,9 +45,40 @@ class LandingPageViewController: BaseViewController {
     }
     
     @IBAction func skipAction(_ sender: Any) {
-        DataManager.shared.setUser(value: true)
-        coordinator?.homePage()
+        
+        self.view.activityStartAnimating()
+        self.guestUser { success in
+            if success {
+                
+                self.view.activityStopAnimating()
+                
+                self.coordinator?.homePage()
+            }
+        }
     }
     
+    
+    func guestUser(_ completionHandler: @escaping(_ success: Bool) -> Void) {
+        
+        let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        APIClient.shared.guestUser(uuid: uuid) { result, error, statusCode, messsage in
+            if let response = result {
+                
+                let newResult = ["result" : response]
+                if let _ = Mapper<UserDataModel>().map(JSON: newResult as [String : Any]) {
+                    
+                    completionHandler(true)
+                    
+                } else {
+                    
+                    completionHandler(false)
+                }
+            }
+            else {
+                
+                completionHandler(false)
+            }
+        }
+    }
     
 }
