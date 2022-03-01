@@ -34,7 +34,7 @@ class SignInViewController: BaseViewController {
         setupButtonUnderlineText(skipButton, "SKIP", color: "BCBFCC")
         signupButton.setTitle("", for: .normal)
         setupButtonUnderlineText(signupButton, "Sign Up", color: "5BD6CD",1.0)
-        changeButtonState(state: false)
+        changeButtonState(state: true)
     }
     
     func changeButtonState(state:Bool) {
@@ -65,21 +65,22 @@ class SignInViewController: BaseViewController {
     
     @IBAction func signInAction(_ sender: Any) {
         
-        self.view.activityStartAnimating()
-        viewModel?.signInCustomer(email: emailTF.text!, password: passwordTF.text!,  completion: { data, error in
-        
-            self.view.activityStopAnimating()
-            
-            if let accessToken = data {
-                
-                DataManager.shared.saveUserAccessToken(value: accessToken)
-                self.coordinator?.homePage()
-            }
-            
-            if error != nil {
-                self.showToast(message: error ?? "Error")
-            }
-        })
+//        self.view.activityStartAnimating()
+//        viewModel?.signInCustomer(email: emailTF.text!, password: passwordTF.text!,  completion: { data, error in
+//
+//            self.view.activityStopAnimating()
+//
+//            if let accessToken = data {
+//
+//                DataManager.shared.saveUserAccessToken(value: accessToken)
+//                self.coordinator?.homePage()
+//            }
+//
+//            if error != nil {
+//                self.showToast(message: error ?? "Error")
+//            }
+//        })
+        coordinator?.homePage()
     }
     
     @IBAction func signUpAction(_ sender: Any) {
@@ -91,55 +92,55 @@ class SignInViewController: BaseViewController {
     }
     
     @IBAction func skipAction(_ sender: Any) {
-        //coordinator?.homePage()
-        
-        self.view.activityStartAnimating()
-        viewModel?.guestUser( { success in
-            
-            self.view.activityStopAnimating()
-            if success {
-                
-                self.coordinator?.homePage()
-            }
-        })
+        coordinator?.homePage()
+//
+//        self.view.activityStartAnimating()
+//        viewModel?.guestUser( { success in
+//
+//            self.view.activityStopAnimating()
+//            if success {
+//
+//                self.coordinator?.homePage()
+//            }
+//        })
     }
     
 }
 
 extension SignInViewController : UITextFieldDelegate {
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        var enable = false
-        if ((emailTF.text?.isValidEmail()) == false) {
-            self.emailView.backgroundColor = UIColor(hexString: "#7C808F")
-        }
-        
-        else {
-            self.emailView.backgroundColor = UIColor(hexString: "#5BD6CD")
-        }
-        
-        if passwordTF.text!.count < 8 {
-            self.passwordView.backgroundColor = UIColor(hexString: "#7C808F")
-        }
-        
-        else {
-            self.passwordView.backgroundColor = UIColor(hexString: "#5BD6CD")
-        }
-        
-        if passwordTF.text == "" || ((emailTF.text?.isValidEmail()) == false) {
-            enable = false
-        }
-
-        else {
-            if passwordTF.text!.count < 8 {
-                enable = false
-            }
-            else {
-                enable = true
-            }
-        }
-        
-        changeButtonState(state: enable)
-    }
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        var enable = false
+//        if ((emailTF.text?.isValidEmail()) == false) {
+//            self.emailView.backgroundColor = UIColor(hexString: "#7C808F")
+//        }
+//
+//        else {
+//            self.emailView.backgroundColor = UIColor(hexString: "#5BD6CD")
+//        }
+//
+//        if passwordTF.text!.count < 8 {
+//            self.passwordView.backgroundColor = UIColor(hexString: "#7C808F")
+//        }
+//
+//        else {
+//            self.passwordView.backgroundColor = UIColor(hexString: "#5BD6CD")
+//        }
+//
+//        if passwordTF.text == "" || ((emailTF.text?.isValidEmail()) == false) {
+//            enable = false
+//        }
+//
+//        else {
+//            if passwordTF.text!.count < 8 {
+//                enable = false
+//            }
+//            else {
+//                enable = true
+//            }
+//        }
+//
+//        changeButtonState(state: enable)
+//    }
     
 }

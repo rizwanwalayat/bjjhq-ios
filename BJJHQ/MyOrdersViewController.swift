@@ -13,6 +13,7 @@ class MyOrdersViewController: BaseViewController , myOrdersAction {
     
     //MARK: - IBOutlets
 
+    @IBOutlet weak var loadMore: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -29,6 +30,8 @@ class MyOrdersViewController: BaseViewController , myOrdersAction {
                                                          Global.shared.salaat,
                                                          Global.shared.tasbeeh,
                                                          Global.shared.goal])
+        loadMore.setTitle("", for: .normal)
+        setupButtonUnderlineText(loadMore, "Load More", color: "252C44",1)
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
@@ -36,6 +39,10 @@ class MyOrdersViewController: BaseViewController , myOrdersAction {
     
     
     //MARK: - IBAction
+    
+    @IBAction func loadMoreAction(_ sender: Any) {
+        
+    }
     
     @IBAction func backAction(_ sender: Any) {
         coordinator?.popVc()
@@ -75,12 +82,7 @@ extension MyOrdersViewController : UITableViewDelegate, UITableViewDataSource {
         return cell
         
     }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "All Orders"
-    }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return self.tableView.bounds.height/5
-//    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         self.selectedAddressIndex = indexPath.row

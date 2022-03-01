@@ -20,8 +20,9 @@ class DeletePopUpViewController: BaseViewController {
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var heightMultiplier: NSLayoutConstraint!
     @IBOutlet weak var imgvvView: UIView!
-    //MARK: - Variables
     
+    //MARK: - Variables
+    var webSocketConnection: WebSocketConnection!
     var isFromSignOut = false
     var isFromAddress = false
     var viewModel : DeleteLogoutViewModel?
@@ -91,20 +92,23 @@ class DeletePopUpViewController: BaseViewController {
         hidePopup()
     }
     @IBAction func yesAction(_ sender: Any) {
-        
-        self.view.activityStartAnimating()
-        viewModel?.logoutUser({ success, message in
-            
-            if success {
-                DataManager.shared.removeUserAccessToken()
-                self.hidePopup()
-                self.coordinator?.landingPage()
-            }
-            else {
-                self.showToast(message: message ?? "Somthing went wrong, please try again later")
-            }
-        })
-        
+//        if isFromSignOut {
+//            self.view.activityStartAnimating()
+//            viewModel?.logoutUser({ success, message in
+//
+//                if success {
+//                    DataManager.shared.removeUserAccessToken()
+//                    self.hidePopup()
+//                    self.coordinator?.landingPage()
+//                }
+//                else {
+//                    self.showToast(message: message ?? "Somthing went wrong, please try again later")
+//                }
+//            })
+//        }
+        Global.shared.socket?.disconnect()
+        self.hidePopup()
+        self.coordinator?.landingPage()
     }
     
 }
