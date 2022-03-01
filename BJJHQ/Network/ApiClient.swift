@@ -97,4 +97,12 @@ class APIClient: APIClientHandler {
         _ = sendRequest(APIRoutes.logout , parameters: [:] ,httpMethod: .delete , headers: headers, completionBlock: completionBlock)
     }
     
+    func fetchCurrentDeal(_ completionBlock: @escaping APIClientCompletionHandler)
+    {
+        let token = DataManager.shared.getUserAccessToekn() ?? ""
+        let headers: HTTPHeaders = ["Authorization" : token]
+        
+        _ = sendRequest(APIRoutes.current_deal , parameters: [:] ,httpMethod: .get , headers: headers, completionBlock: completionBlock)
+    }
+    
 }

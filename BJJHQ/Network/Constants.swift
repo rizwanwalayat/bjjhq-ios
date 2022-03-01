@@ -17,6 +17,7 @@ struct APIRoutes {
     static var signup = "users"
     static var guest = "guests"
     static var logout = "users/sign_out"
+    static var current_deal = "current_deal"
 }
 
 struct FireBaseVariables {

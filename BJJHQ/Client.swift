@@ -265,7 +265,36 @@ final class Client {
         return task
     }
     
-    
+    @discardableResult
+    func fetchSignleProduct(productId: String, completion: @escaping (PageableArray<ProductViewModel>?) -> Void) -> Task {
+        
+        let query = ClientQuery.queryForProduct(product_id: productId)
+        let task  = self.client.queryGraphWith(query) { (response, error) in
+            error.debugPrint()
+            
+            if let responseProducts = response?.products {
+              
+               
+                let products = PageableArray(
+                    with:     responseProducts.edges,
+                    pageInfo: responseProducts.pageInfo
+                )
+                
+                let encoded = products.items[0].id
+                let decodedData = Data(base64Encoded: encoded)!
+                let decodedString = String(data: decodedData, encoding: .utf8)
+                
+                completion(products)
+                
+            } else {
+                print("Failed to load products : \(String(describing: error))")
+                completion(nil)
+            }
+        }
+        
+        task.resume()
+        return task
+    }
     
     
     // ----------------------------------

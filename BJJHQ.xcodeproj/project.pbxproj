@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040B8C3527CE24BA000E6E7E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B8C3427CE24BA000E6E7E /* HomeViewModel.swift */; };
+		040B8C3827CE29B3000E6E7E /* HomeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B8C3727CE29B3000E6E7E /* HomeDataModel.swift */; };
 		04460F4E27C5010100D9DDDE /* FaqViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04460F4927C5010100D9DDDE /* FaqViewController.xib */; };
 		04460F4F27C5010100D9DDDE /* FaqTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04460F4B27C5010100D9DDDE /* FaqTableViewCell.xib */; };
 		04460F5027C5010100D9DDDE /* FaqTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04460F4C27C5010100D9DDDE /* FaqTableViewCell.swift */; };
@@ -214,6 +216,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		040B8C3427CE24BA000E6E7E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		040B8C3727CE29B3000E6E7E /* HomeDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDataModel.swift; sourceTree = "<group>"; };
 		04460F4927C5010100D9DDDE /* FaqViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FaqViewController.xib; sourceTree = "<group>"; };
 		04460F4B27C5010100D9DDDE /* FaqTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FaqTableViewCell.xib; sourceTree = "<group>"; };
 		04460F4C27C5010100D9DDDE /* FaqTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqTableViewCell.swift; sourceTree = "<group>"; };
@@ -429,6 +433,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040B8C3327CE24A6000E6E7E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				040B8C3427CE24BA000E6E7E /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		040B8C3627CE2973000E6E7E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1816885527BFD13200C9D962 /* CommentsDataModel.swift */,
+				040B8C3727CE29B3000E6E7E /* HomeDataModel.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
 		04460F4827C5010100D9DDDE /* Faq */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,7 +596,7 @@
 				1816884A27BFD13200C9D962 /* Cells */,
 				1816885327BFD13200C9D962 /* HomeViewController.xib */,
 				1816885627BFD13200C9D962 /* HomeViewController.swift */,
-				1816885427BFD13200C9D962 /* Models */,
+				040B8C3327CE24A6000E6E7E /* ViewModel */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -593,14 +614,6 @@
 				1816885227BFD13200C9D962 /* HomeCollectionViewCell.xib */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		1816885427BFD13200C9D962 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				1816885527BFD13200C9D962 /* CommentsDataModel.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		1847907D27BE447800D98451 /* Address */ = {
@@ -908,6 +921,7 @@
 			isa = PBXGroup;
 			children = (
 				9A9FFF121E79CCC800F6DFF7 /* PaginatedArray.swift */,
+				040B8C3627CE2973000E6E7E /* Home */,
 				0481A27227CCCDC200277E21 /* Onboarding */,
 				9A27C3261E8FDB5600218EE8 /* Storefront */,
 				9A27C3251E8FDB4E00218EE8 /* Checkout */,
@@ -1345,6 +1359,7 @@
 				1816884427BFCED900C9D962 /* SignInViewModel.swift in Sources */,
 				1842EDF227BBE84800A4DA1D /* ForgetViewController.swift in Sources */,
 				9A4EDDD22126116E0071BA56 /* CustomerCoordinator.swift in Sources */,
+				040B8C3827CE29B3000E6E7E /* HomeDataModel.swift in Sources */,
 				04460F5027C5010100D9DDDE /* FaqTableViewCell.swift in Sources */,
 				9A67117A2166801A00A57A3F /* Fragment+DiscountAllocation.swift in Sources */,
 				9AAFAB921E60D11000864A17 /* StorefrontCollectionView.swift in Sources */,
@@ -1407,6 +1422,7 @@
 				1816884227BFCED900C9D962 /* SignUpViewModel.swift in Sources */,
 				9A4EDDE221270E660071BA56 /* CustomerViewController.swift in Sources */,
 				9AC583C91E81BEF8005DB319 /* CartViewController.swift in Sources */,
+				040B8C3527CE24BA000E6E7E /* HomeViewModel.swift in Sources */,
 				188E5A6F27BD4A98003FB613 /* NotificationHoursCollectionViewCell.swift in Sources */,
 				9A21F29A1E7AD4FD00E00F4B /* ParallaxViewController.swift in Sources */,
 				1816885927BFD13200C9D962 /* HomeCollectionViewCell.swift in Sources */,

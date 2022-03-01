@@ -36,13 +36,7 @@ final class SignUpViewModel: BaseViewModel {
     
     
     func signUpCustomer(fName: String, lName: String, uName: String, email: String, password: String, cPassword: String,  completion: @escaping (_ result: UserDataModel?,_ error: NSError?) -> Void ) {
-        
-        //        Client.shared.createCustomer(email: email, password: password, firstName: firstName, lastName: lastName) { customer, error in
-        //
-        //            completion(customer, error)
-        //
-        //        }
-        
+                
         APIClient.shared.Signup(firstName: fName, LastName: lName, userName: uName, email: email, password: password, cPassword: cPassword) { result, error, statusCode, messsage in
             
             if let response = result {

@@ -63,8 +63,8 @@ class LandingPageViewController: BaseViewController {
         APIClient.shared.guestUser(uuid: uuid) { result, error, statusCode, messsage in
             if let response = result {
                 
-                let newResult = ["result" : response]
-                if let _ = Mapper<UserDataModel>().map(JSON: newResult as [String : Any]) {
+                //let newResult = ["result" : response]
+                if let data = Mapper<UserDataModel>().map(JSONObject: response) {
                     
                     completionHandler(true)
                     

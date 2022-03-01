@@ -54,6 +54,7 @@ class HomeViewController: BaseViewController {
     var comments = [CommentsData]()
     var replayComment : CommentsData?
     var webSocketConnection: WebSocketConnection!
+    var viewModel : HomeViewModel?
     
     // MARK: - Controller's lifeCycle -
     
@@ -145,6 +146,30 @@ class HomeViewController: BaseViewController {
             self.dropDownFilled.text = selectedText
             //self.dropDownTF.text = ""
         }
+        
+        viewModel = HomeViewModel()
+        viewModel?.fetchCurrentDeal({ success, homeData, message in
+            
+            if let data = homeData, let info = data.response, success {
+                
+                
+                let id = "\(info.current_product_id)"
+                self.viewModel?.fetchSignleProduct(id, { pdata in
+                    if let data = pdata {
+                        print(data.items.first?.title ?? "")
+                    }
+                })
+                
+                self.viewModel?.fetchProducts(id, { pdata in
+                    
+                    if let data = pdata {
+                        print(data.items.first?.title ?? "")
+                    }
+                })
+            }
+            
+            self.showToast(message: message ?? "Data not fetched ")
+        })
     }
     
     

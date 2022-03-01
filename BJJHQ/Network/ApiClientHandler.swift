@@ -132,7 +132,8 @@ class APIClientHandler: TSAPIClient {
                 var resultError: NSError?
                 var resultData: AnyObject?
 
-                if let responseHandler = Mapper<VTResponseHandler>().map(JSONObject:result) {
+                let newResult = ["result" : result]
+                if let responseHandler = Mapper<VTResponseHandler>().map(JSONObject:newResult) {
                     status = responseHandler.status
                     isError = responseHandler.isError
                     errorMessage = responseHandler.error
