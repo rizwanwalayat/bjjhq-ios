@@ -497,6 +497,7 @@ extension HomeViewController : WebSocketConnectionDelegate {
     
     func onMessage(connection: WebSocketConnection, text: String) {
         print("Text message: \(text)")
+        Global.shared.socket = connection
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 //            self.webSocketConnection.send(text: "ping")
 //        }

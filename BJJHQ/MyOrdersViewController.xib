@@ -20,6 +20,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyOrdersViewController" customModule="BJJHQ" customModuleProvider="target">
             <connections>
+                <outlet property="loadMore" destination="bE0-ZS-uu9" id="JfU-YR-wAC"/>
                 <outlet property="tableView" destination="dna-lA-CEi" id="yU6-sv-V9Z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -72,34 +73,65 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dna-lA-CEi">
-                            <rect key="frame" x="20" y="70" width="374" height="700"/>
+                            <rect key="frame" x="20" y="122" width="374" height="630"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="5Xz-BR-MfG"/>
                                 <outlet property="delegate" destination="-1" id="oWo-LV-tCq"/>
                             </connections>
                         </tableView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Load More" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAx-Qi-yZo">
-                            <rect key="frame" x="166.5" y="790" width="81" height="22"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="All Orders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlF-8d-9B1">
+                            <rect key="frame" x="30" y="90" width="76" height="22"/>
                             <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="18"/>
                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bE0-ZS-uu9">
+                            <rect key="frame" x="166.5" y="772" width="81" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="QfJ-b9-98I"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="18"/>
+                            <color key="tintColor" red="1" green="0.52549019610000003" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Load More">
+                                <color key="titleColor" name="blue"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                    <real key="value" value="0.10000000000000001"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                    <size key="value" width="0.0" height="2"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="loadMoreAction:" destination="-1" eventType="touchUpInside" id="NaH-lz-xCh"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="dna-lA-CEi" secondAttribute="trailing" constant="20" id="4qb-qc-hFJ"/>
-                        <constraint firstItem="PAx-Qi-yZo" firstAttribute="centerX" secondItem="0bb-Kk-55z" secondAttribute="centerX" id="Fvo-YN-ack"/>
+                        <constraint firstItem="MlF-8d-9B1" firstAttribute="leading" secondItem="0bb-Kk-55z" secondAttribute="leading" constant="30" id="6FN-Hw-6rM"/>
+                        <constraint firstItem="bE0-ZS-uu9" firstAttribute="centerX" secondItem="0bb-Kk-55z" secondAttribute="centerX" id="ADn-xx-2jB"/>
+                        <constraint firstItem="dna-lA-CEi" firstAttribute="top" secondItem="MlF-8d-9B1" secondAttribute="bottom" constant="10" id="FUJ-G0-ybo"/>
                         <constraint firstItem="dna-lA-CEi" firstAttribute="leading" secondItem="0bb-Kk-55z" secondAttribute="leading" constant="20" id="IYQ-tr-ka3"/>
+                        <constraint firstItem="bE0-ZS-uu9" firstAttribute="top" secondItem="dna-lA-CEi" secondAttribute="bottom" constant="20" id="L8d-hw-pcn"/>
                         <constraint firstItem="NgH-mX-7vw" firstAttribute="top" secondItem="0bb-Kk-55z" secondAttribute="top" constant="20" id="MJ8-5E-g4x"/>
+                        <constraint firstItem="MlF-8d-9B1" firstAttribute="top" secondItem="7Jm-3j-DXB" secondAttribute="bottom" constant="30" id="X4G-kQ-pIf"/>
                         <constraint firstItem="NgH-mX-7vw" firstAttribute="leading" secondItem="0bb-Kk-55z" secondAttribute="leading" constant="20" id="YjU-T9-Sz7"/>
+                        <constraint firstAttribute="bottom" secondItem="bE0-ZS-uu9" secondAttribute="bottom" constant="40" id="eyb-Up-OWo"/>
                         <constraint firstItem="7Jm-3j-DXB" firstAttribute="centerY" secondItem="NgH-mX-7vw" secondAttribute="centerY" id="h1K-EH-5b5"/>
                         <constraint firstItem="7Jm-3j-DXB" firstAttribute="leading" secondItem="NgH-mX-7vw" secondAttribute="trailing" constant="20" id="iWW-WD-cE5"/>
                         <constraint firstItem="7Jm-3j-DXB" firstAttribute="top" secondItem="0bb-Kk-55z" secondAttribute="top" constant="20" id="ieL-zH-Pyi"/>
-                        <constraint firstItem="dna-lA-CEi" firstAttribute="top" secondItem="7Jm-3j-DXB" secondAttribute="bottom" constant="10" id="j05-Bh-9gA"/>
-                        <constraint firstItem="PAx-Qi-yZo" firstAttribute="top" secondItem="dna-lA-CEi" secondAttribute="bottom" constant="20" id="ki4-XO-8Mq"/>
                         <constraint firstAttribute="trailing" secondItem="7Jm-3j-DXB" secondAttribute="trailing" constant="60" id="lle-OU-LXF"/>
-                        <constraint firstAttribute="bottom" secondItem="PAx-Qi-yZo" secondAttribute="bottom" constant="40" id="rmg-Ud-AI4"/>
                     </constraints>
                 </view>
             </subviews>
@@ -120,7 +152,7 @@
             <color red="0.14499999582767487" green="0.17299999296665192" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

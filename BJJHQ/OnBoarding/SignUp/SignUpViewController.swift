@@ -51,7 +51,7 @@ class SignUpViewController: BaseViewController {
         setupButtonUnderlineText(skipButton, "SKIP", color: "BCBFCC")
         signInButton.setTitle("", for: .normal)
         setupButtonUnderlineText(signInButton, "Sign In", color: "5BD6CD",1.0)
-        changeButtonState(state: false)
+        changeButtonState(state: true)
     }
     
     
@@ -73,21 +73,22 @@ class SignUpViewController: BaseViewController {
     
     @IBAction func signUpAction(_ sender: Any) {
         
-        self.view.activityStartAnimating()
-        
-        viewModel?.signUpCustomer(fName: firstNameTF.text!, lName: lastNameTF.text!, uName: userNameTF.text!, email: emailTF.text!, password: passwordTF.text!, cPassword: confirmPasswordTF.text!, completion: { response, error in
-            
-            self.view.activityStopAnimating()
-            
-            if let result = response, error == nil{
-                self.showToast(message: result.message)
-                self.coordinator?.signInPage()
-            }
-            else {
-                
-                self.showToast(message: error?.localizedDescription ?? "Something went wrong, please try again later")
-            }
-        })
+//        self.view.activityStartAnimating()
+//
+//        viewModel?.signUpCustomer(fName: firstNameTF.text!, lName: lastNameTF.text!, uName: userNameTF.text!, email: emailTF.text!, password: passwordTF.text!, cPassword: confirmPasswordTF.text!, completion: { response, error in
+//
+//            self.view.activityStopAnimating()
+//
+//            if let result = response, error == nil{
+//                self.showToast(message: result.message)
+//                self.coordinator?.signInPage()
+//            }
+//            else {
+//
+//                self.showToast(message: error?.localizedDescription ?? "Something went wrong, please try again later")
+//            }
+//        })
+        coordinator?.homePage()
     }
     
     @IBAction func signInAction(_ sender: Any) {
@@ -95,16 +96,16 @@ class SignUpViewController: BaseViewController {
     }
     
     @IBAction func skipAction(_ sender: Any) {
-        
-        self.view.activityStartAnimating()
-        viewModel?.guestUser( { success in
-            
-            self.view.activityStopAnimating()
-            if success {
-                
-                self.coordinator?.homePage()
-            }
-        })
+        coordinator?.homePage()
+//        self.view.activityStartAnimating()
+//        viewModel?.guestUser( { success in
+//
+//            self.view.activityStopAnimating()
+//            if success {
+//
+//                self.coordinator?.homePage()
+//            }
+//        })
     }
     
     @IBAction func checkButtonAction(_ sender: UIButton) {
@@ -200,73 +201,73 @@ class SignUpViewController: BaseViewController {
 
 extension SignUpViewController : UITextFieldDelegate {
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        var enable = false
-
-        if firstNameTF.text == "" {
-            self.firstNameView.backgroundColor = UIColor(hexString: "#7C808F")
-        }
-        else {
-            self.firstNameView.backgroundColor = UIColor(hexString: "#5BD6CD")
-        }
-        
-        if lastNameTF.text == "" {
-            self.lastNameView.backgroundColor = UIColor(hexString: "#7C808F")
-        }
-        else {
-            self.lastNameView.backgroundColor = UIColor(hexString: "#5BD6CD")
-        }
-        
-        if ((emailTF.text?.isValidEmail()) == false) {
-            self.emailView.backgroundColor = UIColor(hexString: "#7C808F")
-        }
-        
-        else {
-            self.emailView.backgroundColor = UIColor(hexString: "#5BD6CD")
-        }
-        
-        if userNameTF.text == "" {
-            self.userNameview.backgroundColor = UIColor(hexString: "#7C808F")
-        }
-        
-        else {
-            self.userNameview.backgroundColor = UIColor(hexString: "#5BD6CD")
-        }
-        
-        if passwordTF.text!.count < 8 {
-            self.passwordView.backgroundColor = UIColor(hexString: "#7C808F")
-        }
-        
-        else {
-            self.passwordView.backgroundColor = UIColor(hexString: "#5BD6CD")
-        }
-        
-        if confirmPasswordTF.text!.count < 8 {
-            self.confirmPasswordView.backgroundColor = UIColor(hexString: "#7C808F")
-        }
-        
-        else {
-            self.confirmPasswordView.backgroundColor = UIColor(hexString: "#5BD6CD")
-        }
-        
-
-
-        if passwordTF.text == "" || ((emailTF.text?.isValidEmail()) == false) || userNameTF.text == "" || firstNameTF.text == "" || confirmPasswordTF.text == "" {
-            enable = false
-        }
-
-        else {
-            if passwordTF.text!.count < 8 || passwordTF.text! != confirmPasswordTF.text! {
-                enable = false
-            }
-            else {
-                enable = true
-            }
-        }
-
-        print(enable)
-
-        changeButtonState(state: enable)
-    }
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        var enable = false
+//
+//        if firstNameTF.text == "" {
+//            self.firstNameView.backgroundColor = UIColor(hexString: "#7C808F")
+//        }
+//        else {
+//            self.firstNameView.backgroundColor = UIColor(hexString: "#5BD6CD")
+//        }
+//        
+//        if lastNameTF.text == "" {
+//            self.lastNameView.backgroundColor = UIColor(hexString: "#7C808F")
+//        }
+//        else {
+//            self.lastNameView.backgroundColor = UIColor(hexString: "#5BD6CD")
+//        }
+//        
+//        if ((emailTF.text?.isValidEmail()) == false) {
+//            self.emailView.backgroundColor = UIColor(hexString: "#7C808F")
+//        }
+//        
+//        else {
+//            self.emailView.backgroundColor = UIColor(hexString: "#5BD6CD")
+//        }
+//        
+//        if userNameTF.text == "" {
+//            self.userNameview.backgroundColor = UIColor(hexString: "#7C808F")
+//        }
+//        
+//        else {
+//            self.userNameview.backgroundColor = UIColor(hexString: "#5BD6CD")
+//        }
+//        
+//        if passwordTF.text!.count < 8 {
+//            self.passwordView.backgroundColor = UIColor(hexString: "#7C808F")
+//        }
+//        
+//        else {
+//            self.passwordView.backgroundColor = UIColor(hexString: "#5BD6CD")
+//        }
+//        
+//        if confirmPasswordTF.text!.count < 8 {
+//            self.confirmPasswordView.backgroundColor = UIColor(hexString: "#7C808F")
+//        }
+//        
+//        else {
+//            self.confirmPasswordView.backgroundColor = UIColor(hexString: "#5BD6CD")
+//        }
+//        
+//
+//
+//        if passwordTF.text == "" || ((emailTF.text?.isValidEmail()) == false) || userNameTF.text == "" || firstNameTF.text == "" || confirmPasswordTF.text == "" {
+//            enable = false
+//        }
+//
+//        else {
+//            if passwordTF.text!.count < 8 || passwordTF.text! != confirmPasswordTF.text! {
+//                enable = false
+//            }
+//            else {
+//                enable = true
+//            }
+//        }
+//
+//        print(enable)
+//
+//        changeButtonState(state: enable)
+//    }
     
 }
