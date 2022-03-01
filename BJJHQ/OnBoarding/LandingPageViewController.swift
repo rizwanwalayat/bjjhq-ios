@@ -48,10 +48,9 @@ class LandingPageViewController: BaseViewController {
         
         self.view.activityStartAnimating()
         self.guestUser { success in
+            
+            self.view.activityStopAnimating()
             if success {
-                
-                self.view.activityStopAnimating()
-                
                 self.coordinator?.homePage()
             }
         }

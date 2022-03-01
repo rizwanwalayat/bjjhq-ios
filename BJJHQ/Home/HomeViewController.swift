@@ -53,6 +53,7 @@ class HomeViewController: BaseViewController {
     var colorSelectedIndex = IndexPath()
     var comments = [CommentsData]()
     var replayComment : CommentsData?
+    var webSocketConnection: WebSocketConnection!
     
     // MARK: - Controller's lifeCycle -
     
@@ -80,6 +81,13 @@ class HomeViewController: BaseViewController {
         
         bottomView.roundCornersTopView(36)
         bottomView.addGradient(colors: [UIColor(hexString: "#DEDFE3").cgColor, UIColor(hexString: "#FFFFFF").cgColor])
+        
+        webSocketConnection = WebSocketTaskConnection(url: URL(string: "wss://bjjhq.phaedrasolutions.com/cable")!)
+        webSocketConnection.delegate = self
+        
+        webSocketConnection.connect()
+        
+        //webSocketConnection.send(text: "ping")
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?)
@@ -440,5 +448,38 @@ extension HomeViewController : commentsTableViewDelegate {
         writeCommentsTF.text = subComment.userName
         writeCommentsTF.becomeFirstResponder()
     }
+    
+}
+
+// MARK: - Web Socket Delegate  -
+
+extension HomeViewController : WebSocketConnectionDelegate {
+    func onConnected(connection: WebSocketConnection) {
+        print("Connected")
+    }
+    
+    func onDisconnected(connection: WebSocketConnection, error: Error?) {
+        if let error = error {
+            print("Disconnected with error:\(error)")
+        } else {
+            print("Disconnected normally")
+        }
+    }
+    
+    func onError(connection: WebSocketConnection, error: Error) {
+        print("Connection error:\(error)")
+    }
+    
+    func onMessage(connection: WebSocketConnection, text: String) {
+        print("Text message: \(text)")
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            self.webSocketConnection.send(text: "ping")
+//        }
+    }
+    
+    func onMessage(connection: WebSocketConnection, data: Data) {
+        print("Data message: \(data)")
+    }
+    
     
 }
