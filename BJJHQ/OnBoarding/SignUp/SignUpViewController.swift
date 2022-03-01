@@ -88,7 +88,7 @@ class SignUpViewController: BaseViewController {
 //                self.showToast(message: error?.localizedDescription ?? "Something went wrong, please try again later")
 //            }
 //        })
-        coordinator?.homePage()
+        coordinator?.successController()
     }
     
     @IBAction func signInAction(_ sender: Any) {

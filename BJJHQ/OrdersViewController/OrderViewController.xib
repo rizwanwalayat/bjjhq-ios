@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -124,14 +124,42 @@
                                                     <color key="textColor" name="borderColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2A-Tn-hoO">
+                                                    <rect key="frame" x="304.5" y="0.0" width="69.5" height="19.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="14"/>
+                                                    <color key="tintColor" name="borderColor"/>
+                                                    <state key="normal">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" name="borderColor"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="0.0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="checkOutAction:" destination="-1" eventType="touchUpInside" id="Btu-Ku-OrN"/>
+                                                        <action selector="clearCartAction:" destination="-1" eventType="touchUpInside" id="ebp-KS-Hax"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
+                                                <constraint firstItem="q2A-Tn-hoO" firstAttribute="trailing" secondItem="Z0x-eT-aBn" secondAttribute="trailing" id="1ur-qE-Tn7"/>
+                                                <constraint firstItem="q2A-Tn-hoO" firstAttribute="top" secondItem="Z0x-eT-aBn" secondAttribute="top" id="4eV-Sr-6kz"/>
                                                 <constraint firstItem="Z0x-eT-aBn" firstAttribute="top" secondItem="bZm-pb-YsY" secondAttribute="top" id="CMG-xG-7zA"/>
                                                 <constraint firstItem="2ny-X0-Kbm" firstAttribute="leading" secondItem="bZm-pb-YsY" secondAttribute="leading" id="UeT-Cs-8Dc"/>
                                                 <constraint firstAttribute="bottom" secondItem="2ny-X0-Kbm" secondAttribute="bottom" id="cuu-Ii-jie"/>
                                                 <constraint firstAttribute="trailing" secondItem="Z0x-eT-aBn" secondAttribute="trailing" id="gAf-Zv-e9l"/>
                                                 <constraint firstAttribute="bottom" secondItem="Z0x-eT-aBn" secondAttribute="bottom" id="hs4-KA-Wyi"/>
+                                                <constraint firstItem="q2A-Tn-hoO" firstAttribute="width" secondItem="Z0x-eT-aBn" secondAttribute="width" id="jVs-dy-kFy"/>
+                                                <constraint firstItem="q2A-Tn-hoO" firstAttribute="height" secondItem="Z0x-eT-aBn" secondAttribute="height" id="k5y-39-haU"/>
                                                 <constraint firstItem="2ny-X0-Kbm" firstAttribute="top" secondItem="bZm-pb-YsY" secondAttribute="top" id="lJ3-v8-LDS"/>
                                             </constraints>
                                         </view>

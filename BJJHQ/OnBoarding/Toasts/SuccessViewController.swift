@@ -14,6 +14,14 @@ class SuccessViewController: BaseViewController {
         super.viewDidLoad()
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.coordinator?.homePage()
+        }
+    }
 
 
 

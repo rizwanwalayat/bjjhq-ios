@@ -36,7 +36,7 @@ class ForgetViewController: BaseViewController {
         setupButtonUnderlineText(skipButton, "SKIP", color: "BCBFCC")
         skipButton.setTitle("", for: .normal)
         setupButtonUnderlineText(signInBUtton, "Try Signing In", color: "#5BD6CD",1.0)
-        changeButtonState(state: false)
+        changeButtonState(state: true)
     }
     
     func changeButtonState(state:Bool) {

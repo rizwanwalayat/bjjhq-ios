@@ -23,6 +23,7 @@ protocol Coordinator {
     func profilePage()
     func FAQPage()
     func myOrderDetail()
+    func successController()
 }
 
 class MainCoordinator: Coordinator {
@@ -144,6 +145,12 @@ class MainCoordinator: Coordinator {
     
     func FAQPage() {
         let vc = FaqViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func successController() {
+        let vc = SuccessViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }

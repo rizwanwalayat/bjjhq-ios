@@ -59,7 +59,7 @@
                                         <constraint firstAttribute="width" constant="30" id="iog-b1-hxe"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
-                                    <color key="tintColor" name="marinda"/>
+                                    <color key="tintColor" name="sky"/>
                                     <state key="normal">
                                         <color key="titleColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <imageReference key="image" image="multiply" catalog="system" symbolScale="large"/>
@@ -197,7 +197,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="DtS-Or-8Zf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6Wr-xI-cBt"/>
                 <constraint firstItem="DtS-Or-8Zf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8iB-IJ-kRJ"/>
@@ -213,8 +213,8 @@
         <namedColor name="blue">
             <color red="0.14499999582767487" green="0.17299999296665192" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="marinda">
-            <color red="0.9100000262260437" green="0.41200000047683716" blue="0.41200000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="sky">
+            <color red="0.35699999332427979" green="0.83899998664855957" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

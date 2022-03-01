@@ -18,13 +18,14 @@ class DeletePopUpViewController: BaseViewController {
     @IBOutlet weak var titleLbl: UILabel!
     
     @IBOutlet weak var descriptionLbl: UILabel!
-    @IBOutlet weak var heightMultiplier: NSLayoutConstraint!
+    //@IBOutlet weak var heightMultiplier: NSLayoutConstraint!
     @IBOutlet weak var imgvvView: UIView!
     
     //MARK: - Variables
     var webSocketConnection: WebSocketConnection!
     var isFromSignOut = false
     var isFromAddress = false
+    var isFromRemoveCart = false
     var viewModel : DeleteLogoutViewModel?
     //MARK: - LifeCycle
     
@@ -33,16 +34,24 @@ class DeletePopUpViewController: BaseViewController {
         self.popUpView.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
         
         if isFromSignOut {
-            self.heightMultiplier =  heightMultiplier.setMultiplier(multiplier: 0.3)
+            //self.heightMultiplier =  heightMultiplier.setMultiplier(multiplier: 0.3)
             self.imgvvView.isHidden = true
             self.titleLbl.text = "Sign Out"
             self.descriptionLbl.text = "Are you sure you want to sign out?"
         }
         else if isFromAddress {
-            self.heightMultiplier =  heightMultiplier.setMultiplier(multiplier: 0.3)
+            //self.heightMultiplier =  heightMultiplier.setMultiplier(multiplier: 0.3)
             self.imgvvView.isHidden = true
             self.titleLbl.text = "Delete this Address?"
             self.descriptionLbl.text = "Are you sure you want to delete this address?"
+        }
+        else if isFromRemoveCart {
+           // self.heightMultiplier =  heightMultiplier.setMultiplier(multiplier: 0.3)
+            self.imgvvView.isHidden = false
+            self.imgView.image = UIImage(named: "ProductSample")
+            self.titleLbl.text = ""
+            self.titleLbl.isHidden = true
+            self.descriptionLbl.text = "This item will be removed from your cart, do you wish to proceed?"
         }
         else {
             // Default

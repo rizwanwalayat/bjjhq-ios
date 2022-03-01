@@ -80,7 +80,7 @@ class SignInViewController: BaseViewController {
 //                self.showToast(message: error ?? "Error")
 //            }
 //        })
-        coordinator?.homePage()
+        coordinator?.successController()
     }
     
     @IBAction func signUpAction(_ sender: Any) {

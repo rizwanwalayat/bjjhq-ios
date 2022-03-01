@@ -59,7 +59,7 @@ class MainNotificationTableViewCell: UITableViewCell {
             switchButton.onTintColor = UIColor(named: "sky")
         }
         else {
-            switchButton.onTintColor = UIColor(hexString: "#252C44")
+            switchButton.onTintColor = UIColor(named: "blue")
         }
     }
     

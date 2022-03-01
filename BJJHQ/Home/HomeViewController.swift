@@ -147,29 +147,29 @@ class HomeViewController: BaseViewController {
             //self.dropDownTF.text = ""
         }
         
-        viewModel = HomeViewModel()
-        viewModel?.fetchCurrentDeal({ success, homeData, message in
-            
-            if let data = homeData, let info = data.response, success {
-                
-                
-                let id = "\(info.current_product_id)"
-                self.viewModel?.fetchSignleProduct(id, { pdata in
-                    if let data = pdata {
-                        print(data.items.first?.title ?? "")
-                    }
-                })
-                
-                self.viewModel?.fetchProducts(id, { pdata in
-                    
-                    if let data = pdata {
-                        print(data.items.first?.title ?? "")
-                    }
-                })
-            }
-            
-            self.showToast(message: message ?? "Data not fetched ")
-        })
+//        viewModel = HomeViewModel()
+//        viewModel?.fetchCurrentDeal({ success, homeData, message in
+//            
+//            if let data = homeData, let info = data.response, success {
+//                
+//                
+//                let id = "\(info.current_product_id)"
+//                self.viewModel?.fetchSignleProduct(id, { pdata in
+//                    if let data = pdata {
+//                        print(data.items.first?.title ?? "")
+//                    }
+//                })
+//                
+//                self.viewModel?.fetchProducts(id, { pdata in
+//                    
+//                    if let data = pdata {
+//                        print(data.items.first?.title ?? "")
+//                    }
+//                })
+//            }
+//            
+//            self.showToast(message: message ?? "Data not fetched ")
+//        })
     }
     
     
@@ -178,8 +178,8 @@ class HomeViewController: BaseViewController {
         let commentsObject = CommentsData("Rizwan07", "very nice", "10", "15", "3 min",  nil, [], nil)
         comments.append(commentsObject)
         
-        let subComments = CommentsReplyData("Rizwan07", "zahir ha", "100", "2", "30 min", nil, nil)
-        let commentsObject2 = CommentsData("Haider003", "fazool", "100", "300", "1 hour",  nil, [subComments], nil)
+        let subComments = CommentsReplyData("Rizwan07", "great", "100", "2", "30 min", nil, nil)
+        let commentsObject2 = CommentsData("Haider003", "good", "100", "300", "1 hour",  nil, [subComments], nil)
         comments.append(commentsObject2)
         
         let subComments1 = CommentsReplyData("Haider003", "Thank you so much for these kind words.", "100", "2", "30 min", nil, nil)
@@ -260,6 +260,11 @@ class HomeViewController: BaseViewController {
         }
     }
     
+    @IBAction func butNowAction(_ sender: Any) {
+        
+        
+        coordinator?.myOrderDetail()
+    }
     
     @objc func likeButtonPressed (_ sender: UIButton)
     {

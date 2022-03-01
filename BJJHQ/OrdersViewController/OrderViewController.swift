@@ -52,4 +52,15 @@ class OrderViewController: BaseViewController {
     @IBAction func checkOutAction(_ sender: Any)
     {
     }
+    
+    @IBAction func clearCartAction(_ sender: Any) {
+        
+        let vc = DeletePopUpViewController(nibName: "DeletePopUpViewController", bundle: nil)
+        vc.coordinator = self.coordinator
+        vc.isFromRemoveCart = true
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: false, completion: nil)
+        
+    }
+    
 }

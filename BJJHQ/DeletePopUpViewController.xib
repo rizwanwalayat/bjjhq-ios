@@ -25,7 +25,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeletePopUpViewController" customModule="BJJHQ" customModuleProvider="target">
             <connections>
                 <outlet property="descriptionLbl" destination="VwX-Go-zHZ" id="G7l-aL-EY7"/>
-                <outlet property="heightMultiplier" destination="xBJ-i3-PZQ" id="u4f-ZC-Grz"/>
                 <outlet property="imgView" destination="86I-OO-pXl" id="FeK-5a-RN3"/>
                 <outlet property="imgvvView" destination="TMd-ie-9uQ" id="J4C-2j-92k"/>
                 <outlet property="popUpView" destination="3xF-s6-g2u" id="QcZ-ZU-MaU"/>
@@ -45,17 +44,17 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vo8-tw-Id1">
-                            <rect key="frame" x="30" y="269" width="354" height="358"/>
+                            <rect key="frame" x="30" y="287.5" width="354" height="321"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAL-UO-ACD">
-                                    <rect key="frame" x="314" y="15" width="30" height="30"/>
+                                    <rect key="frame" x="314" y="15" width="30" height="21"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="30" id="eep-ey-awI"/>
                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="ocq-bg-WET"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
-                                    <color key="tintColor" name="marinda"/>
+                                    <color key="tintColor" name="sky"/>
                                     <state key="normal">
                                         <color key="titleColor" name="marinda"/>
                                         <imageReference key="image" image="multiply" catalog="system" symbolScale="large"/>
@@ -79,18 +78,18 @@
                                     </connections>
                                 </button>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="l1S-NM-ibd">
-                                    <rect key="frame" x="30" y="288" width="294" height="50"/>
+                                    <rect key="frame" x="30" y="251" width="294" height="50"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTS-aY-O7c">
                                             <rect key="frame" x="0.0" y="0.0" width="137" height="50"/>
-                                            <color key="backgroundColor" name="blue"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="eTA-IY-YwF"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="14"/>
                                             <color key="tintColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" title="Cancel">
-                                                <color key="titleColor" name="white"/>
+                                                <color key="titleColor" name="blue"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -118,7 +117,7 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PnV-h2-NsB">
                                             <rect key="frame" x="157" y="0.0" width="137" height="50"/>
-                                            <color key="backgroundColor" name="marinda"/>
+                                            <color key="backgroundColor" name="blue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="GKi-FM-IQq"/>
                                             </constraints>
@@ -147,14 +146,14 @@
                                         </button>
                                     </subviews>
                                 </stackView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This item will be removed from your cart, do you wish to proceed?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwX-Go-zHZ">
-                                    <rect key="frame" x="20" y="204" width="314" height="64"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="This item will be removed from your cart, do you wish to proceed?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwX-Go-zHZ">
+                                    <rect key="frame" x="20" y="195" width="314" height="36"/>
                                     <fontDescription key="fontDescription" name="NeusaNextStd-CompactRegular" family="Neusa Next Std" pointSize="18"/>
                                     <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dZk-un-JSx">
-                                    <rect key="frame" x="20" y="55" width="314" height="129"/>
+                                    <rect key="frame" x="20" y="46" width="314" height="129"/>
                                     <subviews>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMd-ie-9uQ">
                                             <rect key="frame" x="0.0" y="0.0" width="314" height="100"/>
@@ -229,7 +228,6 @@
                         <constraint firstAttribute="bottom" secondItem="soD-Mn-gp4" secondAttribute="bottom" id="HNd-BF-Rai"/>
                         <constraint firstItem="Vo8-tw-Id1" firstAttribute="centerY" secondItem="3xF-s6-g2u" secondAttribute="centerY" id="IZM-kL-Vz1"/>
                         <constraint firstItem="soD-Mn-gp4" firstAttribute="top" secondItem="3xF-s6-g2u" secondAttribute="top" id="fzL-FP-ibf"/>
-                        <constraint firstItem="Vo8-tw-Id1" firstAttribute="height" secondItem="soD-Mn-gp4" secondAttribute="height" multiplier="0.4" id="xBJ-i3-PZQ"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -239,7 +237,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="3xF-s6-g2u" secondAttribute="bottom" id="0uD-Az-X1X"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3xF-s6-g2u" secondAttribute="trailing" id="Mbz-73-bnV"/>
@@ -258,8 +256,8 @@
         <namedColor name="marinda">
             <color red="0.9100000262260437" green="0.41200000047683716" blue="0.41200000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="white">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="sky">
+            <color red="0.35699999332427979" green="0.83899998664855957" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
