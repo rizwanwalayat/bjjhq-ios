@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import ObjectMapper
 
 class DataManager {
     
@@ -39,5 +40,20 @@ class DataManager {
     
     func removeUserAccessToken() {
         UserDefaults.standard.removeObject(forKey: "userAccessToken")
+    }
+    func setUser (user: String) {
+        UserDefaults.standard.set(user, forKey: "user_data")
+    }
+    func getUser() -> UserData? {
+        var user: UserData?
+
+        if UserDefaults.standard.object(forKey: "user_data") != nil {
+            user = Mapper<UserData>().map(JSONString:UserDefaults.standard.string(forKey: "user_data")!)
+        }
+        return user
+    }
+    func deleteUser () {
+         UserDefaults.standard.set(nil, forKey: "user_data")
+        
     }
 }

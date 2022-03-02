@@ -89,6 +89,12 @@ class APIClient: APIClientHandler {
         _ = sendRequest(APIRoutes.guest , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
     }
     
+    func updateImage(params : [String: AnyObject],_ completionBlock: @escaping APIClientCompletionHandler) {
+        let token = DataManager.shared.getUserAccessToekn() ?? ""
+        let headers: HTTPHeaders = ["Authorization" : token]
+        sendRequestUsingMultipart(APIRoutes.updateImage, parameters: params, headers: headers, completionBlock: completionBlock)
+    }
+    
     func logoutUser(_ completionBlock: @escaping APIClientCompletionHandler)
     {
         let token = DataManager.shared.getUserAccessToekn() ?? ""

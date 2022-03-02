@@ -10,9 +10,19 @@ import UIKit
 
 class SideMenuViewController: BaseViewController, SlideMenuControllerDelegate {
 
+    @IBOutlet weak var firstNameLastNameLBL: UILabel!
+    @IBOutlet weak var userNameLBL: UILabel!
+    
+    @IBOutlet weak var profileImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.profileImage.clipsToBounds = true
+        if let user = DataManager.shared.getUser() {
+            
+            self.firstNameLastNameLBL.text = String(user.first_name + user.last_name)
+            self.userNameLBL.text = user.user_name
+        }
     }
     
     @IBAction func backAction(_ sender: Any) {

@@ -61,9 +61,11 @@ class SignUpViewController: BaseViewController {
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
             self.passwordTF.isSecureTextEntry = false
+            self.confirmPasswordTF.isSecureTextEntry = false
         }
         else {
             self.passwordTF.isSecureTextEntry = true
+            self.confirmPasswordTF.isSecureTextEntry = true
         }
     }
     
