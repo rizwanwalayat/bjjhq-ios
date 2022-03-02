@@ -55,6 +55,8 @@ class HomeViewController: BaseViewController {
     var replayComment : CommentsData?
     var webSocketConnection: WebSocketConnection!
     var viewModel : HomeViewModel?
+    var productModel : ProductViewModel?
+    
     
     // MARK: - Controller's lifeCycle -
     
@@ -147,29 +149,35 @@ class HomeViewController: BaseViewController {
             //self.dropDownTF.text = ""
         }
         
-//        viewModel = HomeViewModel()
-//        viewModel?.fetchCurrentDeal({ success, homeData, message in
-//            
-//            if let data = homeData, let info = data.response, success {
-//                
-//                
-//                let id = "\(info.current_product_id)"
+        viewModel = HomeViewModel()
+        viewModel?.fetchCurrentDeal({ success, homeData, message in
+            
+            if let data = homeData, let info = data.response, success {
+                
+                let id = "\(info.current_product_id)"
+                
 //                self.viewModel?.fetchSignleProduct(id, { pdata in
 //                    if let data = pdata {
-//                        print(data.items.first?.title ?? "")
+//                        print(data.title )
 //                    }
 //                })
-//                
-//                self.viewModel?.fetchProducts(id, { pdata in
-//                    
-//                    if let data = pdata {
-//                        print(data.items.first?.title ?? "")
-//                    }
-//                })
-//            }
-//            
-//            self.showToast(message: message ?? "Data not fetched ")
-//        })
+                
+                self.viewModel?.fetchProducts(id, { pdata in
+
+                    if let data = pdata {
+                        
+                        self.productModel = data.items.first
+                        self.productTitle.text = self.productModel?.title ?? ""
+                        self.productPrice.text = self.productModel?.price ?? ""
+                        self.descriptionLabel.text = self.productModel?.summary ?? ""
+                        
+                        //print(data.items.first?.title ?? "")
+                    }
+                })
+            }
+            
+            self.showToast(message: message ?? "Data not fetched ")
+        })
     }
     
     
@@ -363,7 +371,7 @@ extension HomeViewController: UICollectionViewDataSource
         
         if collectionView == self.collectionView {
             
-            return 3
+            return self.productModel?.images.items.count ?? 0
         }
         
         // for colors
@@ -376,7 +384,11 @@ extension HomeViewController: UICollectionViewDataSource
            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as! HomeCollectionViewCell
             
-            cell.productImageView.image = UIImage(named: "image DUmmy")
+            let item = self.productModel?.images.items[indexPath.row]
+                
+            cell.config(item)
+            
+            
             return cell
         }
         

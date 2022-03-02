@@ -101,6 +101,20 @@ final class ClientQuery {
         }
     }
     
+    static func queryForCustomer(accessToken: String) -> Storefront.QueryRootQuery {
+        return Storefront.buildQuery { $0
+                .customer(customerAccessToken: accessToken) { $0
+                .id()
+                .displayName()
+                .email()
+                .firstName()
+                .lastName()
+                .phone()
+                .updatedAt()
+                }
+        }
+    }
+    
     // ----------------------------------
     //  MARK: - Shop -
     //

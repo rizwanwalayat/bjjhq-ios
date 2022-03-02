@@ -52,6 +52,7 @@ class WebSocketTaskConnection: NSObject, WebSocketConnection, URLSessionWebSocke
         webSocketTask.resume()
         
         listen()
+        createChannel()
     }
     
     func disconnect() {
@@ -93,26 +94,25 @@ class WebSocketTaskConnection: NSObject, WebSocketConnection, URLSessionWebSocke
             }
         }
     }
+    
+    func createChannel()
+    {
+        let strChannel = "{ \"channel\": \"CommentsChannel\",\"room\": \"comment_channel\" }"
+        let message = ["command" : "subscribe","identifier": strChannel]
+        
+        guard let data = try? JSONSerialization.data(withJSONObject: message) else {
+            
+            print("faild to convert in data")
+            return
+        }
+        if let dataString = String(data: data, encoding: .utf8){
+            
+            self.send(text: dataString)
+        }
+        else {
+            self.send(data: data)
+        }
+    }
 }
     
-//    func createChannel()
-//    {
-//        let strChannel = "{ \"channel\": \"MyChannel\",\"room_id\": \"\(roomID)\" }"
-//        let message = ["command" : "subscribe","identifier": strChannel]
-//
-//        do {
-//            let data = try JSONSerialization.data(withJSONObject: message)
-//            if let dataString = String(data: data, encoding: .utf8){
-//
-//                self.webSocketTask.send(URLSessionWebSocketTask.Message.data(data)) { error in
-//                    if let error = error {
-//                        self.delegate?.onError(connection: self, error: error)
-//                    }
-//                self.socket?.write(string: dataString)
-//            }
-//
-//        } catch {
-//            print("JSON serialization failed: ", error)
-//        }
-//    }
 //}

@@ -137,6 +137,27 @@ final class Client {
         return task
     }
     
+    @discardableResult
+    func fetchCustomer(accessToken: String, completion: @escaping (_ customer: CustomerViewModel?) -> Void) -> Task {
+        
+        let query = ClientQuery.queryForCustomer(accessToken: accessToken)
+        let task  = self.client.queryGraphWith(query) { (query, error) in
+            error.debugPrint()
+            
+            if let customer = query?.customer {
+                let viewModel   = customer.viewModel
+                
+                completion((viewModel))
+            } else {
+                print("Failed to load customer and orders: \(String(describing: error))")
+                completion(nil)
+            }
+        }
+        
+        task.resume()
+        return task
+    }
+    
     // ----------------------------------
     //  MARK: - Shop -
     //
@@ -266,25 +287,28 @@ final class Client {
     }
     
     @discardableResult
-    func fetchSignleProduct(productId: String, completion: @escaping (PageableArray<ProductViewModel>?) -> Void) -> Task {
+    func fetchSignleProduct(productId: String, completion: @escaping (Storefront.Product?) -> Void) -> Task {
         
         let query = ClientQuery.queryForProduct(product_id: productId)
         let task  = self.client.queryGraphWith(query) { (response, error) in
             error.debugPrint()
             
-            if let responseProducts = response?.products {
-              
-               
-                let products = PageableArray(
-                    with:     responseProducts.edges,
-                    pageInfo: responseProducts.pageInfo
-                )
+            if let responseProducts = response?.product {
+
+//                let products = PageableArray(
+//                    with:     responseProducts.edges,
+//                    pageInfo: responseProducts.pageInfo
+//                )
                 
-                let encoded = products.items[0].id
-                let decodedData = Data(base64Encoded: encoded)!
+//                let encoded = products.items[0].id
+//                let decodedData = Data(base64Encoded: encoded)!
+//                let decodedString = String(data: decodedData, encoding: .utf8)
+                
+                let encoded = responseProducts.id
+                let decodedData = Data(base64Encoded: encoded.rawValue)!
                 let decodedString = String(data: decodedData, encoding: .utf8)
                 
-                completion(products)
+                completion(responseProducts)
                 
             } else {
                 print("Failed to load products : \(String(describing: error))")

@@ -13,9 +13,29 @@ final class SignInViewModel: BaseViewModel {
         
         Client.shared.login(email: email, password: password) { accessToken, error in
             if let accessToken = accessToken {
-                AccountController.shared.save(accessToken: accessToken)
+                
     //                self.showOrders(animated: true)
-                completion(accessToken, nil)
+                
+                Client.shared.fetchCustomer(accessToken: accessToken) { customer in
+                    if let customer = customer {
+                        let id = customer.id
+                        
+                        self.signInUserToLocalServer(email: email, password: password, id: id) { data, error in
+                            
+                            if error != nil {
+                                completion(nil, nil)
+                            }
+                            else {
+                                
+                                completion(accessToken, nil)
+                            }
+                        }
+                    }
+                    else {
+                        completion(nil, error)
+                    }
+                }
+                
             } else {
                completion(nil, error)
             }
@@ -42,6 +62,21 @@ final class SignInViewModel: BaseViewModel {
             else {
                 
                 completionHandler(false)
+            }
+        }
+    }
+    
+    func signInUserToLocalServer(email: String, password: String, id : String,  completion: @escaping (_ result: Any?,_ error: NSError?) -> Void ) {
+                
+        APIClient.shared.SignIn(email: email, password: password, id: id) { result, error, statusCode, messsage in
+            
+            if let response = result {
+                
+                completion(response, nil)
+            }
+            else {
+                
+                completion(nil, error)
             }
         }
     }

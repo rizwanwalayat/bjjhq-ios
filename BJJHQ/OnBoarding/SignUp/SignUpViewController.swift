@@ -73,22 +73,21 @@ class SignUpViewController: BaseViewController {
     
     @IBAction func signUpAction(_ sender: Any) {
         
-//        self.view.activityStartAnimating()
-//
-//        viewModel?.signUpCustomer(fName: firstNameTF.text!, lName: lastNameTF.text!, uName: userNameTF.text!, email: emailTF.text!, password: passwordTF.text!, cPassword: confirmPasswordTF.text!, completion: { response, error in
-//
-//            self.view.activityStopAnimating()
-//
-//            if let result = response, error == nil{
-//                self.showToast(message: result.message)
-//                self.coordinator?.signInPage()
-//            }
-//            else {
-//
-//                self.showToast(message: error?.localizedDescription ?? "Something went wrong, please try again later")
-//            }
-//        })
-        coordinator?.successController()
+        self.view.activityStartAnimating()
+
+        viewModel?.signUpCustomer(fName: firstNameTF.text!, lName: lastNameTF.text!, uName: userNameTF.text!, email: emailTF.text!, password: passwordTF.text!, cPassword: confirmPasswordTF.text!, completion: { response, error in
+
+            self.view.activityStopAnimating()
+
+            if let result = response, error == nil{
+                self.showToast(message: result.message)
+                self.coordinator?.signInPage()
+            }
+            else {
+
+                self.showToast(message: error?.localizedDescription ?? "Something went wrong, please try again later")
+            }
+        })
     }
     
     @IBAction func signInAction(_ sender: Any) {
@@ -96,16 +95,15 @@ class SignUpViewController: BaseViewController {
     }
     
     @IBAction func skipAction(_ sender: Any) {
-        coordinator?.homePage()
-//        self.view.activityStartAnimating()
-//        viewModel?.guestUser( { success in
-//
-//            self.view.activityStopAnimating()
-//            if success {
-//
-//                self.coordinator?.homePage()
-//            }
-//        })
+        self.view.activityStartAnimating()
+        viewModel?.guestUser( { success in
+
+            self.view.activityStopAnimating()
+            if success {
+
+                self.coordinator?.homePage()
+            }
+        })
     }
     
     @IBAction func checkButtonAction(_ sender: UIButton) {

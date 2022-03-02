@@ -46,15 +46,14 @@ class LandingPageViewController: BaseViewController {
     
     @IBAction func skipAction(_ sender: Any) {
         
-//        self.view.activityStartAnimating()
-//        self.guestUser { success in
-//
-//            self.view.activityStopAnimating()
-//            if success {
-//                self.coordinator?.homePage()
-//            }
-//        }
-        coordinator?.homePage()
+        self.view.activityStartAnimating()
+        self.guestUser { success in
+
+            self.view.activityStopAnimating()
+            if success {
+                self.coordinator?.homePage()
+            }
+        }
     }
     
     

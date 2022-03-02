@@ -97,6 +97,15 @@ class APIClient: APIClientHandler {
         _ = sendRequest(APIRoutes.logout , parameters: [:] ,httpMethod: .delete , headers: headers, completionBlock: completionBlock)
     }
     
+    func SignIn(email: String, password: String, id : String, _ completionBlock: @escaping APIClientCompletionHandler)
+    {
+        let userParams = ["email": email, "password": password, "shopify_customer_id": id]
+        
+        let params = ["user": userParams] as [String: AnyObject]
+        
+        _ = sendRequest(APIRoutes.signin , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
+    }
+    
     func fetchCurrentDeal(_ completionBlock: @escaping APIClientCompletionHandler)
     {
         let token = DataManager.shared.getUserAccessToekn() ?? ""

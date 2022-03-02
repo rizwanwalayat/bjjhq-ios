@@ -13,5 +13,7 @@ target 'BJJHQ' do
   pod "PageControls/PillPageControl"
   pod 'iOSDropDown'
   pod 'ObjectMapper' #, '~> 3.4'
+  pod 'SDWebImage'
+  
 
 end

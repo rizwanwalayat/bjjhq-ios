@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import ObjectMapper
+import Buy
 
 
 typealias HomeCompletionHandler = (_ accessToken: HomeDataModel?, _ error: String?) -> Void
@@ -39,7 +40,7 @@ class HomeViewModel: BaseViewModel {
         }
     }
     
-    func fetchSignleProduct(_ productId: String, _ completion: @escaping(_ data: PageableArray<ProductViewModel>?) -> Void )
+    func fetchSignleProduct(_ productId: String, _ completion: @escaping(_ data: Storefront.Product?) -> Void )
     {
         Client.shared.fetchSignleProduct(productId: productId) { productData in
             
