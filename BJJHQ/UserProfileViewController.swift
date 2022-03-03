@@ -25,6 +25,12 @@ class UserProfileViewController: BaseViewController {
     @IBOutlet weak var desciptionTextView: UITextView!
     @IBOutlet weak var remainingWordsCounter: UILabel!
     
+    
+    //MARK: - Variables
+    
+    var viewModel: SignInViewModel?
+    
+    
     // MARK: - Controller's lifecycle
     
     override func viewDidLoad() {
@@ -38,6 +44,7 @@ class UserProfileViewController: BaseViewController {
     // MARK: - Actions
 
     @IBAction func changeProfileAction(_ sender: Any) {
+        ImagePickerVC.shared.showImagePickerFromVC(fromVC: self)
     }
     
     @IBAction func saveChangeAction(_ sender: Any) {
@@ -46,6 +53,13 @@ class UserProfileViewController: BaseViewController {
     @IBAction func backAction(_ sender: Any) {
         
         coordinator?.popVc()
+    }
+    
+    @objc override func imageSelectedFromGalleryOrCamera(selectedImage:UIImage) {
+        let image  = ["avatar":selectedImage]
+        SignInViewModel().updateUserImage(image: image, { responce in
+            print(responce)
+        })
     }
 }
 

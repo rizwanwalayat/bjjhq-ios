@@ -101,23 +101,21 @@ class DeletePopUpViewController: BaseViewController {
         hidePopup()
     }
     @IBAction func yesAction(_ sender: Any) {
-//        if isFromSignOut {
-//            self.view.activityStartAnimating()
-//            viewModel?.logoutUser({ success, message in
-//
-//                if success {
-//                    DataManager.shared.removeUserAccessToken()
-//                    self.hidePopup()
-//                    self.coordinator?.landingPage()
-//                }
-//                else {
-//                    self.showToast(message: message ?? "Somthing went wrong, please try again later")
-//                }
-//            })
-//        }
-        Global.shared.socket?.disconnect()
-        self.hidePopup()
-        self.coordinator?.landingPage()
+        if isFromSignOut {
+            self.view.activityStartAnimating()
+            viewModel?.logoutUser({ success, message in
+
+                if success {
+                    DataManager.shared.removeUserAccessToken()
+                    Global.shared.socket?.disconnect()
+                    self.hidePopup()
+                    self.coordinator?.landingPage()
+                }
+                else {
+                    self.showToast(message: message ?? "Somthing went wrong, please try again later")
+                }
+            })
+        }
     }
     
 }

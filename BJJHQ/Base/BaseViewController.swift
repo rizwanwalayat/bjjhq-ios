@@ -30,6 +30,9 @@ open class BaseViewController: UIViewController {
         super.viewDidLoad()
         
     }
+    @objc func imageSelectedFromGalleryOrCamera(selectedImage:UIImage){
+        
+    }
     func setupLabelUnderlineText(_ label: UILabel, _ text : String)
     {
         let font = UIFont(name: "Barlow-BoldItalic", size: 16) ?? UIFont.systemFont(ofSize: 16, weight: .bold)
@@ -61,9 +64,6 @@ open class BaseViewController: UIViewController {
         button.setAttributedTitle(attributeString, for: .normal)
     }
     
-    @objc func imageSelectedFromGalleryOrCamera(selectedImage:UIImage){
-        
-    }
     
     func secondsToHoursMinutesSeconds(_ seconds: Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
