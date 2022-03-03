@@ -85,10 +85,10 @@ class HomeViewController: BaseViewController {
         bottomView.roundCornersTopView(36)
         bottomView.addGradient(colors: [UIColor(hexString: "#DEDFE3").cgColor, UIColor(hexString: "#FFFFFF").cgColor])
         
-        webSocketConnection = WebSocketTaskConnection(url: URL(string: "wss://bjjhq.phaedrasolutions.com/cable")!)
-        webSocketConnection.delegate = self
-        
-        webSocketConnection.connect()
+//        webSocketConnection = WebSocketTaskConnection(url: URL(string: "wss://bjjhq.phaedrasolutions.com/cable")!)
+//        webSocketConnection.delegate = self
+//
+//        webSocketConnection.connect()
         
         //webSocketConnection.send(text: "ping")
     }
@@ -232,27 +232,30 @@ class HomeViewController: BaseViewController {
         
         var  index = comments.count - 1
         
-        if writeCommentsTF.text!.count > 0{
-            if let commentObj = replayComment{
-                
-                let subComments = CommentsReplyData("unknown", writeCommentsTF.text ?? "Nothing", "0", "0", "Now", imageComment.image, nil)
-                commentObj.replies.append(subComments)
-                
-                index = comments.firstIndex{$0 === commentObj} ?? comments.count - 1
-            }
-            else {
-                
-                let commentsObject = CommentsData("unknown", writeCommentsTF.text ?? "Nothing", "0", "0", "Now",  imageComment.image, [], nil)
-                comments.append(commentsObject)
-                index = comments.count - 1
-            }
+        if writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0{
+            
+            webSocketConnection.send(text: writeCommentsTF.text!)
         }
-        
-        crossImageAction(imageComment!)
-        writeCommentsTF.text = ""
-        replayComment = nil
-        tableView.reloadData()
-        tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .bottom, animated: true)
+//            if let commentObj = replayComment{
+//
+//                let subComments = CommentsReplyData("unknown", writeCommentsTF.text ?? "Nothing", "0", "0", "Now", imageComment.image, nil)
+//                commentObj.replies.append(subComments)
+//
+//                index = comments.firstIndex{$0 === commentObj} ?? comments.count - 1
+//            }
+//            else {
+//
+//                let commentsObject = CommentsData("unknown", writeCommentsTF.text ?? "Nothing", "0", "0", "Now",  imageComment.image, [], nil)
+//                comments.append(commentsObject)
+//                index = comments.count - 1
+//            }
+//        }
+//
+//        crossImageAction(imageComment!)
+//        writeCommentsTF.text = ""
+//        replayComment = nil
+//        tableView.reloadData()
+//        tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .bottom, animated: true)
         
     }
     

@@ -14,6 +14,5 @@ target 'BJJHQ' do
   pod 'iOSDropDown'
   pod 'ObjectMapper' #, '~> 3.4'
   pod 'SDWebImage'
-  
-
+  pod 'ActionCableClient'
 end

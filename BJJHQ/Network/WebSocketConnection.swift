@@ -97,7 +97,7 @@ class WebSocketTaskConnection: NSObject, WebSocketConnection, URLSessionWebSocke
     
     func createChannel()
     {
-        let strChannel = "{ \"channel\": \"CommentsChannel\",\"room\": \"comment_channel\" }"
+        let strChannel = "{ \"channel\": \"CommentsChannel\",\"room_id\": \"comment_channel\" }"
         let message = ["command" : "subscribe","identifier": strChannel]
         
         guard let data = try? JSONSerialization.data(withJSONObject: message) else {
@@ -113,6 +113,7 @@ class WebSocketTaskConnection: NSObject, WebSocketConnection, URLSessionWebSocke
             self.send(data: data)
         }
     }
+
 }
     
 //}
