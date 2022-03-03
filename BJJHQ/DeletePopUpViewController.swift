@@ -22,7 +22,7 @@ class DeletePopUpViewController: BaseViewController {
     @IBOutlet weak var imgvvView: UIView!
     
     //MARK: - Variables
-    var webSocketConnection: WebSocketConnection!
+    
     var isFromSignOut = false
     var isFromAddress = false
     var isFromRemoveCart = false
@@ -107,7 +107,6 @@ class DeletePopUpViewController: BaseViewController {
 
                 if success {
                     DataManager.shared.removeUserAccessToken()
-                    Global.shared.socket?.disconnect()
                     self.hidePopup()
                     self.coordinator?.landingPage()
                 }

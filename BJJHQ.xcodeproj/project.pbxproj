@@ -39,7 +39,6 @@
 		0487AC4827C4C47D00A3422B /* Barlow-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0487AC3527C4C47D00A3422B /* Barlow-SemiBold.ttf */; };
 		0487AC4927C4C47D00A3422B /* Barlow-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0487AC3627C4C47D00A3422B /* Barlow-Black.ttf */; };
 		0487AC4A27C4C47D00A3422B /* neusa-next-std-compact-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0487AC3727C4C47D00A3422B /* neusa-next-std-compact-regular.ttf */; };
-		048F81C227CE1D450006B326 /* WebSocketConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048F81C127CE1D450006B326 /* WebSocketConnection.swift */; };
 		04E692D327C385D100DF3750 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E692D127C385D100DF3750 /* UserProfileViewController.swift */; };
 		04E692D427C385D100DF3750 /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E692D227C385D100DF3750 /* UserProfileViewController.xib */; };
 		1816884127BFCED900C9D962 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816883827BFCED900C9D962 /* SignUpViewController.swift */; };
@@ -248,7 +247,6 @@
 		0487AC3527C4C47D00A3422B /* Barlow-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-SemiBold.ttf"; sourceTree = "<group>"; };
 		0487AC3627C4C47D00A3422B /* Barlow-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Black.ttf"; sourceTree = "<group>"; };
 		0487AC3727C4C47D00A3422B /* neusa-next-std-compact-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "neusa-next-std-compact-regular.ttf"; sourceTree = "<group>"; };
-		048F81C127CE1D450006B326 /* WebSocketConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketConnection.swift; sourceTree = "<group>"; };
 		04E692D127C385D100DF3750 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		04E692D227C385D100DF3750 /* UserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileViewController.xib; sourceTree = "<group>"; };
 		1816883827BFCED900C9D962 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -477,7 +475,6 @@
 				0481A26927CCBA9900277E21 /* ApiResponseHandler.swift */,
 				0481A26A27CCBA9900277E21 /* ApiClientHandler.swift */,
 				0481A26B27CCBA9900277E21 /* FileTSAPIClient.swift */,
-				048F81C127CE1D450006B326 /* WebSocketConnection.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1300,23 +1297,27 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BJJHQ/Pods-BJJHQ-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ActionCableClient/ActionCableClient.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PageControls/PageControls.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionCableClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PageControls.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDropDown.framework",
 			);
@@ -1405,7 +1406,6 @@
 				1863836D27BB9BFE0080FC80 /* Utility.swift in Sources */,
 				18FCF6C527BE951100D5DF17 /* SideMenuTableViewCell.swift in Sources */,
 				9AAFAB821E60BEE000864A17 /* CollectionViewModel.swift in Sources */,
-				048F81C227CE1D450006B326 /* WebSocketConnection.swift in Sources */,
 				18737E4727BE6DF700C4F438 /* MainNotificationTableViewCell.swift in Sources */,
 				9A27C3281E8FDB6B00218EE8 /* LineItemViewModel.swift in Sources */,
 				188E5A7427BD518B003FB613 /* NotificationPopUpViewController.swift in Sources */,

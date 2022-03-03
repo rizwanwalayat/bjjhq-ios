@@ -25,7 +25,6 @@ class Global {
     var salaat = true
     var goal = true
     var notifications = true
-    var socket : WebSocketConnection?
     var userModel : CustomerViewModel?
     
 }

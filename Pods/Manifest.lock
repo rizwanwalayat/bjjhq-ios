@@ -1,4 +1,6 @@
 PODS:
+  - ActionCableClient (0.2.4):
+    - Starscream (~> 3.0.3)
   - Alamofire (4.9.1)
   - iOSDropDown (0.3.4)
   - IQKeyboardManagerSwift (6.5.9)
@@ -7,12 +9,14 @@ PODS:
   - NVActivityIndicatorView/Base (5.1.1)
   - ObjectMapper (4.2.0)
   - PageControls/PillPageControl (1.0.1)
-  - SDWebImage (5.12.2):
-    - SDWebImage/Core (= 5.12.2)
-  - SDWebImage/Core (5.12.2)
+  - SDWebImage (5.12.3):
+    - SDWebImage/Core (= 5.12.3)
+  - SDWebImage/Core (5.12.3)
+  - Starscream (3.0.6)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
+  - ActionCableClient (from `https://github.com/danielrhodes/Swift-ActionCableClient.git`)
   - Alamofire (~> 4.2)
   - iOSDropDown
   - IQKeyboardManagerSwift
@@ -31,18 +35,30 @@ SPEC REPOS:
     - ObjectMapper
     - PageControls
     - SDWebImage
+    - Starscream
     - SwiftyJSON
 
+EXTERNAL SOURCES:
+  ActionCableClient:
+    :git: https://github.com/danielrhodes/Swift-ActionCableClient.git
+
+CHECKOUT OPTIONS:
+  ActionCableClient:
+    :commit: b975c3edf5ee31f9838080e263da7b7d442acb8e
+    :git: https://github.com/danielrhodes/Swift-ActionCableClient.git
+
 SPEC CHECKSUMS:
+  ActionCableClient: 098e6217c2882ff28677c01b9f804e7199857a77
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   PageControls: fc2436c93e79419521a6de5d46d84722593e2949
-  SDWebImage: 240e5c12b592fb1268c1d03b8c90d90e8c2ffe82
+  SDWebImage: 53179a2dba77246efa8a9b85f5c5b21f8f43e38f
+  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 0a2a447006854fd43af36ba33e4643352f0f284c
+PODFILE CHECKSUM: 09c65a14a2df9494e1631b402e22b189783523d5
 
 COCOAPODS: 1.11.2
