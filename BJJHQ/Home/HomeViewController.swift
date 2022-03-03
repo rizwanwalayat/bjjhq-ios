@@ -8,6 +8,7 @@
 import UIKit
 import PageControls
 import iOSDropDown
+import ActionCableClient
 
 class HomeViewController: BaseViewController {
 
@@ -53,9 +54,12 @@ class HomeViewController: BaseViewController {
     var colorSelectedIndex = IndexPath()
     var comments = [CommentsData]()
     var replayComment : CommentsData?
-    var webSocketConnection: WebSocketConnection!
     var viewModel : HomeViewModel?
     var productModel : ProductViewModel?
+    
+    // socket related
+    let client = ActionCableClient(url: URL(string:"wss://bjjhq.phaedrasolutions.com/cable")!)
+    var channel: Channel?
     
     
     // MARK: - Controller's lifeCycle -
@@ -85,12 +89,8 @@ class HomeViewController: BaseViewController {
         bottomView.roundCornersTopView(36)
         bottomView.addGradient(colors: [UIColor(hexString: "#DEDFE3").cgColor, UIColor(hexString: "#FFFFFF").cgColor])
         
-//        webSocketConnection = WebSocketTaskConnection(url: URL(string: "wss://bjjhq.phaedrasolutions.com/cable")!)
-//        webSocketConnection.delegate = self
-//
-//        webSocketConnection.connect()
-        
-        //webSocketConnection.send(text: "ping")
+
+        setupClient()
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?)
@@ -234,7 +234,9 @@ class HomeViewController: BaseViewController {
         
         if writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0{
             
-            webSocketConnection.send(text: writeCommentsTF.text!)
+            //webSocketConnection.send(text: writeCommentsTF.text!)
+            self.channel?.action(writeCommentsTF.text!)
+            writeCommentsTF.text = ""
         }
 //            if let commentObj = replayComment{
 //
@@ -496,36 +498,69 @@ extension HomeViewController : commentsTableViewDelegate {
     
 }
 
-// MARK: - Web Socket Delegate  -
 
-extension HomeViewController : WebSocketConnectionDelegate {
-    func onConnected(connection: WebSocketConnection) {
-        print("Connected")
-    }
+// MARK: - Web Socket  -
+
+extension HomeViewController {
     
-    func onDisconnected(connection: WebSocketConnection, error: Error?) {
-        if let error = error {
-            print("Disconnected with error:\(error)")
-        } else {
-            print("Disconnected normally")
+    
+    func setupClient() {
+        
+       
+        
+        
+        self.client.willConnect = {
+            print("Will Connect")
         }
+        
+        self.client.onConnected = {
+            print("Connected to \(self.client.url)")
+            
+//            let room_identifier = ["room_id" : "1", "room": "deal_channel"]
+//
+//            self.channel = self.client.create("DealChannel", identifier: room_identifier, autoSubscribe: true, bufferActions: true)
+            
+            //self.channel = self.client.create("comment_channel")
+            
+            let room_identifier = ["room" : "comment_channel"]
+            self.channel = self.client.create("CommentsChannel", identifier: room_identifier, autoSubscribe: true, bufferActions: true)
+        }
+        
+        self.client.onDisconnected = {(error: ConnectionError?) in
+            print("Disconected with error: \(String(describing: error))")
+        }
+        
+        self.client.willReconnect = {
+            print("Reconnecting to \(self.client.url)")
+            return true
+        }
+        
+        self.channel?.onSubscribed = {
+            print("Subscribed to Channel")
+        }
+        
+        self.channel?.onReceive = {(data: Any?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+        }
+        
+        self.channel?.onUnsubscribed = {
+            print("Unsubscribed")
+        }
+        
+        self.channel?.onRejected = {
+            print("Rejected")
+        }
+        
+        
+        let token = DataManager.shared.getUserAccessToekn() ?? ""
+        client.headers = [
+            "Authorization": token,
+            "Accept": "application/json"
+        ]
+       
+        self.client.connect()
     }
-    
-    func onError(connection: WebSocketConnection, error: Error) {
-        print("Connection error:\(error)")
-    }
-    
-    func onMessage(connection: WebSocketConnection, text: String) {
-        print("Text message: \(text)")
-        Global.shared.socket = connection
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            self.webSocketConnection.send(text: "ping")
-//        }
-    }
-    
-    func onMessage(connection: WebSocketConnection, data: Data) {
-        print("Data message: \(data)")
-    }
-    
-    
 }
