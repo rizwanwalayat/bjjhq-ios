@@ -60,7 +60,7 @@ class LandingPageViewController: BaseViewController {
     func guestUser(_ completionHandler: @escaping(_ success: Bool) -> Void) {
         
         let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
-        APIClient.shared.guestUser(uuid: uuid) { result, error, statusCode, messsage in
+        APIClient.shared.guestUser(uuid: uuid) { responce,result, error, statusCode, messsage in
             if let response = result {
                 
                 //let newResult = ["result" : response]

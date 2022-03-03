@@ -13,7 +13,7 @@ class DeleteLogoutViewModel : BaseViewModel {
     
     func logoutUser(_ completion: @escaping(_ success: Bool, _ message : String?) -> Void) {
         
-        APIClient.shared.logoutUser { result, error, statusCode, messsage in
+        APIClient.shared.logoutUser { responce,result, error, statusCode, messsage in
             if let result = result, error == nil {
                 completion(true, messsage)
             }

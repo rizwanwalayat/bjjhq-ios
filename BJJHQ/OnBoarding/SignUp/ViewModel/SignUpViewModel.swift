@@ -37,7 +37,7 @@ final class SignUpViewModel: BaseViewModel {
     
     func signUpCustomer(fName: String, lName: String, uName: String, email: String, password: String, cPassword: String,  completion: @escaping (_ result: UserDataModel?,_ error: NSError?) -> Void ) {
                 
-        APIClient.shared.Signup(firstName: fName, LastName: lName, userName: uName, email: email, password: password, cPassword: cPassword) { result, error, statusCode, messsage in
+        APIClient.shared.Signup(firstName: fName, LastName: lName, userName: uName, email: email, password: password, cPassword: cPassword) { responce,result, error, statusCode, messsage in
             
             if let response = result {
                 
@@ -61,7 +61,7 @@ final class SignUpViewModel: BaseViewModel {
     func guestUser(_ completionHandler: @escaping(_ success: Bool) -> Void) {
         
         let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
-        APIClient.shared.guestUser(uuid: uuid) { result, error, statusCode, messsage in
+        APIClient.shared.guestUser(uuid: uuid) { responce,result, error, statusCode, messsage in
             
             if let response = result {
                 

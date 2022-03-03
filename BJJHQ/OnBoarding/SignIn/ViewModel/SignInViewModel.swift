@@ -24,7 +24,6 @@ final class SignInViewModel: BaseViewModel {
                         guard let array = customerID?.split(separator: "/") else {return}
                         let finalID:String = String(array.last ?? "")
                         self.signInUserToLocalServer(email: email, password: password, id: finalID) { data, error in
-                            
                             if error != nil {
                                 completion(nil, nil)
                             }
@@ -49,12 +48,13 @@ final class SignInViewModel: BaseViewModel {
             }
         }
     }
+
     
     func guestUser( _ completionHandler: @escaping (_ success: Bool) -> Void) {
         
         let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
         
-        APIClient.shared.guestUser(uuid: uuid) { result, error, statusCode, messsage in
+        APIClient.shared.guestUser(uuid: uuid) { responce,result, error, statusCode, messsage in
             if let response = result {
                 
                 let newResult = ["result" : response]
@@ -75,7 +75,7 @@ final class SignInViewModel: BaseViewModel {
         }
     
     func updateUserImage(image : [String : AnyObject],_ completionHandler: @escaping (_ success: Bool) -> Void) {
-        APIClient.shared.updateImage(params: image) { result, error, statusCode, messsage in
+        APIClient.shared.updateImage(params: image) { responce,result, error, statusCode, messsage in
                 if let response = result {
                     
                     let newResult = ["result" : response]
@@ -97,15 +97,30 @@ final class SignInViewModel: BaseViewModel {
     
     func signInUserToLocalServer(email: String, password: String, id : String,  completion: @escaping (_ result: Any?,_ error: NSError?) -> Void ) {
                 
-        APIClient.shared.SignIn(email: email, password: password, id: id) { result, error, statusCode, messsage in
-            
-            if let response = result {
-                completion(response, nil)
+        APIClient.shared.SignIn(email: email, password: password, id: id) { responce,result, error, statusCode, messsage in
+            if let httpUrlResponse = responce
+                    {
+                if (error != nil) {
+                    print("Error Occurred: \(error?.localizedDescription ?? "Error of responce header")")
+                        } else {
+                            print("\(httpUrlResponse.allHeaderFields)")
+                            let headers = httpUrlResponse.allHeaderFields
+                            guard let token = headers[AnyHashable("Authorization")] as? String
+                            else {
+                                return
+                            }
+                            DataManager.shared.setLocalToken(value: token)
+                            
+                        }
+                if let response = result {
+                    completion(response, nil)
+                }
+                else {
+                    
+                    completion(nil, error)
+                }
             }
-            else {
-                
-                completion(nil, error)
-            }
+
         }
     }
 }

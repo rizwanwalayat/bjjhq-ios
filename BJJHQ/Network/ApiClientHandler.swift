@@ -3,7 +3,7 @@ import UIKit
 import Alamofire
 import ObjectMapper
 
-typealias APIClientCompletionHandler = (_ result: AnyObject?, _ error: NSError?,_ statusCode: Bool,_ messsage:String) -> Void
+typealias APIClientCompletionHandler = (_ responce:  HTTPURLResponse?,_ result: AnyObject?, _ error: NSError?,_ statusCode: Bool,_ messsage:String) -> Void
 
 enum APIClientHandlerErrorCode: Int {
     case general = 30001
@@ -60,11 +60,11 @@ class APIClientHandler: TSAPIClient {
                     switch response.result {
                     case .success(let resultData):
                         self.showRequestDetailForSuccess(responseObject: response)
-                        completionBlock(resultData as AnyObject, nil, self.status,self.message)
+                        completionBlock(response.response,resultData as AnyObject, nil, self.status,self.message)
                         
                     case .failure(let error):
                         self.showRequestDetailForFailure(responseObject: response)
-                        completionBlock(error as AnyObject, error as NSError, self.status,self.message)
+                        completionBlock(response.response,error as AnyObject, error as NSError, self.status,self.message)
                     }
                     
                 }
@@ -84,10 +84,10 @@ class APIClientHandler: TSAPIClient {
                 
             case .success(let data):
 //                print(data)
-                completionBlock(data as AnyObject, nil, self.status,self.message)
+                completionBlock(response.response,data as AnyObject, nil, self.status,self.message)
             case .failure(let error):
                 print(error.localizedDescription)
-                completionBlock(nil, error as NSError, self.status,self.message)
+                completionBlock(response.response,nil, error as NSError, self.status,self.message)
             }
         }
     }
@@ -118,7 +118,7 @@ class APIClientHandler: TSAPIClient {
                 }
 
                 DispatchQueue.main.async { // Correct
-                    completionBlock(nil, apiError, self.status,self.message)
+                    completionBlock(response,nil, apiError, self.status,self.message)
                 }
 
             } else {
@@ -166,7 +166,7 @@ class APIClientHandler: TSAPIClient {
                     resultError = self.createError(errorMessage)
 
                     DispatchQueue.main.async { // Correct
-                        completionBlock(nil, resultError, status,message)
+                        completionBlock(response,nil, resultError, status,message)
                     }
 
                 } else if sendMessage {
@@ -177,13 +177,13 @@ class APIClientHandler: TSAPIClient {
                     }
 
                     DispatchQueue.main.async { // Correct
-                        completionBlock(resultData, resultError, status,message)
+                        completionBlock(response,resultData, resultError, status,message)
                     }
  
                 } else {
 
                     DispatchQueue.main.async { // Correct
-                        completionBlock(resultData, nil, status,message)
+                        completionBlock(response,resultData, nil, status,message)
                     }
                 }
             }

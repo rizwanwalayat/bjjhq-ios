@@ -37,6 +37,13 @@ class DataManager {
     func getUserAccessToekn() -> String? {
         return UserDefaults.standard.string(forKey: "userAccessToken") ?? nil
     }
+    func setLocalToken(value: String) {
+        UserDefaults.standard.set(value, forKey: "token")
+    }
+    
+    func getLocalToken() -> String? {
+        return UserDefaults.standard.string(forKey: "token") ?? nil
+    }
     
     func removeUserAccessToken() {
         UserDefaults.standard.removeObject(forKey: "userAccessToken")

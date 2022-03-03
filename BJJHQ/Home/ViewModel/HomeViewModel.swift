@@ -20,7 +20,7 @@ class HomeViewModel: BaseViewModel {
     func fetchCurrentDeal(_ completionHandler: @escaping(_ success: Bool, _ data : HomeDataModel?, _ message : String?) -> Void) {
         
 
-        APIClient.shared.fetchCurrentDeal() { result, error, statusCode, messsage in
+        APIClient.shared.fetchCurrentDeal() { responce,result, error, statusCode, messsage in
             
             if let response = result {
                 
