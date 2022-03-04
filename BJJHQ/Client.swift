@@ -154,6 +154,21 @@ final class Client {
     }
     
     @discardableResult
+    func fetchAddress(completion: @escaping ([Storefront.MailingAddressEdge]?) -> Void) -> Task {
+        
+        let query = ClientQuery.queryForAdresses()
+        let task  = self.client.queryGraphWith(query) { (query, error) in
+            error.debugPrint()
+            let data = query?.customer?.addresses.edges
+            completion(data)
+        }
+        
+        task.resume()
+        return task
+    }
+    
+    
+    @discardableResult
     func fetchCustomer(accessToken: String, completion: @escaping (_ customer: CustomerViewModel?) -> Void) -> Task {
         
         let query = ClientQuery.queryForCustomer(accessToken: accessToken)

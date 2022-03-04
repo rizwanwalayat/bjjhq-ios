@@ -29,6 +29,9 @@ class MyAddressesViewController: BaseViewController , addressAction {
                                                          Global.shared.salaat,
                                                          Global.shared.tasbeeh,
                                                          Global.shared.goal])
+        Client.shared.fetchAddress { responce in
+            
+        }
     }
     
     
