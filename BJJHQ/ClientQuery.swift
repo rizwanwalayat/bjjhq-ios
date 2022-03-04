@@ -101,6 +101,24 @@ final class ClientQuery {
         }
     }
     
+    static func mutationForAddAddress(accessToken: String,address1:String,address2:String,country:String,postalCode:String,city:String,province:String) -> Storefront.MutationQuery {
+        let input = Storefront.MailingAddressInput.create(address1: .value(address1), address2: .value(address2), city: .value(city), country: .value(country), province: .value(province), zip: .value(postalCode))
+        return Storefront.buildMutation { $0.customerAddressCreate(customerAccessToken: accessToken, address: input) { $0
+                .customerAddress { $0
+                .id()
+                .address1()
+                .city()
+                .address2()
+                .province()
+                }
+                .customerUserErrors { $0
+                .message()
+                .field()
+                }
+        }
+                }
+    }
+    
     static func queryForCustomer(limit: Int, after cursor: String? = nil, accessToken: String) -> Storefront.QueryRootQuery {
         return Storefront.buildQuery { $0
                 .customer(customerAccessToken: accessToken) { $0
@@ -146,7 +164,11 @@ final class ClientQuery {
         return Storefront.buildQuery { $0
                 .customer(customerAccessToken: DataManager.shared.getUserAccessToekn()!) { $0
                 .id()
-                .addresses( first: 10, { mail in
+                .defaultAddress( { $0
+                .id()
+                })
+                
+                .addresses( first: 5, { mail in
                     mail.edges { $0
                             .node { $0
                             .address1()
@@ -159,6 +181,7 @@ final class ClientQuery {
                     
                 })
                 }
+                
         }
     }
 

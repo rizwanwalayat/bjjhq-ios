@@ -152,6 +152,19 @@ final class Client {
         task.resume()
         return task
     }
+    @discardableResult
+    func addAddress(accessToken:String,address1:String,address2:String,country:String,postalCode:String,city:String,province:String, completion: @escaping (String?,String?) -> Void) -> Task {
+        
+        let query = ClientQuery.mutationForAddAddress(accessToken: accessToken, address1: address1, address2: address2, country: country, postalCode: postalCode, city: city, province: province)
+        
+        let task  = self.client.mutateGraphWith(query) { (query, error) in
+            error.debugPrint()
+            completion("Done",nil)
+        }
+        
+        task.resume()
+        return task
+    }
     
     @discardableResult
     func fetchAddress(completion: @escaping ([Storefront.MailingAddressEdge]?) -> Void) -> Task {
@@ -166,7 +179,6 @@ final class Client {
         task.resume()
         return task
     }
-    
     
     @discardableResult
     func fetchCustomer(accessToken: String, completion: @escaping (_ customer: CustomerViewModel?) -> Void) -> Task {

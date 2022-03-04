@@ -92,7 +92,18 @@ class AddressBookPopUpViewController: BaseViewController {
         self.present(vc, animated: false, completion: nil)
     }
     
-
+    @IBAction func saveAction(_ sender: Any) {
+        if self.textView.text != "" && self.addressTF.text != "" && self.countryTF.text != "" && self.postalTF.text != "" && self.cityTF.text != "" && self.districtTF.text != "" {
+            
+            if isfromAddNewAddress {
+                
+                Client.shared.addAddress(accessToken: DataManager.shared.getUserAccessToekn()!, address1: self.textView.text!, address2: self.addressTF.text!, country: self.countryTF.text!, postalCode: self.postalTF.text!, city: self.cityTF.text!, province: self.districtTF.text!) { pass, fail in
+                    self.hidePopup()
+                }
+        }
+        }
+    }
+    
 }
 
 extension AddressBookPopUpViewController: UITextViewDelegate,UITextFieldDelegate {

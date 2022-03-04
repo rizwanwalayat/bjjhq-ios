@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Buy
+//import Pay
 
 class MyAddressesViewController: BaseViewController , addressAction {
     
@@ -15,7 +17,7 @@ class MyAddressesViewController: BaseViewController , addressAction {
 
     @IBOutlet weak var tableView: UITableView!
     
-    
+    var address : [Storefront.MailingAddressEdge]?
     //MARK: - Variables
     
     var selectedAddressIndex = 0
@@ -30,7 +32,8 @@ class MyAddressesViewController: BaseViewController , addressAction {
                                                          Global.shared.tasbeeh,
                                                          Global.shared.goal])
         Client.shared.fetchAddress { responce in
-            
+            self.address = responce
+            self.tableView.reloadData()
         }
     }
     
@@ -70,7 +73,7 @@ class MyAddressesViewController: BaseViewController , addressAction {
 extension MyAddressesViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.address?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,6 +86,7 @@ extension MyAddressesViewController : UITableViewDelegate, UITableViewDataSource
             cell.radioButton.isSelected = false
             cell.mainView.borderColor = UIColor(hexString: "#C2C2C2")
         }
+        cell.addressLabel.text = self.address?[indexPath.row].node.address1
         cell.delegate = self
         cell.editButton.tag = indexPath.row
         cell.radioButton.tag = indexPath.row

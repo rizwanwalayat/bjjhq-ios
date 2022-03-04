@@ -17,7 +17,10 @@ class AddressTableViewCell: UITableViewCell {
     @IBOutlet weak var radioButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var addressLabel: UILabel!
+    
     var delegate : addressAction?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
