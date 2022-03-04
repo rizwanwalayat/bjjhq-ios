@@ -83,8 +83,7 @@ final class Client {
             } else {
                 let errors = mutation?.customerAccessTokenCreate?.customerUserErrors ?? []
                 print("Failed to login customer: \(errors)")
-//                let errorDetail = errors[0].message
-                let errorDetail = ""
+                let errorDetail = "Wrong email or password"
                 completion(nil, errorDetail)
             }
         }
@@ -137,12 +136,17 @@ final class Client {
         return task
     }
     @discardableResult
-    func changePassword(accessToken: String, password:String, completion: @escaping (_ customer: CustomerViewModel?) -> Void) -> Task {
+    func changePassword(accessToken: String,firstName:String,lastName:String, password:String, completion: @escaping (String?,String?) -> Void) -> Task {
         
-        let query = ClientQuery.mutationForChangePassword(accessToken: accessToken, password: password)
+        let query = ClientQuery.mutationForChangePassword(accessToken: accessToken, firstName: firstName, lastName: lastName, password: password)
         let task  = self.client.mutateGraphWith(query) { (query, error) in
             error.debugPrint()
-            
+            if error == nil {
+                completion("Password change Succefully",nil)
+            }
+            else {
+                completion(nil,"Password not change")
+            }
         }
         
         task.resume()

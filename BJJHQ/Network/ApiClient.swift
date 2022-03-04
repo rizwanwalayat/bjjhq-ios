@@ -111,6 +111,14 @@ class APIClient: APIClientHandler {
         
         _ = sendRequest(APIRoutes.signin , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
     }
+    func ChangePassword(email: String, newPassword: String,confirmPassword:String, id : String, _ completionBlock: @escaping APIClientCompletionHandler)
+    {
+        let userParams = ["email": email, "new_password": newPassword,"confirm_new_password":confirmPassword, "shopify_customer_id": id]
+        
+        let params = ["user": userParams] as [String: AnyObject]
+        
+        _ = sendRequest(APIRoutes.changePassword , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
+    }
     
     func fetchCurrentDeal(_ completionBlock: @escaping APIClientCompletionHandler)
     {

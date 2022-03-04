@@ -13,9 +13,7 @@ final class SignInViewModel: BaseViewModel {
         
         Client.shared.login(email: email, password: password) { accessToken, error in
             if let accessToken = accessToken {
-                
-    //                self.showOrders(animated: true)
-                
+                DataManager.shared.saveUserAccessToken(value: accessToken)
                 Client.shared.fetchCustomer(accessToken: accessToken) { customer in
                     if let customer = customer {
                         Global.shared.userModel = customer

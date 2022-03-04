@@ -72,8 +72,8 @@ final class ClientQuery {
                 }
         }
     }
-    static func mutationForChangePassword(accessToken: String,password:String) -> Storefront.MutationQuery {
-        let input = Storefront.CustomerUpdateInput.create(password: .value(password))
+    static func mutationForChangePassword(accessToken: String,firstName:String,lastName:String, password:String) -> Storefront.MutationQuery {
+        let input = Storefront.CustomerUpdateInput.create(firstName: .value(firstName), lastName: .value(lastName) ,password: .value(password))
         return Storefront.buildMutation { $0
                 .customerUpdate(customerAccessToken: accessToken, customer: input) { query in
                     query.customer { $0.id()
@@ -87,23 +87,7 @@ final class ClientQuery {
                     }
                 }
                 }
-        }
-        
-//        var input = Storefront.CustomerUpdateInput.create(password:password)
-//
-//        val mutationQuery = mutation { mutation: MutationQuery ->
-//            mutation.customerUpdate(accessToken,input){ query: CustomerUpdatePayloadQuery ->
-//                query.customer {
-//                    it.id()
-//                }
-//                query.customerUserErrors {
-//                    it.field().message()
-//                }
-//            }
-//
-//        }
-//    }
-
+    }
     
     static func mutationForLogout(accessToken: String) -> Storefront.MutationQuery {
         return Storefront.buildMutation { $0
