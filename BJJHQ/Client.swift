@@ -136,6 +136,18 @@ final class Client {
         task.resume()
         return task
     }
+    @discardableResult
+    func changePassword(accessToken: String, password:String, completion: @escaping (_ customer: CustomerViewModel?) -> Void) -> Task {
+        
+        let query = ClientQuery.mutationForChangePassword(accessToken: accessToken, password: password)
+        let task  = self.client.mutateGraphWith(query) { (query, error) in
+            error.debugPrint()
+            
+        }
+        
+        task.resume()
+        return task
+    }
     
     @discardableResult
     func fetchCustomer(accessToken: String, completion: @escaping (_ customer: CustomerViewModel?) -> Void) -> Task {

@@ -35,7 +35,7 @@ class UserProfileViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setup()
         let numberOfChars = desciptionTextView.text.count // for Swift use count(newText)
         remainingWordsCounter.text = "\(numberOfChars)/200"
     }
@@ -55,12 +55,24 @@ class UserProfileViewController: BaseViewController {
         coordinator?.popVc()
     }
     
+    
+    //MARK: - Functions
+    func setup() {
+        if let user = DataManager.shared.getUser() {
+            self.emailTextField.text = user.email
+            self.nameTextField.text = user.first_name
+            self.lastNameTextField.text = user.last_name
+            self.desciptionTextView.text = user.bio
+            self.userNameTextField.text = user.user_name
+        }
+    }
     @objc override func imageSelectedFromGalleryOrCamera(selectedImage:UIImage) {
         let image  = ["avatar":selectedImage]
         SignInViewModel().updateUserImage(image: image, { responce in
             print(responce)
         })
     }
+    
 }
 
 extension UserProfileViewController : UITextViewDelegate{

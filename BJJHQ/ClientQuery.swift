@@ -37,8 +37,8 @@ final class ClientQuery {
     //
     
     static func mutationForLogin(email: String, password: String) -> Storefront.MutationQuery {
+        
         let input = Storefront.CustomerAccessTokenCreateInput(email: email, password: password)
-        let into = Storefront.CustomerUpdateInput.create()
         return Storefront.buildMutation { $0
                 .customerAccessTokenCreate(input: input) { $0
                 .customerAccessToken { $0
@@ -72,6 +72,38 @@ final class ClientQuery {
                 }
         }
     }
+    static func mutationForChangePassword(accessToken: String,password:String) -> Storefront.MutationQuery {
+        let input = Storefront.CustomerUpdateInput.create(password: .value(password))
+        return Storefront.buildMutation { $0
+                .customerUpdate(customerAccessToken: accessToken, customer: input) { query in
+                    query.customer { $0.id()
+                            .firstName()
+                            .lastName()
+                        
+                    }
+                    query.customerUserErrors {
+                        $0.field().message()
+                        
+                    }
+                }
+                }
+        }
+        
+//        var input = Storefront.CustomerUpdateInput.create(password:password)
+//
+//        val mutationQuery = mutation { mutation: MutationQuery ->
+//            mutation.customerUpdate(accessToken,input){ query: CustomerUpdatePayloadQuery ->
+//                query.customer {
+//                    it.id()
+//                }
+//                query.customerUserErrors {
+//                    it.field().message()
+//                }
+//            }
+//
+//        }
+//    }
+
     
     static func mutationForLogout(accessToken: String) -> Storefront.MutationQuery {
         return Storefront.buildMutation { $0

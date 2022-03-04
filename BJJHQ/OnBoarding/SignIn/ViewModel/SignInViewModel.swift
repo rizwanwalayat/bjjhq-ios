@@ -98,22 +98,19 @@ final class SignInViewModel: BaseViewModel {
     func signInUserToLocalServer(email: String, password: String, id : String,  completion: @escaping (_ result: Any?,_ error: NSError?) -> Void ) {
                 
         APIClient.shared.SignIn(email: email, password: password, id: id) { responce,result, error, statusCode, messsage in
-            if let httpUrlResponse = responce
-                    {
                 if (error != nil) {
-                    print("Error Occurred: \(error?.localizedDescription ?? "Error of responce header")")
+                    print("Header fetching error")
                         } else {
-                            print("\(httpUrlResponse.allHeaderFields)")
-                            let headers = httpUrlResponse.allHeaderFields
-                            guard let token = headers[AnyHashable("Authorization")] as? String
+                            let headers = responce?.allHeaderFields
+                            guard let token = headers?[AnyHashable("Authorization")] as? String
                             else {
                                 return
                             }
                             DataManager.shared.setLocalToken(value: token)
                             
                         }
-                if let response = result {
-                    completion(response, nil)
+                if let responseOfBody = result {
+                    completion(responseOfBody, nil)
                 }
                 else {
                     
@@ -122,7 +119,6 @@ final class SignInViewModel: BaseViewModel {
             }
 
         }
-    }
 }
 
 extension String {

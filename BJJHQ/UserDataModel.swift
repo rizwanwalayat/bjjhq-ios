@@ -36,7 +36,7 @@ struct UserData : Mappable {
     var shopify_authorization_token = ""
     var uuid = ""
     var role = ""
-
+    var bio = ""
     init?(map: Map) {
 
     }
@@ -55,6 +55,7 @@ struct UserData : Mappable {
         shopify_authorization_token <- map["shopify_authorization_token"]
         uuid <- map["uuid"]
         role <- map["role"]
+        bio <- map["bio"]
     }
 
 }

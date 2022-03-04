@@ -47,5 +47,10 @@ class ChangePasswordViewController: BaseViewController {
             self.confirmPasswordTF.isSecureTextEntry = true
         }
     }
+    @IBAction func saveChnagesAction(_ sender: Any) {
+        Client.shared.changePassword(accessToken: DataManager.shared.getUserAccessToekn()!, password: "HaiderAwan1122") { customer in
+            
+        }
+    }
     
 }

@@ -90,6 +90,7 @@
 		18737E4827BE6DF700C4F438 /* MainNotificationTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 18737E4627BE6DF700C4F438 /* MainNotificationTableViewCell.xib */; };
 		18737E4C27BE7A5900C4F438 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18737E4A27BE7A5900C4F438 /* ChangePasswordViewController.swift */; };
 		18737E4D27BE7A5900C4F438 /* ChangePasswordViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 18737E4B27BE7A5900C4F438 /* ChangePasswordViewController.xib */; };
+		1874397127D2202A00BA41CF /* OrdeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1874397027D2202A00BA41CF /* OrdeViewModel.swift */; };
 		188E5A6F27BD4A98003FB613 /* NotificationHoursCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E5A6D27BD4A98003FB613 /* NotificationHoursCollectionViewCell.swift */; };
 		188E5A7027BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 188E5A6E27BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib */; };
 		188E5A7427BD518B003FB613 /* NotificationPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E5A7227BD518A003FB613 /* NotificationPopUpViewController.swift */; };
@@ -298,6 +299,7 @@
 		18737E4627BE6DF700C4F438 /* MainNotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainNotificationTableViewCell.xib; sourceTree = "<group>"; };
 		18737E4A27BE7A5900C4F438 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		18737E4B27BE7A5900C4F438 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
+		1874397027D2202A00BA41CF /* OrdeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdeViewModel.swift; sourceTree = "<group>"; };
 		188E5A6D27BD4A98003FB613 /* NotificationHoursCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHoursCollectionViewCell.swift; sourceTree = "<group>"; };
 		188E5A6E27BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationHoursCollectionViewCell.xib; sourceTree = "<group>"; };
 		188E5A7227BD518A003FB613 /* NotificationPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPopUpViewController.swift; sourceTree = "<group>"; };
@@ -806,6 +808,7 @@
 				96DD6C4A27C379BB00DDA0DC /* Views */,
 				96DD6C4327C3790A00DDA0DC /* MyOrdersViewController.swift */,
 				96DD6C4227C3790A00DDA0DC /* MyOrdersViewController.xib */,
+				1874397027D2202A00BA41CF /* OrdeViewModel.swift */,
 			);
 			name = MyOrders;
 			sourceTree = "<group>";
@@ -1372,6 +1375,7 @@
 				9A15B73A1E64627A0078E7C5 /* StorefrontTableView.swift in Sources */,
 				9ABEB3DD212447AC00A373F2 /* GiftCardViewModel+PayGiftCard.swift in Sources */,
 				9A21F29F1E7EC8AE00E00F4B /* ImageViewController.swift in Sources */,
+				1874397127D2202A00BA41CF /* OrdeViewModel.swift in Sources */,
 				9AAFAB8C1E60C3C700864A17 /* ViewModel.swift in Sources */,
 				9A27C3241E8FDA4900218EE8 /* AddressViewModel.swift in Sources */,
 				1863836F27BB9BFE0080FC80 /* Coordinator.swift in Sources */,
