@@ -106,6 +106,7 @@ class DeletePopUpViewController: BaseViewController {
             viewModel?.logoutUser({ success, message in
 
                 if success {
+                    DataManager.shared.deleteUser()
                     DataManager.shared.removeUserAccessToken()
                     self.hidePopup()
                     self.coordinator?.landingPage()

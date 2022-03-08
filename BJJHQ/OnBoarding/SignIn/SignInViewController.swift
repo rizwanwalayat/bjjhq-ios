@@ -78,6 +78,7 @@ class SignInViewController: BaseViewController {
 
             if error != nil {
                 self.showToast(message: error ?? "Error")
+                self.view.activityStopAnimating()
             }
         })
     }

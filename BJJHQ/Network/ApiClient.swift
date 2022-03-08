@@ -97,7 +97,7 @@ class APIClient: APIClientHandler {
     
     func logoutUser(_ completionBlock: @escaping APIClientCompletionHandler)
     {
-        let token = DataManager.shared.getUserAccessToekn() ?? ""
+        let token = DataManager.shared.getLocalToken() ?? ""
         let headers: HTTPHeaders = ["Authorization" : token]
         
         _ = sendRequest(APIRoutes.logout , parameters: [:] ,httpMethod: .delete , headers: headers, completionBlock: completionBlock)
@@ -110,6 +110,16 @@ class APIClient: APIClientHandler {
         let params = ["user": userParams] as [String: AnyObject]
         
         _ = sendRequest(APIRoutes.signin , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
+    }
+    func updateUser(firstName: String, lastName: String, bio : String,username:String, _ completionBlock: @escaping APIClientCompletionHandler)
+    {
+        let token = DataManager.shared.getLocalToken() ?? ""
+        let headers: HTTPHeaders = ["Authorization" : token]
+        let userParams = ["first_name": firstName, "last_name": lastName, "bio": bio,"user_name":username]
+        
+        let params = ["profile": userParams] as [String: AnyObject]
+        
+        _ = sendRequest(APIRoutes.updateProfile , parameters: params ,httpMethod: .post , headers: headers, completionBlock: completionBlock)
     }
     func ChangePassword(email: String, newPassword: String,confirmPassword:String, id : String, _ completionBlock: @escaping APIClientCompletionHandler)
     {

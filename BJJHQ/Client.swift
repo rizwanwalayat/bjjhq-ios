@@ -165,15 +165,28 @@ final class Client {
         task.resume()
         return task
     }
+    @discardableResult
+    func updateUser(accessToken:String,firstName:String,lastName:String,email:String, completion: @escaping (String?,String?) -> Void) -> Task {
+        
+        let query = ClientQuery.mutationForUpadateUser(accessToken: accessToken, firstName: firstName, lastName: lastName, email: email)
+        
+        let task  = self.client.mutateGraphWith(query) { (query, error) in
+            error.debugPrint()
+            completion("Done",nil)
+        }
+        
+        task.resume()
+        return task
+    }
     
     @discardableResult
-    func fetchAddress(completion: @escaping ([Storefront.MailingAddressEdge]?) -> Void) -> Task {
+    func fetchAddress(completion: @escaping ([Storefront.MailingAddressEdge]?,Storefront.MailingAddress?) -> Void) -> Task {
         
         let query = ClientQuery.queryForAdresses()
         let task  = self.client.queryGraphWith(query) { (query, error) in
             error.debugPrint()
             let data = query?.customer?.addresses.edges
-            completion(data)
+            completion(data,query?.customer?.defaultAddress)
         }
         
         task.resume()

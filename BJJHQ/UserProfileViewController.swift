@@ -35,7 +35,10 @@ class UserProfileViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setup()
+        self.emailTextField.isUserInteractionEnabled = false
+        self.emailTextField.alpha = 0.5
         let numberOfChars = desciptionTextView.text.count // for Swift use count(newText)
         remainingWordsCounter.text = "\(numberOfChars)/200"
     }
@@ -48,6 +51,15 @@ class UserProfileViewController: BaseViewController {
     }
     
     @IBAction func saveChangeAction(_ sender: Any) {
+        if self.nameTextField.text != "" && lastNameTextField.text != "" && emailTextField.text != "" {
+            self.view.activityStartAnimating()
+            SignInViewModel().updateCustomer(email: emailTextField.text!, userName: userNameTextField.text!, bio:desciptionTextView.text! , firstName:nameTextField.text! , lastName: lastNameTextField.text!, completion: { accessToken, error in
+                self.view.activityStopAnimating()
+                if accessToken != nil {
+                    self.setup()
+                }
+            })
+        }
     }
     
     @IBAction func backAction(_ sender: Any) {

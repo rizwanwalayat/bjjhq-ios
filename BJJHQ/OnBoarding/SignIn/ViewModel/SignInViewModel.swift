@@ -46,6 +46,24 @@ final class SignInViewModel: BaseViewModel {
             }
         }
     }
+    func updateCustomer(email:String,userName:String,bio: String,firstName:String,lastName: String, completion: @escaping SignInCompletionHandler) {
+        Client.shared.updateUser(accessToken: DataManager.shared.getUserAccessToekn()!, firstName: firstName, lastName: lastName, email: email) { responceOfSuccess, responceOfFailure in
+            APIClient.shared.updateUser(firstName: firstName, lastName: lastName, bio: bio, username: userName) { headerData, responce,error,status,message  in
+                if error != nil {
+                    completion(nil, nil)
+                }
+                else {
+                    if let data = Mapper<UserDataModel>().map(JSON: responce as! [String : Any]) {
+                        if let user = data.user {
+                            let convretedData = user.toJSONString()
+                            DataManager.shared.setUser(user: convretedData ?? "")
+                            completion(DataManager.shared.getUserAccessToekn()!, nil)
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     
     func guestUser( _ completionHandler: @escaping (_ success: Bool) -> Void) {
@@ -104,6 +122,8 @@ final class SignInViewModel: BaseViewModel {
                             else {
                                 return
                             }
+//                            let newToken = token.split(separator: " ")
+//                            let tokenString:String = String(newToken.last!)
                             DataManager.shared.setLocalToken(value: token)
                             
                         }

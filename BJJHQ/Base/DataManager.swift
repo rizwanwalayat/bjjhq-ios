@@ -59,6 +59,7 @@ class DataManager {
         }
         return user
     }
+    
     func deleteUser () {
          UserDefaults.standard.set(nil, forKey: "user_data")
         

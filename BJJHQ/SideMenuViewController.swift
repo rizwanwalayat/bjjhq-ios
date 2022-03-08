@@ -17,12 +17,9 @@ class SideMenuViewController: BaseViewController, SlideMenuControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.profileImage.clipsToBounds = true
-        if let user = DataManager.shared.getUser() {
-            
-            self.firstNameLastNameLBL.text = String(user.first_name + user.last_name)
-            self.userNameLBL.text = user.user_name
-        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.setup()
     }
     
     @IBAction func backAction(_ sender: Any) {
@@ -40,6 +37,15 @@ class SideMenuViewController: BaseViewController, SlideMenuControllerDelegate {
         vc.isFromSignOut = true
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: false, completion: nil)
+        
+    }
+    
+    func setup() {
+        self.profileImage.clipsToBounds = true
+        if let user = DataManager.shared.getUser() {
+            self.firstNameLastNameLBL.text = String(user.first_name + user.last_name)
+            self.userNameLBL.text = user.user_name
+        }
     }
     
 }
