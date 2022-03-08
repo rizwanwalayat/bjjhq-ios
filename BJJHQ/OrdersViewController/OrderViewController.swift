@@ -33,7 +33,9 @@ class OrderViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        Client.shared.fetchOrders(accessToken: DataManager.shared.getUserAccessToekn()!) { heello in
+            
+        }
        setup()
     }
 

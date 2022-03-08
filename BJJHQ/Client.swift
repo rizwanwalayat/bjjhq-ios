@@ -237,6 +237,25 @@ final class Client {
     }
     
     @discardableResult
+    func fetchOrders(accessToken:String,completion: @escaping (String?) -> Void) -> Task {
+        
+        let query = ClientQuery.queryForOrders(accessToken: accessToken)
+        let task  = self.client.queryGraphWith(query) { (query, error) in
+            error.debugPrint()
+            
+            if let query = query {
+                completion(query.shop.name)
+            } else {
+                print("Failed to fetch shop name: \(String(describing: error))")
+                completion(nil)
+            }
+        }
+        
+        task.resume()
+        return task
+    }
+    
+    @discardableResult
     func fetchShopURL(completion: @escaping (URL?) -> Void) -> Task {
         
         let query = ClientQuery.queryForShopURL()

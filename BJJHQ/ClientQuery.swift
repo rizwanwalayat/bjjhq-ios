@@ -181,6 +181,30 @@ final class ClientQuery {
                 }
         }
     }
+    static func queryForOrders(accessToken:String) -> Storefront.QueryRootQuery {
+        return Storefront.buildQuery { $0
+                .customer(customerAccessToken: accessToken) { $0
+                .orders { info in
+                    info.pageInfo { $0
+                            .hasNextPage()
+                    }
+                    info.edges { $0
+                            .node { $0
+                            .id()
+                            .orderNumber()
+                            .email()
+                            .totalPriceV2 { $0
+                            .amount()
+                            .currencyCode()
+                            }
+                            }
+                    }
+                }
+                }
+            
+        }
+        
+    }
     static func queryForAdresses() -> Storefront.QueryRootQuery {
         return Storefront.buildQuery { $0
                 .customer(customerAccessToken: DataManager.shared.getUserAccessToekn()!) { $0

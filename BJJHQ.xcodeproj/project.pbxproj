@@ -91,6 +91,7 @@
 		18737E4C27BE7A5900C4F438 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18737E4A27BE7A5900C4F438 /* ChangePasswordViewController.swift */; };
 		18737E4D27BE7A5900C4F438 /* ChangePasswordViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 18737E4B27BE7A5900C4F438 /* ChangePasswordViewController.xib */; };
 		1874397127D2202A00BA41CF /* OrdeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1874397027D2202A00BA41CF /* OrdeViewModel.swift */; };
+		1883444527D74FA2001D7759 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1883444427D74FA2001D7759 /* GoogleService-Info.plist */; };
 		188E5A6F27BD4A98003FB613 /* NotificationHoursCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E5A6D27BD4A98003FB613 /* NotificationHoursCollectionViewCell.swift */; };
 		188E5A7027BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 188E5A6E27BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib */; };
 		188E5A7427BD518B003FB613 /* NotificationPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E5A7227BD518A003FB613 /* NotificationPopUpViewController.swift */; };
@@ -300,6 +301,7 @@
 		18737E4A27BE7A5900C4F438 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		18737E4B27BE7A5900C4F438 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
 		1874397027D2202A00BA41CF /* OrdeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdeViewModel.swift; sourceTree = "<group>"; };
+		1883444427D74FA2001D7759 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		188E5A6D27BD4A98003FB613 /* NotificationHoursCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHoursCollectionViewCell.swift; sourceTree = "<group>"; };
 		188E5A6E27BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationHoursCollectionViewCell.xib; sourceTree = "<group>"; };
 		188E5A7227BD518A003FB613 /* NotificationPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPopUpViewController.swift; sourceTree = "<group>"; };
@@ -1120,6 +1122,7 @@
 				9ADAD4711E563091008AC561 /* Assets.xcassets */,
 				9ADAD4731E563091008AC561 /* LaunchScreen.storyboard */,
 				9ADAD4761E563091008AC561 /* Info.plist */,
+				1883444427D74FA2001D7759 /* GoogleService-Info.plist */,
 				0487AC2427C4C47D00A3422B /* Fonts */,
 			);
 			name = "Supporting Files";
@@ -1259,6 +1262,7 @@
 				96DD6C4827C3790B00DDA0DC /* MyOrdersTableViewCell.xib in Resources */,
 				96DD6C4027BFE84600DDA0DC /* ContactUsViewController.xib in Resources */,
 				0487AC4527C4C47D00A3422B /* Barlow-Medium.ttf in Resources */,
+				1883444527D74FA2001D7759 /* GoogleService-Info.plist in Resources */,
 				0487AC4427C4C47D00A3422B /* Barlow-Bold.ttf in Resources */,
 				1816885E27BFD13200C9D962 /* SubCommentsTableViewCell.xib in Resources */,
 				1816886027BFD13200C9D962 /* HomeCollectionViewCell.xib in Resources */,
@@ -1302,27 +1306,43 @@
 				"${PODS_ROOT}/Target Support Files/Pods-BJJHQ/Pods-BJJHQ-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ActionCableClient/ActionCableClient.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseMessaging/FirebaseMessaging.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PageControls/PageControls.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionCableClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreDiagnostics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseInstallations.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseMessaging.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PageControls.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDropDown.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

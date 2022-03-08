@@ -16,4 +16,6 @@ target 'BJJHQ' do
   pod 'SDWebImage'
   pod 'ActionCableClient', :git => 'https://github.com/danielrhodes/Swift-ActionCableClient.git'
 #  pod 'ActionCableClient'
+pod 'Firebase/Messaging'
+pod 'Firebase/Core'
 end
