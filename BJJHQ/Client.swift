@@ -178,6 +178,19 @@ final class Client {
         task.resume()
         return task
     }
+    @discardableResult
+    func updateDefaultAddress(accessToken:String,addressID:String, completion: @escaping (String?,String?) -> Void) -> Task {
+        
+        let query = ClientQuery.mutationForDefaultAddress(accessToken: accessToken, addressID: addressID)
+        
+        let task  = self.client.mutateGraphWith(query) { (query, error) in
+            error.debugPrint()
+            completion("Done",nil)
+        }
+        
+        task.resume()
+        return task
+    }
     
     @discardableResult
     func fetchAddress(completion: @escaping ([Storefront.MailingAddressEdge]?,Storefront.MailingAddress?) -> Void) -> Task {

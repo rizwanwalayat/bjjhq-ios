@@ -8,8 +8,17 @@
 
 import UIKit
 import Buy
-//import Pay
-
+import Pay
+class Addresses: NSObject {
+    var address1 = ""
+    var address2 = ""
+    var city = ""
+    var postalCode = ""
+    var id = ""
+    var district = ""
+    var country = ""
+    
+}
 class MyAddressesViewController: BaseViewController , addressAction {
     
     
@@ -18,6 +27,8 @@ class MyAddressesViewController: BaseViewController , addressAction {
     @IBOutlet weak var tableView: UITableView!
     
     var address : [Storefront.MailingAddressEdge]?
+    var defaultAddress : Storefront.MailingAddress?
+    var addressArray : [Addresses]?
     //MARK: - Variables
     
     var selectedAddressIndex = 0
@@ -32,9 +43,37 @@ class MyAddressesViewController: BaseViewController , addressAction {
                                                          Global.shared.tasbeeh,
                                                          Global.shared.goal])
         Client.shared.fetchAddress { responce,defaultAddress in
+            self.defaultAddress = defaultAddress
             self.address = responce
             self.tableView.reloadData()
+            self.makingAddresses()
         }
+        
+    }
+    func makingAddresses () {
+        let Address = Addresses()
+        Address.address1  = self.defaultAddress?.address1 ?? ""
+        Address.address2 = self.defaultAddress?.address2 ?? ""
+        Address.city = self.defaultAddress?.city ?? ""
+        Address.postalCode = self.defaultAddress?.provinceCode ?? ""
+        Address.country = self.defaultAddress?.country ?? ""
+        Address.district = self.defaultAddress?.province ?? ""
+        self.addressArray?.append(Address)
+        guard let address = self.address else {
+            return
+        }
+
+        for Addres in address {
+            let Address = Addresses()
+            Address.address1  = Addres.node.address1 ?? ""
+            Address.address2 = Addres.node.address2 ?? ""
+            Address.city = Addres.node.city ?? ""
+            Address.postalCode = Addres.node.provinceCode ?? ""
+            Address.country = Addres.node.country ?? ""
+            Address.district = Addres.node.province ?? ""
+            self.addressArray?.append(Address)
+        }
+        
     }
     
     

@@ -41,6 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         _ = CartController.shared
+        FirebaseApp.configure()
+        Messaging.messaging().delegate = self
+        Messaging.messaging().isAutoInitEnabled = true
         Thread.sleep(forTimeInterval: 1)
         let navController = UINavigationController()
         coordinator = MainCoordinator(navigationController: navController)
@@ -69,6 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UNUserNotificationCenter.current().requestAuthorization(
                 options: authOptions,
                 completionHandler: {_, _ in })
+            
         }
         
         else {
@@ -78,8 +82,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerUserNotificationSettings(settings)
         }
         
-        FirebaseApp.configure()
-        Messaging.messaging().delegate = self
+        application.registerForRemoteNotifications()
+        
+
         return true
     }
     

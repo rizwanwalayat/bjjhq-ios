@@ -72,9 +72,9 @@ class APIClient: APIClientHandler {
     
     // MARK: - Onboarding
     
-    func Signup(firstName: String, LastName: String, userName: String, email: String, password: String, cPassword: String, _ completionBlock: @escaping APIClientCompletionHandler)
+    func Signup(firstName: String, LastName: String, userName: String, email: String, password: String, cPassword: String,fcmToken:String?, _ completionBlock: @escaping APIClientCompletionHandler)
     {
-        let userParams = ["first_name": firstName, "last_name": LastName, "user_name": userName, "email": email, "password": password, "password_confirmation": cPassword]
+        let userParams = ["first_name": firstName, "last_name": LastName, "user_name": userName, "email": email, "password": password, "password_confirmation": cPassword,"fcm_token":fcmToken]
         
         let params = ["user": userParams] as [String: AnyObject]
         
@@ -105,7 +105,7 @@ class APIClient: APIClientHandler {
     
     func SignIn(email: String, password: String, id : String, _ completionBlock: @escaping APIClientCompletionHandler)
     {
-        let userParams = ["email": email, "password": password, "shopify_customer_id": id]
+        let userParams = ["email": email, "password": password, "shopify_customer_id": id,"fcm_token":Global.shared.FCMtoken]
         
         let params = ["user": userParams] as [String: AnyObject]
         
@@ -115,7 +115,7 @@ class APIClient: APIClientHandler {
     {
         let token = DataManager.shared.getLocalToken() ?? ""
         let headers: HTTPHeaders = ["Authorization" : token]
-        let userParams = ["first_name": firstName, "last_name": lastName, "bio": bio,"user_name":username]
+        let userParams = ["first_name": firstName, "last_name": lastName, "bio": bio,"user_name":username,"fcm_token":Global.shared.FCMtoken]
         
         let params = ["profile": userParams] as [String: AnyObject]
         

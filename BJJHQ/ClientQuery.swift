@@ -184,7 +184,7 @@ final class ClientQuery {
     static func queryForOrders(accessToken:String) -> Storefront.QueryRootQuery {
         return Storefront.buildQuery { $0
                 .customer(customerAccessToken: accessToken) { $0
-                .orders { info in
+                .orders(first:5) { info in
                     info.pageInfo { $0
                             .hasNextPage()
                     }
@@ -205,16 +205,18 @@ final class ClientQuery {
         }
         
     }
+    
     static func queryForAdresses() -> Storefront.QueryRootQuery {
         return Storefront.buildQuery { $0
                 .customer(customerAccessToken: DataManager.shared.getUserAccessToekn()!) { $0
                 .id()
+                .firstName()
+                .lastName()
                 .defaultAddress( { $0
                 .city()
+                .id()
                 .country()
                 .province()
-                .lastName()
-                .firstName()
                 .address1()
                 .address2()
                 })
@@ -224,6 +226,7 @@ final class ClientQuery {
                             .address1()
                             .address2()
                             .city()
+                            .id()
                             .province()
                             .country()
                             }
@@ -444,6 +447,29 @@ final class ClientQuery {
                 }
                 .checkout { $0
                 .fragmentForCheckout()
+                }
+                }
+        }
+    }
+    
+    static func mutationForDefaultAddress(accessToken: String, addressID: String) -> Storefront.MutationQuery {
+        
+        return Storefront.buildMutation { $0
+                .customerDefaultAddressUpdate(customerAccessToken: accessToken, addressId: GraphQL.ID(rawValue: addressID)) { $0
+                .customer { $0
+                .defaultAddress { $0
+                .id()
+                .address1()
+                .city()
+                .country()
+                .phone()
+                .provinceCode()
+                .zip()
+                .latitude()
+                .longitude()
+                .address2()
+                .province()
+                }
                 }
                 }
         }

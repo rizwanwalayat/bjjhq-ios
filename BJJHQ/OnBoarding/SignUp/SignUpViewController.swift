@@ -77,7 +77,7 @@ class SignUpViewController: BaseViewController {
         
         self.view.activityStartAnimating()
 
-        viewModel?.signUpCustomer(fName: firstNameTF.text!, lName: lastNameTF.text!, uName: userNameTF.text!, email: emailTF.text!, password: passwordTF.text!, cPassword: confirmPasswordTF.text!, completion: { response, error in
+        viewModel?.signUpCustomer(fName: firstNameTF.text!, lName: lastNameTF.text!, uName: userNameTF.text!, email: emailTF.text!, password: passwordTF.text!, cPassword: confirmPasswordTF.text!, fcmToken: Global.shared.FCMtoken, completion: { response, error in
 
             self.view.activityStopAnimating()
 
