@@ -32,6 +32,7 @@ final class Client {
     
     static let shopDomain = "bjjhq-prod.myshopify.com"
     static let apiKey     = "b4eb662d2c96cd94524fadb7a305fd9a"
+//    static let apiKey     = "b3c912ade8c3ca23e13dbca8467f83b9"
     static let merchantID = "merchant.com.your.id"
     static let locale   = Locale(identifier: "en-US")
     
@@ -43,7 +44,7 @@ final class Client {
     //  MARK: - Init -
     //
     private init() {
-        self.client.cachePolicy = .cacheFirst(expireIn: 3600)
+//        self.client.cachePolicy = .cacheFirst(expireIn: 3600)
     }
     
     // ----------------------------------
@@ -166,6 +167,19 @@ final class Client {
         return task
     }
     @discardableResult
+    func updateSelectedAddress(accessToken:String,address1:String,address2:String,country:String,postalCode:String,city:String,province:String,id:String, completion: @escaping (String?,String?) -> Void) -> Task {
+        
+        let query = ClientQuery.mutationForUpdateCurrentAddAddress(accessToken: accessToken, address1: address1, address2: address2, country: country, postalCode: postalCode, city: city, province: province, id: id)
+        
+        let task  = self.client.mutateGraphWith(query) { (query, error) in
+            error.debugPrint()
+            completion("Done",nil)
+        }
+        
+        task.resume()
+        return task
+    }
+    @discardableResult
     func updateUser(accessToken:String,firstName:String,lastName:String,email:String, completion: @escaping (String?,String?) -> Void) -> Task {
         
         let query = ClientQuery.mutationForUpadateUser(accessToken: accessToken, firstName: firstName, lastName: lastName, email: email)
@@ -178,14 +192,30 @@ final class Client {
         task.resume()
         return task
     }
+    
     @discardableResult
-    func updateDefaultAddress(accessToken:String,addressID:String, completion: @escaping (String?,String?) -> Void) -> Task {
+    func deleteUserAddress(accessToken:String,addressId:String, completion: @escaping (String?,String?) -> Void) -> Task {
+        
+        let query = ClientQuery.mutationForDeleteAddress(accessToken:accessToken,id:addressId)
+        
+        let task  = self.client.mutateGraphWith(query) { (query, error) in
+            error.debugPrint()
+            completion("Done",nil)
+        }
+        
+        task.resume()
+        return task
+    }
+    
+    @discardableResult
+    func updateDefaultAddress(accessToken:String,addressID:String, completion: @escaping (Storefront.MailingAddressConnection?,Storefront.MailingAddress?) -> Void) -> Task {
         
         let query = ClientQuery.mutationForDefaultAddress(accessToken: accessToken, addressID: addressID)
         
         let task  = self.client.mutateGraphWith(query) { (query, error) in
             error.debugPrint()
-            completion("Done",nil)
+            let data = query?.customerDefaultAddressUpdate?.customer?.addresses
+            completion(data,query?.customerDefaultAddressUpdate?.customer?.defaultAddress)
         }
         
         task.resume()
@@ -250,17 +280,17 @@ final class Client {
     }
     
     @discardableResult
-    func fetchOrders(accessToken:String,completion: @escaping (String?) -> Void) -> Task {
+    func fetchOrders(accessToken:String,orders:Int32,completion: @escaping ([Storefront.OrderEdge]?,Storefront.PageInfo?) -> Void) -> Task {
         
-        let query = ClientQuery.queryForOrders(accessToken: accessToken)
+        let query = ClientQuery.queryForOrders(accessToken: accessToken, getOrders:orders )
         let task  = self.client.queryGraphWith(query) { (query, error) in
             error.debugPrint()
             
             if let query = query {
-                completion(query.shop.name)
+                completion(query.customer?.orders.edges, query.customer?.orders.pageInfo)
             } else {
                 print("Failed to fetch shop name: \(String(describing: error))")
-                completion(nil)
+                completion(nil,nil)
             }
         }
         
@@ -419,6 +449,25 @@ final class Client {
             error.debugPrint()
             
             completion(response?.checkoutDiscountCodeApplyV2?.checkout?.viewModel)
+        }
+        
+        task.resume()
+        return task
+    }
+    
+    @discardableResult
+    func applyForReset(email:String, completion: @escaping (String?) -> Void) -> Task {
+        let mutation = Storefront.buildMutation { $0
+                .customerRecover(email: DataManager.shared.getUser()?.email ?? "") { $0
+                .customerUserErrors { $0
+                .field().message()
+                }
+                }
+        }
+        let task = self.client.mutateGraphWith(mutation) { response, error in
+            error.debugPrint()
+            
+            completion("true")
         }
         
         task.resume()

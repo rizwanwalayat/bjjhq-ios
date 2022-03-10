@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Buy
+import Pay
 
 class MyOrdersViewController: BaseViewController , myOrdersAction {
     
@@ -20,16 +22,19 @@ class MyOrdersViewController: BaseViewController , myOrdersAction {
     //MARK: - Variables
     
     var selectedAddressIndex = 0
-    
+    var ordersNumber :Int32 = 5
+    var ordersArray : [Storefront.OrderEdge]?
     
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DataManager.shared.setNotificationSwitch(value: [Global.shared.notifications,
-                                                         Global.shared.salaat,
-                                                         Global.shared.tasbeeh,
-                                                         Global.shared.goal])
+        self.view.activityStartAnimating()
+        Client.shared.fetchOrders(accessToken: DataManager.shared.getUserAccessToekn()!, orders: self.ordersNumber) { edgess,nextPageInfo in
+            self.view.activityStopAnimating()
+            self.ordersArray = edgess
+            self.tableView.reloadData()
+        }
         loadMore.setTitle("", for: .normal)
         setupButtonUnderlineText(loadMore, "Load More", color: "252C44",1)
         
@@ -41,7 +46,10 @@ class MyOrdersViewController: BaseViewController , myOrdersAction {
     //MARK: - IBAction
     
     @IBAction func loadMoreAction(_ sender: Any) {
-        
+        self.ordersNumber = ordersNumber + 5
+        Client.shared.fetchOrders(accessToken: DataManager.shared.getUserAccessToekn()!, orders: self.ordersNumber) { edgess,nextPageInfo in
+            self.tableView.reloadData()
+        }
     }
     
     @IBAction func backAction(_ sender: Any) {
@@ -71,12 +79,13 @@ class MyOrdersViewController: BaseViewController , myOrdersAction {
 extension MyOrdersViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.ordersArray?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.register(MyOrdersTableViewCell.self, indexPath: indexPath)
         cell.delegate = self
+        cell.config(ordersArray: self.ordersArray, index: indexPath.row)
         cell.selectionStyle = .none
         return cell
         

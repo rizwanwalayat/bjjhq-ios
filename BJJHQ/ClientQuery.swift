@@ -116,6 +116,18 @@ final class ClientQuery {
         }
     }
     
+    static func mutationForDeleteAddress(accessToken:String,id:String) -> Storefront.MutationQuery {
+        return Storefront.buildMutation { $0
+                .customerAddressDelete(id: GraphQL.ID(rawValue: id), customerAccessToken: accessToken) { $0
+                .deletedCustomerAddressId()
+                .customerUserErrors { $0
+                .field().message()
+                }
+                }
+        }
+        
+    }
+    
     static func mutationForAddAddress(accessToken: String,address1:String,address2:String,country:String,postalCode:String,city:String,province:String) -> Storefront.MutationQuery {
         let input = Storefront.MailingAddressInput.create(address1: .value(address1), address2: .value(address2), city: .value(city), country: .value(country), province: .value(province), zip: .value(postalCode))
         return Storefront.buildMutation { $0.customerAddressCreate(customerAccessToken: accessToken, address: input) { $0
@@ -125,10 +137,28 @@ final class ClientQuery {
                 .city()
                 .country()
                 .phone()
-                .provinceCode()
                 .zip()
-                .latitude()
-                .longitude()
+                .address2()
+                .province()
+                }
+                .customerUserErrors { $0
+                .message()
+                .field()
+                }
+        }
+        }
+    }
+    
+    static func mutationForUpdateCurrentAddAddress(accessToken: String,address1:String,address2:String,country:String,postalCode:String,city:String,province:String,id:String) -> Storefront.MutationQuery {
+        let input = Storefront.MailingAddressInput.create(address1: .value(address1), address2: .value(address2), city: .value(city), country: .value(country), province: .value(province), zip: .value(postalCode))
+        return Storefront.buildMutation { $0.customerAddressUpdate(customerAccessToken: accessToken, id: GraphQL.ID(rawValue: id), address: input) { $0
+                .customerAddress { $0
+                .id()
+                .address1()
+                .city()
+                .country()
+                .phone()
+                .zip()
                 .address2()
                 .province()
                 }
@@ -181,26 +211,49 @@ final class ClientQuery {
                 }
         }
     }
-    static func queryForOrders(accessToken:String) -> Storefront.QueryRootQuery {
+    static func queryForOrders(accessToken:String,getOrders:Int32) -> Storefront.QueryRootQuery {
         return Storefront.buildQuery { $0
                 .customer(customerAccessToken: accessToken) { $0
-                .orders(first:5) { info in
+                .orders(first:getOrders) { info in
+                    
                     info.pageInfo { $0
                             .hasNextPage()
+                        
                     }
                     info.edges { $0
+                        
                             .node { $0
                             .id()
                             .orderNumber()
                             .email()
+//                            .lineItems(first: getOrders){ $0
+//                            .edges { $0
+//                            .node { $0
+//                            .customAttributes( { $0
+//                            .value()
+//                            })
+//                            .variant { $0
+//                            .title()
+//                            .product { $0
+//                            .images(first: getOrders,maxWidth: 30, maxHeight: 30) { $0
+//
+//                            }
+//                            }
+//                            }
+//                            }
+//                            }
+//                            }
                             .totalPriceV2 { $0
                             .amount()
                             .currencyCode()
+                                
                             }
                             }
                     }
                 }
+                .email()
                 }
+            
             
         }
         
@@ -217,6 +270,7 @@ final class ClientQuery {
                 .id()
                 .country()
                 .province()
+                .zip()
                 .address1()
                 .address2()
                 })
@@ -229,6 +283,7 @@ final class ClientQuery {
                             .id()
                             .province()
                             .country()
+                            .zip()
                             }
                     }
                     
@@ -457,20 +512,32 @@ final class ClientQuery {
         return Storefront.buildMutation { $0
                 .customerDefaultAddressUpdate(customerAccessToken: accessToken, addressId: GraphQL.ID(rawValue: addressID)) { $0
                 .customer { $0
+                
                 .defaultAddress { $0
                 .id()
                 .address1()
                 .city()
                 .country()
-                .phone()
-                .provinceCode()
                 .zip()
-                .latitude()
-                .longitude()
                 .address2()
                 .province()
                 }
+                .addresses( first: 5, { mail in
+                    mail.edges { $0
+                            .node { $0
+                            .address1()
+                            .address2()
+                            .city()
+                            .id()
+                            .province()
+                            .country()
+                            .zip()
+                            }
+                    }
+                    
+                })
                 }
+                
                 }
         }
     }

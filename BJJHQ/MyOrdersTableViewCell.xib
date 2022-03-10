@@ -136,6 +136,12 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="mainView" destination="hfa-TB-AZK" id="uSA-1N-hWL"/>
+                <outlet property="productDay" destination="RUY-Uc-E2R" id="C24-wI-RgT"/>
+                <outlet property="productDetail" destination="gs4-qM-bNl" id="d0r-uw-2O8"/>
+                <outlet property="productImage" destination="KFf-YO-GtO" id="nsF-TY-aoo"/>
+                <outlet property="productNumber" destination="lj6-On-6yo" id="HAo-ZN-hHK"/>
+                <outlet property="productPrice" destination="wnI-Pt-1bK" id="D4S-6z-ofq"/>
+                <outlet property="productTime" destination="cdU-Po-509" id="sAO-3h-DBz"/>
             </connections>
             <point key="canvasLocation" x="252.89855072463769" y="133.59375"/>
         </tableViewCell>

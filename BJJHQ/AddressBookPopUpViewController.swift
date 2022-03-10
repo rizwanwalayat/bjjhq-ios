@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+var globalAddressBookPopUp : AddressBookPopUpViewController?
 class AddressBookPopUpViewController: BaseViewController {
     
     
@@ -35,18 +35,23 @@ class AddressBookPopUpViewController: BaseViewController {
     var isfromAddNewAddress = false
     var textForNow = ""
     var descriptionMessage : String?
-    
+    var getAddress : Addresses?
     
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        globalAddressBookPopUp = self
         self.textView.textColor = UIColor.init(hexString: "000000", alpha: 0.25)
         self.popUpView.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
         if isfromAddNewAddress {
             self.titleLbl.text = "Add New Address"
             self.deleteButton.isHidden = true
             self.saveButton.setTitle("Save this Address", for: .normal)
+        }
+        else {
+            
+            setup()
         }
         
     }
@@ -58,6 +63,21 @@ class AddressBookPopUpViewController: BaseViewController {
     
     
     //MARK: - Functions
+    
+    func setup() {
+        self.countryTF.text = getAddress?.country
+        self.cityTF.text = getAddress?.city
+        self.postalTF.text = getAddress?.zip
+        self.districtTF.text = getAddress?.district
+        self.textView.text = getAddress?.address1
+        
+        if !isfromAddNewAddress {
+        if self.textView.text != "" {
+            self.textView.textColor = UIColor(named: "blue")
+        }}
+        self.addressTF.text = getAddress?.address2
+        
+    }
     
     func setupDidappear() {
         
@@ -88,6 +108,7 @@ class AddressBookPopUpViewController: BaseViewController {
     @IBAction func deletePopupAction(_ sender: Any) {
         let vc = DeletePopUpViewController(nibName: "DeletePopUpViewController", bundle: nil)
         vc.isFromAddress = true
+        vc.getAddress = self.getAddress
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: false, completion: nil)
     }
@@ -96,32 +117,46 @@ class AddressBookPopUpViewController: BaseViewController {
         if self.textView.text != "" && self.addressTF.text != "" && self.countryTF.text != "" && self.postalTF.text != "" && self.cityTF.text != "" && self.districtTF.text != "" {
             
             if isfromAddNewAddress {
-                
+                self.view.activityStartAnimating()
                 Client.shared.addAddress(accessToken: DataManager.shared.getUserAccessToekn()!, address1: self.textView.text!, address2: self.addressTF.text!, country: self.countryTF.text!, postalCode: self.postalTF.text!, city: self.cityTF.text!, province: self.districtTF.text!) { pass, fail in
+                    self.view.activityStopAnimating()
                     self.hidePopup()
+                    globalMyAddressesViewController?.setup()
                 }
         }
+            else {
+                self.view.activityStartAnimating()
+                Client.shared.updateSelectedAddress(accessToken: DataManager.shared.getUserAccessToekn()!, address1: self.textView.text!, address2: self.addressTF.text!, country: self.countryTF.text!, postalCode: self.postalTF.text!, city: self.cityTF.text!, province: self.districtTF.text!, id: self.getAddress?.id ?? "") { pass, fail in
+                    self.view.activityStopAnimating()
+                    self.hidePopup()
+                    globalMyAddressesViewController?.setup()
+                }
+            }
         }
     }
     
 }
 
 extension AddressBookPopUpViewController: UITextViewDelegate,UITextFieldDelegate {
+
     func textViewDidBeginEditing(_ textView: UITextView) {
+        if isfromAddNewAddress {
         textView.textColor = UIColor(named: "blue")
         textView.text = ""
         if self.textForNow != "" {
             textView.text = textForNow
         }
+        }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
+        if isfromAddNewAddress {
         self.textForNow = textView.text
         if textView.text == "" {
             textView.text = "Address1"
             textView.textColor = UIColor.init(hexString: "000000", alpha: 0.25)
         }
-        
+        }
     }
     
 }

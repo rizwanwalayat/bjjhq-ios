@@ -9,11 +9,12 @@
 import UIKit
 import Buy
 import Pay
+var globalMyAddressesViewController : MyAddressesViewController?
 class Addresses: NSObject {
     var address1 = ""
     var address2 = ""
     var city = ""
-    var postalCode = ""
+    var zip = ""
     var id = ""
     var district = ""
     var country = ""
@@ -38,42 +39,43 @@ class MyAddressesViewController: BaseViewController , addressAction {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DataManager.shared.setNotificationSwitch(value: [Global.shared.notifications,
-                                                         Global.shared.salaat,
-                                                         Global.shared.tasbeeh,
-                                                         Global.shared.goal])
+        globalMyAddressesViewController = self
+        self.view.activityStartAnimating()
+        setup()
+        
+    }
+    func setup() {
         Client.shared.fetchAddress { responce,defaultAddress in
             self.defaultAddress = defaultAddress
             self.address = responce
-            self.tableView.reloadData()
             self.makingAddresses()
+            self.view.activityStopAnimating()
         }
-        
     }
+    
+    
     func makingAddresses () {
-        let Address = Addresses()
-        Address.address1  = self.defaultAddress?.address1 ?? ""
-        Address.address2 = self.defaultAddress?.address2 ?? ""
-        Address.city = self.defaultAddress?.city ?? ""
-        Address.postalCode = self.defaultAddress?.provinceCode ?? ""
-        Address.country = self.defaultAddress?.country ?? ""
-        Address.district = self.defaultAddress?.province ?? ""
-        self.addressArray?.append(Address)
-        guard let address = self.address else {
+        var array = [Addresses]()
+        guard let addresssss = self.address else {
             return
         }
 
-        for Addres in address {
+        for (i,Addres) in addresssss.enumerated() {
             let Address = Addresses()
             Address.address1  = Addres.node.address1 ?? ""
             Address.address2 = Addres.node.address2 ?? ""
             Address.city = Addres.node.city ?? ""
-            Address.postalCode = Addres.node.provinceCode ?? ""
+            Address.zip = Addres.node.zip ?? ""
             Address.country = Addres.node.country ?? ""
             Address.district = Addres.node.province ?? ""
-            self.addressArray?.append(Address)
+            Address.id = Addres.node.id.rawValue
+            if self.defaultAddress?.id == Addres.node.id {
+                self.selectedAddressIndex = i
+            }
+            array.append(Address)
         }
-        
+        self.addressArray = array
+        self.tableView.reloadData()
     }
     
     
@@ -95,13 +97,20 @@ class MyAddressesViewController: BaseViewController , addressAction {
     
     func selectedAddress(index: Int) {
         print("Address selected \(index)")
-        self.selectedAddressIndex = index
-        tableView.reloadData()
+        self.view.activityStartAnimating()
+        Client.shared.updateDefaultAddress(accessToken: DataManager.shared.getUserAccessToekn()!, addressID: addressArray?[index].id ?? "") { responce,defaultAddress in
+            self.defaultAddress = defaultAddress
+            self.address = responce?.edges
+            self.makingAddresses()
+            self.view.activityStopAnimating()
+        }
+        
     }
     
     func editAddress(index: Int) {
         print("Edit address \(index)")
         let vc = AddressBookPopUpViewController(nibName: "AddressBookPopUpViewController", bundle: nil)
+        vc.getAddress = self.addressArray?[index]
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: false, completion: nil)
     }
@@ -112,7 +121,7 @@ class MyAddressesViewController: BaseViewController , addressAction {
 extension MyAddressesViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.address?.count ?? 0
+        return self.addressArray?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -125,7 +134,7 @@ extension MyAddressesViewController : UITableViewDelegate, UITableViewDataSource
             cell.radioButton.isSelected = false
             cell.mainView.borderColor = UIColor(hexString: "#C2C2C2")
         }
-        cell.addressLabel.text = self.address?[indexPath.row].node.address1
+        cell.addressLabel.text = self.addressArray?[indexPath.row].address1
         cell.delegate = self
         cell.editButton.tag = indexPath.row
         cell.radioButton.tag = indexPath.row

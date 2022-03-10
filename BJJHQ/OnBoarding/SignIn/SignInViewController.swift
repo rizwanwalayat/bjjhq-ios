@@ -64,7 +64,6 @@ class SignInViewController: BaseViewController {
     }
     
     @IBAction func signInAction(_ sender: Any) {
-        
         self.view.activityStartAnimating()
         viewModel?.signInCustomer(email: emailTF.text!, password: passwordTF.text!,  completion: { data, error in
 

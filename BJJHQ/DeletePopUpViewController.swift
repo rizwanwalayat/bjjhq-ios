@@ -26,6 +26,7 @@ class DeletePopUpViewController: BaseViewController {
     var isFromSignOut = false
     var isFromAddress = false
     var isFromRemoveCart = false
+    var getAddress : Addresses?
     var viewModel : DeleteLogoutViewModel?
     //MARK: - LifeCycle
     
@@ -115,6 +116,14 @@ class DeletePopUpViewController: BaseViewController {
                     self.showToast(message: message ?? "Somthing went wrong, please try again later")
                 }
             })
+        }
+        else {
+            //delete address
+            Client.shared.deleteUserAddress(accessToken: DataManager.shared.getUserAccessToekn()!, addressId: self.getAddress?.id ?? "") { pass, fail in
+                
+                self.hidePopup()
+                globalAddressBookPopUp?.hidePopup()
+            }
         }
     }
     
