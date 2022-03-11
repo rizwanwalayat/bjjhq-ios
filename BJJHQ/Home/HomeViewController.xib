@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -46,10 +46,12 @@
                 <outlet property="productPrice" destination="PmG-ns-71x" id="YmY-RB-i6M"/>
                 <outlet property="productTitle" destination="PZt-ek-SB3" id="2V8-zk-tbA"/>
                 <outlet property="remainingTimeLabel" destination="Kv8-Co-caa" id="37m-4E-Wyr"/>
+                <outlet property="scrollView" destination="rk3-2r-ckA" id="qMp-DP-jqf"/>
                 <outlet property="sendCommentsBtn" destination="7rf-En-4c6" id="TF4-lR-2Bq"/>
                 <outlet property="sizeButton" destination="r95-nC-Csd" id="pb3-xB-EjQ"/>
                 <outlet property="sizeHolderView" destination="lqB-Mr-VNu" id="4qS-r9-zuM"/>
                 <outlet property="tableView" destination="SRH-RM-tSZ" id="GCM-Vm-OfZ"/>
+                <outlet property="timePieChart" destination="007-DW-OMS" id="gl1-c6-P1h"/>
                 <outlet property="topView" destination="hYT-MR-Fu8" id="ncf-If-Sph"/>
                 <outlet property="upButton" destination="pm2-yg-bWF" id="8Ru-Ks-TBz"/>
                 <outlet property="userImageComments" destination="tF3-MN-R9c" id="aBk-f6-bRj"/>
@@ -122,25 +124,49 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timelapse_icon" translatesAutoresizingMaskIntoConstraints="NO" id="6XP-XS-HMU">
                                             <rect key="frame" x="8" y="6.5" width="22" height="22"/>
-                                            <color key="tintColor" name="black"/>
+                                            <color key="tintColor" name="timespaleColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="6XP-XS-HMU" secondAttribute="height" multiplier="1:1" id="4mF-PM-sWO"/>
                                                 <constraint firstAttribute="height" constant="22" id="exa-dP-cZL"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="11"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="007-DW-OMS" customClass="CSPieChart" customModule="CSPieChart">
+                                            <rect key="frame" x="8" y="6.5" width="22" height="22"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="0.5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" name="timespaleColor"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="11"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15h 32m 05s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kv8-Co-caa">
                                             <rect key="frame" x="38" y="8.5" width="78.5" height="18"/>
                                             <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="15"/>
-                                            <color key="textColor" name="black"/>
+                                            <color key="textColor" name="timespaleColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
+                                        <constraint firstItem="007-DW-OMS" firstAttribute="height" secondItem="6XP-XS-HMU" secondAttribute="height" id="BWv-Qe-8rZ"/>
                                         <constraint firstItem="Kv8-Co-caa" firstAttribute="centerY" secondItem="6XP-XS-HMU" secondAttribute="centerY" id="D4Y-P1-vXj"/>
+                                        <constraint firstItem="007-DW-OMS" firstAttribute="width" secondItem="6XP-XS-HMU" secondAttribute="width" id="Jxb-Sz-gXO"/>
                                         <constraint firstItem="6XP-XS-HMU" firstAttribute="centerY" secondItem="m9g-tH-DKA" secondAttribute="centerY" id="LmW-17-hvf"/>
                                         <constraint firstItem="6XP-XS-HMU" firstAttribute="leading" secondItem="m9g-tH-DKA" secondAttribute="leading" constant="8" id="OoA-nx-oNL"/>
+                                        <constraint firstItem="007-DW-OMS" firstAttribute="top" secondItem="6XP-XS-HMU" secondAttribute="top" id="b7t-Q6-FzL"/>
                                         <constraint firstItem="Kv8-Co-caa" firstAttribute="leading" secondItem="6XP-XS-HMU" secondAttribute="trailing" constant="8" id="c6L-F7-qhT"/>
+                                        <constraint firstItem="007-DW-OMS" firstAttribute="leading" secondItem="6XP-XS-HMU" secondAttribute="leading" id="idF-4N-o0x"/>
                                         <constraint firstAttribute="height" constant="35" id="raz-dt-ywU"/>
                                         <constraint firstAttribute="trailing" secondItem="Kv8-Co-caa" secondAttribute="trailing" constant="8" id="xTY-Sy-CSX"/>
                                     </constraints>
@@ -154,11 +180,10 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QE1-lT-9Qo" customClass="PillPageControl" customModule="PageControls">
-                                    <rect key="frame" x="163" y="544.5" width="80" height="10"/>
+                                    <rect key="frame" x="166" y="544.5" width="74" height="10"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="KD2-xr-zSq"/>
-                                        <constraint firstAttribute="width" constant="80" id="hto-wK-XRV"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="numberOfPages">
@@ -608,7 +633,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kb-1r-x9a">
-                            <rect key="frame" x="30" y="1336" width="346" height="50"/>
+                            <rect key="frame" x="30" y="1344" width="346" height="50"/>
                             <color key="backgroundColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="XW7-LQ-RVn"/>
@@ -650,7 +675,6 @@
                         <constraint firstItem="pkO-MC-I85" firstAttribute="leading" secondItem="DaM-DD-p99" secondAttribute="leading" id="XQQ-hw-rUF"/>
                         <constraint firstAttribute="trailing" secondItem="pkO-MC-I85" secondAttribute="trailing" id="fgm-cc-uR3"/>
                         <constraint firstAttribute="trailing" secondItem="hYT-MR-Fu8" secondAttribute="trailing" id="gOu-Gh-P0L"/>
-                        <constraint firstAttribute="bottom" secondItem="0kb-1r-x9a" secondAttribute="bottom" constant="50" id="hwq-Hj-Wmd"/>
                         <constraint firstAttribute="trailing" secondItem="KEM-bb-Uil" secondAttribute="trailing" id="wQ3-d8-I7V"/>
                         <constraint firstItem="hYT-MR-Fu8" firstAttribute="leading" secondItem="DaM-DD-p99" secondAttribute="leading" id="x2H-tJ-jRu"/>
                     </constraints>
@@ -664,6 +688,7 @@
                 <constraint firstItem="DaM-DD-p99" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jFN-sN-eQq"/>
                 <constraint firstItem="DaM-DD-p99" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sy9-kb-Mdd"/>
                 <constraint firstAttribute="bottom" secondItem="DaM-DD-p99" secondAttribute="bottom" id="uD6-Uq-3tL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0kb-1r-x9a" secondAttribute="bottom" constant="8" id="xp8-A4-wPK"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="131.8840579710145" y="278.57142857142856"/>
@@ -695,6 +720,9 @@
         </namedColor>
         <namedColor name="lightGrey">
             <color red="0.74099999666213989" green="0.74099999666213989" blue="0.74099999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="timespaleColor">
+            <color red="0.875" green="0.39599999785423279" blue="0.39599999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

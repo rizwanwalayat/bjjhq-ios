@@ -9,6 +9,7 @@ import UIKit
 import PageControls
 import iOSDropDown
 import ActionCableClient
+import CSPieChart
 
 class HomeViewController: BaseViewController {
 
@@ -46,41 +47,63 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var sendCommentsBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var constTableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var timePieChart: CSPieChart!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     // MARK: - Variables -
     
     var isDetailOpend = true
     var tempColorArray = [UIColor.red, UIColor.orange, UIColor.blue, UIColor.yellow]
     var colorSelectedIndex = IndexPath()
-    var comments = [CommentsData]()
-    var replayComment : CommentsData?
+    var comments = [Comments]()
+    var replayComment : Comments?
     var viewModel : HomeViewModel?
     var productModel : ProductViewModel?
+    var productInfo : ProductInfo?
+    var timer = Timer()
+    var commentsParentId : String?
     
     // socket related
     let client = ActionCableClient(url: URL(string:"wss://bjjhq.phaedrasolutions.com/cable")!)
-    var channel: Channel?
+    var commentschannel: Channel?
+    var reactionsChannel: Channel?
+    var currentDealChannel: Channel?
     
+    // chartlist
+    var dataList = [
+        CSPieChartData(key: "time", value: 10),
+        CSPieChartData(key: "Empty", value: 10)
+    ]
+    var colorList: [UIColor] = [
+        UIColor(named: "timespaleColor") ?? .magenta,
+        .white
+    ]
     
     // MARK: - Controller's lifeCycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setup()
-        addCommentsData()
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+        setup()
+        APICalls()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         tableView.removeObserver(self, forKeyPath: "contentSize")
+        timer.invalidate()
+        self.client.disconnect()
+        self.currentDealChannel?.unsubscribe()
+        self.commentschannel?.unsubscribe()
+        self.reactionsChannel?.unsubscribe()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -95,14 +118,12 @@ class HomeViewController: BaseViewController {
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?)
     {
-        print("observeValue called")
-        
         if keyPath == "contentSize"
         {
             if let newvalue = change?[.newKey]{
                 let updatedVal  = newvalue as! CGSize
                 let viewHeight  = updatedVal.height
-                constTableViewHeight.constant    = viewHeight
+                self.constTableViewHeight.constant    = viewHeight
                 DispatchQueue.main.async {
                     self.tableView.layoutIfNeeded()
                     self.view.layoutIfNeeded()
@@ -150,51 +171,15 @@ class HomeViewController: BaseViewController {
         }
         
         viewModel = HomeViewModel()
-        viewModel?.fetchCurrentDeal({ success, homeData, message in
-            
-            if let data = homeData, let info = data.response, success {
-                
-                let id = "\(info.current_product_id)"
-                
-//                self.viewModel?.fetchSignleProduct(id, { pdata in
-//                    if let data = pdata {
-//                        print(data.title )
-//                    }
-//                })
-                
-                self.viewModel?.fetchProducts(id, { pdata in
-
-                    if let data = pdata {
-                        
-                        self.productModel = data.items.first
-                        self.productTitle.text = self.productModel?.title ?? ""
-                        self.productPrice.text = self.productModel?.price ?? ""
-                        self.descriptionLabel.text = self.productModel?.summary ?? ""
-                        
-                        //print(data.items.first?.title ?? "")
-                    }
-                })
-            }
-            
-//            self.showToast(message: message ?? "Data not fetched ")
-        })
-    }
-    
-    
-    fileprivate func addCommentsData()
-    {
-        let commentsObject = CommentsData("Rizwan07", "very nice", "10", "15", "3 min",  nil, [], nil)
-        comments.append(commentsObject)
         
-        let subComments = CommentsReplyData("Rizwan07", "great", "100", "2", "30 min", nil, nil)
-        let commentsObject2 = CommentsData("Haider003", "good", "100", "300", "1 hour",  nil, [subComments], nil)
-        comments.append(commentsObject2)
+        // Pie chart
+        timePieChart.delegate = self
+        timePieChart.dataSource = self
+        timePieChart.pieChartRadiusRate = 0.5
+        timePieChart.pieChartLineLength = 12
         
-        let subComments1 = CommentsReplyData("Haider003", "Thank you so much for these kind words.", "100", "2", "30 min", nil, nil)
-        let commentsObject3 = CommentsData("asad01", "Amazing hoodies!! Just received my first order and they are fantastic quality and perfect fit.", "33", "0", "1 day", nil , [subComments, subComments1], nil)
-        comments.append(commentsObject3)
+        timePieChart.transform = timePieChart.transform.rotated(by: -90)//CGAffineTransform(rotationAngle: -90)
         
-        tableView.reloadData()
     }
     
     // MARK: - Actions -
@@ -234,31 +219,8 @@ class HomeViewController: BaseViewController {
         
         if writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0{
             
-            //webSocketConnection.send(text: writeCommentsTF.text!)
-            self.channel?.action(writeCommentsTF.text!)
-            writeCommentsTF.text = ""
+            sendComment(writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines))
         }
-//            if let commentObj = replayComment{
-//
-//                let subComments = CommentsReplyData("unknown", writeCommentsTF.text ?? "Nothing", "0", "0", "Now", imageComment.image, nil)
-//                commentObj.replies.append(subComments)
-//
-//                index = comments.firstIndex{$0 === commentObj} ?? comments.count - 1
-//            }
-//            else {
-//
-//                let commentsObject = CommentsData("unknown", writeCommentsTF.text ?? "Nothing", "0", "0", "Now",  imageComment.image, [], nil)
-//                comments.append(commentsObject)
-//                index = comments.count - 1
-//            }
-//        }
-//
-//        crossImageAction(imageComment!)
-//        writeCommentsTF.text = ""
-//        replayComment = nil
-//        tableView.reloadData()
-//        tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .bottom, animated: true)
-        
     }
     
     @IBAction func crossImageAction(_ sender: Any) {
@@ -282,14 +244,7 @@ class HomeViewController: BaseViewController {
     @objc func likeButtonPressed (_ sender: UIButton)
     {
         let obj = comments[sender.tag]
-        
-        if obj.isLiked == nil || obj.isLiked == false
-        {
-            obj.isLiked = true
-        }else {
-            obj.isLiked = nil
-        }
-        
+
         //let indexpath = IndexPath(row: sender.tag, section: 0)
         tableView.reloadData()//reloadRows(at: [indexpath], with: .automatic)
     }
@@ -297,14 +252,6 @@ class HomeViewController: BaseViewController {
     @objc func unLikeButtonPressed (_ sender: UIButton)
     {
         let obj = comments[sender.tag]
-        
-        
-        if obj.isLiked == nil || obj.isLiked == true
-        {
-            obj.isLiked = false
-        }else {
-            obj.isLiked = nil
-        }
     
         //let indexpath = IndexPath(row: sender.tag, section: 0)
         tableView.reloadData()//reloadRows(at: [indexpath], with: .automatic)
@@ -314,8 +261,7 @@ class HomeViewController: BaseViewController {
     @objc func replyPressed (_ sender: UIButton)
     {
         let obj = comments[sender.tag]
-        replayComment = obj
-        writeCommentsTF.text = obj.userName
+        commentsParentId = "\(obj.comment?.id ?? 0)"
         writeCommentsTF.becomeFirstResponder()
     }
     
@@ -329,238 +275,47 @@ class HomeViewController: BaseViewController {
             self.view.layoutIfNeeded()
         }
     }
-}
-
-// MARK: - CollectionView Delegate  -
-
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
-{
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        if collectionView == self.collectionView {
-            let height = self.collectionView.bounds.height
-            let size = CGSize(width: ScreenSize.SCREEN_WIDTH, height: height)
-            return size
-        }
-        
-        // for colors
-        return CGSize(width: 22, height: 22)
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        if collectionView == self.collectionView {
-            let index = self.collectionView.contentOffset.x / self.collectionView.frame.size.width
-            pagesIndicators.progress = index
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == colorsCollectionView{
+    func pieChartTimeCal()
+    {
+        if let info = productInfo {
             
-            self.colorSelectedIndex = indexPath
-        }
-        
-        // for colors
-        self.colorsCollectionView.reloadData()
-    }
-}
-
-
-// MARK: - CollectionView Data Source  -
-
-extension HomeViewController: UICollectionViewDataSource
-{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if collectionView == self.collectionView {
+            guard let min = self.timeDifferenceInMin(recent: Date(), previous: info.lastUpdateDate) else {  return }
             
-            return self.productModel?.images.items.count ?? 0
-        }
-        
-        // for colors
-        return tempColorArray.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if collectionView == self.collectionView {
-           
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as! HomeCollectionViewCell
+            dataList = [
+                CSPieChartData(key: "time", value: Double(min)),
+                CSPieChartData(key: "Empty", value: Double(info.time_interval))
+            ]
             
-            let item = self.productModel?.images.items[indexPath.row]
+            timePieChart.show(animated: true)
+            timePieChart.reloadPieChart()
+            
+            guard let endDate = fetchPromotionEndTime(info.lastUpdateDate, minToAdd: info.time_interval) else {return }
+            
+            let interval = endDate.timeIntervalSince(Date())
+            var difference = Date(timeIntervalSinceReferenceDate: interval)
+            
+            self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
                 
-            cell.config(item)
+                let timeArr = difference.dateToString("HH:mm:ss").components(separatedBy: ":")
+                self.remainingTimeLabel.text = "\(timeArr[0])h \(timeArr[1])m \(timeArr[2])s"
+                difference = Calendar.current.date(byAdding: .second, value: -1, to: difference) ?? difference
+            })
             
-            
-            return cell
         }
-        
-        // for colors
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorsSelectionCollectionViewCell", for: indexPath) as! ColorsSelectionCollectionViewCell
-        
-        cell.configCell(indexPath, selectedIndexPath: colorSelectedIndex, color: tempColorArray[indexPath.item])
-        return cell
-        
+    }
+    
+    func timeDifferenceInMin(recent: Date, previous: Date) -> Int? {
+        let minute = Calendar.current.dateComponents([.minute], from: previous, to: recent).minute
+        return minute
+    }
+    
+    func fetchPromotionEndTime(_ byDate : Date, minToAdd: Int) -> Date?
+    {
+        let calendar = Calendar.current
+        let date = calendar.date(byAdding: .minute, value: minToAdd, to: byDate)
+        return date
     }
 }
 
 
-// MARK: - TableView Delegate  -
-
-extension HomeViewController : UITableViewDelegate {
-    
-    
-}
-
-
-// MARK: - TableView Data Source  -
-
-extension HomeViewController: UITableViewDataSource
-{
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return comments.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsTableViewCell", for: indexPath) as! CommentsTableViewCell
-        
-        cell.config(comments[indexPath.row])
-        cell.likeButton.tag = indexPath.row
-        cell.unlikeButton.tag = indexPath.row
-        cell.replyButton.tag = indexPath.row
-        cell.likeButton.addTarget(self, action: #selector(likeButtonPressed(_:)), for: .touchUpInside)
-        cell.unlikeButton.addTarget(self, action: #selector(unLikeButtonPressed(_:)), for: .touchUpInside)
-        cell.replyButton.addTarget(self, action: #selector(replyPressed(_:)), for: .touchUpInside)
-        
-        cell.delegate = self
-        
-        cell.likeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
-        cell.likeButton.tintColor = UIColor(hexString: "5BD6CD")
-        cell.likeButton.borderColor = UIColor(hexString: "5BD6CD")
-        cell.likeButton.backgroundColor = .clear
-
-        cell.unlikeButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
-        cell.unlikeButton.tintColor = UIColor(hexString: "252C44")
-        cell.unlikeButton.borderColor = UIColor(hexString: "252C44")
-        cell.likeButton.backgroundColor = .clear
-        
-        
-        if let isLiked = comments[indexPath.row].isLiked {
-            if isLiked {
-                
-                cell.likeButton.setTitleColor(UIColor.white, for: .normal)
-                cell.likeButton.tintColor = .white
-                cell.likeButton.borderColor = UIColor(hexString: "5BD6CD")
-                cell.likeButton.backgroundColor = UIColor(hexString: "5BD6CD")
-                
-                cell.unlikeButton.setTitleColor(UIColor(hexString: "#252C44"), for: .normal)
-                cell.unlikeButton.tintColor = UIColor(hexString: "#252C44")
-                cell.unlikeButton.borderColor = UIColor(hexString: "#252C44")
-                cell.unlikeButton.backgroundColor = .clear
-                
-            }
-            else {
-                
-                cell.unlikeButton.setTitleColor(UIColor.white, for: .normal)
-                cell.unlikeButton.tintColor = .white
-                cell.unlikeButton.borderColor = UIColor(hexString: "#252C44")
-                cell.unlikeButton.backgroundColor = UIColor(hexString: "#252C44")
-                
-                cell.likeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
-                cell.likeButton.tintColor = UIColor(hexString: "5BD6CD")
-                cell.likeButton.borderColor = UIColor(hexString: "5BD6CD")
-                cell.likeButton.backgroundColor = .clear
-            }
-        }
-    
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-}
-
-// MARK: - Custom TableView Delegate  -
-
-extension HomeViewController : commentsTableViewDelegate {
-    func didTapOnRepliy(_ superComment: CommentsData, subComment: CommentsReplyData) {
-        
-        replayComment = superComment
-        writeCommentsTF.text = subComment.userName
-        writeCommentsTF.becomeFirstResponder()
-    }
-    
-}
-
-
-// MARK: - Web Socket  -
-
-extension HomeViewController {
-    
-    
-    func setupClient() {
-        
-       
-        
-        
-        self.client.willConnect = {
-            print("Will Connect")
-        }
-        
-        self.client.onConnected = {
-            print("Connected to \(self.client.url)")
-            
-//            let room_identifier = ["room_id" : "1", "room": "deal_channel"]
-//
-//            self.channel = self.client.create("DealChannel", identifier: room_identifier, autoSubscribe: true, bufferActions: true)
-            
-            //self.channel = self.client.create("comment_channel")
-            
-            let room_identifier = ["room" : "comment_channel"]
-            self.channel = self.client.create("CommentsChannel", identifier: room_identifier, autoSubscribe: true, bufferActions: true)
-        }
-        
-        self.client.onDisconnected = {(error: ConnectionError?) in
-            print("Disconected with error: \(String(describing: error))")
-        }
-        
-        self.client.willReconnect = {
-            print("Reconnecting to \(self.client.url)")
-            return true
-        }
-        
-        self.channel?.onSubscribed = {
-            print("Subscribed to Channel")
-        }
-        
-        self.channel?.onReceive = {(data: Any?, error: Error?) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-        }
-        
-        self.channel?.onUnsubscribed = {
-            print("Unsubscribed")
-        }
-        
-        self.channel?.onRejected = {
-            print("Rejected")
-        }
-        
-        
-        let token = DataManager.shared.getUserAccessToekn() ?? ""
-        client.headers = [
-            "Authorization": token,
-            "Accept": "application/json"
-        ]
-       
-        self.client.connect()
-    }
-}

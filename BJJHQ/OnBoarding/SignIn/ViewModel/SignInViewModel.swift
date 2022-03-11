@@ -72,7 +72,13 @@ final class SignInViewModel: BaseViewModel {
             if let response = result {
                 
                 let newResult = ["result" : response]
-                if let _ = Mapper<UserDataModel>().map(JSON: newResult as [String : Any]) {
+                if let data = Mapper<UserDataModel>().map(JSON: newResult as [String : Any]) {
+                    
+                    if let user = data.user {
+                        let convretedData = user.toJSONString()
+                        DataManager.shared.setUser(user: convretedData ?? "")
+                        
+                    }
                     
                     completionHandler(true)
                     

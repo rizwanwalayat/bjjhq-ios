@@ -33,60 +33,64 @@ class SubCommentsTableViewCell: UITableViewCell {
     }
     
     
-    func config(_ commentsData : CommentsReplyData)
+    func config(_ commentsData : CommentsReplies)
     {
-        self.userName.text = commentsData.userName
-        self.commentsText.text = commentsData.commentText
-        self.likeButton.setTitle(commentsData.likeCount, for: .normal)
-        self.unlikeButton.setTitle(commentsData.unlikeCount, for: .normal)
-        self.timeLabel.text = commentsData.time
+        self.userName.text = commentsData.comment?.name ?? ""
+        self.commentsText.text = commentsData.comment?.message ?? ""
+        let time = commentsData.comment?.createdDate.timeCalculation(isShowTime: false)
+        self.timeLabel.text =  time
         
-        if let image = commentsData.commentImage {
-            self.imageHolderView.isHidden = false
-            self.commentImage.image = image
-        }
-        else {
-            self.imageHolderView.isHidden = true
-            self.commentImage.image = nil
-        }
         
-        if let isLiked = commentsData.isLiked {
-            switch isLiked {
-            case true:
-                
-                self.likeButton.setTitleColor(UIColor.white, for: .normal)
-                self.likeButton.tintColor = .white
-                self.likeButton.borderColor = UIColor(hexString: "5BD6CD")
-                self.likeButton.backgroundColor = UIColor(hexString: "5BD6CD")
-                
-                self.unlikeButton.setTitleColor(UIColor(hexString: "#252C44"), for: .normal)
-                self.unlikeButton.tintColor = UIColor(hexString: "#252C44")
-                self.unlikeButton.borderColor = UIColor(hexString: "#252C44")
-                self.unlikeButton.backgroundColor = .clear
-                
-            case false:
-                
-                self.unlikeButton.setTitleColor(UIColor.white, for: .normal)
-                self.unlikeButton.tintColor = .white
-                self.unlikeButton.borderColor = UIColor(hexString: "#252C44")
-                self.unlikeButton.backgroundColor = UIColor(hexString: "#252C44")
-                
-                self.likeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
-                self.likeButton.tintColor = UIColor(hexString: "5BD6CD")
-                self.likeButton.borderColor = UIColor(hexString: "5BD6CD")
-                self.likeButton.backgroundColor = .clear
-            }
-        }
-        else {
-
-            self.likeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
-            self.likeButton.tintColor = UIColor(hexString: "5BD6CD")
-            self.likeButton.borderColor = UIColor(hexString: "5BD6CD")
-
-            self.unlikeButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
-            self.unlikeButton.tintColor = UIColor(hexString: "252C44")
-            self.unlikeButton.borderColor = UIColor(hexString: "252C44")
-        }
+        //self.likeButton.setTitle(commentsData.likeCount, for: .normal)
+        //self.unlikeButton.setTitle(commentsData.unlikeCount, for: .normal)
+       
+        
+//        if let image = commentsData.commentImage {
+//            self.imageHolderView.isHidden = false
+//            self.commentImage.image = image
+//        }
+//        else {
+//            self.imageHolderView.isHidden = true
+//            self.commentImage.image = nil
+//        }
+        
+//        if let isLiked = commentsData.isLiked {
+//            switch isLiked {
+//            case true:
+//                
+//                self.likeButton.setTitleColor(UIColor.white, for: .normal)
+//                self.likeButton.tintColor = .white
+//                self.likeButton.borderColor = UIColor(hexString: "5BD6CD")
+//                self.likeButton.backgroundColor = UIColor(hexString: "5BD6CD")
+//                
+//                self.unlikeButton.setTitleColor(UIColor(hexString: "#252C44"), for: .normal)
+//                self.unlikeButton.tintColor = UIColor(hexString: "#252C44")
+//                self.unlikeButton.borderColor = UIColor(hexString: "#252C44")
+//                self.unlikeButton.backgroundColor = .clear
+//                
+//            case false:
+//                
+//                self.unlikeButton.setTitleColor(UIColor.white, for: .normal)
+//                self.unlikeButton.tintColor = .white
+//                self.unlikeButton.borderColor = UIColor(hexString: "#252C44")
+//                self.unlikeButton.backgroundColor = UIColor(hexString: "#252C44")
+//                
+//                self.likeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
+//                self.likeButton.tintColor = UIColor(hexString: "5BD6CD")
+//                self.likeButton.borderColor = UIColor(hexString: "5BD6CD")
+//                self.likeButton.backgroundColor = .clear
+//            }
+//        }
+//        else {
+//
+//            self.likeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
+//            self.likeButton.tintColor = UIColor(hexString: "5BD6CD")
+//            self.likeButton.borderColor = UIColor(hexString: "5BD6CD")
+//
+//            self.unlikeButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
+//            self.unlikeButton.tintColor = UIColor(hexString: "252C44")
+//            self.unlikeButton.borderColor = UIColor(hexString: "252C44")
+//        }
         
         
     }

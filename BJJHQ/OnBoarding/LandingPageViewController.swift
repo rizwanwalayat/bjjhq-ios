@@ -66,6 +66,11 @@ class LandingPageViewController: BaseViewController {
                 //let newResult = ["result" : response]
                 if let data = Mapper<UserDataModel>().map(JSONObject: response) {
                     
+                    if let user = data.user {
+                        let convretedData = user.toJSONString()
+                        DataManager.shared.setUser(user: convretedData ?? "")
+                        
+                    }
                     completionHandler(true)
                     
                 } else {

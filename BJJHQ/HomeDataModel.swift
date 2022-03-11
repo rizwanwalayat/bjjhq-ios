@@ -24,9 +24,10 @@ class HomeDataModel : Mappable
 
 class ProductInfo : Mappable
 {
-    var current_product_id = -1
-    var time_interval = -1
+    var current_product_id = Double()
+    var time_interval = Int()
     var last_updated_at = ""
+    var lastUpdateDate = Date()
 
     required init?(map: Map) {
 
@@ -37,6 +38,10 @@ class ProductInfo : Mappable
         current_product_id <- map["current_product_id"]
         time_interval <- map["time_interval"]
         last_updated_at <- map["last_updated_at"]
+        
+        if let date = last_updated_at.stringToDate("yyyy-MM-dd'T'HH:mm:ss.SSSZ") {
+            lastUpdateDate = date
+        }
     }
 
 }

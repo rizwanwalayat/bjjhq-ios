@@ -40,6 +40,54 @@ class HomeViewModel: BaseViewModel {
         }
     }
     
+    func fetchComments(_ completionHandler: @escaping(_ success: Bool, _ data : CommentsDataModel?, _ message : String?) -> Void) {
+        
+
+        APIClient.shared.fetchComments() { response, result, error, code, message  in
+            
+            if let response = result {
+                
+                if let data = Mapper<CommentsDataModel>().map(JSONObject: response ) {
+
+                    completionHandler(true, data, nil)
+
+                } else {
+
+                    completionHandler(false, nil, message)
+                }
+            }
+            else {
+                
+                completionHandler(false, nil, error?.localizedDescription ?? message)
+            }
+        }
+    }
+    
+    func sendComments(_ parentCommentId: String,_ message: String, _ completionHandler: @escaping(_ success: Bool, _ message : String?) -> Void) {
+        
+        let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        let role = DataManager.shared.getUser()?.user?.role ?? "user"
+        let userId = DataManager.shared.getUser()?.user?.id ?? 0
+        
+        APIClient.shared.sendComments(mobileId: uuid, userSystemId: "\(userId)", parentCommentId: parentCommentId, message: message, role: role) { responce, result, error, statusCode, messsage in
+            
+            if let response = result {
+                
+                if let success = response["status"] as? Bool {
+                    
+                    completionHandler(success, message)
+                }
+                else {
+                    completionHandler(false,  error?.localizedDescription ?? message)
+                }
+            }
+            else {
+                
+                completionHandler(false, error?.localizedDescription ?? message)
+            }
+        }
+    }
+    
     func fetchSignleProduct(_ productId: String, _ completion: @escaping(_ data: Storefront.Product?) -> Void )
     {
         Client.shared.fetchSignleProduct(productId: productId) { productData in
@@ -62,6 +110,74 @@ class HomeViewModel: BaseViewModel {
             }
             else {
                 completion(nil)
+            }
+        }
+    }
+    
+    func disLikeComment(_ commentId: Int, _ completionHandler: @escaping(_ success: Bool, _ data : Any?, _ message : String?) -> Void)
+    {
+        
+        APIClient.shared.dislikesComment(commentId) { response, result, error, code, message  in
+            
+            if let response = result {
+                
+//                if let data = Mapper<HomeDataModel>().map(JSONObject: response ) {
+//
+//                    completionHandler(true, data, nil)
+//
+//                } else {
+//
+//                    completionHandler(false, nil, messsage)
+//                }
+            }
+            else {
+                
+                completionHandler(false, nil, error?.localizedDescription ?? message)
+            }
+        }
+    }
+    
+    func likeComment(_ commentId: Int,_ completionHandler: @escaping(_ success: Bool, _ data : Any?, _ message : String?) -> Void)
+    {
+        APIClient.shared.likeComment(commentId) { response, result, error, code, message  in
+            
+            if let response = result {
+                
+//                if let data = Mapper<HomeDataModel>().map(JSONObject: response ) {
+//
+//                    completionHandler(true, data, nil)
+//
+//                } else {
+//
+//                    completionHandler(false, nil, messsage)
+//                }
+            }
+            else {
+                
+                completionHandler(false, nil, error?.localizedDescription ?? message)
+            }
+        }
+    }
+    
+    func fetchReactions(_ completionHandler: @escaping(_ success: Bool, _ data : Any?, _ message : String?) -> Void)
+    {
+        
+        APIClient.shared.fetchReactions() { response, result, error, code, message  in
+            
+            if let response = result {
+                
+//                if let data = Mapper<HomeDataModel>().map(JSONObject: response ) {
+//
+//                    completionHandler(true, data, nil)
+//
+//                } else {
+//
+//                    completionHandler(false, nil, messsage)
+//                }
+            }
+            else {
+                
+                completionHandler(false, nil, error?.localizedDescription ?? message)
             }
         }
     }

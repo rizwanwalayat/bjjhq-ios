@@ -18,4 +18,5 @@ target 'BJJHQ' do
 #  pod 'ActionCableClient'
 pod 'Firebase/Messaging'
 pod 'Firebase/Core'
+pod "CSPieChart"
 end

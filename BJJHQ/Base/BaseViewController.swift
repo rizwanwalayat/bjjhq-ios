@@ -173,6 +173,14 @@ open class BaseViewController: UIViewController {
         })
     }
 
+    func decodeId(id : String) -> String
+    {
+        let decodedData = Data(base64Encoded: id)!
+        guard let decodedString = String(data: decodedData, encoding: .utf8), let id = decodedString.split(separator: "/").last  else {
+            return ""
+        }
+        return String(id)
+    }
 
 }
 
@@ -341,6 +349,144 @@ extension Date {
     }()
     var formatted2: String {
         return Date.formatter2.string(from: self)
+    }
+    
+    func dateToString(_ stringFormatter : String) -> String
+    {
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateString = formatter.string(from: self)
+        let date = formatter.date(from: dateString)
+        formatter.dateFormat = stringFormatter
+        let returnString = formatter.string(from: date ?? self)
+
+        return returnString
+    }
+    
+    func timeCalculation( isShowTime : Bool) -> String?
+    {
+//        if PostDate == ""
+//        {
+//            return ""
+//        }
+//        let date = Date(timeIntervalSince1970: TimeInterval(Double(PostDate ?? "") ?? 0.0))
+        
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .full
+        
+        let now = Date()
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents(
+            [.year, .month, .weekOfMonth, .day, .hour, .minute, .second],
+            from: self,
+            to: now)
+        
+        
+        /// for years
+        
+        if let year = components.year {
+            
+            if year > 0 && year < 2
+            {
+                return "\(year)" + " year)"
+            }
+            else if year > 1
+            {
+                return "\(year)" + " years"
+            }
+        }
+            
+        
+        /// for months
+        
+        if let month = components.month {
+            
+            if month > 0 && month < 2
+            {
+                return "\(month)" + " month"
+            }
+            else if month > 1
+            {
+                return "\(month)" + " months"
+            }
+        }
+        
+        
+        /// for weeks
+        
+        if let week = components.weekOfMonth {
+            
+            if week > 0 && week < 2
+            {
+                return "\(week)" + " week"
+            }
+            else if week > 1
+            {
+                return "\(week)" + " weeks"
+            }
+        }
+        
+        
+        /// for day
+        
+        if let day = components.day {
+            
+            if day > 0 && day < 2
+            {
+                return "\(day)" + " day"
+            }
+            else if day > 1
+            {
+                return "\(day)" + " days"
+            }
+        }
+            
+        
+        if isShowTime
+        {
+            
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier: "en_US_POSIX")
+            formatter.dateFormat = "h:mm a"
+            formatter.amSymbol = "AM"
+            formatter.pmSymbol = "PM"
+
+            let dateString = formatter.string(from: Date())
+            return dateString
+        }
+        
+        /// for hours
+        
+        if let hour = components.hour {
+            
+            if hour > 0 && hour < 2
+            {
+                return "\(hour)" + " hour"
+            }
+            else if hour > 1
+            {
+                return "\(hour)" + " hours"
+            }
+        }
+        
+        
+        /// for mins
+        
+        if let mints = components.minute {
+            
+            if mints > 0 && mints < 2
+            {
+                return "\(mints)" + " mint"
+            }
+            else if mints > 1
+            {
+                return "\(mints)" + " mints"
+            }
+        }
+            
+        return ""
     }
 }
 
