@@ -35,7 +35,6 @@ class UserProfileViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setup()
         self.emailTextField.isUserInteractionEnabled = false
         self.emailTextField.alpha = 0.5
@@ -70,18 +69,22 @@ class UserProfileViewController: BaseViewController {
     
     //MARK: - Functions
     func setup() {
+        if let url = URL(string:  DataManager.shared.getUser()?.avatar ?? "") {
+            self.setImage(imageView: self.profilePicImageView, url: url)
+        }
+        
         if let user = DataManager.shared.getUser() {
-            self.emailTextField.text = user.email
-            self.nameTextField.text = user.first_name
-            self.lastNameTextField.text = user.last_name
-            self.desciptionTextView.text = user.bio
-            self.userNameTextField.text = user.user_name
+            self.emailTextField.text = user.user?.email
+            self.nameTextField.text = user.user?.first_name
+            self.lastNameTextField.text = user.user?.last_name
+            self.desciptionTextView.text = user.user?.bio
+            self.userNameTextField.text = user.user?.user_name
         }
     }
     @objc override func imageSelectedFromGalleryOrCamera(selectedImage:UIImage) {
         let image  = ["avatar":selectedImage]
         SignInViewModel().updateUserImage(image: image, { responce in
-            print(responce)
+            self.profilePicImageView.image = selectedImage
         })
     }
     

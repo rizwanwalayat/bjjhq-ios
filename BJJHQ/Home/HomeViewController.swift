@@ -176,7 +176,7 @@ class HomeViewController: BaseViewController {
                 })
             }
             
-            self.showToast(message: message ?? "Data not fetched ")
+//            self.showToast(message: message ?? "Data not fetched ")
         })
     }
     

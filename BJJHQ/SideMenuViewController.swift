@@ -17,9 +17,13 @@ class SideMenuViewController: BaseViewController, SlideMenuControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let url = URL(string:  DataManager.shared.getUser()?.avatar ?? "") {
+            self.setImage(imageView: self.profileImage, url: url)
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         self.setup()
+        
     }
     
     @IBAction func backAction(_ sender: Any) {
@@ -43,8 +47,8 @@ class SideMenuViewController: BaseViewController, SlideMenuControllerDelegate {
     func setup() {
         self.profileImage.clipsToBounds = true
         if let user = DataManager.shared.getUser() {
-            self.firstNameLastNameLBL.text = String(user.first_name + user.last_name)
-            self.userNameLBL.text = user.user_name
+            self.firstNameLastNameLBL.text = "\(user.user?.first_name ?? "") \(user.user?.last_name ?? "")"
+            self.userNameLBL.text = user.user?.user_name ?? ""
         }
     }
     

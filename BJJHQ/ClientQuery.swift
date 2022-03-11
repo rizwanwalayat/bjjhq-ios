@@ -169,6 +169,17 @@ final class ClientQuery {
         }
         }
     }
+    static func mutationForCheckout(accessToken: String,quantity:Int32,id:String) -> Storefront.MutationQuery {
+        let inputLineItem = Storefront.CheckoutLineItemInput.create(quantity: quantity, variantId: GraphQL.ID(rawValue: id))
+        let input = Storefront.CheckoutCreateInput.create(lineItems: .value([inputLineItem]))
+        return Storefront.buildMutation { $0
+                .checkoutCreate(input: input) { $0
+                .checkout { $0
+                .webUrl()
+                }
+                }
+                }
+        }
     
     static func queryForCustomer(limit: Int, after cursor: String? = nil, accessToken: String) -> Storefront.QueryRootQuery {
         return Storefront.buildQuery { $0
@@ -224,29 +235,42 @@ final class ClientQuery {
                         
                             .node { $0
                             .id()
+                            .name()
+                            .edited()
+                            .statusUrl()
+                            .processedAt()
+                            .fulfillmentStatus()
                             .orderNumber()
-                            .email()
-//                            .lineItems(first: getOrders){ $0
-//                            .edges { $0
-//                            .node { $0
-//                            .customAttributes( { $0
-//                            .value()
-//                            })
-//                            .variant { $0
-//                            .title()
-//                            .product { $0
-//                            .images(first: getOrders,maxWidth: 30, maxHeight: 30) { $0
-//
-//                            }
-//                            }
-//                            }
-//                            }
-//                            }
-//                            }
+                            .subtotalPriceV2{ $0
+                            .amount()
+                            .currencyCode()
+                            }
+                            .totalShippingPriceV2 { $0
+                            .amount()
+                            .currencyCode()
+                            }
+                            .totalTaxV2{ $0
+                            .amount()
+                            .currencyCode()
+                            }
+                            
+                            .lineItems(first: getOrders){ $0
+                            .edges { $0
+                            .node { $0
+                            .title()
+                            .quantity()
+                            
+                            .variant { $0
+                            .image{ $0
+                            .originalSrc()
+                            }
+                            }
+                            }
+                            }
+                            }
                             .totalPriceV2 { $0
                             .amount()
                             .currencyCode()
-                                
                             }
                             }
                     }

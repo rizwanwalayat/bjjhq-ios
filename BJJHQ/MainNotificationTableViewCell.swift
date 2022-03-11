@@ -45,7 +45,18 @@ class MainNotificationTableViewCell: UITableViewCell {
     //MARK: - Functions
     
     func config(index:Int) {
-        
+        if index == 0 {
+            self.switchButton.isOn = Global.shared.notificationSetting?.notificationSetting?.dailyDealNotifications ?? false
+        }
+        else if index == 1 {
+            self.switchButton.isOn = Global.shared.notificationSetting?.notificationSetting?.rolling_deal_notifications ?? false
+        }
+        else if index == 2 {
+            self.switchButton.isOn = Global.shared.notificationSetting?.notificationSetting?.comment_notifications ?? false
+        }
+        else if index == 3 {
+            self.switchButton.isOn = Global.shared.notificationSetting?.notificationSetting?.daily_deal_reminder_time ?? false
+        }
         self.titleLbl.text = array[index]
         findingAndReplacing(index: index)
         

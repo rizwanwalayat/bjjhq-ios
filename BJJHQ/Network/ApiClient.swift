@@ -90,7 +90,7 @@ class APIClient: APIClientHandler {
     }
     
     func updateImage(params : [String: AnyObject],_ completionBlock: @escaping APIClientCompletionHandler) {
-        let token = DataManager.shared.getUserAccessToekn() ?? ""
+        let token = DataManager.shared.getLocalToken() ?? ""
         let headers: HTTPHeaders = ["Authorization" : token]
         sendRequestUsingMultipart(APIRoutes.updateImage, parameters: params, headers: headers, completionBlock: completionBlock)
     }
@@ -110,6 +110,14 @@ class APIClient: APIClientHandler {
         let params = ["user": userParams] as [String: AnyObject]
         
         _ = sendRequest(APIRoutes.signin , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
+    }
+    func ContactUs(body: String, _ completionBlock: @escaping APIClientCompletionHandler)
+    {
+        let token = DataManager.shared.getLocalToken() ?? ""
+        let headers: HTTPHeaders = ["Authorization" : token]
+        let userParams = ["body": body]
+        let params = ["contact_us": userParams] as [String: AnyObject]
+        _ = sendRequest(APIRoutes.contactUS , parameters: params ,httpMethod: .post , headers: headers, completionBlock: completionBlock)
     }
     func updateUser(firstName: String, lastName: String, bio : String,username:String, _ completionBlock: @escaping APIClientCompletionHandler)
     {
@@ -132,10 +140,24 @@ class APIClient: APIClientHandler {
     
     func fetchCurrentDeal(_ completionBlock: @escaping APIClientCompletionHandler)
     {
-        let token = DataManager.shared.getUserAccessToekn() ?? ""
+        let token = DataManager.shared.getLocalToken() ?? ""
         let headers: HTTPHeaders = ["Authorization" : token]
         
         _ = sendRequest(APIRoutes.current_deal , parameters: [:] ,httpMethod: .get , headers: headers, completionBlock: completionBlock)
+    }
+    
+    func fetchNotificationSetting(_ completionBlock: @escaping APIClientCompletionHandler)
+    {
+        let token = DataManager.shared.getLocalToken() ?? ""
+        let headers: HTTPHeaders = ["Authorization" : token]
+        
+        _ = sendRequest(APIRoutes.NotificationSetting , parameters: [:] ,httpMethod: .get , headers: headers, completionBlock: completionBlock)
+    }
+    func fetchReminderHours(_ completionBlock: @escaping APIClientCompletionHandler)
+    {
+        let token = DataManager.shared.getLocalToken() ?? ""
+        let headers: HTTPHeaders = ["Authorization" : token]
+        _ = sendRequest(APIRoutes.reminderHours , parameters: [:] ,httpMethod: .get , headers: headers, completionBlock: completionBlock)
     }
     
 }

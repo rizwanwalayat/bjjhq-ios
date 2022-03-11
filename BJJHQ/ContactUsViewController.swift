@@ -23,11 +23,22 @@ class ContactUsViewController: BaseViewController {
     }
     
     @IBAction func sendAction(_ sender: Any) {
-    
-        let vc = OrderSuccesFullViewController(nibName: "OrderSuccesFullViewController", bundle: nil)
-        vc.isFromFeedBack = true
-        vc.modalPresentationStyle = .overFullScreen
-        self.present(vc, animated: false, completion: nil)
+        if self.contactTextView.text != "" {
+            self.view.activityStartAnimating()
+            APIClient.shared.ContactUs(body: self.contactTextView.text ?? "") { responce, result, error, statusCode, messsage in
+                self.view.activityStopAnimating()
+                if error != nil {
+                    let vc = OrderSuccesFullViewController(nibName: "OrderSuccesFullViewController", bundle: nil)
+                    vc.isFromFeedBack = true
+                    vc.modalPresentationStyle = .overFullScreen
+                    self.present(vc, animated: false, completion: nil)
+                }
+            }
+        }
+        else {
+            showToast(message: "Please enter something to report")
+        }
+
     }
    
 }

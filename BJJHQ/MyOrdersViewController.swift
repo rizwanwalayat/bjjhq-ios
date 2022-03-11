@@ -59,21 +59,7 @@ class MyOrdersViewController: BaseViewController , myOrdersAction {
     
     
     //MARK: - Functions
-    
-    func selectedAddress(index: Int) {
-        print("Address selected \(index)")
-        self.selectedAddressIndex = index
-        tableView.reloadData()
-    }
-    
-    func editAddress(index: Int) {
-        print("Edit address \(index)")
-        let vc = AddressBookPopUpViewController(nibName: "AddressBookPopUpViewController", bundle: nil)
-        vc.modalPresentationStyle = .overFullScreen
-        self.present(vc, animated: false, completion: nil)
-    }
-    
- 
+
 
 }
 extension MyOrdersViewController : UITableViewDelegate, UITableViewDataSource {
@@ -94,7 +80,10 @@ extension MyOrdersViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         self.selectedAddressIndex = indexPath.row
-        self.coordinator?.myOrderDetail()
+        let vc = OrderViewController()
+        vc.coordinator = self.coordinator
+        vc.orderDetail = self.ordersArray?[indexPath.row]
+        self.coordinator?.navigationController.pushViewController(vc, animated: true)
         tableView.reloadData()
     }
     

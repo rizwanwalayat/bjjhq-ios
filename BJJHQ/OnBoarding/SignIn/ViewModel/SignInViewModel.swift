@@ -27,10 +27,8 @@ final class SignInViewModel: BaseViewModel {
                             }
                             else {
                                 if let data = Mapper<UserDataModel>().map(JSON: data as! [String : Any]) {
-                                    if let user = data.user {
-                                        let convretedData = user.toJSONString()
+                                        let convretedData = data.toJSONString()
                                         DataManager.shared.setUser(user: convretedData ?? "")
-                                    }
                                 }
                                 completion(accessToken, nil)
                             }
@@ -92,11 +90,21 @@ final class SignInViewModel: BaseViewModel {
     
     func updateUserImage(image : [String : AnyObject],_ completionHandler: @escaping (_ success: Bool) -> Void) {
         APIClient.shared.updateImage(params: image) { responce,result, error, statusCode, messsage in
-                if let response = result {
-                    
-                    let newResult = ["result" : response]
-                    if let _ = Mapper<UserDataModel>().map(JSON: newResult as [String : Any]) {
+                if let _ = result {
+                        completionHandler(true)
+                    } else {
                         
+                        completionHandler(false)
+                    }
+                }
+            }
+    
+    func notificationSetting(_ completionHandler: @escaping (_ success: Bool) -> Void) {
+        APIClient.shared.fetchNotificationSetting { responce,result, error, statusCode, messsage in
+            
+                if let response = result {
+                    if let data = Mapper<NotificationModel>().map(JSON: response as! [String : Any]) {
+                        Global.shared.notificationSetting = data
                         completionHandler(true)
                         
                     } else {
@@ -108,7 +116,8 @@ final class SignInViewModel: BaseViewModel {
                     
                     completionHandler(false)
                 }
-            }
+        }
+        
     }
     
     func signInUserToLocalServer(email: String, password: String, id : String,  completion: @escaping (_ result: Any?,_ error: NSError?) -> Void ) {
@@ -138,6 +147,7 @@ final class SignInViewModel: BaseViewModel {
 
         }
 }
+
 
 extension String {
 

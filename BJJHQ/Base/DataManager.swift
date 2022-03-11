@@ -51,17 +51,34 @@ class DataManager {
     func setUser (user: String) {
         UserDefaults.standard.set(user, forKey: "user_data")
     }
-    func getUser() -> UserData? {
-        var user: UserData?
+    func getUser() -> UserDataModel? {
+        var user: UserDataModel?
 
         if UserDefaults.standard.object(forKey: "user_data") != nil {
-            user = Mapper<UserData>().map(JSONString:UserDefaults.standard.string(forKey: "user_data")!)
+            user = Mapper<UserDataModel>().map(JSONString:UserDefaults.standard.string(forKey: "user_data")!)
         }
         return user
     }
     
     func deleteUser () {
          UserDefaults.standard.set(nil, forKey: "user_data")
+        
+    }
+    
+    func setNotification(notifications: String) {
+        UserDefaults.standard.set(notifications, forKey: "user_Notifications")
+    }
+    func getNotification() -> NotificationModel? {
+        var user: NotificationModel?
+
+        if UserDefaults.standard.object(forKey: "user_Notifications") != nil {
+            user = Mapper<NotificationModel>().map(JSONString:UserDefaults.standard.string(forKey: "user_data")!)
+        }
+        return user
+    }
+    
+    func deleteNotification () {
+         UserDefaults.standard.set(nil, forKey: "user_Notifications")
         
     }
 }

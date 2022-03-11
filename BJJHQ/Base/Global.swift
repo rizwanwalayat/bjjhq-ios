@@ -27,5 +27,6 @@ class Global {
     var notifications = true
     var userModel : CustomerViewModel?
     var FCMtoken : String?
+    var notificationSetting : NotificationModel?
     
 }

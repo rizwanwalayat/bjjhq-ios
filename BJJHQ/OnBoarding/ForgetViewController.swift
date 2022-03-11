@@ -56,7 +56,6 @@ class ForgetViewController: BaseViewController {
     }
     
     @IBAction func submitAction(_ sender: Any) {
-//        coordinator?.signInPage()
         Client.shared.applyForReset(email: self.emailTF.text ?? "") { done in
             
         }

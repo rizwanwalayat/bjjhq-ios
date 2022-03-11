@@ -73,11 +73,13 @@ class OrderSuccesFullViewController: BaseViewController {
     
     
     @IBAction func crossAction(_ sender: Any) {
-        hidePopup()
+            hidePopup()
+            coordinator?.homePage()
+        
     }
     
     @IBAction func homeAction(_ sender: Any) {
-//        coordinator?.homePage()
+            coordinator?.homePage()
     }
     
 }

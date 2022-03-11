@@ -208,6 +208,20 @@ final class Client {
     }
     
     @discardableResult
+    func webCheckOut(accessToken:String,quantity:Int32,id:String, completion: @escaping (String?,String?) -> Void) -> Task {
+        
+        let query = ClientQuery.mutationForCheckout(accessToken: DataManager.shared.getUserAccessToekn()!, quantity: quantity, id: id)
+        
+        let task  = self.client.mutateGraphWith(query) { (query, error) in
+            error.debugPrint()
+            completion("Done",nil)
+        }
+        
+        task.resume()
+        return task
+    }
+    
+    @discardableResult
     func updateDefaultAddress(accessToken:String,addressID:String, completion: @escaping (Storefront.MailingAddressConnection?,Storefront.MailingAddress?) -> Void) -> Task {
         
         let query = ClientQuery.mutationForDefaultAddress(accessToken: accessToken, addressID: addressID)
@@ -458,7 +472,8 @@ final class Client {
     @discardableResult
     func applyForReset(email:String, completion: @escaping (String?) -> Void) -> Task {
         let mutation = Storefront.buildMutation { $0
-                .customerRecover(email: DataManager.shared.getUser()?.email ?? "") { $0
+                .customerRecover(email: email) { $0
+                
                 .customerUserErrors { $0
                 .field().message()
                 }

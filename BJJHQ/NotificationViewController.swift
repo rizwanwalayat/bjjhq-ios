@@ -20,6 +20,13 @@ class NotificationViewController: BaseViewController, notificatioSwitch {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if Global.shared.notificationSetting == nil {
+            self.view.activityStartAnimating()
+            SignInViewModel().notificationSetting { success in
+                self.tableView.reloadData()
+                self.view.activityStopAnimating()
+            }
+        }
     }
     @IBAction func backAction(_ sender: Any) {
         coordinator?.popVc()

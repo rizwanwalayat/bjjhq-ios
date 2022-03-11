@@ -420,3 +420,15 @@ extension NSMutableAttributedString {
         return self
     }
 }
+
+extension Date {
+     
+    public func removeHours(_ hours: Int) -> Date? {
+        var comps = DateComponents()
+        comps.hour = hours
+        let calendar = Calendar.current
+        let result = calendar.date(byAdding: comps, to: self)
+        return result ?? nil
+    }
+
+ }

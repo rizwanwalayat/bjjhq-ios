@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Buy
+import Pay
 
 class OrderViewController: BaseViewController {
 
@@ -31,6 +33,8 @@ class OrderViewController: BaseViewController {
     
     // MARK: - Controller's Lifecycle -
     
+    var orderDetail : Storefront.OrderEdge?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        setup()
@@ -38,6 +42,18 @@ class OrderViewController: BaseViewController {
 
     fileprivate func setup()
     {
+        if let url = orderDetail?.node.lineItems.edges[0].node.variant?.image?.originalSrc {
+            self.setImage(imageView: self.productImageView, url: url)
+        }
+        
+        self.productPrice.text = "\(orderDetail?.node.totalPriceV2.currencyCode.rawValue ?? "$") \(orderDetail?.node.totalPriceV2.amount ?? 00)"
+        self.yourOrderLabel.text = "Order #\(orderDetail?.node.orderNumber ?? 00)"
+        self.productDetailLabel.text = "\(orderDetail?.node.lineItems.edges[0].node.title ?? "")"
+        self.subTotalValueLabel.text = "$ \(orderDetail?.node.subtotalPriceV2?.amount ?? 00)"
+        self.shippingValueLabel.text = "$ \(orderDetail?.node.totalShippingPriceV2.amount ?? 00)"
+        self.shippingValueLabel.text = "$ \(orderDetail?.node.totalTaxV2?.amount ?? 00)"
+        self.totalPriceLabel.text = "$ \(orderDetail?.node.totalPriceV2.amount ?? 00)"
+        
         self.setupLabelUnderlineText(clearCart, "Clear Cart")
     }
     

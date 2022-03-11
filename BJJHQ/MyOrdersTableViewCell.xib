@@ -39,6 +39,11 @@
                                             <constraint firstAttribute="width" secondItem="KFf-YO-GtO" secondAttribute="height" multiplier="1:1" id="Amd-mg-eGa"/>
                                             <constraint firstAttribute="width" constant="62" id="mUR-Yt-YZE"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btb-Bx-uq5" userLabel="Order Details View">
                                         <rect key="frame" x="83" y="0.0" width="304.5" height="75"/>
