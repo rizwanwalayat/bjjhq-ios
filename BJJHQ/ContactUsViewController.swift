@@ -27,7 +27,7 @@ class ContactUsViewController: BaseViewController {
             self.view.activityStartAnimating()
             APIClient.shared.ContactUs(body: self.contactTextView.text ?? "") { responce, result, error, statusCode, messsage in
                 self.view.activityStopAnimating()
-                if error != nil {
+                if error == nil {
                     let vc = OrderSuccesFullViewController(nibName: "OrderSuccesFullViewController", bundle: nil)
                     vc.isFromFeedBack = true
                     vc.modalPresentationStyle = .overFullScreen

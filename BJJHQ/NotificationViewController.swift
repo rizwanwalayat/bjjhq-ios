@@ -54,6 +54,7 @@ extension NotificationViewController : UITableViewDelegate, UITableViewDataSourc
         cell.switchButton.tag = indexPath.row
         cell.delegagte = self
         cell.config(index: indexPath.row)
+        
         cell.selectionStyle = .none
         return cell
         
