@@ -39,10 +39,10 @@ class SubCommentsTableViewCell: UITableViewCell {
         self.commentsText.text = commentsData.comment?.message ?? ""
         let time = commentsData.comment?.createdDate.timeCalculation(isShowTime: false)
         self.timeLabel.text =  time
+        self.likeButton.setTitle("\(commentsData.comment_likes)", for: .normal)
+        self.unlikeButton.setTitle("\(commentsData.comment_dislikes)", for: .normal)
         
         
-        //self.likeButton.setTitle(commentsData.likeCount, for: .normal)
-        //self.unlikeButton.setTitle(commentsData.unlikeCount, for: .normal)
        
         
 //        if let image = commentsData.commentImage {

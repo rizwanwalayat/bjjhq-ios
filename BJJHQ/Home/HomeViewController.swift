@@ -56,7 +56,6 @@ class HomeViewController: BaseViewController {
     var tempColorArray = [UIColor.red, UIColor.orange, UIColor.blue, UIColor.yellow]
     var colorSelectedIndex = IndexPath()
     var comments = [Comments]()
-    var replayComment : Comments?
     var viewModel : HomeViewModel?
     var productModel : ProductViewModel?
     var productInfo : ProductInfo?
@@ -137,6 +136,27 @@ class HomeViewController: BaseViewController {
     fileprivate func setup()
     {
         // Collection View related
+        
+        let collectionMargin = CGFloat(0)
+        let itemSpacing = CGFloat(0)
+        let itemHeight = CGFloat(self.collectionView.bounds.height)
+        var itemWidth = CGFloat(ScreenSize.SCREEN_WIDTH)
+        //var currentItem = 0
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        
+        itemWidth =  UIScreen.main.bounds.width - collectionMargin * 2.0
+        
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        layout.headerReferenceSize = CGSize(width: collectionMargin, height: 0)
+        layout.footerReferenceSize = CGSize(width: collectionMargin, height: 0)
+        layout.minimumLineSpacing = itemSpacing
+        layout.scrollDirection = .horizontal
+        
+        collectionView?.collectionViewLayout = layout
+        collectionView?.decelerationRate = UIScrollView.DecelerationRate.fast
+        
         collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeCollectionViewCell")
         colorsCollectionView.register(UINib(nibName: "ColorsSelectionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ColorsSelectionCollectionViewCell")
         tableView.register(UINib(nibName: "CommentsTableViewCell", bundle: nil), forCellReuseIdentifier: "CommentsTableViewCell")
@@ -215,8 +235,6 @@ class HomeViewController: BaseViewController {
     
     @IBAction func sendCommentsAction(_ sender: Any) {
         
-        var  index = comments.count - 1
-        
         if writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0{
             
             sendComment(writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines))
@@ -244,7 +262,9 @@ class HomeViewController: BaseViewController {
     @objc func likeButtonPressed (_ sender: UIButton)
     {
         let obj = comments[sender.tag]
-
+        let id = obj.comment?.id ?? 0
+        likeComment(commentId: id, sender.tag)
+        
         //let indexpath = IndexPath(row: sender.tag, section: 0)
         tableView.reloadData()//reloadRows(at: [indexpath], with: .automatic)
     }
@@ -252,6 +272,8 @@ class HomeViewController: BaseViewController {
     @objc func unLikeButtonPressed (_ sender: UIButton)
     {
         let obj = comments[sender.tag]
+        let id = obj.comment?.id ?? 0
+        diLikeComment(commentId: id, sender.tag)
     
         //let indexpath = IndexPath(row: sender.tag, section: 0)
         tableView.reloadData()//reloadRows(at: [indexpath], with: .automatic)

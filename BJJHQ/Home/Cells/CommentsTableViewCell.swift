@@ -11,6 +11,8 @@ import UIKit
 protocol commentsTableViewDelegate {
     
     func didTapOnRepliy(_ superComment: Comments, subComment: CommentsReplies)
+    func didTapOnLike(_ superComment: Comments, subComment: CommentsReplies)
+    func didTapOnUnlike(_ superComment: Comments, subComment: CommentsReplies)
 }
 
 class CommentsTableViewCell: UITableViewCell {
@@ -77,8 +79,8 @@ class CommentsTableViewCell: UITableViewCell {
         self.commentsText.text = commentsData.comment?.message ?? ""
         let time = commentsData.comment?.createdDate.timeCalculation(isShowTime: false)
         self.timeLabel.text =  time
-        //        self.likeButton.setTitle(commentsData.likeCount, for: .normal)
-        //        self.unlikeButton.setTitle(commentsData.unlikeCount, for: .normal)
+        self.likeButton.setTitle("\(commentsData.comment_likes)", for: .normal)
+        self.unlikeButton.setTitle("\(commentsData.comment_dislikes)", for: .normal)
         
 //        if let image = commentsData.commentImage {
 //            self.imageCommentHolder.isHidden = false
@@ -94,11 +96,11 @@ class CommentsTableViewCell: UITableViewCell {
                 replies = reply
                 tableView.reloadData()
                 
-//                DispatchQueue.main.async {
-//                    let contentSize = self.tableView.contentSize.height
-//                    self.constTableViewHeight.constant = contentSize
-//                    self.layoutIfNeeded()
-//                }
+                DispatchQueue.main.async {
+                    let contentSize = self.tableView.contentSize.height
+                    self.constTableViewHeight.constant = contentSize
+                    self.layoutIfNeeded()
+                }
             }
         }
         
@@ -106,25 +108,30 @@ class CommentsTableViewCell: UITableViewCell {
     
     @objc fileprivate func likeButtonPressed (_ sender: UIButton)
     {
-//        let obj = superComment.replies[sender.tag]
-//
-//
+        guard let mainComment = superComment else {return }
+
+        let obj = replies[sender.tag]
+        delegate?.didTapOnLike(mainComment, subComment: obj)
+
 //        if obj.isLiked == nil || obj.isLiked == false
 //        {
 //            obj.isLiked = true
 //        }else {
 //            obj.isLiked = nil
 //        }
-//
+////
         
         //let indexpath = IndexPath(row: sender.tag, section: 0)
-        tableView.reloadData()//reloadRows(at: [indexpath], with: .automatic)
+        //tableView.reloadData()//reloadRows(at: [indexpath], with: .automatic)
     }
     
     @objc fileprivate func unLikeButtonPressed (_ sender: UIButton)
     {
-//        let obj = superComment.replies[sender.tag]
-//        
+        guard let mainComment = superComment else {return }
+
+        let obj = replies[sender.tag]
+        delegate?.didTapOnUnlike(mainComment, subComment: obj)
+
 //        
 //        if obj.isLiked == nil || obj.isLiked == true
 //        {
@@ -139,8 +146,11 @@ class CommentsTableViewCell: UITableViewCell {
     
     @objc fileprivate func replyPressed (_ sender: UIButton)
     {
+        guard let mainComment = superComment else {return }
+
+        let obj = replies[sender.tag]
+        delegate?.didTapOnRepliy(mainComment, subComment: obj)
         
-        //delegate?.didTapOnRepliy(superComment, subComment: replies[sender.tag])
 //        let obj = comments[sender.tag]
 //        replayComment = obj
 //        writeCommentsTF.text = obj.userName

@@ -74,7 +74,8 @@ class APIClient: APIClientHandler {
     
     func Signup(firstName: String, LastName: String, userName: String, email: String, password: String, cPassword: String,fcmToken:String?, _ completionBlock: @escaping APIClientCompletionHandler)
     {
-        let userParams = ["first_name": firstName, "last_name": LastName, "user_name": userName, "email": email, "password": password, "password_confirmation": cPassword,"fcm_token":fcmToken]
+        let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        let userParams = ["first_name": firstName, "last_name": LastName, "user_name": userName, "email": email, "password": password, "password_confirmation": cPassword,"fcm_token":fcmToken, "user_mobile_id": uuid]
         
         let params = ["user": userParams] as [String: AnyObject]
         
@@ -105,7 +106,8 @@ class APIClient: APIClientHandler {
     
     func SignIn(email: String, password: String, id : String, _ completionBlock: @escaping APIClientCompletionHandler)
     {
-        let userParams = ["email": email, "password": password, "shopify_customer_id": id,"fcm_token":Global.shared.FCMtoken]
+        let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        let userParams = ["email": email, "password": password, "shopify_customer_id": id,"fcm_token":Global.shared.FCMtoken, "user_mobile_id": uuid]
         
         let params = ["user": userParams] as [String: AnyObject]
         
@@ -162,10 +164,17 @@ class APIClient: APIClientHandler {
     
     func fetchComments(_ completionBlock: @escaping APIClientCompletionHandler)
     {
-        let token = DataManager.shared.getUserAccessToekn() ?? ""
+        let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        let role = DataManager.shared.getUser()?.user?.role ?? "user"
+        let userId = DataManager.shared.getUser()?.user?.id ?? 0
+        
+        let userParams = ["user_mobile_id": uuid, "user_system_id": userId, "role": role] as [String : Any]
+        let params = ["user": userParams] as [String: AnyObject]
+        
+        let token = DataManager.shared.getLocalToken() ?? ""
         let headers: HTTPHeaders = ["Authorization" : token]
         
-        _ = sendRequest(APIRoutes.comments , parameters: [:] ,httpMethod: .get , headers: headers, completionBlock: completionBlock)
+        _ = sendRequest(APIRoutes.comments , parameters: params ,httpMethod: .get , headers: headers, completionBlock: completionBlock)
     }
     
     func dislikesComment(_ commentId: Int,_ completionBlock: @escaping APIClientCompletionHandler)
@@ -175,11 +184,11 @@ class APIClient: APIClientHandler {
         let userId = DataManager.shared.getUser()?.user?.id ?? 0
         
         let userParams = ["user_mobile_id": uuid, "user_system_id": userId, "comment_id": commentId, "role": role] as [String : Any]
+        let params = ["reaction": userParams] as [String: AnyObject]
         
-        let token = DataManager.shared.getUserAccessToekn() ?? ""
+        let token = DataManager.shared.getLocalToken() ?? ""
         let headers: HTTPHeaders = ["Authorization" : token]
         
-        let params = ["reaction": userParams] as [String: AnyObject]
         
         _ = sendRequest(APIRoutes.dislike , parameters: params ,httpMethod: .post , headers: headers, completionBlock: completionBlock)
     }
@@ -194,7 +203,7 @@ class APIClient: APIClientHandler {
         
         let params = ["reaction": userParams] as [String: AnyObject]
             
-        let token = DataManager.shared.getUserAccessToekn() ?? ""
+        let token = DataManager.shared.getLocalToken() ?? ""
         let headers: HTTPHeaders = ["Authorization" : token]
         
         _ = sendRequest(APIRoutes.like , parameters: params ,httpMethod: .post , headers: headers, completionBlock: completionBlock)
@@ -202,7 +211,7 @@ class APIClient: APIClientHandler {
     
     func fetchReactions(_ completionBlock: @escaping APIClientCompletionHandler)
     {
-        let token = DataManager.shared.getUserAccessToekn() ?? ""
+        let token = DataManager.shared.getLocalToken() ?? ""
         let headers: HTTPHeaders = ["Authorization" : token]
         
         _ = sendRequest(APIRoutes.reactions , parameters: [:] ,httpMethod: .get , headers: headers, completionBlock: completionBlock)
@@ -210,7 +219,7 @@ class APIClient: APIClientHandler {
     
     func sendComments(mobileId: String, userSystemId: String, parentCommentId: String = "",message: String, role: String,_ completionBlock: @escaping APIClientCompletionHandler)
     {
-        let token = DataManager.shared.getUserAccessToekn() ?? ""
+        let token = DataManager.shared.getLocalToken() ?? ""
         let headers: HTTPHeaders = ["Authorization" : token]
         
         var userParams = ["user_mobile_id": mobileId, "user_system_id": userSystemId, "message": message, "role": role]

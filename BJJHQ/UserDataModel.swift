@@ -57,6 +57,11 @@ struct UserData : Mappable {
         uuid <- map["uuid"]
         role <- map["role"]
         bio <- map["bio"]
+        
+        if role == ""
+        {
+            role = "user"
+        }
     }
 
 }
