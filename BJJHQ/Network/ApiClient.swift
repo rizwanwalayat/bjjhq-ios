@@ -159,6 +159,16 @@ class APIClient: APIClientHandler {
         let headers: HTTPHeaders = ["Authorization" : token]
         _ = sendRequest(APIRoutes.reminderHours , parameters: [:] ,httpMethod: .get , headers: headers, completionBlock: completionBlock)
     }
+    func postNotificationSetting(comments:Bool?,dailyDealNotification:Bool?, dailyDealReminder:Int?,rollingDealNotification:Bool?,rollingDealReminder:Int?,snoozeAlert:Bool?,_ completionBlock: @escaping APIClientCompletionHandler)
+    {
+        let userParams = ["comment_notifications": comments ?? false, "daily_deal_notifications": dailyDealNotification ?? false,"daily_deal_reminder_time":dailyDealReminder ?? 0, "rolling_deal_notifications": rollingDealNotification ?? false,"rolling_deal_reminder_time":rollingDealReminder ?? 0 ,"snooze_alert":snoozeAlert ?? false] as [String : Any]
+        
+        let params = ["notification": userParams] as [String: AnyObject]
+        
+        let token = DataManager.shared.getLocalToken() ?? ""
+        let headers: HTTPHeaders = ["Authorization" : token]
+        _ = sendRequest(APIRoutes.updateNotification , parameters: params ,httpMethod: .patch , headers: headers, completionBlock: completionBlock)
+    }
     
     func fetchComments(_ completionBlock: @escaping APIClientCompletionHandler)
     {

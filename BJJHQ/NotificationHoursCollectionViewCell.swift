@@ -7,19 +7,22 @@
 //
 
 import UIKit
-
+protocol getTimeForDeals {
+    func timeForDealsNotification(time:Int)
+}
 class NotificationHoursCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var mainView: UIView!
     var array = [2,4,6,8,10,12]
+    var delegate : getTimeForDeals?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     func config(index:Int) {
+        
         self.titleLbl.text = String(array[index])
     }
 }

@@ -11,11 +11,10 @@ import UIKit
 class NotificationViewController: BaseViewController, notificatioSwitch {
 
     
-    var arrayForSwitch = DataManager.shared.getNotificationSwitch() as? [Bool]
     
     @IBOutlet weak var tableView: UITableView!
-    
-    
+    var array2 = [2,4,6,8,10,12]
+    var selectedIndex = Global.shared.selectedIndex
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -24,9 +23,14 @@ class NotificationViewController: BaseViewController, notificatioSwitch {
             self.view.activityStartAnimating()
             SignInViewModel().notificationSetting { success in
                 self.tableView.reloadData()
+                globalCollectionViewCell?.selectedIndex = Global.shared.selectedIndex
+                globalCollectionViewCell?.collectionView.reloadData()
                 self.view.activityStopAnimating()
             }
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     @IBAction func backAction(_ sender: Any) {
         coordinator?.popVc()
@@ -34,13 +38,32 @@ class NotificationViewController: BaseViewController, notificatioSwitch {
     
     func switchState(state: Bool, index: Int) {
         print(state,index)
-        guard var arrayForSwitch = DataManager.shared.getNotificationSwitch() as? [Bool] else {return}
-        arrayForSwitch[index] = state
-        self.arrayForSwitch = arrayForSwitch
-        DataManager.shared.setNotificationSwitch(value: arrayForSwitch)
-        tableView.reloadData()
+        if index == 0 {
+            //comment_notifications
+            SignInViewModel().notificationSettingUpdate(comments: Global.shared.notificationSetting?.notificationSetting?.comment_notifications, dailyDealNotification: state, dailyDealReminder: Global.shared.notificationSetting?.notificationSetting?.daily_deal_reminder_time, rollingDealNotification: Global.shared.notificationSetting?.notificationSetting?.rolling_deal_notifications, rollingDealReminder: Global.shared.notificationSetting?.notificationSetting?.rolling_deal_reminder_time, snoozeAlert: Global.shared.notificationSetting?.notificationSetting?.snooze_alert) { success in
+                self.tableView.reloadData()
+            }
+        }
+        else if index == 1 {
+            //daily_deal_notifications
+            SignInViewModel().notificationSettingUpdate(comments: Global.shared.notificationSetting?.notificationSetting?.comment_notifications, dailyDealNotification: Global.shared.notificationSetting?.notificationSetting?.dailyDealNotifications, dailyDealReminder: Global.shared.notificationSetting?.notificationSetting?.daily_deal_reminder_time, rollingDealNotification: state, rollingDealReminder: Global.shared.notificationSetting?.notificationSetting?.rolling_deal_reminder_time, snoozeAlert: Global.shared.notificationSetting?.notificationSetting?.snooze_alert) { success in
+                self.tableView.reloadData()
+            }
+        }
+        else if index == 2 {
+            //rolling_deal_notifications
+            SignInViewModel().notificationSettingUpdate(comments: Global.shared.notificationSetting?.notificationSetting?.comment_notifications, dailyDealNotification: Global.shared.notificationSetting?.notificationSetting?.dailyDealNotifications, dailyDealReminder: Global.shared.notificationSetting?.notificationSetting?.daily_deal_reminder_time, rollingDealNotification: Global.shared.notificationSetting?.notificationSetting?.rolling_deal_notifications, rollingDealReminder: Global.shared.notificationSetting?.notificationSetting?.rolling_deal_reminder_time, snoozeAlert: state) { success in
+                self.tableView.reloadData()
+            }
+        }
+        else {
+            //snooze_alert
+            SignInViewModel().notificationSettingUpdate(comments: state, dailyDealNotification: Global.shared.notificationSetting?.notificationSetting?.dailyDealNotifications, dailyDealReminder: Global.shared.notificationSetting?.notificationSetting?.daily_deal_reminder_time, rollingDealNotification: Global.shared.notificationSetting?.notificationSetting?.rolling_deal_notifications, rollingDealReminder: Global.shared.notificationSetting?.notificationSetting?.rolling_deal_reminder_time, snoozeAlert: Global.shared.notificationSetting?.notificationSetting?.snooze_alert) { success in
+                self.tableView.reloadData()
+            }
+        }
     }
-
+    
 }
 
 extension NotificationViewController : UITableViewDelegate, UITableViewDataSource {
@@ -54,14 +77,9 @@ extension NotificationViewController : UITableViewDelegate, UITableViewDataSourc
         cell.switchButton.tag = indexPath.row
         cell.delegagte = self
         cell.config(index: indexPath.row)
-        
         cell.selectionStyle = .none
         return cell
         
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        50
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -22,6 +22,7 @@ struct APIRoutes {
     static var contactUS = "contact_us"
     static var NotificationSetting = "users/notification_setting"
     static var reminderHours = "users/notification_setting"
+    static var updateNotification = "users/notification_setting"
     static var updateImage = "users/profiles/update_avatar"
     static var updateProfile = "users/profiles/update_profile"
     static var changePassword = "user/change_password"

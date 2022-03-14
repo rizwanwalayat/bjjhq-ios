@@ -108,9 +108,70 @@ final class SignInViewModel: BaseViewModel {
     func notificationSetting(_ completionHandler: @escaping (_ success: Bool) -> Void) {
         APIClient.shared.fetchNotificationSetting { responce,result, error, statusCode, messsage in
             
-                if let response = result {
-                    if let data = Mapper<NotificationModel>().map(JSON: response as! [String : Any]) {
+                if let responseeeee = result {
+                    if let data = Mapper<NotificationModel>().map(JSON: responseeeee as! [String : Any]) {
                         Global.shared.notificationSetting = data
+                        if data.notificationSetting?.daily_deal_reminder_time == 2 {
+                            Global.shared.selectedIndex = 0
+                        }
+                        else if data.notificationSetting?.daily_deal_reminder_time == 4 {
+                            Global.shared.selectedIndex = 1
+                        }
+                        else if data.notificationSetting?.daily_deal_reminder_time == 6 {
+                            Global.shared.selectedIndex = 2
+                        }
+                        else if data.notificationSetting?.daily_deal_reminder_time == 8 {
+                            Global.shared.selectedIndex = 3
+                        }
+                        else if data.notificationSetting?.daily_deal_reminder_time == 10 {
+                            Global.shared.selectedIndex = 4
+                        }
+                        else {
+                            Global.shared.selectedIndex = 5
+                        }
+                        
+                        DataManager.shared.setNotification(notifications: data.toJSONString() ?? "")
+                        completionHandler(true)
+                        
+                    } else {
+                        
+                        completionHandler(false)
+                    }
+                }
+                else {
+                    
+                    completionHandler(false)
+                }
+        }
+        
+    }
+    
+    func notificationSettingUpdate(comments:Bool?,dailyDealNotification:Bool?, dailyDealReminder:Int?,rollingDealNotification:Bool?,rollingDealReminder:Int?,snoozeAlert:Bool?,_ completionHandler: @escaping (_ success: Bool) -> Void) {
+        
+        APIClient.shared.postNotificationSetting(comments: comments, dailyDealNotification: dailyDealNotification, dailyDealReminder: dailyDealReminder, rollingDealNotification: rollingDealNotification, rollingDealReminder: rollingDealReminder, snoozeAlert: snoozeAlert) { responce,result, error, statusCode, messsage in
+            
+                if let responseeee = result {
+                    if let data = Mapper<NotificationModel>().map(JSON: responseeee as! [String : Any]) {
+                        Global.shared.notificationSetting = data
+                        DataManager.shared.setNotification(notifications: data.toJSONString() ?? "")
+                        if data.notificationSetting?.daily_deal_reminder_time == 2 {
+                            Global.shared.selectedIndex = 0
+                        }
+                        else if data.notificationSetting?.daily_deal_reminder_time == 4 {
+                            Global.shared.selectedIndex = 1
+                        }
+                        else if data.notificationSetting?.daily_deal_reminder_time == 6 {
+                            Global.shared.selectedIndex = 2
+                        }
+                        else if data.notificationSetting?.daily_deal_reminder_time == 8 {
+                            Global.shared.selectedIndex = 3
+                        }
+                        else if data.notificationSetting?.daily_deal_reminder_time == 10 {
+                            Global.shared.selectedIndex = 4
+                        }
+                        else {
+                            Global.shared.selectedIndex = 5
+                        }
                         completionHandler(true)
                         
                     } else {

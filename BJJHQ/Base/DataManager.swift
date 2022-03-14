@@ -19,13 +19,13 @@ class DataManager {
     //MARK: - UserState
     
     
-    func setNotificationSwitch(value: [Bool]?) {
-        UserDefaults.standard.set(value, forKey: "NotificationSwitch")
-    }
-    
-    func getNotificationSwitch() -> [Any]? {
-        return UserDefaults.standard.array(forKey: "NotificationSwitch")
-    }
+//    func setNotificationSwitch(value: [Bool]?) {
+//        UserDefaults.standard.set(value, forKey: "NotificationSwitch")
+//    }
+//    
+//    func getNotificationSwitch() -> [Any]? {
+//        return UserDefaults.standard.array(forKey: "NotificationSwitch")
+//    }
     
     
     //MARK: - Access Token  -
@@ -72,7 +72,7 @@ class DataManager {
         var user: NotificationModel?
 
         if UserDefaults.standard.object(forKey: "user_Notifications") != nil {
-            user = Mapper<NotificationModel>().map(JSONString:UserDefaults.standard.string(forKey: "user_data")!)
+            user = Mapper<NotificationModel>().map(JSONString:UserDefaults.standard.string(forKey: "user_Notifications")!)
         }
         return user
     }

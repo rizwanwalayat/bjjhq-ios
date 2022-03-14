@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -71,8 +71,8 @@
                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UIF-WT-cML">
-                            <rect key="frame" x="20" y="115" width="374" height="693"/>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UIF-WT-cML">
+                            <rect key="frame" x="10" y="90" width="394" height="718"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="ANW-oB-JpD"/>
@@ -82,16 +82,16 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="UIF-WT-cML" firstAttribute="top" secondItem="bXj-qw-duu" secondAttribute="bottom" constant="55" id="1AB-hr-8Y7"/>
+                        <constraint firstItem="UIF-WT-cML" firstAttribute="top" secondItem="bXj-qw-duu" secondAttribute="bottom" constant="30" id="1AB-hr-8Y7"/>
                         <constraint firstItem="bXj-qw-duu" firstAttribute="top" secondItem="PjN-J7-gtr" secondAttribute="top" constant="20" id="1Nj-vJ-Szy"/>
-                        <constraint firstItem="UIF-WT-cML" firstAttribute="leading" secondItem="PjN-J7-gtr" secondAttribute="leading" constant="20" id="8Fz-ZW-EG3"/>
+                        <constraint firstItem="UIF-WT-cML" firstAttribute="leading" secondItem="PjN-J7-gtr" secondAttribute="leading" constant="10" id="8Fz-ZW-EG3"/>
                         <constraint firstItem="bXj-qw-duu" firstAttribute="leading" secondItem="Ae2-oO-UAj" secondAttribute="trailing" constant="20" id="EeZ-Db-l8T"/>
                         <constraint firstAttribute="trailing" secondItem="bXj-qw-duu" secondAttribute="trailing" constant="60" id="G17-l2-C68"/>
                         <constraint firstAttribute="bottom" secondItem="UIF-WT-cML" secondAttribute="bottom" constant="10" id="UaS-Wi-6tb"/>
                         <constraint firstItem="bXj-qw-duu" firstAttribute="centerY" secondItem="Ae2-oO-UAj" secondAttribute="centerY" id="aKa-Yn-zJw"/>
                         <constraint firstItem="Ae2-oO-UAj" firstAttribute="top" secondItem="PjN-J7-gtr" secondAttribute="top" constant="20" id="mTd-Sk-j2i"/>
                         <constraint firstItem="Ae2-oO-UAj" firstAttribute="leading" secondItem="PjN-J7-gtr" secondAttribute="leading" constant="20" id="rbf-Ok-fXJ"/>
-                        <constraint firstAttribute="trailing" secondItem="UIF-WT-cML" secondAttribute="trailing" constant="20" id="rh7-xS-uQ9"/>
+                        <constraint firstAttribute="trailing" secondItem="UIF-WT-cML" secondAttribute="trailing" constant="10" id="rh7-xS-uQ9"/>
                     </constraints>
                 </view>
             </subviews>

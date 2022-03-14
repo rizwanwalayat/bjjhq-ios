@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -17,24 +17,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="93" id="KGk-i7-Jjw" customClass="MainNotificationTableViewCell" customModule="BJJHQ" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="349" height="93"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="229" id="KGk-i7-Jjw" customClass="MainNotificationTableViewCell" customModule="BJJHQ" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="349" height="229"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="349" height="93"/>
+                <rect key="frame" x="0.0" y="0.0" width="349" height="229"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DkK-ZJ-Oi5">
-                        <rect key="frame" x="10" y="10" width="329" height="73"/>
+                        <rect key="frame" x="10" y="10" width="329" height="209"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Deals Notifications" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="K5G-Sl-pJh">
-                                <rect key="frame" x="20" y="27" width="245" height="19.5"/>
+                                <rect key="frame" x="10" y="10" width="255" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="X5N-4B-ikv"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aUg-Qw-2x8">
-                                <rect key="frame" x="270" y="21" width="51" height="31"/>
+                                <rect key="frame" x="270" y="14.5" width="51" height="31"/>
                                 <color key="backgroundColor" name="blue"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="onTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -47,14 +50,45 @@
                                     <action selector="switchAction:" destination="KGk-i7-Jjw" eventType="valueChanged" id="evn-Vp-qiU"/>
                                 </connections>
                             </switch>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jd4-8V-O7n">
+                                <rect key="frame" x="10" y="139" width="309" height="50"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="u4R-ZD-v2S">
+                                        <rect key="frame" x="0.0" y="0.0" width="309" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="coW-Ow-hlh">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                    </collectionView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="keN-IV-Q0d"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basic alert for our standard 24-hour deals (published daily at 11pm EST)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hwo-2X-cVx">
+                                <rect key="frame" x="10" y="60" width="309" height="59"/>
+                                <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="14"/>
+                                <color key="textColor" red="0.14509803921568626" green="0.17254901960784313" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="aUg-Qw-2x8" secondAttribute="trailing" constant="10" id="09X-A5-AjX"/>
-                            <constraint firstItem="aUg-Qw-2x8" firstAttribute="centerY" secondItem="K5G-Sl-pJh" secondAttribute="centerY" id="8KR-mJ-N7t"/>
-                            <constraint firstItem="K5G-Sl-pJh" firstAttribute="centerY" secondItem="DkK-ZJ-Oi5" secondAttribute="centerY" id="KUg-rD-tgV"/>
-                            <constraint firstItem="K5G-Sl-pJh" firstAttribute="leading" secondItem="DkK-ZJ-Oi5" secondAttribute="leading" constant="20" id="Kce-Rb-i6O"/>
+                            <constraint firstAttribute="trailing" secondItem="jd4-8V-O7n" secondAttribute="trailing" constant="10" id="BUY-qL-T29"/>
+                            <constraint firstAttribute="bottom" secondItem="jd4-8V-O7n" secondAttribute="bottom" constant="20" id="HiD-IG-Lsf"/>
+                            <constraint firstItem="K5G-Sl-pJh" firstAttribute="leading" secondItem="DkK-ZJ-Oi5" secondAttribute="leading" constant="10" id="Kce-Rb-i6O"/>
+                            <constraint firstItem="Hwo-2X-cVx" firstAttribute="trailing" secondItem="aUg-Qw-2x8" secondAttribute="trailing" id="MBa-Yg-6uS"/>
                             <constraint firstItem="aUg-Qw-2x8" firstAttribute="leading" secondItem="K5G-Sl-pJh" secondAttribute="trailing" constant="5" id="OvD-6H-fUk"/>
+                            <constraint firstItem="jd4-8V-O7n" firstAttribute="top" secondItem="Hwo-2X-cVx" secondAttribute="bottom" constant="20" id="Ua2-jM-WrV"/>
+                            <constraint firstItem="Hwo-2X-cVx" firstAttribute="leading" secondItem="DkK-ZJ-Oi5" secondAttribute="leading" constant="10" id="VSL-t8-iCT"/>
+                            <constraint firstItem="Hwo-2X-cVx" firstAttribute="top" secondItem="K5G-Sl-pJh" secondAttribute="bottom" constant="10" id="Viy-nX-bh9"/>
+                            <constraint firstItem="K5G-Sl-pJh" firstAttribute="top" secondItem="DkK-ZJ-Oi5" secondAttribute="top" constant="10" id="lLL-as-nKX"/>
+                            <constraint firstItem="jd4-8V-O7n" firstAttribute="leading" secondItem="DkK-ZJ-Oi5" secondAttribute="leading" constant="10" id="mzM-Aq-Nel"/>
+                            <constraint firstItem="aUg-Qw-2x8" firstAttribute="centerY" secondItem="K5G-Sl-pJh" secondAttribute="centerY" id="owG-0M-HVX"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -68,10 +102,14 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="bottomHeight" destination="HiD-IG-Lsf" id="aBg-My-SLc"/>
+                <outlet property="collectionView" destination="u4R-ZD-v2S" id="YLW-NL-KCL"/>
+                <outlet property="detailText" destination="Hwo-2X-cVx" id="TVF-u1-Okf"/>
+                <outlet property="stackViewHeight" destination="keN-IV-Q0d" id="ikt-ri-zAK"/>
                 <outlet property="switchButton" destination="aUg-Qw-2x8" id="TM0-sx-Jp8"/>
                 <outlet property="titleLbl" destination="K5G-Sl-pJh" id="9gb-0i-vRu"/>
             </connections>
-            <point key="canvasLocation" x="152.89855072463769" y="98.102678571428569"/>
+            <point key="canvasLocation" x="152.89855072463769" y="143.63839285714286"/>
         </tableViewCell>
     </objects>
     <resources>

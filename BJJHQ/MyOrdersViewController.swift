@@ -80,10 +80,10 @@ extension MyOrdersViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         self.selectedAddressIndex = indexPath.row
-        let vc = OrderViewController()
-        vc.coordinator = self.coordinator
-        vc.orderDetail = self.ordersArray?[indexPath.row]
-        self.coordinator?.navigationController.pushViewController(vc, animated: true)
+//        let vc = OrderViewController()
+//        vc.coordinator = self.coordinator
+//        vc.orderDetail = self.ordersArray?[indexPath.row]
+//        self.coordinator?.navigationController.pushViewController(vc, animated: true)
         tableView.reloadData()
     }
     

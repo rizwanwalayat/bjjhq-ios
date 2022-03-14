@@ -72,15 +72,16 @@ struct NotificationModel : Mappable {
     mutating func mapping(map: Map) {
 
         message <- map["message"]
+        
         notificationSetting <- map["notification_setting"]
     }
 }
 struct NotificationsSetting : Mappable {
     var id : Int?
     var dailyDealNotifications : Bool?
-    var daily_deal_reminder_time : Bool?
+    var daily_deal_reminder_time : Int?
     var rolling_deal_notifications : Bool?
-    var rolling_deal_reminder_time : Bool?
+    var rolling_deal_reminder_time : Int?
     var comment_notifications : Bool?
     var created_at = ""
     var updated_at = ""
