@@ -52,11 +52,10 @@ final class SignInViewModel: BaseViewModel {
                 }
                 else {
                     if let data = Mapper<UserDataModel>().map(JSON: responce as! [String : Any]) {
-                        if let user = data.user {
-                            let convretedData = user.toJSONString()
+                            let convretedData = data.toJSONString()
                             DataManager.shared.setUser(user: convretedData ?? "")
                             completion(DataManager.shared.getUserAccessToekn()!, nil)
-                        }
+                        
                     }
                 }
             }

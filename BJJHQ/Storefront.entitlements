@@ -6,7 +6,7 @@
 	<string>development</string>
 	<key>com.apple.developer.in-app-payments</key>
 	<array>
-		<string>merchant.</string>
+		<string>merchant.shopify.bjjhq</string>
 	</array>
 </dict>
 </plist>
