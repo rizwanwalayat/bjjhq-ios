@@ -114,47 +114,45 @@ class HomeViewModel: BaseViewModel {
         }
     }
     
-    func disLikeComment(_ commentId: Int, _ completionHandler: @escaping(_ success: Bool, _ data : Any?, _ message : String?) -> Void)
+    func disLikeComment(_ commentId: Int, _ completionHandler: @escaping(_ success: Bool, _ message : String?) -> Void)
     {
         
         APIClient.shared.dislikesComment(commentId) { response, result, error, code, message  in
             
             if let response = result {
                 
-//                if let data = Mapper<HomeDataModel>().map(JSONObject: response ) {
-//
-//                    completionHandler(true, data, nil)
-//
-//                } else {
-//
-//                    completionHandler(false, nil, messsage)
-//                }
+                if let success = response["status"] as? Bool {
+                    
+                    completionHandler(success, message)
+                }
+                else {
+                    completionHandler(false,  error?.localizedDescription ?? message)
+                }
             }
             else {
                 
-                completionHandler(false, nil, error?.localizedDescription ?? message)
+                completionHandler(false, error?.localizedDescription ?? message)
             }
         }
     }
     
-    func likeComment(_ commentId: Int,_ completionHandler: @escaping(_ success: Bool, _ data : Any?, _ message : String?) -> Void)
+    func likeComment(_ commentId: Int,_ completionHandler: @escaping(_ success: Bool, _ message : String?) -> Void)
     {
         APIClient.shared.likeComment(commentId) { response, result, error, code, message  in
             
             if let response = result {
                 
-//                if let data = Mapper<HomeDataModel>().map(JSONObject: response ) {
-//
-//                    completionHandler(true, data, nil)
-//
-//                } else {
-//
-//                    completionHandler(false, nil, messsage)
-//                }
+                if let success = response["status"] as? Bool {
+                    
+                    completionHandler(success, message)
+                }
+                else {
+                    completionHandler(false,  error?.localizedDescription ?? message)
+                }
             }
             else {
                 
-                completionHandler(false, nil, error?.localizedDescription ?? message)
+                completionHandler(false, error?.localizedDescription ?? message)
             }
         }
     }

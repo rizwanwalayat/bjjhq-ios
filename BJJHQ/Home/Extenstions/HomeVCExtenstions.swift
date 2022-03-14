@@ -11,6 +11,7 @@ import UIKit
 import ActionCableClient
 import CSPieChart
 import ObjectMapper
+import Buy
 
 
 // MARK: - CollectionView Delegate  -
@@ -70,9 +71,12 @@ extension HomeViewController: UICollectionViewDataSource
            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as! HomeCollectionViewCell
             
-            let item = self.productModel?.images.items[indexPath.row]
+            if let item = self.productModel?.images.items[indexPath.row] {
                 
-            cell.config(item)
+                self.setImage(imageView: cell.productImageView, url: item.url)
+            }
+                
+            //cell.config(item)
             
             
             return cell
@@ -108,8 +112,8 @@ extension HomeViewController: UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsTableViewCell", for: indexPath) as! CommentsTableViewCell
-        
-        cell.config(comments[indexPath.row])
+        let obj = comments[indexPath.row]
+        cell.config(obj)
         cell.likeButton.tag = indexPath.row
         cell.unlikeButton.tag = indexPath.row
         cell.replyButton.tag = indexPath.row
@@ -128,6 +132,17 @@ extension HomeViewController: UITableViewDataSource
         cell.unlikeButton.tintColor = UIColor(hexString: "252C44")
         cell.unlikeButton.borderColor = UIColor(hexString: "252C44")
         cell.likeButton.backgroundColor = .clear
+        
+        if let like = obj.isLiked {
+            
+            switch like {
+                
+            case true:
+                self.buttonLiked(cell.likeButton, cell.unlikeButton)
+            case false:
+                self.buttonDisliked(cell.unlikeButton, cell.likeButton)
+            }
+        }
             
         return cell
     }
@@ -135,16 +150,65 @@ extension HomeViewController: UITableViewDataSource
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
+    fileprivate func buttonLiked(_ sender: UIButton, _ disLikedButton: UIButton)
+    {
+        //sender.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
+        sender.setTitleColor(UIColor.white, for: .normal)
+        sender.tintColor = .white//UIColor(hexString: "5BD6CD")
+        sender.borderColor = UIColor(hexString: "5BD6CD")
+        sender.backgroundColor = UIColor(hexString: "5BD6CD")
+        
+        disLikedButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
+        disLikedButton.tintColor = UIColor(hexString: "252C44")
+        disLikedButton.borderColor = UIColor(hexString: "252C44")
+    }
+    
+    fileprivate func buttonDisliked(_ sender: UIButton, _ unlikeButton: UIButton)
+    {
+        sender.setTitleColor(UIColor.white, for: .normal)
+        sender.tintColor = .white//UIColor(hexString: "5BD6CD")
+        sender.borderColor = UIColor(hexString: "252C44")
+        sender.backgroundColor = UIColor(hexString: "252C44")
+        
+        unlikeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
+        unlikeButton.tintColor = UIColor(hexString: "5BD6CD")
+        unlikeButton.borderColor = UIColor(hexString: "5BD6CD")
+        unlikeButton.backgroundColor = .clear
+    }
 }
 
 
 // MARK: - Custom TableView Delegate  -
 
 extension HomeViewController : commentsTableViewDelegate {
+    func didTapOnLike(_ superComment: Comments, subComment: CommentsReplies) {
+        
+        
+        commentsParentId = "\(superComment.comment?.id ?? 0)"
+        let id = subComment.comment?.id ?? 0
+        
+        let row = self.comments.firstIndex(where: {$0.comment!.id == superComment.comment!.id}) ?? 0
+    
+        self.diLikeComment(commentId: id, row, true)
+    }
+    
+    func didTapOnUnlike(_ superComment: Comments, subComment: CommentsReplies) {
+        commentsParentId = "\(superComment.comment?.id ?? 0)"
+        let id = subComment.comment?.id ?? 0
+        
+        let row = self.comments.firstIndex(where: {$0.comment!.id == superComment.comment!.id}) ?? 0
+    
+        self.likeComment(commentId: id, row, true)
+    }
+    
     func didTapOnRepliy(_ superComment: Comments, subComment: CommentsReplies) {
         
-        replayComment = superComment
-        writeCommentsTF.becomeFirstResponder()
+        commentsParentId = "\(superComment.comment?.id ?? 0)"
+        if writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0{
+            
+            sendComment(writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines))
+        }
     }
     
 }
@@ -197,22 +261,41 @@ extension HomeViewController {
         
     }
     
-    func likeComment(commentId: Int)
+    func likeComment(commentId: Int, _ ofIndex: Int, _ isSubComment: Bool = false)
     {
-        viewModel?.likeComment(commentId, { success, data, message in
+        viewModel?.likeComment(commentId, { success, message in
             if success {
-                print(data!, message!)
-                self.writeCommentsTF.text = ""
+               
+                let obj = self.comments[ofIndex]
+                if !isSubComment {
+                    obj.isLiked = true
+                }
+                else {
+                    let row = obj.replies?.firstIndex(where: {$0.comment!.id == commentId}) ?? 0
+                    let replyObj = obj.replies?[row]
+                    replyObj?.isLiked = false
+                }
+                let indexpath = IndexPath(row: ofIndex, section: 0)
+                self.tableView.reloadRows(at: [indexpath], with: .automatic)
             }
         })
     }
     
-    func diLikeComment(commentId: Int)
+    func diLikeComment(commentId: Int, _ ofIndex: Int, _ isSubComment: Bool = false)
     {
-        viewModel?.disLikeComment(commentId, { success, data, message in
+        viewModel?.disLikeComment(commentId, { success, message in
             if success {
-                print(data!, message!)
-                self.writeCommentsTF.text = ""
+                let obj = self.comments[ofIndex]
+                if !isSubComment {
+                    obj.isLiked = true
+                }
+                else {
+                    let row = obj.replies?.firstIndex(where: {$0.comment!.id == commentId}) ?? 0
+                    let replyObj = obj.replies?[row]
+                    replyObj?.isLiked = false
+                }
+                let indexpath = IndexPath(row: ofIndex, section: 0)
+                self.tableView.reloadRows(at: [indexpath], with: .automatic)
             }
         })
     }
@@ -235,7 +318,13 @@ extension HomeViewController {
                 //self.pagesIndicators.pageCount = self.productModel?.images.items.count ?? 0
                 self.productTitle.text = self.productModel?.title ?? ""
                 self.productPrice.text = self.productModel?.price ?? ""
-                self.descriptionDetial.text = self.productModel?.summary ?? ""
+                let summary =  self.productModel?.summary ?? ""
+                
+                let attributeString = summary.htmlToAttributedString!.mutableCopy() as! NSMutableAttributedString
+                                attributeString.beginEditing()
+                self.descriptionDetial.attributedText = attributeString
+                
+                self.collectionView.reloadData()
             }
         })
     }

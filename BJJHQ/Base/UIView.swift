@@ -54,7 +54,7 @@ extension UIView {
     
     func activityStartAnimating() {
         let backgroundView = UIView()
-        backgroundView.frame = CGRect.init(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
+        backgroundView.frame = CGRect.init(x: 0, y: 0, width: ScreenSize.SCREEN_WIDTH, height: ScreenSize.SCREEN_HEIGHT)
         backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         backgroundView.tag = 475647
         

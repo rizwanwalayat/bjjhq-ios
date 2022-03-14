@@ -29,6 +29,8 @@ class Comments : Mappable {
     var comment_dislikes = 0
     var replies : [CommentsReplies]?
     var images = [String]()
+    var reaction = ""
+    var isLiked : Bool?
 
     required init?(map: Map) {
 
@@ -41,6 +43,15 @@ class Comments : Mappable {
         comment_dislikes <- map["comment_dislikes"]
         replies <- map["replies"]
         images <- map["images"]
+        reaction <- map["my_reaction"]
+        
+        if reaction == "liked" {
+            isLiked = true
+        }
+        else if reaction == "disliked"
+        {
+            isLiked = false
+        }
     }
 
 }
@@ -88,6 +99,8 @@ class CommentsReplies : Mappable {
     var commentor_avatar = ""
     var replies = [String]()
     var images = [String]()
+    var reaction = ""
+    var isLiked : Bool?
 
     required init?(map: Map) {
 
@@ -101,6 +114,15 @@ class CommentsReplies : Mappable {
         commentor_avatar <- map["commentor_avatar"]
         replies <- map["replies"]
         images <- map["images"]
+        reaction <- map["my_reaction"]
+        
+        if reaction == "liked" {
+            isLiked = true
+        }
+        else if reaction == "disliked"
+        {
+            isLiked = false
+        }
     }
 
 }
