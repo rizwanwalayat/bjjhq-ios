@@ -61,12 +61,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAc-Ut-YSB">
-                                        <rect key="frame" x="0.0" y="58" width="430" height="100"/>
+                                        <rect key="frame" x="0.0" y="58" width="430" height="50"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OyR-3n-edw">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="t2a-c5-TOK"/>
+                                                    <constraint firstAttribute="height" constant="50" id="t2a-c5-TOK"/>
                                                     <constraint firstAttribute="width" secondItem="OyR-3n-edw" secondAttribute="height" multiplier="1:1" id="wX5-PR-kp2"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -79,7 +79,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="OyR-3n-edw" firstAttribute="leading" secondItem="zAc-Ut-YSB" secondAttribute="leading" id="F67-GE-dyr"/>
-                                            <constraint firstAttribute="height" constant="100" id="ma1-9R-3Hj"/>
+                                            <constraint firstAttribute="height" constant="50" id="ma1-9R-3Hj"/>
                                             <constraint firstItem="OyR-3n-edw" firstAttribute="centerY" secondItem="zAc-Ut-YSB" secondAttribute="centerY" id="r9Q-hL-KsU"/>
                                         </constraints>
                                     </view>

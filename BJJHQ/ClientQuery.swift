@@ -379,16 +379,17 @@ final class ClientQuery {
     
     static func queryForProduct(product_id : String) -> Storefront.QueryRootQuery {
         
+        
         return Storefront.buildQuery { $0
                 .node(id: GraphQL.ID(rawValue: product_id)) { $0
                 .onProduct { $0
                 .id()
                 .title()
                 .descriptionHtml()
-                .variants(first: 250) { $0
+                .variants(first: 30) { $0
                 .fragmentForStandardVariant()
                 }
-                .images(first: 250, maxWidth: ClientQuery.maxImageDimension, maxHeight: ClientQuery.maxImageDimension) { $0
+                .images(first: 5, maxWidth: ClientQuery.maxImageDimension, maxHeight: ClientQuery.maxImageDimension) { $0
                 .fragmentForStandardProductImage()
                 }
                     

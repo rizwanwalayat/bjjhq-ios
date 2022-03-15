@@ -184,7 +184,7 @@ class APIClient: APIClientHandler {
         let token = DataManager.shared.getLocalToken() ?? ""
         let headers: HTTPHeaders = ["Authorization" : token]
         
-        _ = sendRequest(APIRoutes.comments , parameters: params ,httpMethod: .get , headers: headers, completionBlock: completionBlock)
+        _ = sendRequest(APIRoutes.fetchcomments , parameters: params ,httpMethod: .post , headers: headers, completionBlock: completionBlock)
     }
     
     func dislikesComment(_ commentId: Int,_ completionBlock: @escaping APIClientCompletionHandler)

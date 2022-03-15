@@ -61,12 +61,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9L8-qh-COY">
-                                        <rect key="frame" x="0.0" y="77" width="361" height="100"/>
+                                        <rect key="frame" x="0.0" y="77" width="361" height="50"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iiq-Qt-nSy">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="GKL-aG-hem"/>
+                                                    <constraint firstAttribute="height" constant="50" id="GKL-aG-hem"/>
                                                     <constraint firstAttribute="width" secondItem="iiq-Qt-nSy" secondAttribute="height" multiplier="1:1" id="jI9-mq-tmS"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -78,7 +79,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="45D-1w-N5Z"/>
+                                            <constraint firstAttribute="height" constant="50" id="45D-1w-N5Z"/>
                                             <constraint firstItem="iiq-Qt-nSy" firstAttribute="leading" secondItem="9L8-qh-COY" secondAttribute="leading" id="B97-hm-r1o"/>
                                             <constraint firstItem="iiq-Qt-nSy" firstAttribute="centerY" secondItem="9L8-qh-COY" secondAttribute="centerY" id="xQC-qb-eZW"/>
                                         </constraints>
