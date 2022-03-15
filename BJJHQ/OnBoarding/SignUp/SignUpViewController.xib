@@ -56,7 +56,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start up by creating your account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFC-3o-CrI">
-                            <rect key="frame" x="30" y="131" width="354" height="17"/>
+                            <rect key="frame" x="30" y="151" width="354" height="17"/>
                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="14"/>
                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -131,7 +131,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l0N-Wp-wfr">
                                             <rect key="frame" x="0.0" y="49" width="344" height="1"/>
-                                            <color key="backgroundColor" name="sky"/>
+                                            <color key="backgroundColor" name="lightGrey"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="CM3-o6-RV7"/>
                                             </constraints>
@@ -163,7 +163,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLZ-1c-u6K">
                                             <rect key="frame" x="0.0" y="49" width="344" height="1"/>
-                                            <color key="backgroundColor" name="sky"/>
+                                            <color key="backgroundColor" name="lightGrey"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="dsU-7i-QIN"/>
                                             </constraints>
@@ -195,7 +195,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ybq-la-CjZ">
                                             <rect key="frame" x="0.0" y="49" width="344" height="1"/>
-                                            <color key="backgroundColor" name="sky"/>
+                                            <color key="backgroundColor" name="lightGrey"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="l8U-7s-LDq"/>
                                             </constraints>
@@ -227,7 +227,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wBU-KR-0LJ">
                                             <rect key="frame" x="0.0" y="49" width="344" height="1"/>
-                                            <color key="backgroundColor" name="sky"/>
+                                            <color key="backgroundColor" name="lightGrey"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="Xdb-ue-59P"/>
                                             </constraints>
@@ -259,7 +259,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ASt-uh-wWZ">
                                             <rect key="frame" x="0.0" y="39" width="344" height="1"/>
-                                            <color key="backgroundColor" name="sky"/>
+                                            <color key="backgroundColor" name="lightGrey"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="xEI-lc-zVX"/>
                                             </constraints>
@@ -335,7 +335,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tbs-qi-BEa">
                                             <rect key="frame" x="0.0" y="39" width="344" height="1"/>
-                                            <color key="backgroundColor" name="sky"/>
+                                            <color key="backgroundColor" name="lightGrey"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="YYd-dP-rGK"/>
                                             </constraints>
@@ -470,7 +470,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Create an account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbK-m3-Bjo">
-                            <rect key="frame" x="30" y="78" width="354" height="41"/>
+                            <rect key="frame" x="30" y="98" width="354" height="41"/>
                             <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="34"/>
                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -570,7 +570,7 @@
                         <constraint firstItem="qYC-LQ-9S6" firstAttribute="leading" secondItem="eIJ-rS-2oN" secondAttribute="leading" id="F2b-OZ-qKg"/>
                         <constraint firstItem="LnN-jS-ZXS" firstAttribute="trailing" secondItem="eIJ-rS-2oN" secondAttribute="trailing" id="GsX-eM-d5a"/>
                         <constraint firstItem="LnN-jS-ZXS" firstAttribute="top" secondItem="qYC-LQ-9S6" secondAttribute="bottom" constant="50" id="H6Z-5h-cBa"/>
-                        <constraint firstItem="eIJ-rS-2oN" firstAttribute="top" secondItem="HFC-3o-CrI" secondAttribute="bottom" constant="50" id="RUm-fK-quO"/>
+                        <constraint firstItem="eIJ-rS-2oN" firstAttribute="top" secondItem="HFC-3o-CrI" secondAttribute="bottom" constant="30" id="RUm-fK-quO"/>
                         <constraint firstItem="yCS-87-UA5" firstAttribute="leading" secondItem="HMK-4f-mn6" secondAttribute="leading" constant="30" id="VQ8-yG-IET"/>
                         <constraint firstItem="NgI-Os-k7A" firstAttribute="centerY" secondItem="ZnF-fH-vbu" secondAttribute="centerY" id="WSe-Km-KgM"/>
                         <constraint firstAttribute="trailing" secondItem="fbK-m3-Bjo" secondAttribute="trailing" constant="30" id="aaq-Zi-PdZ"/>
@@ -604,6 +604,9 @@
         <image name="visibility" width="21" height="14"/>
         <namedColor name="blue">
             <color red="0.14499999582767487" green="0.17299999296665192" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="lightGrey">
+            <color red="0.74099999666213989" green="0.74099999666213989" blue="0.74099999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="marinda">
             <color red="0.9100000262260437" green="0.41200000047683716" blue="0.41200000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

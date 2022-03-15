@@ -64,15 +64,10 @@ final class SignUpViewModel: BaseViewModel {
         APIClient.shared.guestUser(uuid: uuid) { responce,result, error, statusCode, messsage in
             
             if let response = result {
-                
-                let newResult = ["result" : response]
-                if let data = Mapper<UserDataModel>().map(JSON: newResult as [String : Any]) {
+                if let data = Mapper<UserDataModel>().map(JSON: response as! [String : Any]) {
                     
-                    if let user = data.user {
-                        let convretedData = user.toJSONString()
+                        let convretedData = data.toJSONString()
                         DataManager.shared.setUser(user: convretedData ?? "")
-                        
-                    }
                     completionHandler(true)
                     
                 } else {

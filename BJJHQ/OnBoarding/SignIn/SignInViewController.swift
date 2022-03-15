@@ -65,6 +65,25 @@ class SignInViewController: BaseViewController {
     
     @IBAction func signInAction(_ sender: Any) {
         self.view.activityStartAnimating()
+        if ((emailTF.text?.isValidEmail()) != nil) {
+            if passwordTF.text != "" {
+                if passwordTF.text?.count ?? 0 >= 8  {
+                    apiCall()
+                }
+                else {
+                    self.showToast(message: "Password must be greater then 8 digits")
+                }
+            }
+            else {
+                self.showToast(message: "Please enter a password")
+            }
+        }
+        else {
+            self.showToast(message: "You have entered an invalid email")
+        }
+    }
+    
+    func apiCall() {
         viewModel?.signInCustomer(email: emailTF.text!, password: passwordTF.text!,  completion: { data, error in
 
             self.view.activityStopAnimating()
@@ -107,38 +126,21 @@ class SignInViewController: BaseViewController {
 
 extension SignInViewController : UITextFieldDelegate {
     
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        var enable = false
-//        if ((emailTF.text?.isValidEmail()) == false) {
-//            self.emailView.backgroundColor = UIColor(hexString: "#7C808F")
-//        }
-//
-//        else {
-//            self.emailView.backgroundColor = UIColor(hexString: "#5BD6CD")
-//        }
-//
-//        if passwordTF.text!.count < 8 {
-//            self.passwordView.backgroundColor = UIColor(hexString: "#7C808F")
-//        }
-//
-//        else {
-//            self.passwordView.backgroundColor = UIColor(hexString: "#5BD6CD")
-//        }
-//
-//        if passwordTF.text == "" || ((emailTF.text?.isValidEmail()) == false) {
-//            enable = false
-//        }
-//
-//        else {
-//            if passwordTF.text!.count < 8 {
-//                enable = false
-//            }
-//            else {
-//                enable = true
-//            }
-//        }
-//
-//        changeButtonState(state: enable)
-//    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == emailTF {
+            self.emailView.backgroundColor = UIColor(named: "sky")
+            self.passwordView.backgroundColor = UIColor(named: "lightGrey")
+        }
+        else {
+            self.emailView.backgroundColor = UIColor(named: "lightGrey")
+            self.passwordView.backgroundColor = UIColor(named: "sky")
+        }
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.emailView.backgroundColor = UIColor(named: "lightGrey")
+        self.passwordView.backgroundColor = UIColor(named: "lightGrey")
+    }
     
 }

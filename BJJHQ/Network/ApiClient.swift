@@ -148,6 +148,11 @@ class APIClient: APIClientHandler {
         _ = sendRequest(APIRoutes.current_deal , parameters: [:] ,httpMethod: .get , headers: headers, completionBlock: completionBlock)
     }
     
+    func checkEmail(email:String,_ completionBlock: @escaping APIClientCompletionHandler)
+    {
+        _ = sendRequest(APIRoutes.emailCheck+"?email=\(email)" , parameters: [:] ,httpMethod: .get , headers: nil, completionBlock: completionBlock)
+    }
+    
     func fetchNotificationSetting(_ completionBlock: @escaping APIClientCompletionHandler)
     {
         let token = DataManager.shared.getLocalToken() ?? ""

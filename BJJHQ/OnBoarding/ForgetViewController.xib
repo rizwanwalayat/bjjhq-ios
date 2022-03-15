@@ -118,7 +118,7 @@ account and we'll shoot you an email to get
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOk-2c-3am">
                                             <rect key="frame" x="0.0" y="49" width="374" height="1"/>
-                                            <color key="backgroundColor" name="sky"/>
+                                            <color key="backgroundColor" name="lightGrey"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="eiN-rh-m22"/>
                                             </constraints>
@@ -259,6 +259,9 @@ account and we'll shoot you an email to get
         <image name="backButton" width="8" height="14.5"/>
         <namedColor name="blue">
             <color red="0.14499999582767487" green="0.17299999296665192" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="lightGrey">
+            <color red="0.74099999666213989" green="0.74099999666213989" blue="0.74099999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="sky">
             <color red="0.35699999332427979" green="0.83899998664855957" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

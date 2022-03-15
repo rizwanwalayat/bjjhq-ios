@@ -147,17 +147,11 @@ open class BaseViewController: UIViewController {
     
     func showToast(message : String, _ position: Double = ScreenSize.SCREEN_HEIGHT, _ lines:Double = 40) {
         let toastLabel = UILabel(frame: CGRect(x:ScreenSize.SCREEN_WIDTH/6 , y:position-100, width: ScreenSize.SCREEN_WIDTH/1.5, height: lines))
-        toastLabel.backgroundColor =  UIColor(named: "sky")
-        toastLabel.textColor = .white//#colorLiteral(red: 0.07662559301, green: 0.1339120865, blue: 0.1093636081, alpha: 1)
+        toastLabel.backgroundColor =  UIColor(named: "blue")
+        toastLabel.textColor = .white
+        
         var font = UIFont()
-        if let tempFont = UIFont(name: "Poppins-Regular", size: 12)
-        {
-            font = tempFont
-        }
-        else
-        {
-            font = UIFont.systemFont(ofSize: 14)
-        }
+        font = UIFont.systemFont(ofSize: 14)
         toastLabel.font = font
         toastLabel.textAlignment = .center;
         toastLabel.text = message

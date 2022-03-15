@@ -29,6 +29,7 @@ struct APIRoutes {
     static var comments = "comments"
     static var dislike = "dislike"
     static var like = "like"
+    static var emailCheck = "email"
     static var reactions = "reactions"
     static var commentImage = baseUrl + "comments"
     

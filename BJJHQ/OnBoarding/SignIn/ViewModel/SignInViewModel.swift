@@ -68,17 +68,10 @@ final class SignInViewModel: BaseViewModel {
         let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
         
         APIClient.shared.guestUser(uuid: uuid) { responce,result, error, statusCode, messsage in
-            if let response = result {
-                
-                let newResult = ["result" : response]
-                if let data = Mapper<UserDataModel>().map(JSON: newResult as [String : Any]) {
-                    
-                    if let user = data.user {
-                        let convretedData = user.toJSONString()
+
+                if let data = Mapper<UserDataModel>().map(JSON: result as! [String : Any]) {
+                        let convretedData = data.toJSONString()
                         DataManager.shared.setUser(user: convretedData ?? "")
-                        
-                    }
-                    
                     completionHandler(true)
                     
                 } else {
@@ -86,11 +79,6 @@ final class SignInViewModel: BaseViewModel {
                     completionHandler(false)
                 }
             }
-            else {
-                
-                completionHandler(false)
-            }
-        }
         }
     
     func updateUserImage(image : [String : AnyObject],_ completionHandler: @escaping (_ success: Bool) -> Void) {

@@ -17,7 +17,6 @@ class ForgetViewController: BaseViewController {
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var signInBUtton: UIButton!
     @IBOutlet weak var emailView: UIView!
-    
     @IBOutlet weak var submitButton: UIButton!
     
     //MARK: - LifeCycle
@@ -56,8 +55,17 @@ class ForgetViewController: BaseViewController {
     }
     
     @IBAction func submitAction(_ sender: Any) {
-        Client.shared.applyForReset(email: self.emailTF.text ?? "") { done in
-            
+
+        if ((emailTF.text?.isValidEmail()) != nil) && emailTF.text != "" {
+            APIClient.shared.checkEmail(email: emailTF.text!) { responce, result, error, statusCode, messsage in
+                print(messsage)
+                Client.shared.applyForReset(email: self.emailTF.text ?? "") { done in
+                    
+                }
+            }
+        }
+        else {
+            self.showToast(message: "You have entered an invalid email")
         }
     }
     
@@ -71,24 +79,12 @@ class ForgetViewController: BaseViewController {
     
 }
 extension ForgetViewController : UITextFieldDelegate {
-    
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        var enable = false
-//        if ((emailTF.text?.isValidEmail()) == false) {
-//            self.emailView.backgroundColor = UIColor(hexString: "#7C808F")
-//        }
-//        else {
-//            self.emailView.backgroundColor = UIColor(hexString: "#DF6565")
-//        }
-//        
-//        if ((emailTF.text?.isValidEmail()) == false) {
-//            enable = false
-//        }
-//        else {
-//            enable = true
-//        }
-//        
-//        changeButtonState(state: enable)
-//    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.emailView.backgroundColor = UIColor(named: "sky")
+        return true
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.emailView.backgroundColor = UIColor(named: "lightGrey")
+    }
     
 }

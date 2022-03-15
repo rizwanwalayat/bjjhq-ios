@@ -51,7 +51,7 @@ class SignUpViewController: BaseViewController {
         setupButtonUnderlineText(skipButton, "SKIP", color: "BCBFCC")
         signInButton.setTitle("", for: .normal)
         setupButtonUnderlineText(signInButton, "Sign In", color: "5BD6CD",1.0)
-        changeButtonState(state: true)
+//        changeButtonState(state: true)
     }
     
     
@@ -75,13 +75,33 @@ class SignUpViewController: BaseViewController {
     
     @IBAction func signUpAction(_ sender: Any) {
         
-        self.view.activityStartAnimating()
+        if ((emailTF.text?.isValidEmail()) != nil) {
+            if passwordTF.text == confirmPasswordTF.text {
+                if passwordTF.text != "" {
+                    self.callApi()
+                }
+                else {
+                    self.showToast(message: "Please enter a password")
+                }
+                
+            }
+            else {
+                self.showToast(message: "Password not matched")
+            }
+            
+        }
+        else {
+            self.showToast(message: "You have entered an invalid email")
+        }
 
+    }
+    func callApi() {
+        self.view.activityStartAnimating()
         viewModel?.signUpCustomer(fName: firstNameTF.text!, lName: lastNameTF.text!, uName: userNameTF.text!, email: emailTF.text!, password: passwordTF.text!, cPassword: confirmPasswordTF.text!, fcmToken: Global.shared.FCMtoken, completion: { response, error in
 
             self.view.activityStopAnimating()
 
-            if let result = response, error == nil{
+            if let result = response, error == nil {
                 self.showToast(message: result.message)
                 self.coordinator?.signInPage()
             }
@@ -201,73 +221,66 @@ class SignUpViewController: BaseViewController {
 
 extension SignUpViewController : UITextFieldDelegate {
     
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        var enable = false
-//
-//        if firstNameTF.text == "" {
-//            self.firstNameView.backgroundColor = UIColor(hexString: "#7C808F")
-//        }
-//        else {
-//            self.firstNameView.backgroundColor = UIColor(hexString: "#5BD6CD")
-//        }
-//        
-//        if lastNameTF.text == "" {
-//            self.lastNameView.backgroundColor = UIColor(hexString: "#7C808F")
-//        }
-//        else {
-//            self.lastNameView.backgroundColor = UIColor(hexString: "#5BD6CD")
-//        }
-//        
-//        if ((emailTF.text?.isValidEmail()) == false) {
-//            self.emailView.backgroundColor = UIColor(hexString: "#7C808F")
-//        }
-//        
-//        else {
-//            self.emailView.backgroundColor = UIColor(hexString: "#5BD6CD")
-//        }
-//        
-//        if userNameTF.text == "" {
-//            self.userNameview.backgroundColor = UIColor(hexString: "#7C808F")
-//        }
-//        
-//        else {
-//            self.userNameview.backgroundColor = UIColor(hexString: "#5BD6CD")
-//        }
-//        
-//        if passwordTF.text!.count < 8 {
-//            self.passwordView.backgroundColor = UIColor(hexString: "#7C808F")
-//        }
-//        
-//        else {
-//            self.passwordView.backgroundColor = UIColor(hexString: "#5BD6CD")
-//        }
-//        
-//        if confirmPasswordTF.text!.count < 8 {
-//            self.confirmPasswordView.backgroundColor = UIColor(hexString: "#7C808F")
-//        }
-//        
-//        else {
-//            self.confirmPasswordView.backgroundColor = UIColor(hexString: "#5BD6CD")
-//        }
-//        
-//
-//
-//        if passwordTF.text == "" || ((emailTF.text?.isValidEmail()) == false) || userNameTF.text == "" || firstNameTF.text == "" || confirmPasswordTF.text == "" {
-//            enable = false
-//        }
-//
-//        else {
-//            if passwordTF.text!.count < 8 || passwordTF.text! != confirmPasswordTF.text! {
-//                enable = false
-//            }
-//            else {
-//                enable = true
-//            }
-//        }
-//
-//        print(enable)
-//
-//        changeButtonState(state: enable)
-//    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == firstNameTF {
+            self.firstNameView.backgroundColor = UIColor(named: "sky")
+            self.lastNameView.backgroundColor = UIColor(named: "lightGrey")
+            self.emailView.backgroundColor = UIColor(named: "lightGrey")
+            self.userNameview.backgroundColor = UIColor(named: "lightGrey")
+            self.passwordView.backgroundColor = UIColor(named: "lightGrey")
+            self.confirmPasswordView.backgroundColor = UIColor(named: "lightGrey")
+        }
+        else if textField == lastNameTF {
+            self.firstNameView.backgroundColor = UIColor(named: "lightGrey")
+            self.lastNameView.backgroundColor = UIColor(named: "sky")
+            self.emailView.backgroundColor = UIColor(named: "lightGrey")
+            self.userNameview.backgroundColor = UIColor(named: "lightGrey")
+            self.passwordView.backgroundColor = UIColor(named: "lightGrey")
+            self.confirmPasswordView.backgroundColor = UIColor(named: "lightGrey")
+        }
+        else if textField == emailTF {
+            self.firstNameView.backgroundColor = UIColor(named: "lightGrey")
+            self.lastNameView.backgroundColor = UIColor(named: "lightGrey")
+            self.emailView.backgroundColor = UIColor(named: "sky")
+            self.userNameview.backgroundColor = UIColor(named: "lightGrey")
+            self.passwordView.backgroundColor = UIColor(named: "lightGrey")
+            self.confirmPasswordView.backgroundColor = UIColor(named: "lightGrey")
+        }
+        else if textField == userNameTF {
+            self.firstNameView.backgroundColor = UIColor(named: "lightGrey")
+            self.lastNameView.backgroundColor = UIColor(named: "lightGrey")
+            self.emailView.backgroundColor = UIColor(named: "lightGrey")
+            self.userNameview.backgroundColor = UIColor(named: "sky")
+            self.passwordView.backgroundColor = UIColor(named: "lightGrey")
+            self.confirmPasswordView.backgroundColor = UIColor(named: "lightGrey")
+        }
+        else if textField == passwordTF {
+            self.firstNameView.backgroundColor = UIColor(named: "lightGrey")
+            self.lastNameView.backgroundColor = UIColor(named: "lightGrey")
+            self.emailView.backgroundColor = UIColor(named: "lightGrey")
+            self.userNameview.backgroundColor = UIColor(named: "lightGrey")
+            self.passwordView.backgroundColor = UIColor(named: "sky")
+            self.confirmPasswordView.backgroundColor = UIColor(named: "lightGrey")
+        }
+        else {
+            self.firstNameView.backgroundColor = UIColor(named: "lightGrey")
+            self.lastNameView.backgroundColor = UIColor(named: "lightGrey")
+            self.emailView.backgroundColor = UIColor(named: "lightGrey")
+            self.userNameview.backgroundColor = UIColor(named: "lightGrey")
+            self.passwordView.backgroundColor = UIColor(named: "lightGrey")
+            self.confirmPasswordView.backgroundColor = UIColor(named: "sky")
+        }
+        
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+            self.firstNameView.backgroundColor = UIColor(named: "lightGrey")
+            self.lastNameView.backgroundColor = UIColor(named: "lightGrey")
+            self.emailView.backgroundColor = UIColor(named: "lightGrey")
+            self.userNameview.backgroundColor = UIColor(named: "lightGrey")
+            self.passwordView.backgroundColor = UIColor(named: "lightGrey")
+            self.confirmPasswordView.backgroundColor = UIColor(named: "lightGrey")
+    }
     
 }
