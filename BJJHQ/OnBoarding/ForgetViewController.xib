@@ -39,8 +39,11 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQA-X0-B7b">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't worry! Resetting your password is easy. Just type your email below and we'll send you the reset password." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRN-68-Xcu">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRN-68-Xcu">
                             <rect key="frame" x="40" y="143" width="334" height="50.5"/>
+                            <string key="text">No sweat. Enter the email used for your
+account and we'll shoot you an email to get
+ you back on track.</string>
                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="14"/>
                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -144,12 +147,43 @@
                                 </view>
                             </subviews>
                         </stackView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you remember your password?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pl4-gs-R4U">
-                            <rect key="frame" x="90" y="468" width="234.5" height="19.5"/>
-                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="16"/>
-                            <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LaG-Wk-dFx">
+                            <rect key="frame" x="86.5" y="468" width="241.5" height="32"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feeling lucky?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pl4-gs-R4U">
+                                    <rect key="frame" x="0.0" y="0.0" width="98.5" height="32"/>
+                                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="16"/>
+                                    <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Qf-Bj-Hot">
+                                    <rect key="frame" x="108.5" y="0.0" width="133" height="32"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="16"/>
+                                    <color key="tintColor" red="1" green="0.52549019610000003" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" title="Try signing in again">
+                                        <color key="titleColor" name="sky"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                            <real key="value" value="0.10000000000000001"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                            <size key="value" width="0.0" height="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="signInAction:" destination="-1" eventType="touchUpInside" id="v3e-Ge-ieL"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdO-L4-C7P">
                             <rect key="frame" x="364" y="30" width="30" height="30"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -185,45 +219,18 @@
                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Qf-Bj-Hot">
-                            <rect key="frame" x="160" y="507.5" width="94" height="32"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="16"/>
-                            <color key="tintColor" red="1" green="0.52549019610000003" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="Try Signing In">
-                                <color key="titleColor" name="sky"/>
-                            </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="10"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                    <real key="value" value="2"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                    <real key="value" value="0.10000000000000001"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                    <size key="value" width="0.0" height="2"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="signInAction:" destination="-1" eventType="touchUpInside" id="v3e-Ge-ieL"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="YZE-jY-fBt" firstAttribute="centerY" secondItem="fQA-X0-B7b" secondAttribute="centerY" constant="-106" id="41E-n3-ZfO"/>
-                        <constraint firstItem="pl4-gs-R4U" firstAttribute="top" secondItem="1zO-f2-TeN" secondAttribute="bottom" constant="30" id="Fvu-Jf-FqF"/>
+                        <constraint firstItem="LaG-Wk-dFx" firstAttribute="top" secondItem="1zO-f2-TeN" secondAttribute="bottom" constant="30" id="NQs-1M-6X8"/>
                         <constraint firstItem="8Uf-eP-6QV" firstAttribute="leading" secondItem="fQA-X0-B7b" secondAttribute="leading" constant="30" id="Nzd-4q-9XD"/>
                         <constraint firstItem="YZE-jY-fBt" firstAttribute="leading" secondItem="fQA-X0-B7b" secondAttribute="leading" constant="20" id="Rd9-io-tg9"/>
-                        <constraint firstItem="6Qf-Bj-Hot" firstAttribute="centerX" secondItem="fQA-X0-B7b" secondAttribute="centerX" id="SAR-1u-wqQ"/>
-                        <constraint firstItem="6Qf-Bj-Hot" firstAttribute="top" secondItem="pl4-gs-R4U" secondAttribute="bottom" constant="20" id="UWL-9A-rs0"/>
                         <constraint firstItem="YZE-jY-fBt" firstAttribute="centerX" secondItem="fQA-X0-B7b" secondAttribute="centerX" id="X0m-u1-I9B"/>
                         <constraint firstAttribute="trailing" secondItem="YZE-jY-fBt" secondAttribute="trailing" constant="20" id="dGc-jM-QaW"/>
                         <constraint firstItem="1zO-f2-TeN" firstAttribute="leading" secondItem="fQA-X0-B7b" secondAttribute="leading" constant="20" id="er4-Cb-WFN"/>
                         <constraint firstItem="1zO-f2-TeN" firstAttribute="top" secondItem="YZE-jY-fBt" secondAttribute="bottom" constant="60" id="f3j-0K-Vj8"/>
+                        <constraint firstItem="LaG-Wk-dFx" firstAttribute="centerX" secondItem="fQA-X0-B7b" secondAttribute="centerX" id="i3O-jW-JMh"/>
                         <constraint firstItem="KCe-vZ-uhc" firstAttribute="top" secondItem="fQA-X0-B7b" secondAttribute="top" constant="20" id="ijN-5o-K7f"/>
                         <constraint firstItem="aRN-68-Xcu" firstAttribute="leading" secondItem="fQA-X0-B7b" secondAttribute="leading" constant="40" id="j4T-nK-bqh"/>
                         <constraint firstItem="KCe-vZ-uhc" firstAttribute="leading" secondItem="fQA-X0-B7b" secondAttribute="leading" constant="30" id="kaJ-fF-Rxw"/>
@@ -233,7 +240,6 @@
                         <constraint firstAttribute="trailing" secondItem="8Uf-eP-6QV" secondAttribute="trailing" constant="30" id="sWK-92-DmI"/>
                         <constraint firstItem="aRN-68-Xcu" firstAttribute="top" secondItem="8Uf-eP-6QV" secondAttribute="bottom" constant="12" id="wO4-mJ-TTh"/>
                         <constraint firstAttribute="trailing" secondItem="1zO-f2-TeN" secondAttribute="trailing" constant="20" id="xfI-Wi-lzp"/>
-                        <constraint firstItem="pl4-gs-R4U" firstAttribute="centerX" secondItem="fQA-X0-B7b" secondAttribute="centerX" id="xgM-9Z-AkS"/>
                         <constraint firstAttribute="trailing" secondItem="tdO-L4-C7P" secondAttribute="trailing" constant="20" id="zxX-t8-RAz"/>
                     </constraints>
                 </view>
