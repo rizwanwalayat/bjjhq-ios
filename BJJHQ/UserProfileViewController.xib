@@ -167,7 +167,7 @@
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Qe-Mg-mRw">
                                                             <rect key="frame" x="0.0" y="49" width="344" height="1"/>
-                                                            <color key="backgroundColor" name="sky"/>
+                                                            <color key="backgroundColor" name="lightGrey"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="Yym-OM-d2Q"/>
                                                             </constraints>
@@ -199,7 +199,7 @@
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ap9-uC-yy4">
                                                             <rect key="frame" x="0.0" y="49" width="344" height="1"/>
-                                                            <color key="backgroundColor" name="sky"/>
+                                                            <color key="backgroundColor" name="lightGrey"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="GaE-DD-cp6"/>
                                                             </constraints>
@@ -231,7 +231,7 @@
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EhO-Ef-I9Z">
                                                             <rect key="frame" x="0.0" y="49" width="344" height="1"/>
-                                                            <color key="backgroundColor" name="sky"/>
+                                                            <color key="backgroundColor" name="lightGrey"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="1Ce-AW-xIA"/>
                                                             </constraints>
@@ -263,7 +263,7 @@
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vd-6c-16Y">
                                                             <rect key="frame" x="0.0" y="49" width="344" height="1"/>
-                                                            <color key="backgroundColor" name="sky"/>
+                                                            <color key="backgroundColor" name="lightGrey"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="aaO-M9-xGB"/>
                                                             </constraints>
@@ -412,6 +412,9 @@
         </namedColor>
         <namedColor name="borderColor">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightGrey">
+            <color red="0.74099999666213989" green="0.74099999666213989" blue="0.74099999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="sky">
             <color red="0.35699999332427979" green="0.83899998664855957" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

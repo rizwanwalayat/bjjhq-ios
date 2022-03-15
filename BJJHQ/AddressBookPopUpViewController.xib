@@ -59,7 +59,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27D-zQ-C5Y">
                                             <rect key="frame" x="0.0" y="49" width="314" height="1"/>
-                                            <color key="backgroundColor" name="sky"/>
+                                            <color key="backgroundColor" name="lightGrey"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="i1B-Lt-HIN"/>
                                             </constraints>
@@ -88,7 +88,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcb-Bo-AwH">
                                             <rect key="frame" x="0.0" y="49" width="314" height="1"/>
-                                            <color key="backgroundColor" name="sky"/>
+                                            <color key="backgroundColor" name="lightGrey"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="OuZ-P7-8LD"/>
                                             </constraints>
@@ -117,7 +117,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZe-h6-NnQ">
                                             <rect key="frame" x="0.0" y="49" width="314" height="1"/>
-                                            <color key="backgroundColor" name="sky"/>
+                                            <color key="backgroundColor" name="lightGrey"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="ine-Kn-Kof"/>
                                             </constraints>
@@ -146,7 +146,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKN-dq-PBD">
                                             <rect key="frame" x="0.0" y="49" width="314" height="1"/>
-                                            <color key="backgroundColor" name="sky"/>
+                                            <color key="backgroundColor" name="lightGrey"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="Bfn-H3-Ldb"/>
                                             </constraints>
@@ -175,7 +175,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fen-BD-b5v">
                                             <rect key="frame" x="0.0" y="79" width="314" height="1"/>
-                                            <color key="backgroundColor" name="sky"/>
+                                            <color key="backgroundColor" name="lightGrey"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="WBu-ao-BOf"/>
                                             </constraints>
@@ -208,7 +208,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4r-6y-ADr">
                                             <rect key="frame" x="0.0" y="49" width="314" height="1"/>
-                                            <color key="backgroundColor" name="sky"/>
+                                            <color key="backgroundColor" name="lightGrey"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="3iE-Kr-End"/>
                                             </constraints>
@@ -372,6 +372,9 @@
         <image name="multiply" catalog="system" width="128" height="111"/>
         <namedColor name="blue">
             <color red="0.14499999582767487" green="0.17299999296665192" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="lightGrey">
+            <color red="0.74099999666213989" green="0.74099999666213989" blue="0.74099999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="marinda">
             <color red="0.9100000262260437" green="0.41200000047683716" blue="0.41200000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

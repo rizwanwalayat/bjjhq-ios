@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //MARK: - UserState
     
-        if let accessToken = DataManager.shared.getUserAccessToekn(), accessToken.count > 0 {
+        if DataManager.shared.getUser() != nil {
             
             coordinator?.homePage()
             
