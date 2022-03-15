@@ -22,7 +22,7 @@ protocol Coordinator {
     func orderPage()
     func profilePage()
     func FAQPage()
-    func myOrderDetail()
+    func myOrderDetail(_ productID : String)
     func successController()
 }
 
@@ -47,9 +47,10 @@ class MainCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.setViewControllers([vc], animated: true)
     }
-    func myOrderDetail() {
+    func myOrderDetail(_ productID : String) {
         let vc = OrderViewController()
         vc.coordinator = self
+        vc.productId = productID
         navigationController.pushViewController(vc, animated: true)
     }
     

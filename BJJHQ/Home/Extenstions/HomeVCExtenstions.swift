@@ -352,18 +352,34 @@ extension HomeViewController {
                 if let obj = data.items.first(where: { self.decodeId(id: $0.id) == id }) {
                     
                     self.productModel = obj
+                    
+                    // dropdown integrations
+                    
+                    var titleArray = [String]()
+                    var ids = [Int]()
+                    
+                    for item in obj.variants.items {
+                        
+                        titleArray.append(item.title)
+                        ids.append(Int(item.id) ?? 0)
+                    }
+                    self.dropDownTF.optionArray = titleArray
+                    //Its Id Values and its optional
+                    self.dropDownTF.optionIds = ids
+
+                    // The the Closure returns Selected Index and String
+                    self.dropDownTF.didSelect{(selectedText , index ,id) in
+                        self.dropDownFilled.text = selectedText
+                    }
                 }
                 
                 //self.pagesIndicators.pageCount = self.productModel?.images.items.count ?? 0
                 self.productTitle.text = self.productModel?.title ?? ""
                 self.productPrice.text = self.productModel?.price ?? ""
                 let summary =  self.productModel?.summary ?? ""
-                
-//                let attributeString = summary.htmlToAttributedString!.mutableCopy() as! NSMutableAttributedString
-//                                attributeString.beginEditing()
-//                summary.htmlToString
-//                self.descriptionDetial.attributedText = attributeString
                 self.descriptionDetial.text = summary.htmlToString
+                
+                
                 
                 self.collectionView.reloadData()
             }

@@ -40,18 +40,22 @@ class APIClientHandler: TSAPIClient {
                     }
                     parameters?.removeValue(forKey: "image")
                 } else {
-                    let multipart = MultipartFormData()
+                    
+                    
+                    //multipartFormData.append(multipart, withName: key)
+//                    let multipart = MultipartFormData()
                     if key == "comment"
                     {
                         if let comment = parameters!["key"] as? [String: Any] {
-                            for (ckey, val) in comment {
-                                
-                                multipart.append(String(describing: val).data(using: .utf8)!, withName: ckey)
-                            }
+                            
+                            let dataExample: Data = NSKeyedArchiver.archivedData(withRootObject: comment)
+//                            for (ckey, val) in comment {
+//
+//                                multipart.append(String(describing: val).data(using: .utf8)!, withName: ckey)
+//                            }
                         }
-                        
+
                     }
-//                    multipartFormData.append(multipart, withName: key)
                 }
             }
             
