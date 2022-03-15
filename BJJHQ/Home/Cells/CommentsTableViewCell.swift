@@ -39,7 +39,7 @@ class CommentsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         tableView.register(UINib(nibName: "SubCommentsTableViewCell", bundle: nil), forCellReuseIdentifier: "SubCommentsTableViewCell")
-        tableView.estimatedRowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableView.automaticDimension
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
     }
@@ -95,12 +95,6 @@ class CommentsTableViewCell: UITableViewCell {
             if reply.count > 0 {
                 replies = reply
                 tableView.reloadData()
-                
-                DispatchQueue.main.async {
-                    let contentSize = self.tableView.contentSize.height
-                    self.constTableViewHeight.constant = contentSize
-                    self.layoutIfNeeded()
-                }
             }
         }
         
@@ -177,7 +171,8 @@ extension CommentsTableViewCell: UITableViewDataSource
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubCommentsTableViewCell", for: indexPath) as! SubCommentsTableViewCell
         
-        cell.config(replies[indexPath.row])
+        let obj = replies[indexPath.row]
+        cell.config(obj)
         
         cell.likeButton.tag = indexPath.row
         cell.unlikeButton.tag = indexPath.row
@@ -186,11 +181,51 @@ extension CommentsTableViewCell: UITableViewDataSource
         cell.unlikeButton.addTarget(self, action: #selector(unLikeButtonPressed(_:)), for: .touchUpInside)
         cell.replyButton.addTarget(self, action: #selector(replyPressed(_:)), for: .touchUpInside)
         
+        
+        if let like = obj.isLiked {
+            
+            switch like {
+                
+            case true:
+                self.buttonLiked(cell.likeButton, cell.unlikeButton)
+            case false:
+                self.buttonDisliked(cell.unlikeButton, cell.likeButton)
+            }
+        }
+
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        UITableView.automaticDimension
+    }
+    
+    fileprivate func buttonLiked(_ sender: UIButton, _ disLikedButton: UIButton)
+    {
+        //sender.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
+        sender.setTitleColor(UIColor.white, for: .normal)
+        sender.tintColor = .white//UIColor(hexString: "5BD6CD")
+        sender.borderColor = UIColor(hexString: "5BD6CD")
+        sender.backgroundColor = UIColor(hexString: "5BD6CD")
+        
+        disLikedButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
+        disLikedButton.tintColor = UIColor(hexString: "252C44")
+        disLikedButton.borderColor = UIColor(hexString: "252C44")
+        disLikedButton.backgroundColor = .clear
+    }
+    
+    fileprivate func buttonDisliked(_ sender: UIButton, _ unlikeButton: UIButton)
+    {
+        sender.setTitleColor(UIColor.white, for: .normal)
+        sender.tintColor = .white//UIColor(hexString: "5BD6CD")
+        sender.borderColor = UIColor(hexString: "252C44")
+        sender.backgroundColor = UIColor(hexString: "252C44")
+        
+        unlikeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
+        unlikeButton.tintColor = UIColor(hexString: "5BD6CD")
+        unlikeButton.borderColor = UIColor(hexString: "5BD6CD")
+        unlikeButton.backgroundColor = .clear
     }
     
 }

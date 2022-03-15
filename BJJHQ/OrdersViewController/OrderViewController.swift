@@ -47,7 +47,7 @@ class OrderViewController: BaseViewController {
         }
         
         self.productPrice.text = "\(orderDetail?.node.totalPriceV2.currencyCode.rawValue ?? "$") \(orderDetail?.node.totalPriceV2.amount ?? 00)"
-        self.yourOrderLabel.text = "Order #\(orderDetail?.node.orderNumber ?? 00)"
+        //self.yourOrderLabel.text = "Order #\(orderDetail?.node.orderNumber ?? 00)"
         self.productDetailLabel.text = "\(orderDetail?.node.lineItems.edges[0].node.title ?? "")"
         self.subTotalValueLabel.text = "$ \(orderDetail?.node.subtotalPriceV2?.amount ?? 00)"
         self.shippingValueLabel.text = "$ \(orderDetail?.node.totalShippingPriceV2.amount ?? 00)"
@@ -66,6 +66,7 @@ class OrderViewController: BaseViewController {
     
     @IBAction func checkOutAction(_ sender: Any)
     {
+        //Client.shared.webCheckOut(accessToken: <#T##String#>, quantity: <#T##Int32#>, id: <#T##String#>, completion: <#T##(String?, String?) -> Void#>)
     }
     
     @IBAction func clearCartAction(_ sender: Any) {

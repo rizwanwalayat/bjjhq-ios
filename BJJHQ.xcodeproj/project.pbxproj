@@ -39,6 +39,7 @@
 		0487AC4A27C4C47D00A3422B /* neusa-next-std-compact-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0487AC3727C4C47D00A3422B /* neusa-next-std-compact-regular.ttf */; };
 		04E692D327C385D100DF3750 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E692D127C385D100DF3750 /* UserProfileViewController.swift */; };
 		04E692D427C385D100DF3750 /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E692D227C385D100DF3750 /* UserProfileViewController.xib */; };
+		04F3931027DF7E89009FE712 /* CommentsReactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3930F27DF7E89009FE712 /* CommentsReactions.swift */; };
 		04FC4FF527DBB04E00605C79 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC4FE727DBB04E00605C79 /* HomeViewModel.swift */; };
 		04FC4FF627DBB04E00605C79 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC4FE927DBB04E00605C79 /* HomeCollectionViewCell.swift */; };
 		04FC4FF727DBB04E00605C79 /* CommentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FC4FEA27DBB04E00605C79 /* CommentsTableViewCell.xib */; };
@@ -250,6 +251,7 @@
 		0487AC3727C4C47D00A3422B /* neusa-next-std-compact-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "neusa-next-std-compact-regular.ttf"; sourceTree = "<group>"; };
 		04E692D127C385D100DF3750 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		04E692D227C385D100DF3750 /* UserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileViewController.xib; sourceTree = "<group>"; };
+		04F3930F27DF7E89009FE712 /* CommentsReactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsReactions.swift; sourceTree = "<group>"; };
 		04FC4FE727DBB04E00605C79 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		04FC4FE927DBB04E00605C79 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		04FC4FEA27DBB04E00605C79 /* CommentsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsTableViewCell.xib; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 			children = (
 				04FC500227DBB53600605C79 /* CommentsDataModel.swift */,
 				04FC500127DBB53600605C79 /* HomeDataModel.swift */,
+				04F3930F27DF7E89009FE712 /* CommentsReactions.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -1446,6 +1449,7 @@
 				9AAFAB821E60BEE000864A17 /* CollectionViewModel.swift in Sources */,
 				18737E4727BE6DF700C4F438 /* MainNotificationTableViewCell.swift in Sources */,
 				9A27C3281E8FDB6B00218EE8 /* LineItemViewModel.swift in Sources */,
+				04F3931027DF7E89009FE712 /* CommentsReactions.swift in Sources */,
 				188E5A7427BD518B003FB613 /* NotificationPopUpViewController.swift in Sources */,
 				9A0ED68A1E83FF2D008C605E /* GraphQL+Serializable.swift in Sources */,
 				9AFA3B871E6DFF530056C5AA /* SelectableCell.swift in Sources */,

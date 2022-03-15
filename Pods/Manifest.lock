@@ -1,6 +1,6 @@
 PODS:
-  - ActionCableClient (0.2.4):
-    - Starscream (~> 3.0.3)
+  - ActionCableClient (0.2.3):
+    - Starscream (~> 2.0.0)
   - Alamofire (4.9.1)
   - CSPieChart (1.0)
   - Firebase/Core (8.12.1):
@@ -111,11 +111,11 @@ PODS:
   - SDWebImage (5.12.3):
     - SDWebImage/Core (= 5.12.3)
   - SDWebImage/Core (5.12.3)
-  - Starscream (3.0.6)
+  - Starscream (2.0.4)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
-  - ActionCableClient (from `https://github.com/danielrhodes/Swift-ActionCableClient.git`)
+  - ActionCableClient
   - Alamofire (~> 4.2)
   - CSPieChart
   - Firebase/Core
@@ -130,6 +130,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - ActionCableClient
     - Alamofire
     - CSPieChart
     - Firebase
@@ -152,17 +153,8 @@ SPEC REPOS:
     - Starscream
     - SwiftyJSON
 
-EXTERNAL SOURCES:
-  ActionCableClient:
-    :git: https://github.com/danielrhodes/Swift-ActionCableClient.git
-
-CHECKOUT OPTIONS:
-  ActionCableClient:
-    :commit: b975c3edf5ee31f9838080e263da7b7d442acb8e
-    :git: https://github.com/danielrhodes/Swift-ActionCableClient.git
-
 SPEC CHECKSUMS:
-  ActionCableClient: 098e6217c2882ff28677c01b9f804e7199857a77
+  ActionCableClient: c8a466410d31bfa14e7a9c209b539c1e2d026a5f
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   CSPieChart: 45cb050fb963603995490a6ee825b075211f0d3e
   Firebase: 580d09e8edafc3073ebf09c03fd42e4d80d35fe9
@@ -182,9 +174,9 @@ SPEC CHECKSUMS:
   PageControls: fc2436c93e79419521a6de5d46d84722593e2949
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   SDWebImage: 53179a2dba77246efa8a9b85f5c5b21f8f43e38f
-  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
+  Starscream: df5974ee928b157c8eda8af8de7c620276b7dfcc
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 831d0984999f48e618de685e77257805c88c0f3d
+PODFILE CHECKSUM: 3d7fe984f3fdb1d83c8ef7d1ff69cb9cac2df4fe
 
 COCOAPODS: 1.11.2

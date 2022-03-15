@@ -30,6 +30,7 @@ struct APIRoutes {
     static var dislike = "dislike"
     static var like = "like"
     static var reactions = "reactions"
+    static var commentImage = baseUrl + "comments"
     
 }
 
