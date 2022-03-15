@@ -40,7 +40,18 @@ class APIClientHandler: TSAPIClient {
                     }
                     parameters?.removeValue(forKey: "image")
                 } else {
-                    multipartFormData.append(String(describing: value).data(using: .utf8)!, withName: key)
+                    let multipart = MultipartFormData()
+                    if key == "comment"
+                    {
+                        if let comment = parameters!["key"] as? [String: Any] {
+                            for (ckey, val) in comment {
+                                
+                                multipart.append(String(describing: val).data(using: .utf8)!, withName: ckey)
+                            }
+                        }
+                        
+                    }
+//                    multipartFormData.append(multipart, withName: key)
                 }
             }
             

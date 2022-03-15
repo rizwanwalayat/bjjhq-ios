@@ -88,6 +88,31 @@ class HomeViewModel: BaseViewModel {
         }
     }
     
+    func sendImageComment(_ parentCommentId: String,_ message: String, image: UIImage, _ completionHandler: @escaping(_ success: Bool, _ message : String?) -> Void) {
+        
+        let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        let role = DataManager.shared.getUser()?.user?.role ?? "user"
+        let userId = DataManager.shared.getUser()?.user?.id ?? 0
+        
+        APIClient.shared.sendImageComments(mobileId: uuid, userSystemId: "\(userId)", message: message, role: role, image: image) { responce, result, error, statusCode, messsage in
+            
+            if let response = result {
+                
+                if let success = response["status"] as? Bool {
+                    
+                    completionHandler(success, message)
+                }
+                else {
+                    completionHandler(false,  error?.localizedDescription ?? message)
+                }
+            }
+            else {
+                
+                completionHandler(false, error?.localizedDescription ?? message)
+            }
+        }
+    }
+    
     func fetchSignleProduct(_ productId: String, _ completion: @escaping(_ data: Storefront.Product?) -> Void )
     {
         Client.shared.fetchSignleProduct(productId: productId) { productData in

@@ -12,6 +12,7 @@ import ActionCableClient
 import CSPieChart
 import ObjectMapper
 import Buy
+import AVFAudio
 
 
 // MARK: - CollectionView Delegate  -
@@ -162,6 +163,7 @@ extension HomeViewController: UITableViewDataSource
         disLikedButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
         disLikedButton.tintColor = UIColor(hexString: "252C44")
         disLikedButton.borderColor = UIColor(hexString: "252C44")
+        disLikedButton.backgroundColor = .clear
     }
     
     fileprivate func buttonDisliked(_ sender: UIButton, _ unlikeButton: UIButton)
@@ -182,6 +184,7 @@ extension HomeViewController: UITableViewDataSource
 // MARK: - Custom TableView Delegate  -
 
 extension HomeViewController : commentsTableViewDelegate {
+    
     func didTapOnLike(_ superComment: Comments, subComment: CommentsReplies) {
         
         
@@ -239,6 +242,15 @@ extension HomeViewController {
             if success, let commentsData = data?.comments {
                 self.comments = commentsData
                 self.tableView.reloadData()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                    
+                    if self.comments.count > 0{
+                        
+                        let indexpAth = IndexPath(row: self.comments.count - 1, section: 0)
+                        self.tableView.reloadRows(at: [indexpAth], with: .automatic)
+                        print("relaod data after delegate")
+                    }
+                }
             }
         })
         
@@ -252,12 +264,35 @@ extension HomeViewController {
     func sendComment(_ text : String)
     {
         let parentId = commentsParentId ?? ""
-        viewModel?.sendComments(parentId, text, { success, message in
-            if success {
-                self.writeCommentsTF.text = ""
-                self.commentsParentId = nil
-            }
-        })
+        
+        if let image = imageComment.image {
+            
+            viewModel?.sendImageComment(parentId, text, image: image, { success, message in
+                
+                if success {
+                    self.writeCommentsTF.text = ""
+                    self.commentsParentId = nil
+                    
+                    self.imageComment.image = nil
+                    
+                    UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: []) {
+                        
+                        self.imageCommentHolder.isHidden = true
+                    } completion: { animated in
+                        self.view.layoutIfNeeded()
+                    }
+                }
+            })
+        }
+        else {
+            
+            viewModel?.sendComments(parentId, text, { success, message in
+                if success {
+                    self.writeCommentsTF.text = ""
+                    self.commentsParentId = nil
+                }
+            })
+        }
         
     }
     
@@ -271,9 +306,11 @@ extension HomeViewController {
                     obj.isLiked = true
                 }
                 else {
-                    let row = obj.replies?.firstIndex(where: {$0.comment!.id == commentId}) ?? 0
-                    let replyObj = obj.replies?[row]
-                    replyObj?.isLiked = false
+                    if let row = obj.replies?.firstIndex(where: {$0.comment!.id == commentId})
+                    {
+                        let replyObj = obj.replies?[row]
+                        replyObj?.isLiked = false
+                    }
                 }
                 let indexpath = IndexPath(row: ofIndex, section: 0)
                 self.tableView.reloadRows(at: [indexpath], with: .automatic)
@@ -290,9 +327,11 @@ extension HomeViewController {
                     obj.isLiked = true
                 }
                 else {
-                    let row = obj.replies?.firstIndex(where: {$0.comment!.id == commentId}) ?? 0
-                    let replyObj = obj.replies?[row]
-                    replyObj?.isLiked = false
+                    if let row = obj.replies?.firstIndex(where: {$0.comment!.id == commentId})
+                    {
+                        let replyObj = obj.replies?[row]
+                        replyObj?.isLiked = false
+                    }
                 }
                 let indexpath = IndexPath(row: ofIndex, section: 0)
                 self.tableView.reloadRows(at: [indexpath], with: .automatic)
@@ -320,9 +359,11 @@ extension HomeViewController {
                 self.productPrice.text = self.productModel?.price ?? ""
                 let summary =  self.productModel?.summary ?? ""
                 
-                let attributeString = summary.htmlToAttributedString!.mutableCopy() as! NSMutableAttributedString
-                                attributeString.beginEditing()
-                self.descriptionDetial.attributedText = attributeString
+//                let attributeString = summary.htmlToAttributedString!.mutableCopy() as! NSMutableAttributedString
+//                                attributeString.beginEditing()
+//                summary.htmlToString
+//                self.descriptionDetial.attributedText = attributeString
+                self.descriptionDetial.text = summary.htmlToString
                 
                 self.collectionView.reloadData()
             }
@@ -471,6 +512,46 @@ extension HomeViewController  {
             if let error = error {
                 print(error.localizedDescription)
                 return
+            }
+            if let response = data as? [String:Any]
+            {
+                if let reacton = response["reaction"] as? [String: Any], let comment = reacton["comment"] as? [String:Any], let commentId =  reacton["comment_id"] as? NSNumber, let isLikedString = reacton["reaction"] as? String {
+                    
+                    var isLiked = false
+                    if isLikedString == "liked" {
+                        isLiked = true
+                    }
+                    else if isLikedString == "disliked"
+                    {
+                        isLiked = false
+                    }
+                    
+                    if let ancestry = comment["ancestry"] as? NSNumber {
+                        
+                        if let row = self.comments.firstIndex(where: {$0.comment!.id == ancestry.intValue}) {
+                            
+                            let obj = self.comments[row]
+                            
+                            if let replyRow = obj.replies?.firstIndex(where: {$0.comment!.id == commentId.intValue}) {
+                                
+                                let subObj = obj.replies?[replyRow]
+                                subObj?.isLiked = isLiked
+                            }
+                            
+                        }
+                    }
+                    else {
+                        
+                        if let row = self.comments.firstIndex(where: {$0.comment!.id == commentId.intValue}) {
+                            
+                            let obj = self.comments[row]
+                            obj.isLiked = isLiked
+                        }
+                            
+                    }
+                    
+                }
+                self.tableView.reloadData()
             }
         }
         

@@ -242,4 +242,19 @@ class APIClient: APIClientHandler {
         _ = sendRequest(APIRoutes.comments , parameters: params ,httpMethod: .post , headers: headers, completionBlock: completionBlock)
     }
     
+    func sendImageComments(mobileId: String, userSystemId: String, parentCommentId: String = "",message: String, role: String, image: UIImage, _ completionBlock: @escaping APIClientCompletionHandler)
+    {
+        let token = DataManager.shared.getLocalToken() ?? ""
+        let headers: HTTPHeaders = ["Authorization" : token]
+        
+        var userParams = ["user_mobile_id": mobileId, "user_system_id": userSystemId, "message": message, "role": role]
+        if parentCommentId.count > 0{
+            userParams["parent_comment_id"] = parentCommentId
+        }
+        
+        let params = ["comment": userParams, "image": [image]] as [String: AnyObject]
+        
+        sendRequestUsingMultipart(APIRoutes.commentImage, parameters: params, headers: headers, completionBlock: completionBlock)
+    }
+    
 }

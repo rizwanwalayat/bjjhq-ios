@@ -79,7 +79,6 @@ internal class JSONSerializer {
             }
           
             var channelName: String?
-            var channelIdentifier: String?
             if let idObj = JSONObj["identifier"] {
                 var idJSON: Dictionary<String, AnyObject>
                 if let idString = idObj as? String {
@@ -97,16 +96,8 @@ internal class JSONSerializer {
                     throw SerializationError.protocolViolation
                 }
                 
-                if let item = idJSON.first {
-                    channelIdentifier = item.value as? String
-                }
-                
                 if let nameStr = idJSON["channel"], let name = nameStr as? String {
                   channelName = name
-                }
-                
-                if channelIdentifier != nil {
-                    channelName = channelIdentifier
                 }
             }
           

@@ -256,7 +256,12 @@ class HomeViewController: BaseViewController {
     @IBAction func butNowAction(_ sender: Any) {
         
         
-        coordinator?.myOrderDetail()
+//        coordinator?.myOrderDetail()
+//        
+//        let vc = OrderViewController()
+//        vc.coordinator = self.coordinator
+//        vc.orderDetail = self.ordersArray?[indexPath.row]
+//        self.coordinator?.navigationController.pushViewController(vc, animated: true)
     }
     
     @objc func likeButtonPressed (_ sender: UIButton)
