@@ -34,6 +34,7 @@ class OrderViewController: BaseViewController {
     // MARK: - Controller's Lifecycle -
     
     var orderDetail : Storefront.OrderEdge?
+    var productId = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,9 +67,11 @@ class OrderViewController: BaseViewController {
     
     @IBAction func checkOutAction(_ sender: Any)
     {
-        //Client.shared.webCheckOut(accessToken: <#T##String#>, quantity: <#T##Int32#>, id: <#T##String#>, completion: <#T##(String?, String?) -> Void#>)
+        Client.shared.webCheckOut(accessToken: DataManager.shared.getUserAccessToekn()!, quantity: 1, id: productId) { pass, fail in
+            
+        }
     }
-    
+        
     @IBAction func clearCartAction(_ sender: Any) {
         
         let vc = DeletePopUpViewController(nibName: "DeletePopUpViewController", bundle: nil)

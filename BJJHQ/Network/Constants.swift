@@ -27,6 +27,7 @@ struct APIRoutes {
     static var updateProfile = "users/profiles/update_profile"
     static var changePassword = "user/change_password"
     static var comments = "comments"
+    static var fetchcomments = "get_comments"
     static var dislike = "dislike"
     static var like = "like"
     static var emailCheck = "email"

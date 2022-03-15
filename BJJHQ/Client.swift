@@ -213,6 +213,7 @@ final class Client {
         let query = ClientQuery.mutationForCheckout(accessToken: DataManager.shared.getUserAccessToekn()!, quantity: quantity, id: id)
         
         let task  = self.client.mutateGraphWith(query) { (query, error) in
+            
             error.debugPrint()
             completion("Done",nil)
         }

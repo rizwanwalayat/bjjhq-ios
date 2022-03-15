@@ -189,7 +189,7 @@ class APIClient: APIClientHandler {
         let token = DataManager.shared.getLocalToken() ?? ""
         let headers: HTTPHeaders = ["Authorization" : token]
         
-        _ = sendRequest(APIRoutes.comments , parameters: params ,httpMethod: .get , headers: headers, completionBlock: completionBlock)
+        _ = sendRequest(APIRoutes.fetchcomments , parameters: params ,httpMethod: .post , headers: headers, completionBlock: completionBlock)
     }
     
     func dislikesComment(_ commentId: Int,_ completionBlock: @escaping APIClientCompletionHandler)
@@ -257,9 +257,16 @@ class APIClient: APIClientHandler {
             userParams["parent_comment_id"] = parentCommentId
         }
         
-        let params = ["comment": userParams, "image": [image]] as [String: AnyObject]
+        //let thumb1 = image.resized(withPercentage: 0.1)
+        let thumb2 = image.resized(toWidth: 50.0)!
+        let imageData = thumb2.jpegData(compressionQuality: 0.1)
+        let imageStr = imageData?.base64EncodedString(options: .lineLength64Characters) ?? ""
         
-        sendRequestUsingMultipart(APIRoutes.commentImage, parameters: params, headers: headers, completionBlock: completionBlock)
+        let params = ["comment": userParams, "image": [imageStr]] as [String: AnyObject]
+        
+        
+        _ = sendRequest(APIRoutes.comments , parameters: params ,httpMethod: .post , headers: headers, completionBlock: completionBlock)
+        //sendRequestUsingMultipart(APIRoutes.commentImage, parameters: params, headers: headers, completionBlock: completionBlock)
     }
     
 }

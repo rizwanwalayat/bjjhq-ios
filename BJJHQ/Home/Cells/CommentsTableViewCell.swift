@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol commentsTableViewDelegate {
     
@@ -82,14 +83,18 @@ class CommentsTableViewCell: UITableViewCell {
         self.likeButton.setTitle("\(commentsData.comment_likes)", for: .normal)
         self.unlikeButton.setTitle("\(commentsData.comment_dislikes)", for: .normal)
         
-//        if let image = commentsData.commentImage {
-//            self.imageCommentHolder.isHidden = false
-//            self.imageComment.image = image
-//        }
-//        else {
-//            self.imageCommentHolder.isHidden = true
-//            self.imageComment.image = nil
-//        }
+        if let image = commentsData.images.first {
+            
+            guard let url = URL(string: image) else {return }
+            self.imageCommentHolder.isHidden = false
+            setImage(imageView: self.imageComment, url: url)
+            
+            //self.imageComment.image = image
+        }
+        else {
+            self.imageCommentHolder.isHidden = true
+            self.imageComment.image = nil
+        }
         
         if let reply =  commentsData.replies{
             if reply.count > 0 {
@@ -97,7 +102,20 @@ class CommentsTableViewCell: UITableViewCell {
                 tableView.reloadData()
             }
         }
+    }
+    
+    func setImage(imageView:UIImageView,url:URL,placeHolder : String = "default")  {
+        imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        imageView.sd_imageIndicator?.startAnimatingIndicator()
         
+        imageView.sd_setImage(with: url) { (img, err, cahce, URI) in
+            imageView.sd_imageIndicator?.stopAnimatingIndicator()
+            if err == nil {
+                imageView.image = img
+            } else {
+                imageView.image = UIImage(named: placeHolder)
+            }
+        }
     }
     
     @objc fileprivate func likeButtonPressed (_ sender: UIButton)

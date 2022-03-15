@@ -242,7 +242,7 @@ extension HomeViewController {
             if success, let commentsData = data?.comments {
                 self.comments = commentsData
                 self.tableView.reloadData()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                     
                     if self.comments.count > 0{
                         
@@ -341,29 +341,47 @@ extension HomeViewController {
     
     fileprivate func productDataPopulate(_ productID: Double)
     {
-        let id = "\(productID)"
+        let id = productID as NSNumber
         self.pieChartTimeCal()
         
-        self.viewModel?.fetchProducts(id, { pdata in
+        self.viewModel?.fetchProducts(id.stringValue, { pdata in
             
             if let data = pdata {
-                
-                self.productModel = data.items.first
-                if let obj = data.items.first(where: { self.decodeId(id: $0.id) == id }) {
+  
+                if let obj = data.items.first(where: { self.decodeId(id: $0.id) == id.stringValue }) {
                     
                     self.productModel = obj
+                    
+                    // dropdown integrations
+                    
+                    var titleArray = [String]()
+                    var ids = [Int]()
+                    
+                    for item in obj.variants.items {
+                        
+                        titleArray.append(item.title)
+                        ids.append(Int(item.id) ?? 0)
+                    }
+                    self.dropDownTF.optionArray = titleArray
+                    //Its Id Values and its optional
+                    self.dropDownTF.optionIds = ids
+
+                    // The the Closure returns Selected Index and String
+                    self.dropDownTF.didSelect{(selectedText , index ,id) in
+                        self.dropDownFilled.text = selectedText
+                    }
+                }else {
+                    
+                    self.productModel = data.items.last
                 }
                 
                 //self.pagesIndicators.pageCount = self.productModel?.images.items.count ?? 0
                 self.productTitle.text = self.productModel?.title ?? ""
                 self.productPrice.text = self.productModel?.price ?? ""
                 let summary =  self.productModel?.summary ?? ""
-                
-//                let attributeString = summary.htmlToAttributedString!.mutableCopy() as! NSMutableAttributedString
-//                                attributeString.beginEditing()
-//                summary.htmlToString
-//                self.descriptionDetial.attributedText = attributeString
                 self.descriptionDetial.text = summary.htmlToString
+                
+                
                 
                 self.collectionView.reloadData()
             }
@@ -396,6 +414,11 @@ extension HomeViewController {
         self.client.onConnected = {
             print("Connected to \(self.client.url)")
                         
+            
+            self.currentDealChannel?.unsubscribe()
+            self.commentschannel?.unsubscribe()
+            self.reactionsChannel?.unsubscribe()
+            
             // comments Channel
             let room_identifier = ["room" : "comment_channel"]
             self.commentschannel = self.client.create("CommentsChannel", identifier: room_identifier, autoSubscribe: true, bufferActions: true)
@@ -474,6 +497,9 @@ extension HomeViewController  {
                             obj.replies?.append(data)
                         }
                         self.comments[row] = obj
+                        
+                        let indexpath = IndexPath(row: row, section: 0)
+                        self.tableView.reloadRows(at: [indexpath], with: .automatic)
                     }
                     
 //                    if let commentObj = self.comments.first( where: {$0.comment!.id == ancestry.intValue} ) {
@@ -486,9 +512,12 @@ extension HomeViewController  {
                 else if let data = Mapper<Comments>().map(JSONObject: response ) {
 
                     self.comments.append(data)
+                    
+                    let indexpath = IndexPath(row: self.comments.count - 1, section: 0)
+                    self.tableView.reloadRows(at: [indexpath], with: .automatic)
                 }
                 
-                self.tableView.reloadData()
+                //self.tableView.reloadData()
             }
         }
         
@@ -537,7 +566,8 @@ extension HomeViewController  {
                                 let subObj = obj.replies?[replyRow]
                                 subObj?.isLiked = isLiked
                             }
-                            
+                            let indexpath = IndexPath(row: row, section: 0)
+                            self.tableView.reloadRows(at: [indexpath], with: .automatic)
                         }
                     }
                     else {
@@ -546,12 +576,14 @@ extension HomeViewController  {
                             
                             let obj = self.comments[row]
                             obj.isLiked = isLiked
+                            let indexpath = IndexPath(row: row, section: 0)
+                            self.tableView.reloadRows(at: [indexpath], with: .automatic)
                         }
                             
                     }
                     
                 }
-                self.tableView.reloadData()
+                //self.tableView.reloadData()
             }
         }
         

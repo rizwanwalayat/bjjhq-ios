@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SubCommentsTableViewCell: UITableViewCell {
 
@@ -42,56 +43,29 @@ class SubCommentsTableViewCell: UITableViewCell {
         self.likeButton.setTitle("\(commentsData.comment_likes)", for: .normal)
         self.unlikeButton.setTitle("\(commentsData.comment_dislikes)", for: .normal)
         
+        if let image = commentsData.images.first {
+            guard let url = URL(string: image) else {return }
+            self.imageHolderView.isHidden = false
+            setImage(imageView: self.commentImage, url: url)
+            //self.imageComment.image = image
+        }
+        else {
+            self.imageHolderView.isHidden = true
+            self.commentImage.image = nil
+        }
+    }
+    
+    func setImage(imageView:UIImageView,url:URL,placeHolder : String = "default")  {
+        imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        imageView.sd_imageIndicator?.startAnimatingIndicator()
         
-       
-        
-//        if let image = commentsData.commentImage {
-//            self.imageHolderView.isHidden = false
-//            self.commentImage.image = image
-//        }
-//        else {
-//            self.imageHolderView.isHidden = true
-//            self.commentImage.image = nil
-//        }
-        
-//        if let isLiked = commentsData.isLiked {
-//            switch isLiked {
-//            case true:
-//                
-//                self.likeButton.setTitleColor(UIColor.white, for: .normal)
-//                self.likeButton.tintColor = .white
-//                self.likeButton.borderColor = UIColor(hexString: "5BD6CD")
-//                self.likeButton.backgroundColor = UIColor(hexString: "5BD6CD")
-//                
-//                self.unlikeButton.setTitleColor(UIColor(hexString: "#252C44"), for: .normal)
-//                self.unlikeButton.tintColor = UIColor(hexString: "#252C44")
-//                self.unlikeButton.borderColor = UIColor(hexString: "#252C44")
-//                self.unlikeButton.backgroundColor = .clear
-//                
-//            case false:
-//                
-//                self.unlikeButton.setTitleColor(UIColor.white, for: .normal)
-//                self.unlikeButton.tintColor = .white
-//                self.unlikeButton.borderColor = UIColor(hexString: "#252C44")
-//                self.unlikeButton.backgroundColor = UIColor(hexString: "#252C44")
-//                
-//                self.likeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
-//                self.likeButton.tintColor = UIColor(hexString: "5BD6CD")
-//                self.likeButton.borderColor = UIColor(hexString: "5BD6CD")
-//                self.likeButton.backgroundColor = .clear
-//            }
-//        }
-//        else {
-//
-//            self.likeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
-//            self.likeButton.tintColor = UIColor(hexString: "5BD6CD")
-//            self.likeButton.borderColor = UIColor(hexString: "5BD6CD")
-//
-//            self.unlikeButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
-//            self.unlikeButton.tintColor = UIColor(hexString: "252C44")
-//            self.unlikeButton.borderColor = UIColor(hexString: "252C44")
-//        }
-        
-        
+        imageView.sd_setImage(with: url) { (img, err, cahce, URI) in
+            imageView.sd_imageIndicator?.stopAnimatingIndicator()
+            if err == nil {
+                imageView.image = img
+            } else {
+                imageView.image = UIImage(named: placeHolder)
+            }
+        }
     }
 }

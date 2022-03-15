@@ -178,18 +178,6 @@ class HomeViewController: BaseViewController {
         upButton.transform = self.upButton.transform.rotated(by: .pi)
         
         
-        // dropdown integrations
-        
-        dropDownTF.optionArray = ["Small", "Medium", "Large", "X Large", " XX Large"]
-        //Its Id Values and its optional
-        dropDownTF.optionIds = [1,2,3,4, 5]
-
-        // The the Closure returns Selected Index and String
-        dropDownTF.didSelect{(selectedText , index ,id) in
-            self.dropDownFilled.text = selectedText
-            //self.dropDownTF.text = ""
-        }
-        
         viewModel = HomeViewModel()
         
         // Pie chart
@@ -255,8 +243,9 @@ class HomeViewController: BaseViewController {
     
     @IBAction func butNowAction(_ sender: Any) {
         
-        
-//        coordinator?.myOrderDetail()
+        let str = "\(Int(self.productInfo?.current_product_id ?? 0) )"
+        let uploadedID = str.toBase64()
+        coordinator?.myOrderDetail(uploadedID)
 //        
 //        let vc = OrderViewController()
 //        vc.coordinator = self.coordinator
