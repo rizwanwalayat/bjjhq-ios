@@ -29,5 +29,5 @@ class Global {
     var FCMtoken : String?
     var selectedIndex = 10
     var notificationSetting : NotificationModel?
-    
+    var dataForFaceBookUser = fbData()
 }

@@ -64,6 +64,8 @@
 		1816886527BFD13200C9D962 /* OrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1816885827BFD13200C9D962 /* OrderViewController.xib */; };
 		1835898B27BD564600F293B6 /* AddressBookPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835898927BD564600F293B6 /* AddressBookPopUpViewController.swift */; };
 		1835898C27BD564600F293B6 /* AddressBookPopUpViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 1835898A27BD564600F293B6 /* AddressBookPopUpViewController.xib */; };
+		1841B74F27E21576008820E7 /* ReturnPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841B74D27E21576008820E7 /* ReturnPolicyViewController.swift */; };
+		1841B75027E21576008820E7 /* ReturnPolicyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1841B74E27E21576008820E7 /* ReturnPolicyViewController.xib */; };
 		1842EDF227BBE84800A4DA1D /* ForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842EDF027BBE84800A4DA1D /* ForgetViewController.swift */; };
 		1842EDF327BBE84800A4DA1D /* ForgetViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 1842EDF127BBE84800A4DA1D /* ForgetViewController.xib */; };
 		1847908027BE448A00D98451 /* MyAddressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847907E27BE448A00D98451 /* MyAddressesViewController.swift */; };
@@ -276,6 +278,8 @@
 		1816885827BFD13200C9D962 /* OrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderViewController.xib; sourceTree = "<group>"; };
 		1835898927BD564600F293B6 /* AddressBookPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookPopUpViewController.swift; sourceTree = "<group>"; };
 		1835898A27BD564600F293B6 /* AddressBookPopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressBookPopUpViewController.xib; sourceTree = "<group>"; };
+		1841B74D27E21576008820E7 /* ReturnPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnPolicyViewController.swift; sourceTree = "<group>"; };
+		1841B74E27E21576008820E7 /* ReturnPolicyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReturnPolicyViewController.xib; sourceTree = "<group>"; };
 		1842EDF027BBE84800A4DA1D /* ForgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewController.swift; sourceTree = "<group>"; };
 		1842EDF127BBE84800A4DA1D /* ForgetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgetViewController.xib; sourceTree = "<group>"; };
 		1847907E27BE448A00D98451 /* MyAddressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAddressesViewController.swift; sourceTree = "<group>"; };
@@ -788,6 +792,8 @@
 				18D766C227BE8D290076A12B /* SideMenuViewController.xib */,
 				18FCF6C327BE951100D5DF17 /* SideMenuTableViewCell.swift */,
 				18FCF6C427BE951100D5DF17 /* SideMenuTableViewCell.xib */,
+				1841B74D27E21576008820E7 /* ReturnPolicyViewController.swift */,
+				1841B74E27E21576008820E7 /* ReturnPolicyViewController.xib */,
 			);
 			name = SideMenu;
 			sourceTree = "<group>";
@@ -1270,6 +1276,7 @@
 				0487AC4A27C4C47D00A3422B /* neusa-next-std-compact-regular.ttf in Resources */,
 				0487AC4727C4C47D00A3422B /* Barlow-BlackItalic.ttf in Resources */,
 				0487AC4327C4C47D00A3422B /* Barlow-LightItalic.ttf in Resources */,
+				1841B75027E21576008820E7 /* ReturnPolicyViewController.xib in Resources */,
 				1816886527BFD13200C9D962 /* OrderViewController.xib in Resources */,
 				0487AC4927C4C47D00A3422B /* Barlow-Black.ttf in Resources */,
 				0487AC3F27C4C47D00A3422B /* Barlow-ExtraLightItalic.ttf in Resources */,
@@ -1337,6 +1344,10 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/FBAEMKit/FBAEMKit.framework/FBAEMKit",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework/FBSDKCoreKit",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/FBSDKCoreKit_Basics/FBSDKCoreKit_Basics.framework/FBSDKCoreKit_Basics",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework/FBSDKLoginKit",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1359,6 +1370,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBAEMKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit_Basics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1416,6 +1431,7 @@
 				04FC4FFF27DBB04E00605C79 /* HomeVCExtenstions.swift in Sources */,
 				9A27C3241E8FDA4900218EE8 /* AddressViewModel.swift in Sources */,
 				1863836F27BB9BFE0080FC80 /* Coordinator.swift in Sources */,
+				1841B74F27E21576008820E7 /* ReturnPolicyViewController.swift in Sources */,
 				9A9C92B51ED4B0B40027F049 /* Color.swift in Sources */,
 				9AE776302166AB3700A02112 /* DiscountApplication.swift in Sources */,
 				9A0ED6911E842467008C605E /* CartButton.swift in Sources */,

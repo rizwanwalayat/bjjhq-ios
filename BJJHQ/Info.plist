@@ -21,6 +21,8 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.shopify.bjjhq</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.396436503808-qkvlepkdh9shp2eab243d3u6ejso13ap</string>
@@ -29,14 +31,37 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.shopify.bjjhq</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>deeplink</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.shopify.bjjhq</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb284605789033140</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>284605789033140</string>
+	<key>FacebookClientToken</key>
+	<string>adab92e79627e88ecd34b07a6383c7c2</string>
+	<key>FacebookDisplayName</key>
+	<string>BJJHQ</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>

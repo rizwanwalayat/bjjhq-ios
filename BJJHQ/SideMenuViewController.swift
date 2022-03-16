@@ -55,7 +55,7 @@ class SideMenuViewController: BaseViewController, SlideMenuControllerDelegate {
 }
 extension SideMenuViewController : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,6 +81,8 @@ extension SideMenuViewController : UITableViewDelegate,UITableViewDataSource{
             coordinator?.notificationPage()
         case 5:
             coordinator?.FAQPage()
+        case 6:
+            coordinator?.ReturnPolicyPage()
         default :
             print("Default")
         }

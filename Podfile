@@ -21,5 +21,6 @@ pod 'Firebase/Core'
 pod "CSPieChart"
 
 pod 'FBSDKLoginKit'
-
+#pod 'FirebaseUI'
+#pod 'FirebaseUI/Facebook'
 end
