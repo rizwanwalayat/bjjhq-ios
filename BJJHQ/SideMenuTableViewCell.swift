@@ -13,7 +13,7 @@ class SideMenuTableViewCell: UITableViewCell {
     @IBOutlet weak var sideMenuImage: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
     
-    var array = ["Change Password","My Orders","Address Book","Contact Us","Notifications","Return Policy","FAQ's"]
+    var array = ["Change Password","My Orders","Address Book","Contact Us","Notifications","Return Policy","FAQs"]
     
     override func awakeFromNib() {
         super.awakeFromNib()

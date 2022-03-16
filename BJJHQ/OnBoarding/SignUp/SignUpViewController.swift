@@ -171,12 +171,12 @@ class SignUpViewController: BaseViewController {
         }
         else if confirmPasswordTF.text! == passwordTF.text!
         {
-            comfirmPasswordTFStatus.text = "✓ Matched"
+            comfirmPasswordTFStatus.text = "✓ Passwords Match"
             comfirmPasswordTFStatus.textColor = UIColor(hexString: "#28A938")
         }
         else {
             
-            comfirmPasswordTFStatus.text = "! Not Matched"
+            comfirmPasswordTFStatus.text = "! Passwords Not Matched"
             comfirmPasswordTFStatus.textColor = UIColor(hexString: "#BB0808")
         }
     }

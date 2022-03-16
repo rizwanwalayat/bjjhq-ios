@@ -256,17 +256,11 @@ class APIClient: APIClientHandler {
         if parentCommentId.count > 0{
             userParams["parent_comment_id"] = parentCommentId
         }
-        
-        //let thumb1 = image.resized(withPercentage: 0.1)
         let thumb2 = image.resized(toWidth: 50.0)!
-        let imageData = thumb2.jpegData(compressionQuality: 0.1)
+        let imageData = thumb2.jpegData(compressionQuality: 0.5)
         let imageStr = imageData?.base64EncodedString(options: .lineLength64Characters) ?? ""
-        
-        let params = ["comment": userParams, "image": [imageStr]] as [String: AnyObject]
-        
-        
+        let params = ["comment": userParams, "image": ["data:image/png;base64,"+imageStr]] as [String: AnyObject]
         _ = sendRequest(APIRoutes.comments , parameters: params ,httpMethod: .post , headers: headers, completionBlock: completionBlock)
-        //sendRequestUsingMultipart(APIRoutes.commentImage, parameters: params, headers: headers, completionBlock: completionBlock)
     }
     
 }

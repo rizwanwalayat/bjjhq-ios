@@ -31,8 +31,8 @@ class OrderSuccesFullViewController: BaseViewController {
         super.viewDidLoad()
         self.popUpView.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
         if isFromFeedBack {
-            self.titleLbl.text = "Thank you for your feedback!"
-            self.descriptionLbl.text = "Your message has been received, we really appreciate you for submitting your feedback"
+            self.titleLbl.text = "Message Sent!"
+            self.descriptionLbl.text = "Thank you for reaching out. Our CS team will be on the case shortly and contact you through your account's registered email address."
             self.buttonHeighwt.constant = 0
             mainViewMultiplier =  mainViewMultiplier.setMultiplier(multiplier: 0.45)
         }
