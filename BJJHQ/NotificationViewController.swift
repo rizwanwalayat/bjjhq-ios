@@ -37,6 +37,8 @@ class NotificationViewController: BaseViewController, notificatioSwitch {
     }
     
     func switchState(state: Bool, index: Int) {
+        globalCollectionViewCell?.selectedIndex = Global.shared.selectedIndex
+        globalCollectionViewCell?.collectionView.reloadData()
         print(state,index)
         if index == 0 {
             //comment_notifications

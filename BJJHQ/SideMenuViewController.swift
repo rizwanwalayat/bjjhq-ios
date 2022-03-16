@@ -80,9 +80,9 @@ extension SideMenuViewController : UITableViewDelegate,UITableViewDataSource{
         case 4:
             coordinator?.notificationPage()
         case 5:
-            coordinator?.FAQPage()
-        case 6:
             coordinator?.ReturnPolicyPage()
+        case 6:
+            coordinator?.FAQPage()
         default :
             print("Default")
         }

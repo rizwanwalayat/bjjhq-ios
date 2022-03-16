@@ -38,7 +38,7 @@ class DeletePopUpViewController: BaseViewController {
             //self.heightMultiplier =  heightMultiplier.setMultiplier(multiplier: 0.3)
             self.imgvvView.isHidden = true
             self.titleLbl.text = "Sign Out"
-            self.descriptionLbl.text = "Are you sure you want to sign out?"
+            self.descriptionLbl.text = "You can log back in or switch to a different account."
         }
         else if isFromAddress {
             //self.heightMultiplier =  heightMultiplier.setMultiplier(multiplier: 0.3)

@@ -103,6 +103,8 @@
 		18958BD827BE6BDE00696B8E /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18958BD627BE6BDE00696B8E /* ErrorViewController.swift */; };
 		18958BD927BE6BDE00696B8E /* ErrorViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 18958BD727BE6BDE00696B8E /* ErrorViewController.xib */; };
 		18A6679B27BBB9BC005FE8C1 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A6679A27BBB9BC005FE8C1 /* UIView.swift */; };
+		18B598D427E2176E008B7B72 /* ReturnPolicyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B598D227E2176E008B7B72 /* ReturnPolicyTableViewCell.swift */; };
+		18B598D527E2176E008B7B72 /* ReturnPolicyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B598D327E2176E008B7B72 /* ReturnPolicyTableViewCell.xib */; };
 		18D766C327BE8D290076A12B /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D766C127BE8D290076A12B /* SideMenuViewController.swift */; };
 		18D766C427BE8D290076A12B /* SideMenuViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 18D766C227BE8D290076A12B /* SideMenuViewController.xib */; };
 		18D766C627BE8DE70076A12B /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D766C527BE8DE70076A12B /* SlideMenuController.swift */; };
@@ -321,6 +323,8 @@
 		18A6679A27BBB9BC005FE8C1 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		18A6679C27BBC391005FE8C1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		18A6679D27BBC391005FE8C1 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		18B598D227E2176E008B7B72 /* ReturnPolicyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnPolicyTableViewCell.swift; sourceTree = "<group>"; };
+		18B598D327E2176E008B7B72 /* ReturnPolicyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReturnPolicyTableViewCell.xib; sourceTree = "<group>"; };
 		18D766C127BE8D290076A12B /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		18D766C227BE8D290076A12B /* SideMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuViewController.xib; sourceTree = "<group>"; };
 		18D766C527BE8DE70076A12B /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
@@ -785,9 +789,19 @@
 			path = Toasts;
 			sourceTree = "<group>";
 		};
+		18B598D127E21759008B7B72 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				18B598D227E2176E008B7B72 /* ReturnPolicyTableViewCell.swift */,
+				18B598D327E2176E008B7B72 /* ReturnPolicyTableViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		18D766C027BE8D180076A12B /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				18B598D127E21759008B7B72 /* Views */,
 				18D766C127BE8D290076A12B /* SideMenuViewController.swift */,
 				18D766C227BE8D290076A12B /* SideMenuViewController.xib */,
 				18FCF6C327BE951100D5DF17 /* SideMenuTableViewCell.swift */,
@@ -1290,6 +1304,7 @@
 				96DD6C4627C3790B00DDA0DC /* MyOrdersViewController.xib in Resources */,
 				04E692D427C385D100DF3750 /* UserProfileViewController.xib in Resources */,
 				04FC4FF727DBB04E00605C79 /* CommentsTableViewCell.xib in Resources */,
+				18B598D527E2176E008B7B72 /* ReturnPolicyTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1499,6 +1514,7 @@
 				9A27C3311E91232500218EE8 /* ShippingRateViewModel+PayShippingRate.swift in Sources */,
 				185C707E27BD38EA008F2FB3 /* DeletePopUpViewController.swift in Sources */,
 				9A4EDDDB2126E9A70071BA56 /* Fragment+OrderConnectionQuery.swift in Sources */,
+				18B598D427E2176E008B7B72 /* ReturnPolicyTableViewCell.swift in Sources */,
 				0481A26E27CCBA9900277E21 /* ApiClient.swift in Sources */,
 				1816884127BFCED900C9D962 /* SignUpViewController.swift in Sources */,
 				9A9C92BC1ED5BDE80027F049 /* Fragment+PaymentQuery.swift in Sources */,

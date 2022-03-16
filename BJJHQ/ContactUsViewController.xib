@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -72,24 +72,14 @@
                                 <action selector="backAction:" destination="-1" eventType="touchUpInside" id="Kgk-Ei-6se"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Contact Us" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXj-qw-duu">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Contact HQ Support" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXj-qw-duu">
                             <rect key="frame" x="80" y="20" width="274" height="40"/>
                             <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="18"/>
                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Are you facing some trouble?Let us know" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQh-wo-6cY">
-                            <rect key="frame" x="47" y="119" width="229" height="45"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="229" id="2uy-Zw-0Rf"/>
-                                <constraint firstAttribute="height" constant="45" id="cDZ-Vq-BV0"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="18"/>
-                            <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ldx-8w-FG6">
-                            <rect key="frame" x="35" y="176" width="344" height="327"/>
+                            <rect key="frame" x="35" y="237.5" width="344" height="327"/>
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZlT-G6-5Ph">
                                     <rect key="frame" x="14" y="14" width="316" height="276"/>
@@ -166,23 +156,40 @@
                                 <action selector="sendAction:" destination="-1" eventType="touchUpInside" id="je5-xJ-Riv"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Price-tags DOWN. . . Customer service UP!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDI-iE-Gr7">
+                            <rect key="frame" x="35" y="200.5" width="359" height="17"/>
+                            <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="14"/>
+                            <color key="textColor" name="blue"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQh-wo-6cY">
+                            <rect key="frame" x="35" y="130" width="349" height="50.5"/>
+                            <string key="text">Hit us with order- or product-related inquiries and we'll help get things resolved. Our CS team wants to help. No shortcuts and no passing the blame.</string>
+                            <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="14"/>
+                            <color key="textColor" name="blue"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="bXj-qw-duu" firstAttribute="top" secondItem="PjN-J7-gtr" secondAttribute="top" constant="20" id="1Nj-vJ-Szy"/>
                         <constraint firstItem="Ibt-Wg-6RW" firstAttribute="leading" secondItem="Ldx-8w-FG6" secondAttribute="leading" id="6uA-sC-o1k"/>
+                        <constraint firstItem="BDI-iE-Gr7" firstAttribute="leading" secondItem="PjN-J7-gtr" secondAttribute="leading" constant="35" id="8ip-Ei-7Um"/>
                         <constraint firstItem="bXj-qw-duu" firstAttribute="leading" secondItem="Ae2-oO-UAj" secondAttribute="trailing" constant="20" id="EeZ-Db-l8T"/>
                         <constraint firstAttribute="trailing" secondItem="bXj-qw-duu" secondAttribute="trailing" constant="60" id="G17-l2-C68"/>
                         <constraint firstItem="Ibt-Wg-6RW" firstAttribute="trailing" secondItem="Ldx-8w-FG6" secondAttribute="trailing" id="GhD-U5-lTi"/>
+                        <constraint firstAttribute="trailing" secondItem="iQh-wo-6cY" secondAttribute="trailing" constant="30" id="RoV-62-hNx"/>
                         <constraint firstAttribute="trailing" secondItem="Ldx-8w-FG6" secondAttribute="trailing" constant="35" id="TXU-f2-m0y"/>
-                        <constraint firstItem="iQh-wo-6cY" firstAttribute="top" secondItem="bXj-qw-duu" secondAttribute="bottom" constant="59" id="Wyk-fz-jCC"/>
+                        <constraint firstAttribute="trailing" secondItem="BDI-iE-Gr7" secondAttribute="trailing" constant="20" id="Ye5-Zf-xmT"/>
                         <constraint firstItem="bXj-qw-duu" firstAttribute="centerY" secondItem="Ae2-oO-UAj" secondAttribute="centerY" id="aKa-Yn-zJw"/>
+                        <constraint firstItem="Ldx-8w-FG6" firstAttribute="top" secondItem="BDI-iE-Gr7" secondAttribute="bottom" constant="20" id="dI0-9W-kej"/>
                         <constraint firstItem="Ldx-8w-FG6" firstAttribute="height" secondItem="PjN-J7-gtr" secondAttribute="height" multiplier="0.4" id="eHq-MM-X1A"/>
-                        <constraint firstItem="Ldx-8w-FG6" firstAttribute="top" secondItem="iQh-wo-6cY" secondAttribute="bottom" constant="12" id="m2c-pb-Vvz"/>
                         <constraint firstItem="Ae2-oO-UAj" firstAttribute="top" secondItem="PjN-J7-gtr" secondAttribute="top" constant="20" id="mTd-Sk-j2i"/>
+                        <constraint firstItem="iQh-wo-6cY" firstAttribute="top" secondItem="Ae2-oO-UAj" secondAttribute="bottom" constant="70" id="nFn-fy-lPu"/>
+                        <constraint firstItem="BDI-iE-Gr7" firstAttribute="top" secondItem="iQh-wo-6cY" secondAttribute="bottom" constant="20" id="nK0-9i-cnB"/>
                         <constraint firstItem="Ae2-oO-UAj" firstAttribute="leading" secondItem="PjN-J7-gtr" secondAttribute="leading" constant="20" id="rbf-Ok-fXJ"/>
                         <constraint firstItem="Ldx-8w-FG6" firstAttribute="leading" secondItem="PjN-J7-gtr" secondAttribute="leading" constant="35" id="tAo-cw-ShF"/>
-                        <constraint firstItem="iQh-wo-6cY" firstAttribute="leading" secondItem="PjN-J7-gtr" secondAttribute="leading" constant="47" id="z0a-9G-gDZ"/>
+                        <constraint firstItem="iQh-wo-6cY" firstAttribute="leading" secondItem="PjN-J7-gtr" secondAttribute="leading" constant="35" id="z0a-9G-gDZ"/>
                         <constraint firstAttribute="bottom" secondItem="Ibt-Wg-6RW" secondAttribute="bottom" constant="75" id="zNi-zc-jz3"/>
                     </constraints>
                 </view>
