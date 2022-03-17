@@ -112,13 +112,13 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order #00000 placed successfully. We'll email you tracking info ASAP!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rR4-MO-1KE">
-                                    <rect key="frame" x="20" y="357" width="314" height="36"/>
+                                    <rect key="frame" x="20" y="351" width="314" height="42"/>
                                     <fontDescription key="fontDescription" name="NeusaNextStd-CompactRegular" family="Neusa Next Std" pointSize="18"/>
                                     <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Order Successful!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NBl-Ig-one">
-                                    <rect key="frame" x="20" y="318.5" width="314" height="26.5"/>
+                                    <rect key="frame" x="20" y="313" width="314" height="26"/>
                                     <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="22"/>
                                     <color key="textColor" name="blue"/>
                                     <nil key="highlightedColor"/>

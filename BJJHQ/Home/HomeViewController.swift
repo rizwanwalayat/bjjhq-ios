@@ -99,10 +99,10 @@ class HomeViewController: BaseViewController {
         
         tableView.removeObserver(self, forKeyPath: "contentSize")
         timer.invalidate()
-        self.client.disconnect()
-        self.currentDealChannel?.unsubscribe()
-        self.commentschannel?.unsubscribe()
-        self.reactionsChannel?.unsubscribe()
+//        self.client.disconnect()
+//        self.currentDealChannel?.unsubscribe()
+//        self.commentschannel?.unsubscribe()
+//        self.reactionsChannel?.unsubscribe()
     }
     
     override func viewDidAppear(_ animated: Bool) {

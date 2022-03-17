@@ -438,7 +438,7 @@ extension ActionCableClient {
                     }
                 }
             case .confirmSubscription:
-                if let channel = unconfirmedChannels.removeValue(forKey: message.channelName!) {
+                if let channel = unconfirmedChannels[message.channelName!] {
                     self.channels.updateValue(channel, forKey: channel.uid)
                     
                     // Notify Channel
