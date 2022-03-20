@@ -27,6 +27,7 @@ class Comments : Mappable {
     var comment : Comment?
     var comment_likes = 0
     var comment_dislikes = 0
+    var commentor_avatar = ""
     var replies : [CommentsReplies]?
     var images = [String]()
     var reaction = ""
@@ -43,6 +44,7 @@ class Comments : Mappable {
         comment_dislikes <- map["comment_dislikes"]
         replies <- map["replies"]
         images <- map["images"]
+        commentor_avatar <- map["commentor_avatar"]
         reaction <- map["my_reaction"]
         
         if reaction == "liked" {

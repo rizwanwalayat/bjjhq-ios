@@ -97,7 +97,6 @@ class HomeViewModel: BaseViewModel {
         APIClient.shared.sendImageComments(mobileId: uuid, userSystemId: "\(userId)", message: message, role: role, image: image) { responce, result, error, statusCode, messsage in
             
             if let response = result {
-                
                 if let success = response["status"] as? Bool {
                     
                     completionHandler(success, message)

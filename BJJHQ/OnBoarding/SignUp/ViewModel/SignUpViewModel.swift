@@ -41,8 +41,8 @@ final class SignUpViewModel: BaseViewModel {
             
             if let response = result {
                 
-                let newResult = ["result" : response]
-                if let resultData = Mapper<UserDataModel>().map(JSON: newResult as [String : Any]) {
+//                let newResult = ["result" : response]
+                if let resultData = Mapper<UserDataModel>().map(JSON: response as! [String : Any]) {
                     
                     completion(resultData, nil)
                     

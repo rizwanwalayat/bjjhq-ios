@@ -77,6 +77,9 @@ class CommentsTableViewCell: UITableViewCell {
     {
         superComment = commentsData
         self.userName.text = commentsData.comment?.name ?? ""
+        guard let url = URL(string: commentsData.commentor_avatar) else {return }
+        setImage(imageView: self.userProfile, url: url)
+    
         self.commentsText.text = commentsData.comment?.message ?? ""
         let time = commentsData.comment?.createdDate.timeCalculation(isShowTime: false)
         self.timeLabel.text =  time

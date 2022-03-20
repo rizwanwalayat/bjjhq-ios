@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import ObjectMapper
+
 var globalCollectionViewCell :MainNotificationTableViewCell?
 protocol notificatioSwitch {
     func switchState(state:Bool,index:Int)
@@ -26,8 +28,9 @@ class MainNotificationTableViewCell: UITableViewCell {
     
     //MARK: - Variables
     
-    var selectedIndex = Global.shared.selectedIndex
+    var selectedIndex = 7
     var array2 = [2,4,6,8,10,12]
+    var notificationModel : NotificationModel?
     var delegagte : notificatioSwitch?
     var array = ["Daily Deals Notifications","Rolling Deals Notifications","Snooze Alert","Comments Notifications"]
     var detailArray = ["Basic alert for our standard 24-hour deals (published daily at 11pm EST)","Turn OFF if you want to pause notifications during our rapid-fire Rolling Deals events","Turn ON if you want alerts when other HQ users interact with your posts on the wall.","Time zone issues? Hitting the hay before 11pm? 'Snooze' provides options for delayed alerts, so you get a reminder when you want 'em."]
@@ -62,7 +65,7 @@ class MainNotificationTableViewCell: UITableViewCell {
     
     //MARK: - Functions
     
-    func config(index:Int) {
+    func config(index:Int,data:NotificationModel?) {
         if index == 0 {
             collectionView.isHidden = false
             self.stackViewHeight.constant = 50
@@ -74,16 +77,16 @@ class MainNotificationTableViewCell: UITableViewCell {
             self.bottomHeight.constant = 0
         }
         if index == 0 {
-            self.switchButton.isOn = Global.shared.notificationSetting?.notificationSetting?.dailyDealNotifications ?? false
+            self.switchButton.isOn = DataManager.shared.getNotification()?.notificationSetting?.dailyDealNotifications ?? false
         }
         else if index == 1 {
-            self.switchButton.isOn = Global.shared.notificationSetting?.notificationSetting?.rolling_deal_notifications ?? false
+            self.switchButton.isOn = DataManager.shared.getNotification()?.notificationSetting?.rolling_deal_notifications ?? false
         }
         else if index == 2 {
-            self.switchButton.isOn = Global.shared.notificationSetting?.notificationSetting?.snooze_alert ?? false
+            self.switchButton.isOn = DataManager.shared.getNotification()?.notificationSetting?.snooze_alert ?? false
         }
         else if index == 3 {
-            self.switchButton.isOn = Global.shared.notificationSetting?.notificationSetting?.comment_notifications ?? false
+            self.switchButton.isOn = DataManager.shared.getNotification()?.notificationSetting?.comment_notifications ?? false
         }
         self.titleLbl.text = array[index]
         self.detailText.text = detailArray[index]
@@ -132,7 +135,11 @@ extension MainNotificationTableViewCell : UICollectionViewDelegate, UICollection
         selectedIndex = indexPath.item
        
         SignInViewModel().notificationSettingUpdate(comments: Global.shared.notificationSetting?.notificationSetting?.comment_notifications, dailyDealNotification: Global.shared.notificationSetting?.notificationSetting?.dailyDealNotifications, dailyDealReminder: self.array2[selectedIndex], rollingDealNotification: Global.shared.notificationSetting?.notificationSetting?.rolling_deal_notifications, rollingDealReminder: Global.shared.notificationSetting?.notificationSetting?.rolling_deal_reminder_time, snoozeAlert: Global.shared.notificationSetting?.notificationSetting?.snooze_alert) { success in
-            print(success)
+            if success != nil {
+                Global.shared.notificationSetting = success
+                
+                DataManager.shared.setNotification(notifications: success?.toJSONString() ?? "")
+            }
         }
         collectionView.reloadData()
     }

@@ -245,12 +245,7 @@ class HomeViewController: BaseViewController {
         
         let str = "\(Int(self.productInfo?.current_product_id ?? 0) )"
         let uploadedID = str.toBase64()
-        coordinator?.myOrderDetail(uploadedID)
-//        
-//        let vc = OrderViewController()
-//        vc.coordinator = self.coordinator
-//        vc.orderDetail = self.ordersArray?[indexPath.row]
-//        self.coordinator?.navigationController.pushViewController(vc, animated: true)
+        coordinator?.myOrderDetail(uploadedID, productModel: self.productModel)
     }
     
     @objc func likeButtonPressed (_ sender: UIButton)
@@ -307,11 +302,17 @@ class HomeViewController: BaseViewController {
             timePieChart.reloadPieChart()
             
             guard let endDate = fetchPromotionEndTime(info.lastUpdateDate, minToAdd: info.time_interval) else {return }
-            
             let interval = endDate.timeIntervalSince(Date())
             var difference = Date(timeIntervalSinceReferenceDate: interval)
-            
+            difference = Calendar.current.date(byAdding: .hour, value: -5, to: difference) ?? difference
             self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+                
+                self.dataList = [
+                    CSPieChartData(key: "time", value: Double(min)),
+                    CSPieChartData(key: "Empty", value: Double(info.time_interval))
+                ]
+                self.timePieChart.show(animated: false)
+                self.timePieChart.reloadPieChart()
                 
                 let timeArr = difference.dateToString("HH:mm:ss").components(separatedBy: ":")
                 self.remainingTimeLabel.text = "\(timeArr[0])h \(timeArr[1])m \(timeArr[2])s"
@@ -333,5 +334,3 @@ class HomeViewController: BaseViewController {
         return date
     }
 }
-
-

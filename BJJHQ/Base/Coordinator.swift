@@ -23,7 +23,8 @@ protocol Coordinator {
     func profilePage()
     func FAQPage()
     func ReturnPolicyPage()
-    func myOrderDetail(_ productID : String)
+    func myOrderDetail(_ productID : String,productModel : ProductViewModel?)
+    func openWKWebViewControllerFor(_ url: URL, token: String)
     func successController()
 }
 
@@ -42,16 +43,23 @@ class MainCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.setViewControllers([vc], animated: true)
     }
+    func openWKWebViewControllerFor(_ url: URL, token: String) {
+        let webController = WebViewController(url: url, accessToken: token)
+        navigationController.navigationBar.isHidden = false
+        webController.coordinator = self
+        navigationController.pushViewController(webController, animated: true)
+    }
     
     func landingPage() {
         let vc = LandingPageViewController()
         vc.coordinator = self
         navigationController.setViewControllers([vc], animated: true)
     }
-    func myOrderDetail(_ productID : String) {
+    func myOrderDetail(_ productID : String,productModel : ProductViewModel?) {
         let vc = OrderViewController()
         vc.coordinator = self
         vc.productId = productID
+        vc.productModel = productModel
         navigationController.pushViewController(vc, animated: true)
     }
     

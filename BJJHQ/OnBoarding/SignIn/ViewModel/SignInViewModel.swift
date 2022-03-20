@@ -92,7 +92,7 @@ final class SignInViewModel: BaseViewModel {
                 }
             }
     
-    func notificationSetting(_ completionHandler: @escaping (_ success: Bool) -> Void) {
+    func notificationSetting(_ completionHandler: @escaping (_ dataForNotification: NotificationModel?) -> Void) {
         APIClient.shared.fetchNotificationSetting { responce,result, error, statusCode, messsage in
             
                 if let responseeeee = result {
@@ -118,22 +118,22 @@ final class SignInViewModel: BaseViewModel {
                         }
                         
                         DataManager.shared.setNotification(notifications: data.toJSONString() ?? "")
-                        completionHandler(true)
+                        completionHandler(data)
                         
                     } else {
                         
-                        completionHandler(false)
+                        completionHandler(nil)
                     }
                 }
                 else {
                     
-                    completionHandler(false)
+                    completionHandler(nil)
                 }
         }
         
     }
     
-    func notificationSettingUpdate(comments:Bool?,dailyDealNotification:Bool?, dailyDealReminder:Int?,rollingDealNotification:Bool?,rollingDealReminder:Int?,snoozeAlert:Bool?,_ completionHandler: @escaping (_ success: Bool) -> Void) {
+    func notificationSettingUpdate(comments:Bool?,dailyDealNotification:Bool?, dailyDealReminder:Int?,rollingDealNotification:Bool?,rollingDealReminder:Int?,snoozeAlert:Bool?,_ completionHandler: @escaping (_ dataForNotification: NotificationModel?) -> Void) {
         
         APIClient.shared.postNotificationSetting(comments: comments, dailyDealNotification: dailyDealNotification, dailyDealReminder: dailyDealReminder, rollingDealNotification: rollingDealNotification, rollingDealReminder: rollingDealReminder, snoozeAlert: snoozeAlert) { responce,result, error, statusCode, messsage in
             
@@ -159,16 +159,16 @@ final class SignInViewModel: BaseViewModel {
                         else {
                             Global.shared.selectedIndex = 5
                         }
-                        completionHandler(true)
+                        completionHandler(data)
                         
                     } else {
                         
-                        completionHandler(false)
+                        completionHandler(nil)
                     }
                 }
                 else {
                     
-                    completionHandler(false)
+                    completionHandler(nil)
                 }
         }
         

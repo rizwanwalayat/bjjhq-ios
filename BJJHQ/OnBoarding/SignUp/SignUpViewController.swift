@@ -75,10 +75,20 @@ class SignUpViewController: BaseViewController {
     
     @IBAction func signUpAction(_ sender: Any) {
         
-        if ((emailTF.text?.isValidEmail()) != nil) {
+        if ((emailTF.text?.isValidEmail()) != nil && emailTF.text ?? "" != "") {
             if passwordTF.text == confirmPasswordTF.text {
-                if passwordTF.text != "" {
-                    self.callApi()
+                if passwordTF.text != "" && passwordTF.text?.count ?? 0 >= 8 {
+                    if firstNameTF.text != "" && lastNameTF.text != "" && userNameTF.text != "" {
+                        if self.passwordTF.text!.isValidPassword() {
+                            self.callApi()
+                        }
+                        else {
+                            self.showToast(message: " Password must be Minimum 8 characters at least 1 Alphabet and 1 Number ", ScreenSize.SCREEN_HEIGHT, 60)
+                        }
+                    }
+                    else {
+                        self.showToast(message: "Please fill all fields")
+                    }
                 }
                 else {
                     self.showToast(message: "Please enter a password")
@@ -216,6 +226,13 @@ class SignUpViewController: BaseViewController {
         return capitalresult || numberresult || specialresult
 
     }
+    func checkPassword(_ password:String) -> Bool{
+        let specialCharacterRegEx  = ".*[!&^%$#@()/]+.*"
+        let textPassword = NSPredicate(format:"SELF MATCHES %@", specialCharacterRegEx)
+
+        let specialPasswordresult = textPassword.evaluate(with: password)
+        return specialPasswordresult
+    }
     
 }
 
@@ -261,6 +278,25 @@ extension SignUpViewController : UITextFieldDelegate {
             self.userNameview.backgroundColor = UIColor(named: "lightGrey")
             self.passwordView.backgroundColor = UIColor(named: "sky")
             self.confirmPasswordView.backgroundColor = UIColor(named: "lightGrey")
+            if passwordTF.text!.count == 0{
+                passwordTFStatus.text = ""
+            }
+            if passwordTF.text!.count < 8 {
+                passwordTFStatus.text = "weak"
+                passwordTFStatus.textColor = UIColor(hexString: "#BB0808")
+            }
+            else if passwordTF.text!.count >= 8 {
+                if checkTextSufficientComplexity(text: passwordTF.text!) {
+                    
+                    passwordTFStatus.text = "Strong"
+                    passwordTFStatus.textColor = UIColor(hexString: "#28A938")
+                }
+                else {
+                    
+                    passwordTFStatus.text = "Normal"
+                    passwordTFStatus.textColor = UIColor(hexString: "#C4C436")
+                }
+            }
         }
         else {
             self.firstNameView.backgroundColor = UIColor(named: "lightGrey")
@@ -269,6 +305,25 @@ extension SignUpViewController : UITextFieldDelegate {
             self.userNameview.backgroundColor = UIColor(named: "lightGrey")
             self.passwordView.backgroundColor = UIColor(named: "lightGrey")
             self.confirmPasswordView.backgroundColor = UIColor(named: "sky")
+            if passwordTF.text!.count == 0{
+                passwordTFStatus.text = ""
+            }
+             if passwordTF.text!.count < 8 {
+                passwordTFStatus.text = "weak"
+                passwordTFStatus.textColor = UIColor(hexString: "#BB0808")
+            }
+            else if passwordTF.text!.count >= 8 {
+                if checkTextSufficientComplexity(text: passwordTF.text!) {
+                    
+                    passwordTFStatus.text = "Strong"
+                    passwordTFStatus.textColor = UIColor(hexString: "#28A938")
+                }
+                else {
+                    
+                    passwordTFStatus.text = "Normal"
+                    passwordTFStatus.textColor = UIColor(hexString: "#C4C436")
+                }
+            }
         }
         
         return true

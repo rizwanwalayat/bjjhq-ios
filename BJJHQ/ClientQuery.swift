@@ -224,7 +224,9 @@ final class ClientQuery {
     }
     static func queryForOrders(accessToken:String,getOrders:Int32) -> Storefront.QueryRootQuery {
         return Storefront.buildQuery { $0
+                
                 .customer(customerAccessToken: accessToken) { $0
+                
                 .orders(first:getOrders) { info in
                     
                     info.pageInfo { $0
@@ -372,7 +374,9 @@ final class ClientQuery {
         
         return Storefront.buildQuery { $0
                 .products(first: Int32(limit), after: cursor) { $0
+                
                 .fragmentForStandardProduct()
+                
                 }
         }
     }
@@ -391,6 +395,7 @@ final class ClientQuery {
                 }
                 .images(first: 5, maxWidth: ClientQuery.maxImageDimension, maxHeight: ClientQuery.maxImageDimension) { $0
                 .fragmentForStandardProductImage()
+                
                 }
                     
                 }
@@ -464,6 +469,36 @@ final class ClientQuery {
                 }
                 }
         }
+    }
+    static func getProductById(productId: String)  -> Storefront.QueryRootQuery {
+        let id = GraphQL.ID(rawValue: productId)
+        return Storefront.buildQuery { $0
+                .product(id: id) { $0
+                    .title()
+                    .description()
+                    .totalInventory()
+                    
+                    .variants({ $0
+                    .edges { $0
+                    .node { $0
+                    .image{ $0
+                    .originalSrc()
+                    }
+                    .priceV2{ $0
+                    .amount()
+                    }
+                    
+
+                    .title()
+
+                    }
+                    }
+                    })
+                    
+                }
+            
+        }
+        
     }
     
     static func mutationForUpdateCheckout(_ id: String, updatingPartialShippingAddress address: PayPostalAddress) -> Storefront.MutationQuery {

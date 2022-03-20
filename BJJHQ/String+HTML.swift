@@ -63,3 +63,11 @@ extension String {
         return false
     }
 }
+
+extension String {
+    func isValidPassword() -> Bool {
+        let password = self.trimmingCharacters(in: CharacterSet.whitespaces)
+        let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
+        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
+    }
+}

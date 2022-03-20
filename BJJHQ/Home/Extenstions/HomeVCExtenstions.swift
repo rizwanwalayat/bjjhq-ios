@@ -237,8 +237,14 @@ extension HomeViewController {
             }
         })
         
+        fetchComments()
+        
+
+    }
+    func fetchComments() {
+//        self.view.activityStartAnimating()
         viewModel?.fetchComments({ success, data, message in
-            
+//            self.view.activityStopAnimating()
             if success, let commentsData = data?.comments {
                 self.comments = commentsData
                 self.tableView.reloadData()
@@ -253,7 +259,6 @@ extension HomeViewController {
                 }
             }
         })
-        
         viewModel?.fetchReactions({ success, data, message in
             if success {
                 print(data!, message!)
@@ -270,6 +275,7 @@ extension HomeViewController {
             viewModel?.sendImageComment(parentId, text, image: image, { success, message in
                 
                 if success {
+                    self.fetchComments()
                     self.writeCommentsTF.text = ""
                     self.commentsParentId = nil
                     
@@ -288,6 +294,7 @@ extension HomeViewController {
             
             viewModel?.sendComments(parentId, text, { success, message in
                 if success {
+                    self.fetchComments()
                     self.writeCommentsTF.text = ""
                     self.commentsParentId = nil
                 }
@@ -299,6 +306,7 @@ extension HomeViewController {
     func likeComment(commentId: Int, _ ofIndex: Int, _ isSubComment: Bool = false)
     {
         viewModel?.likeComment(commentId, { success, message in
+            self.fetchComments()
             if success {
                
                 let obj = self.comments[ofIndex]
@@ -320,6 +328,7 @@ extension HomeViewController {
     
     func diLikeComment(commentId: Int, _ ofIndex: Int, _ isSubComment: Bool = false)
     {
+        self.fetchComments()
         viewModel?.disLikeComment(commentId, { success, message in
             if success {
                 let obj = self.comments[ofIndex]
@@ -496,6 +505,7 @@ extension HomeViewController  {
             
             if let response = data as? [String:Any]
             {
+                print(response)
                 if let comment = response["comment"] as? [String: Any], let ancestry = comment["ancestry"] as? NSNumber {
                     
                     if let row = self.comments.firstIndex(where: {$0.comment!.id == ancestry.intValue}) {
@@ -509,12 +519,12 @@ extension HomeViewController  {
                         self.tableView.reloadRows(at: [indexpath], with: .automatic)
                     }
                     
-//                    if let commentObj = self.comments.first( where: {$0.comment!.id == ancestry.intValue} ) {
-//
-//                        if let data = Mapper<CommentsReplies>().map(JSONObject: response ) {
-//                            commentObj.replies?.append(data)
-//                        }
-//                    }
+                    if let commentObj = self.comments.first( where: {$0.comment!.id == ancestry.intValue} ) {
+
+                        if let data = Mapper<CommentsReplies>().map(JSONObject: response ) {
+                            commentObj.replies?.append(data)
+                        }
+                    }
                 }
                 else if let data = Mapper<Comments>().map(JSONObject: response ) {
 
@@ -524,7 +534,7 @@ extension HomeViewController  {
                     self.tableView.reloadRows(at: [indexpath], with: .automatic)
                 }
                 
-                //self.tableView.reloadData()
+                self.tableView.reloadData()
             }
         }
         
@@ -551,6 +561,7 @@ extension HomeViewController  {
             }
             if let response = data as? [String:Any]
             {
+                print(response)
                 if let reacton = response["reaction"] as? [String: Any], let comment = reacton["comment"] as? [String:Any], let commentId =  reacton["comment_id"] as? NSNumber, let isLikedString = reacton["reaction"] as? String {
                     
                     var isLiked = false
@@ -611,13 +622,14 @@ extension HomeViewController  {
         }
         
         self.currentDealChannel?.onReceive = {(data: Any?, error: Error?) in
+            
             if let error = error {
                 print(error.localizedDescription)
                 return
             }
             
             if let response = data as? [String:Any] {
-                
+                print(response)
                 if let data = Mapper<ProductInfo>().map(JSONObject: response) {
                     
                     self.productInfo = data

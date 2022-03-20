@@ -35,10 +35,15 @@ class OrderViewController: BaseViewController {
     
     var orderDetail : Storefront.OrderEdge?
     var productId = String()
+    var productModel : ProductViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       setup()
+       setup2()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.coordinator?.navigationController.navigationBar.isHidden = true
     }
 
     fileprivate func setup()
@@ -58,6 +63,20 @@ class OrderViewController: BaseViewController {
         self.setupLabelUnderlineText(clearCart, "Clear Cart")
     }
     
+    fileprivate func setup2()
+    {
+        if let url = productModel?.images.items.first?.url {
+            self.setImage(imageView: self.productImageView, url: url)
+        }
+        
+        self.productPrice.text = "\(productModel?.price ?? "00")"
+        self.productDetailLabel.text = "\(productModel?.title ?? "")"
+        self.subTotalValueLabel.text = "\(productModel?.price ?? "")"
+        self.shippingValueLabel.text = "$ \(00.00)"
+        self.totalPriceLabel.text = "\(productModel?.price ?? "")"
+        self.setupLabelUnderlineText(clearCart, "Clear Cart")
+    }
+    
     // MARK: - Actions -
 
     @IBAction func backAction(_ sender: Any)
@@ -67,8 +86,10 @@ class OrderViewController: BaseViewController {
     
     @IBAction func checkOutAction(_ sender: Any)
     {
-        Client.shared.webCheckOut(accessToken: DataManager.shared.getUserAccessToekn()!, quantity: 1, id: productId) { pass, fail in
-            
+        Client.shared.webCheckOut(id: self.productModel?.variants.items.first?.id ?? "") { pass, fail in
+            if fail == nil {
+                self.coordinator?.openWKWebViewControllerFor(pass!, token: DataManager.shared.getUserAccessToekn()!)
+            }
         }
     }
         

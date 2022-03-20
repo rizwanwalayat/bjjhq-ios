@@ -33,7 +33,7 @@ final class Client {
     static let shopDomain = "bjjhq-prod.myshopify.com"
     static let apiKey     = "b4eb662d2c96cd94524fadb7a305fd9a"
 //    static let apiKey     = "b3c912ade8c3ca23e13dbca8467f83b9"
-    static let merchantID = "merchant.com.your.id"
+    static let merchantID = "merchant.shopify.bjjhqq"
     static let locale   = Locale(identifier: "en-US")
     
     static let shared = Client()
@@ -208,14 +208,14 @@ final class Client {
     }
     
     @discardableResult
-    func webCheckOut(accessToken:String,quantity:Int32,id:String, completion: @escaping (String?,String?) -> Void) -> Task {
+    func webCheckOut(id:String, completion: @escaping (URL?,Graph.QueryError?) -> Void) -> Task {
         
-        let query = ClientQuery.mutationForCheckout(accessToken: DataManager.shared.getUserAccessToekn()!, quantity: quantity, id: id)
-        
+        let query = ClientQuery.mutationForCheckout(accessToken: DataManager.shared.getUserAccessToekn()!, quantity: 1, id: id)
         let task  = self.client.mutateGraphWith(query) { (query, error) in
             
+            completion(query?.checkoutCreate?.checkout?.webUrl,error)
+            
             error.debugPrint()
-            completion("Done",nil)
         }
         
         task.resume()
@@ -422,7 +422,7 @@ final class Client {
     @discardableResult
     func fetchSignleProduct(productId: String, completion: @escaping (Storefront.Product?) -> Void) -> Task {
         
-        let query = ClientQuery.queryForProduct(product_id: productId)
+        let query = ClientQuery.getProductById(productId: "40419962224847")
         let task  = self.client.queryGraphWith(query) { (response, error) in
             error.debugPrint()
             

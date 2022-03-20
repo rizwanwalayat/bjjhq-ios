@@ -27,7 +27,7 @@
 import UIKit
 import WebKit
 
-class WebViewController: UIViewController {
+class WebViewController: BaseViewController {
     
     let url: URL
     let accessToken: String?

@@ -59,14 +59,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //MARK: - UserState
     
         if DataManager.shared.getUser() != nil {
-            
+
             coordinator?.homePage()
-            
+
         }
         else {
             coordinator?.landingPage()
         }
-        
+
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()

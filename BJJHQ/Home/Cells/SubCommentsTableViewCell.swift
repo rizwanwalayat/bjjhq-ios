@@ -36,6 +36,8 @@ class SubCommentsTableViewCell: UITableViewCell {
     
     func config(_ commentsData : CommentsReplies)
     {
+        guard let url = URL(string: commentsData.commentor_avatar) else {return }
+        setImage(imageView: self.userProfile, url: url)
         self.userName.text = commentsData.comment?.name ?? ""
         self.commentsText.text = commentsData.comment?.message ?? ""
         let time = commentsData.comment?.createdDate.timeCalculation(isShowTime: false)
