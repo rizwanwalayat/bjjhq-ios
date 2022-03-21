@@ -188,14 +188,14 @@ class HomeViewModel: BaseViewModel {
             
             if let response = result {
                 
-//                if let data = Mapper<HomeDataModel>().map(JSONObject: response ) {
-//
-//                    completionHandler(true, data, nil)
-//
-//                } else {
-//
-//                    completionHandler(false, nil, messsage)
-//                }
+                if let data = Mapper<HomeDataModel>().map(JSONObject: response ) {
+
+                    completionHandler(true, data, nil)
+
+                } else {
+
+                    completionHandler(false, nil, nil)
+                }
             }
             else {
                 

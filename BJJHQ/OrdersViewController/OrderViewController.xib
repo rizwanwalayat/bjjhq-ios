@@ -144,7 +144,6 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="checkOutAction:" destination="-1" eventType="touchUpInside" id="Btu-Ku-OrN"/>
                                                         <action selector="clearCartAction:" destination="-1" eventType="touchUpInside" id="ebp-KS-Hax"/>
                                                     </connections>
                                                 </button>

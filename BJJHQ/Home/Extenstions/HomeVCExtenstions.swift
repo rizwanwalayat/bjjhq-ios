@@ -259,11 +259,11 @@ extension HomeViewController {
                 }
             }
         })
-        viewModel?.fetchReactions({ success, data, message in
-            if success {
-                print(data!, message!)
-            }
-        })
+//        viewModel?.fetchReactions({ success, data, message in
+//            if success {
+//                print(data!, message!)
+//            }
+//        })
     }
     
     func sendComment(_ text : String)

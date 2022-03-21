@@ -117,13 +117,17 @@ class DeletePopUpViewController: BaseViewController {
                 }
             })
         }
-        else {
+       if isFromAddress {
             //delete address
             Client.shared.deleteUserAddress(accessToken: DataManager.shared.getUserAccessToekn()!, addressId: self.getAddress?.id ?? "") { pass, fail in
                 
                 self.hidePopup()
                 globalAddressBookPopUp?.hidePopup()
             }
+        }
+        if isFromRemoveCart {
+            self.hidePopup()
+            coordinator?.homePage()
         }
     }
     

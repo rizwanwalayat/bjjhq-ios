@@ -36,6 +36,7 @@ class OrderViewController: BaseViewController {
     var orderDetail : Storefront.OrderEdge?
     var productId = String()
     var productModel : ProductViewModel?
+    var size : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +87,7 @@ class OrderViewController: BaseViewController {
     
     @IBAction func checkOutAction(_ sender: Any)
     {
-        Client.shared.webCheckOut(id: self.productModel?.variants.items.first?.id ?? "") { pass, fail in
+        Client.shared.webCheckOut(id: self.productModel?.variants.items.first?.id ?? "", size: self.size) { pass, fail in
             if fail == nil {
                 self.coordinator?.openWKWebViewControllerFor(pass!, token: DataManager.shared.getUserAccessToekn()!)
             }
