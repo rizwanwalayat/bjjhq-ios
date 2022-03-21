@@ -22,6 +22,7 @@ protocol Coordinator {
     func orderPage()
     func profilePage()
     func FAQPage()
+    func splashPage()
     func ReturnPolicyPage()
     func myOrderDetail(_ productID : String,productModel : ProductViewModel?)
     func openWKWebViewControllerFor(_ url: URL, token: String)
@@ -76,6 +77,11 @@ class MainCoordinator: Coordinator {
         sideMenuController!.removeLeftGestures()
         sideMenuController!.removeRightGestures()
         navigationController.setViewControllers([sideMenuController!], animated: true)
+    }
+    func splashPage() {
+        let vc = SplashViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
     }
     
     

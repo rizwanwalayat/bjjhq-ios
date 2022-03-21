@@ -105,6 +105,7 @@ PODS:
     - GoogleUtilities/Logger
   - iOSDropDown (0.3.4)
   - IQKeyboardManagerSwift (6.5.9)
+  - lottie-ios (3.3.0)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
@@ -131,6 +132,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - iOSDropDown
   - IQKeyboardManagerSwift
+  - lottie-ios
   - NVActivityIndicatorView
   - ObjectMapper
   - PageControls/PillPageControl
@@ -156,6 +158,7 @@ SPEC REPOS:
     - GoogleUtilities
     - iOSDropDown
     - IQKeyboardManagerSwift
+    - lottie-ios
     - nanopb
     - NVActivityIndicatorView
     - ObjectMapper
@@ -193,6 +196,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
+  lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
@@ -202,6 +206,6 @@ SPEC CHECKSUMS:
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: b8792c9f567b39f53a6d3980409d61128dc31c52
+PODFILE CHECKSUM: ca9aafce193debcfcaa98a38b8b330416384cede
 
 COCOAPODS: 1.11.2

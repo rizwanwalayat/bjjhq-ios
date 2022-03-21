@@ -64,6 +64,10 @@
 		1816886527BFD13200C9D962 /* OrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1816885827BFD13200C9D962 /* OrderViewController.xib */; };
 		1835898B27BD564600F293B6 /* AddressBookPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835898927BD564600F293B6 /* AddressBookPopUpViewController.swift */; };
 		1835898C27BD564600F293B6 /* AddressBookPopUpViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 1835898A27BD564600F293B6 /* AddressBookPopUpViewController.xib */; };
+		183E639B27E8DBCD00A44192 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E639927E8DBCD00A44192 /* SplashViewController.swift */; };
+		183E639C27E8DBCD00A44192 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183E639A27E8DBCD00A44192 /* SplashViewController.xib */; };
+		183E639F27E8DBE800A44192 /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 183E639D27E8DBE800A44192 /* loader.json */; };
+		183E63A027E8DBE800A44192 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 183E639E27E8DBE800A44192 /* data.json */; };
 		1841B74F27E21576008820E7 /* ReturnPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841B74D27E21576008820E7 /* ReturnPolicyViewController.swift */; };
 		1841B75027E21576008820E7 /* ReturnPolicyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1841B74E27E21576008820E7 /* ReturnPolicyViewController.xib */; };
 		1842EDF227BBE84800A4DA1D /* ForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842EDF027BBE84800A4DA1D /* ForgetViewController.swift */; };
@@ -280,6 +284,10 @@
 		1816885827BFD13200C9D962 /* OrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderViewController.xib; sourceTree = "<group>"; };
 		1835898927BD564600F293B6 /* AddressBookPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookPopUpViewController.swift; sourceTree = "<group>"; };
 		1835898A27BD564600F293B6 /* AddressBookPopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressBookPopUpViewController.xib; sourceTree = "<group>"; };
+		183E639927E8DBCD00A44192 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		183E639A27E8DBCD00A44192 /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		183E639D27E8DBE800A44192 /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
+		183E639E27E8DBE800A44192 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		1841B74D27E21576008820E7 /* ReturnPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnPolicyViewController.swift; sourceTree = "<group>"; };
 		1841B74E27E21576008820E7 /* ReturnPolicyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReturnPolicyViewController.xib; sourceTree = "<group>"; };
 		1842EDF027BBE84800A4DA1D /* ForgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewController.swift; sourceTree = "<group>"; };
@@ -637,6 +645,15 @@
 				1816883E27BFCED900C9D962 /* SignInViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		183E639827E8DBCD00A44192 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				183E639927E8DBCD00A44192 /* SplashViewController.swift */,
+				183E639A27E8DBCD00A44192 /* SplashViewController.xib */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		1847907D27BE447800D98451 /* Address */ = {
@@ -1128,6 +1145,8 @@
 			isa = PBXGroup;
 			children = (
 				9ADAD46A1E563091008AC561 /* AppDelegate.swift */,
+				183E639E27E8DBE800A44192 /* data.json */,
+				183E639D27E8DBE800A44192 /* loader.json */,
 				0481A26727CCBA9900277E21 /* Network */,
 				9A9FFEFB1E78431C00F6DFF7 /* Formatters */,
 				9AAFAB901E60D0F900864A17 /* UI */,
@@ -1139,6 +1158,7 @@
 				9AAFAB781E60BD5800864A17 /* View Controllers */,
 				9ADAD46E1E563091008AC561 /* Main.storyboard */,
 				9A52D3BB1F3F25C300C093C8 /* Storefront.entitlements */,
+				183E639827E8DBCD00A44192 /* Splash */,
 				04FC4FE527DBB04E00605C79 /* Home */,
 				1863835E27BB9BFD0080FC80 /* Base */,
 				18D766C027BE8D180076A12B /* SideMenu */,
@@ -1274,8 +1294,10 @@
 				04460F4F27C5010100D9DDDE /* FaqTableViewCell.xib in Resources */,
 				0487AC3827C4C47D00A3422B /* Barlow-Light.ttf in Resources */,
 				0487AC3E27C4C47D00A3422B /* Barlow-Italic.ttf in Resources */,
+				183E639C27E8DBCD00A44192 /* SplashViewController.xib in Resources */,
 				0487AC3927C4C47D00A3422B /* Barlow-SemiBoldItalic.ttf in Resources */,
 				0487AC4227C4C47D00A3422B /* Barlow-ExtraBold.ttf in Resources */,
+				183E639F27E8DBE800A44192 /* loader.json in Resources */,
 				0487AC4627C4C47D00A3422B /* Barlow-Regular.ttf in Resources */,
 				04FC4FF827DBB04E00605C79 /* ColorsSelectionCollectionViewCell.xib in Resources */,
 				0487AC3C27C4C47D00A3422B /* Barlow-ThinItalic.ttf in Resources */,
@@ -1305,6 +1327,7 @@
 				04E692D427C385D100DF3750 /* UserProfileViewController.xib in Resources */,
 				04FC4FF727DBB04E00605C79 /* CommentsTableViewCell.xib in Resources */,
 				18B598D527E2176E008B7B72 /* ReturnPolicyTableViewCell.xib in Resources */,
+				183E63A027E8DBE800A44192 /* data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1358,6 +1381,7 @@
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/FBAEMKit/FBAEMKit.framework/FBAEMKit",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework/FBSDKCoreKit",
@@ -1384,6 +1408,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDropDown.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBAEMKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
@@ -1553,6 +1578,7 @@
 				185C707527BCEF41008F2FB3 /* EmailUpdateViewController.xib in Sources */,
 				96DD6C4727C3790B00DDA0DC /* MyOrdersViewController.swift in Sources */,
 				04FC500327DBB53600605C79 /* HomeDataModel.swift in Sources */,
+				183E639B27E8DBCD00A44192 /* SplashViewController.swift in Sources */,
 				1816884327BFCED900C9D962 /* SignUpViewController.xib in Sources */,
 				1847908127BE448A00D98451 /* MyAddressesViewController.xib in Sources */,
 				185C707A27BD069A008F2FB3 /* OrderSuccesFullViewController.xib in Sources */,

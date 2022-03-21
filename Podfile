@@ -19,7 +19,7 @@ target 'BJJHQ' do
 pod 'Firebase/Messaging'
 pod 'Firebase/Core'
 pod "CSPieChart"
-
+pod 'lottie-ios'
 pod 'FBSDKLoginKit'
 #pod 'FirebaseUI'
 #pod 'FirebaseUI/Facebook'
