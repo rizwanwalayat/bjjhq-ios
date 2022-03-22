@@ -208,9 +208,9 @@ final class Client {
     }
     
     @discardableResult
-    func webCheckOut(id:String,size:String?, completion: @escaping (URL?,Graph.QueryError?) -> Void) -> Task {
+    func webCheckOut(id:String, completion: @escaping (URL?,Graph.QueryError?) -> Void) -> Task {
         
-        let query = ClientQuery.mutationForCheckout(accessToken: DataManager.shared.getUserAccessToekn()!, quantity: 1, id: id, size: size)
+        let query = ClientQuery.mutationForCheckout(accessToken: DataManager.shared.getUserAccessToekn()!, quantity: 1, id: id)
         let task  = self.client.mutateGraphWith(query) { (query, error) in
             
             completion(query?.checkoutCreate?.checkout?.webUrl,error)

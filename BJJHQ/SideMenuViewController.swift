@@ -19,10 +19,15 @@ class SideMenuViewController: BaseViewController, SlideMenuControllerDelegate {
         super.viewDidLoad()
         if let url = URL(string:  DataManager.shared.getUser()?.avatar ?? "") {
             self.setImage(imageView: self.profileImage, url: url)
+            if self.profileImage != nil {
+                DataManager.shared.saveProfilePic(value: self.profileImage.image?.pngData())
+            }
         }
     }
     override func viewWillAppear(_ animated: Bool) {
         self.setup()
+        guard let image = UIImage(data: DataManager.shared.getProfilePic() ?? Data()) else {return}
+        self.profileImage.image =  image
         
     }
     

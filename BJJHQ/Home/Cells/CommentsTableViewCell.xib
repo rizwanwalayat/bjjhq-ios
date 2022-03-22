@@ -100,7 +100,7 @@
                                         <color key="tintColor" name="borderColor"/>
                                         <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="00" image="like">
+                                        <state key="normal" title="0" image="like">
                                             <color key="titleColor" name="borderColor"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -126,7 +126,7 @@
                                         <color key="tintColor" red="0.14509803921568626" green="0.1764705882352941" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="00" image="unlike">
+                                        <state key="normal" title="0" image="unlike">
                                             <color key="titleColor" red="0.14509803921568626" green="0.1764705882352941" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>

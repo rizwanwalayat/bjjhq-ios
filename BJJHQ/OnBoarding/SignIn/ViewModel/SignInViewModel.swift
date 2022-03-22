@@ -81,7 +81,7 @@ final class SignInViewModel: BaseViewModel {
             }
         }
     
-    func updateUserImage(image : [String : AnyObject],_ completionHandler: @escaping (_ success: Bool) -> Void) {
+    func updateUserImage(image : [String : Any],_ completionHandler: @escaping (_ success: Bool) -> Void) {
         APIClient.shared.updateImage(params: image) { responce,result, error, statusCode, messsage in
                 if let _ = result {
                         completionHandler(true)

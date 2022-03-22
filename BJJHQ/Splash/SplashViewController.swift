@@ -27,10 +27,11 @@ class SplashViewController: BaseViewController {
     //MARK: - Functions
     
     func startAnimatedView() {
-        animationView = .init(name: "data")
-        animationView!.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width)
+        animationView = .init(name: "loader")
+        animationView?.backgroundColor = .clear
+        animationView!.frame = CGRect(x: 0, y: 0, width: 200, height: 500)
         animationView!.contentMode = .center
-        animationView!.loopMode = .playOnce
+        animationView!.loopMode = .loop
         animationView!.animationSpeed = 1
         
         animationView?.play(completion: { complete in

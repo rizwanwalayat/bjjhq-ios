@@ -60,13 +60,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 //        if DataManager.shared.getUser() != nil {
 
-            coordinator?.splashPage()
+//            coordinator?.splashPage()
 
 //        }
 //        else {
 //            coordinator?.landingPage()
 //        }
-
+        if DataManager.shared.getUser() != nil {
+            self.coordinator?.homePage()
+        }
+        else {
+            self.coordinator?.landingPage()
+        }
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()

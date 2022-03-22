@@ -61,7 +61,7 @@ class HomeViewController: BaseViewController {
     var productInfo : ProductInfo?
     var timer = Timer()
     var commentsParentId : String?
-    
+    var size = 0
     // socket related
     let client = ActionCableClient(url: URL(string:"wss://bjjhq.phaedrasolutions.com/cable")!)
     var commentschannel: Channel?
@@ -111,7 +111,7 @@ class HomeViewController: BaseViewController {
         bottomView.addGradient(colors: [UIColor(hexString: "#DEDFE3").cgColor, UIColor(hexString: "#FFFFFF").cgColor])
         
 
-        setupClient()
+//        setupClient()
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?)
@@ -244,7 +244,7 @@ class HomeViewController: BaseViewController {
         
         let str = "\(Int(self.productInfo?.current_product_id ?? 0) )"
         let uploadedID = str.toBase64()
-        coordinator?.myOrderDetail(uploadedID, productModel: self.productModel)
+        coordinator?.myOrderDetail(0, uploadedID, productModel: self.productModel)
     }
     
     @objc func likeButtonPressed (_ sender: UIButton)
@@ -303,7 +303,9 @@ class HomeViewController: BaseViewController {
             guard let endDate = fetchPromotionEndTime(info.lastUpdateDate, minToAdd: info.time_interval) else {return }
             let interval = endDate.timeIntervalSince(Date())
             var difference = Date(timeIntervalSinceReferenceDate: interval)
-            difference = Calendar.current.date(byAdding: .hour, value: -5, to: difference) ?? difference
+            difference = Calendar.current.date(byAdding: .hour, value: -11, to: difference) ?? difference
+            difference = Calendar.current.date(byAdding: .minute, value: -43, to: difference) ?? difference
+            difference = Calendar.current.date(byAdding: .second, value: -30, to: difference) ?? difference
             self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
                 
                 self.dataList = [

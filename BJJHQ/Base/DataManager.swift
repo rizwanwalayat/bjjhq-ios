@@ -14,21 +14,7 @@ class DataManager {
     static let shared = DataManager()
     
     
-
-    
-    //MARK: - UserState
-    
-    
-//    func setNotificationSwitch(value: [Bool]?) {
-//        UserDefaults.standard.set(value, forKey: "NotificationSwitch")
-//    }
-//    
-//    func getNotificationSwitch() -> [Any]? {
-//        return UserDefaults.standard.array(forKey: "NotificationSwitch")
-//    }
-    
-    
-    //MARK: - Access Token  -
+    //MARK: - Access Token
     
     func saveUserAccessToken(value: String) {
         UserDefaults.standard.set(value, forKey: "userAccessToken")
@@ -37,6 +23,15 @@ class DataManager {
     func getUserAccessToekn() -> String? {
         return UserDefaults.standard.string(forKey: "userAccessToken") ?? nil
     }
+    
+    func saveProfilePic(value: Data?) {
+        UserDefaults.standard.set(value, forKey: "profilePic")
+    }
+    
+    func getProfilePic() -> Data? {
+        return UserDefaults.standard.data(forKey: "profilePic")
+    }
+    
     func setLocalToken(value: String) {
         UserDefaults.standard.set(value, forKey: "token")
     }

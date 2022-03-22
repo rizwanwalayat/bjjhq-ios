@@ -361,16 +361,20 @@ extension HomeViewController {
                     
                     self.productModel = obj
                     
+                    
                     // dropdown integrations
                     
                     var titleArray = [String]()
+                    var quantity = [Int32]()
                     var ids = [Int]()
                     
-                    for item in obj.variants.items {
-                        
+                    for (value,item) in obj.variants.items.enumerated() {
+                        self.size = value
                         titleArray.append(item.title)
+//                        quantity.append(item.quantity)
                         ids.append(Int(item.id) ?? 0)
                     }
+                    
                     self.dropDownTF.optionArray = titleArray
                     //Its Id Values and its optional
                     self.dropDownTF.optionIds = ids

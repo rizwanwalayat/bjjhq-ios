@@ -69,10 +69,8 @@ class UserProfileViewController: BaseViewController {
     
     //MARK: - Functions
     func setup() {
-        if let url = URL(string:  DataManager.shared.getUser()?.avatar ?? "") {
-            self.setImage(imageView: self.profilePicImageView, url: url)
-        }
         
+
         if let user = DataManager.shared.getUser() {
             self.emailTextField.text = user.user?.email
             self.nameTextField.text = user.user?.first_name
@@ -80,11 +78,22 @@ class UserProfileViewController: BaseViewController {
             self.desciptionTextView.text = user.user?.bio
             self.userNameTextField.text = user.user?.user_name
         }
+        
+        guard let image = UIImage(data: DataManager.shared.getProfilePic() ?? Data()) else {
+            if let url = URL(string:  DataManager.shared.getUser()?.avatar ?? "") {
+            self.setImage(imageView: self.profilePicImageView, url: url)
+        }
+            return
+            
+        }
+        self.profilePicImageView.image =  image
     }
     @objc override func imageSelectedFromGalleryOrCamera(selectedImage:UIImage) {
-        let image  = ["avatar":selectedImage]
+        let image  = ["avatar":[selectedImage]]
+        DataManager.shared.saveProfilePic(value: selectedImage.pngData())
         SignInViewModel().updateUserImage(image: image, { responce in
-            self.profilePicImageView.image = selectedImage
+            guard let image = UIImage(data: DataManager.shared.getProfilePic() ?? Data()) else {return}
+            self.profilePicImageView.image =  image
         })
     }
     

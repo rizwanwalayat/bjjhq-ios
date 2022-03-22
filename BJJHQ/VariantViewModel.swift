@@ -33,7 +33,7 @@ final class VariantViewModel: ViewModel {
     
     let model:  ModelType
     let cursor: String
-    
+//    let quantity: Int32
     let id:     String
     let title:  String
     let price:  Decimal
@@ -44,7 +44,7 @@ final class VariantViewModel: ViewModel {
     required init(from model: ModelType) {
         self.model  = model
         self.cursor = model.cursor
-        
+//        self.quantity = model.node.quantityAvailable ?? 0
         self.id     = model.node.id.rawValue
         self.title  = model.node.title
         self.price  = model.node.priceV2.amount

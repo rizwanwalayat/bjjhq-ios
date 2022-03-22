@@ -37,6 +37,7 @@ extension Storefront.ProductVariantConnectionQuery {
             .cursor()
             .node { $0
                 .id()
+                .quantityAvailable()
                 .title()
                 .priceV2 { $0
                     .amount()

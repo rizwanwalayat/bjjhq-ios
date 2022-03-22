@@ -90,10 +90,10 @@ class APIClient: APIClientHandler {
         _ = sendRequest(APIRoutes.guest , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
     }
     
-    func updateImage(params : [String: AnyObject],_ completionBlock: @escaping APIClientCompletionHandler) {
+    func updateImage(params : [String: Any],_ completionBlock: @escaping APIClientCompletionHandler) {
         let token = DataManager.shared.getLocalToken() ?? ""
         let headers: HTTPHeaders = ["Authorization" : token]
-        sendRequestUsingMultipart(APIRoutes.updateImage, parameters: params, headers: headers, completionBlock: completionBlock)
+        sendRequestUsingMultipart("https://bjjhq.phaedrasolutions.com/api/users/profiles/update_avatar", parameters: params, headers: headers, completionBlock: completionBlock)
     }
     
     func logoutUser(_ completionBlock: @escaping APIClientCompletionHandler)

@@ -17,9 +17,9 @@ let APIClientHandlerDefaultErrorDescription = "Operation failed" //"Operation fa
 
 class APIClientHandler: TSAPIClient {
     var status : Bool = true
-    var message : String = "Data not fetched"
+    var message : String = ""
     
-    func sendRequestUsingMultipart (_ url: String, parameters: [String : AnyObject]?, httpMethod: HTTPMethod = .patch, headers: [String : String]?, completionBlock: @escaping APIClientCompletionHandler) {
+    func sendRequestUsingMultipart (_ url: String, parameters: [String : Any]?, httpMethod: HTTPMethod = .post, headers: [String : String]?, completionBlock: @escaping APIClientCompletionHandler) {
         var parameters = parameters
         
         print("\(String(describing: url))")
@@ -28,34 +28,17 @@ class APIClientHandler: TSAPIClient {
             
             for (key, value) in parameters ?? [:] {
                 
-                if key == "image" {
+                if key == "avatar" {
                     let images = value as! [UIImage]
                     
                     var count = 0
                     for image in images {
                         
                         count = count + 1
-                        let data = image.jpegData(compressionQuality: 0.5) //jpeg(.lowest)
-                        multipartFormData.append(data!, withName: "image", fileName: "image\(count).jpeg", mimeType: "image/jpeg")
+                        let data = image.jpegData(compressionQuality: 0.1) //jpeg(.lowest)
+                        multipartFormData.append(data!, withName: "avatar", fileName: "avatar\(count).jpeg", mimeType: "image/jpeg")
                     }
-                    parameters?.removeValue(forKey: "image")
-                } else {
-                    
-                    
-                    //multipartFormData.append(multipart, withName: key)
-//                    let multipart = MultipartFormData()
-                    if key == "comment"
-                    {
-                        if let comment = parameters!["key"] as? [String: Any] {
-                            
-                            let dataExample: Data = NSKeyedArchiver.archivedData(withRootObject: comment)
-//                            for (ckey, val) in comment {
-//
-//                                multipart.append(String(describing: val).data(using: .utf8)!, withName: ckey)
-//                            }
-                        }
-
-                    }
+                    parameters?.removeValue(forKey: "avatar")
                 }
             }
             

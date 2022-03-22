@@ -64,7 +64,7 @@ class SignInViewController: BaseViewController {
     }
     
     @IBAction func signInAction(_ sender: Any) {
-        self.view.activityStartAnimating()
+        
         if ((emailTF.text?.isValidEmail()) != nil) {
             if passwordTF.text != "" {
                 if passwordTF.text?.count ?? 0 >= 8  {
@@ -84,6 +84,7 @@ class SignInViewController: BaseViewController {
     }
     
     func apiCall() {
+        self.view.activityStartAnimating()
         viewModel?.signInCustomer(email: emailTF.text!, password: passwordTF.text!,  completion: { data, error in
 
             self.view.activityStopAnimating()

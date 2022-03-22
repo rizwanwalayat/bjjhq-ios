@@ -169,10 +169,8 @@ final class ClientQuery {
         }
         }
     }
-    static func mutationForCheckout(accessToken: String,quantity:Int32,id:String,size:String?) -> Storefront.MutationQuery {
-        
-        let size = Storefront.AttributeInput.create(key: "size", value: size ?? "")
-        let inputLineItem = Storefront.CheckoutLineItemInput.create(quantity: quantity, variantId: GraphQL.ID(rawValue: id),customAttributes: .value([size]))
+    static func mutationForCheckout(accessToken: String,quantity:Int32,id:String) -> Storefront.MutationQuery {
+        let inputLineItem = Storefront.CheckoutLineItemInput.create(quantity: quantity, variantId: GraphQL.ID(rawValue: id))
         let input = Storefront.CheckoutCreateInput.create(lineItems: .value([inputLineItem]))
         return Storefront.buildMutation { $0
                 .checkoutCreate(input: input) { $0
