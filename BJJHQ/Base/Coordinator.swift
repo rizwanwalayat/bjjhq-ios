@@ -61,6 +61,7 @@ class MainCoordinator: Coordinator {
         vc.coordinator = self
         vc.productId = productID
         vc.productModel = productModel
+        vc.size = size
         navigationController.pushViewController(vc, animated: true)
     }
     

@@ -25,6 +25,7 @@
             <connections>
                 <outlet property="addCommebtImageBtn" destination="JsE-y2-bIc" id="Il0-H9-rhI"/>
                 <outlet property="bottomView" destination="KEM-bb-Uil" id="bzi-66-F5K"/>
+                <outlet property="buyNowButton" destination="0kb-1r-x9a" id="Sap-yY-RUa"/>
                 <outlet property="collectionView" destination="qm3-Ud-Qyj" id="SMt-p7-Kak"/>
                 <outlet property="colorLabel" destination="NDH-Gs-i5H" id="1pU-Yn-V0G"/>
                 <outlet property="colorsCollectionView" destination="Ctl-jS-ndO" id="7BM-HB-7CU"/>

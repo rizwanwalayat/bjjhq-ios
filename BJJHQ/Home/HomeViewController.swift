@@ -27,6 +27,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var productTitle: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var constHeightEquals: NSLayoutConstraint!
+    @IBOutlet weak var buyNowButton: UIButton!
     @IBOutlet weak var sizeHolderView: UIView!
     @IBOutlet weak var sizeButton: UIButton!
     @IBOutlet weak var dropDownTF: DropDown!
@@ -82,6 +83,9 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.buyNowButton.isEnabled = false
+        self.buyNowButton.alpha = 0.5
+        
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
     }
 
@@ -240,11 +244,16 @@ class HomeViewController: BaseViewController {
         }
     }
     
-    @IBAction func butNowAction(_ sender: Any) {
-        
-        let str = "\(Int(self.productInfo?.current_product_id ?? 0) )"
-        let uploadedID = str.toBase64()
-        coordinator?.myOrderDetail(0, uploadedID, productModel: self.productModel)
+    @IBAction func butNowAction(_ sender: UIButton) {
+        if buyNowButton.alpha == 1 {
+            
+            let str = "\(Int(self.productInfo?.current_product_id ?? 0) )"
+            let uploadedID = str.toBase64()
+            coordinator?.myOrderDetail(size, uploadedID, productModel: self.productModel)
+        }
+        else {
+            showToast(message: "Please select size")
+        }
     }
     
     @objc func likeButtonPressed (_ sender: UIButton)
@@ -288,9 +297,14 @@ class HomeViewController: BaseViewController {
     
     func pieChartTimeCal()
     {
+        var calendar = Calendar.current
+        calendar.timeZone = .current
+        let date = Date()
+        let currentDate = calendar.date(byAdding: .hour, value: 5, to: date) ?? Date()
+        
         if let info = productInfo {
             
-            guard let min = self.timeDifferenceInMin(recent: Date(), previous: info.lastUpdateDate) else {  return }
+            guard let min = self.timeDifferenceInMin(recent: currentDate, previous: info.lastUpdateDate) else {  return }
             
             dataList = [
                 CSPieChartData(key: "time", value: Double(min)),
@@ -301,11 +315,8 @@ class HomeViewController: BaseViewController {
             timePieChart.reloadPieChart()
             
             guard let endDate = fetchPromotionEndTime(info.lastUpdateDate, minToAdd: info.time_interval) else {return }
-            let interval = endDate.timeIntervalSince(Date())
+            let interval = endDate.timeIntervalSince(currentDate)
             var difference = Date(timeIntervalSinceReferenceDate: interval)
-            difference = Calendar.current.date(byAdding: .hour, value: -11, to: difference) ?? difference
-            difference = Calendar.current.date(byAdding: .minute, value: -43, to: difference) ?? difference
-            difference = Calendar.current.date(byAdding: .second, value: -30, to: difference) ?? difference
             self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
                 
                 self.dataList = [

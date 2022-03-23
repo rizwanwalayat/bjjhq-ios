@@ -112,7 +112,7 @@ extension HomeViewController: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsTableViewCell", for: indexPath) as! CommentsTableViewCell
+        let cell = tableView.register(CommentsTableViewCell.self, indexPath: indexPath)
         let obj = comments[indexPath.row]
         cell.config(obj)
         cell.likeButton.tag = indexPath.row
@@ -154,9 +154,8 @@ extension HomeViewController: UITableViewDataSource
     
     fileprivate func buttonLiked(_ sender: UIButton, _ disLikedButton: UIButton)
     {
-        //sender.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
         sender.setTitleColor(UIColor.white, for: .normal)
-        sender.tintColor = .white//UIColor(hexString: "5BD6CD")
+        sender.tintColor = .white
         sender.borderColor = UIColor(hexString: "5BD6CD")
         sender.backgroundColor = UIColor(hexString: "5BD6CD")
         
@@ -224,8 +223,10 @@ extension HomeViewController {
     func APICalls()
     {
         /// Product Fetch
+        ///
+        self.view.activityStartAnimating()
         viewModel?.fetchCurrentDeal({ success, homeData, message in
-            
+            self.view.activityStopAnimating()
             if let data = homeData, let info = data.response, success {
                 
                 self.productInfo = info
@@ -242,28 +243,21 @@ extension HomeViewController {
 
     }
     func fetchComments() {
-//        self.view.activityStartAnimating()
         viewModel?.fetchComments({ success, data, message in
-//            self.view.activityStopAnimating()
             if success, let commentsData = data?.comments {
                 self.comments = commentsData
                 self.tableView.reloadData()
+                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                    
-                    if self.comments.count > 0{
-                        
+                    if self.comments.count > 0 {
                         let indexpAth = IndexPath(row: self.comments.count - 1, section: 0)
                         self.tableView.reloadRows(at: [indexpAth], with: .automatic)
                         print("relaod data after delegate")
                     }
                 }
+                
             }
         })
-//        viewModel?.fetchReactions({ success, data, message in
-//            if success {
-//                print(data!, message!)
-//            }
-//        })
     }
     
     func sendComment(_ text : String)
@@ -365,25 +359,39 @@ extension HomeViewController {
                     // dropdown integrations
                     
                     var titleArray = [String]()
+                    var updatedTitleArray = [String]()
                     var quantity = [Int32]()
                     var ids = [Int]()
+                    var updatedIds = [Int]()
                     
                     for (value,item) in obj.variants.items.enumerated() {
                         self.size = value
                         titleArray.append(item.title)
-//                        quantity.append(item.quantity)
-                        ids.append(Int(item.id) ?? 0)
+                        quantity.append(item.model.node.quantityAvailable ?? 0)
+                        ids.append(Int(value))
                     }
                     
-                    self.dropDownTF.optionArray = titleArray
+                    for (quantity,value) in quantity.enumerated() {
+                        
+                        if value > 0 {
+                            updatedTitleArray.append(titleArray[quantity])
+                            updatedIds.append(ids[quantity])
+                        }
+                    }
+                    
+                    self.dropDownTF.optionArray = updatedTitleArray
                     //Its Id Values and its optional
-                    self.dropDownTF.optionIds = ids
+                    self.dropDownTF.optionIds = updatedIds
 
                     // The the Closure returns Selected Index and String
                     self.dropDownTF.didSelect{(selectedText , index ,id) in
+                        self.size = id
                         self.dropDownFilled.text = selectedText
+                        self.buyNowButton.alpha = 1
+                        
                     }
-                }else {
+                }
+                else {
                     
                     self.productModel = data.items.last
                 }
@@ -393,9 +401,6 @@ extension HomeViewController {
                 self.productPrice.text = self.productModel?.price ?? ""
                 let summary =  self.productModel?.summary ?? ""
                 self.descriptionDetial.text = summary.htmlToString
-                
-                
-                
                 self.collectionView.reloadData()
             }
         })

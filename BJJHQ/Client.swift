@@ -405,7 +405,7 @@ final class Client {
                 
                 let encoded = products.items[0].id
                 let decodedData = Data(base64Encoded: encoded)!
-                let decodedString = String(data: decodedData, encoding: .utf8)
+                _ = String(data: decodedData, encoding: .utf8)
                 
                 completion(products)
                 
