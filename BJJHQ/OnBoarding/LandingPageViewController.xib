@@ -35,16 +35,16 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="8GX-wx-y6t">
-                            <rect key="frame" x="83" y="197" width="248" height="163.5"/>
+                            <rect key="frame" x="83" y="187" width="248" height="163.5"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Welcome, luchador!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKu-i2-qj8">
-                            <rect key="frame" x="20" y="80" width="374" height="41"/>
+                            <rect key="frame" x="20" y="70" width="374" height="41"/>
                             <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="34"/>
                             <color key="textColor" red="0.14509803921568626" green="0.17254901960784313" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVv-fW-tyh">
-                            <rect key="frame" x="20" y="133" width="374" height="34"/>
+                            <rect key="frame" x="20" y="123" width="374" height="34"/>
                             <string key="text">Access our Daily Deals by signing in
 or creating a new account below.</string>
                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="14"/>
@@ -52,7 +52,7 @@ or creating a new account below.</string>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="oAd-9i-AMC">
-                            <rect key="frame" x="30" y="410.5" width="354" height="115"/>
+                            <rect key="frame" x="30" y="400.5" width="354" height="115"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwn-av-phm">
                                     <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -124,7 +124,7 @@ or creating a new account below.</string>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="tJB-MR-qwZ">
-                            <rect key="frame" x="30" y="663" width="354" height="105"/>
+                            <rect key="frame" x="30" y="693" width="354" height="105"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Qq-8G-ZKL">
                                     <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
@@ -234,7 +234,7 @@ or creating a new account below.</string>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="eKu-i2-qj8" firstAttribute="leading" secondItem="phz-9H-llw" secondAttribute="leading" constant="20" id="04d-Ld-5Rv"/>
-                        <constraint firstItem="tJB-MR-qwZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oAd-9i-AMC" secondAttribute="bottom" constant="50" id="0E7-Ev-rF0"/>
+                        <constraint firstItem="tJB-MR-qwZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oAd-9i-AMC" secondAttribute="bottom" constant="20" id="0E7-Ev-rF0"/>
                         <constraint firstItem="oAd-9i-AMC" firstAttribute="leading" secondItem="phz-9H-llw" secondAttribute="leading" constant="30" id="1ia-UU-x75"/>
                         <constraint firstAttribute="trailing" secondItem="VVv-fW-tyh" secondAttribute="trailing" constant="20" id="2Ry-yq-J5t"/>
                         <constraint firstItem="VVv-fW-tyh" firstAttribute="centerX" secondItem="phz-9H-llw" secondAttribute="centerX" id="5r1-qF-Zoa"/>
@@ -244,7 +244,7 @@ or creating a new account below.</string>
                         <constraint firstAttribute="trailing" secondItem="tJB-MR-qwZ" secondAttribute="trailing" constant="30" id="J2b-iI-hRA"/>
                         <constraint firstItem="8GX-wx-y6t" firstAttribute="height" secondItem="phz-9H-llw" secondAttribute="height" multiplier="0.2" id="Jbg-ck-Mw7"/>
                         <constraint firstAttribute="trailing" secondItem="eKu-i2-qj8" secondAttribute="trailing" constant="20" id="YuF-oI-u2g"/>
-                        <constraint firstAttribute="bottom" secondItem="tJB-MR-qwZ" secondAttribute="bottom" constant="50" id="dqZ-QL-nU6"/>
+                        <constraint firstAttribute="bottom" secondItem="tJB-MR-qwZ" secondAttribute="bottom" constant="20" id="dqZ-QL-nU6"/>
                         <constraint firstItem="VVv-fW-tyh" firstAttribute="leading" secondItem="phz-9H-llw" secondAttribute="leading" constant="20" id="ggF-yd-Qu2"/>
                         <constraint firstItem="oAd-9i-AMC" firstAttribute="top" secondItem="8GX-wx-y6t" secondAttribute="bottom" constant="50" id="mPD-nK-eND"/>
                         <constraint firstItem="8GX-wx-y6t" firstAttribute="width" secondItem="phz-9H-llw" secondAttribute="width" multiplier="0.6" id="p1L-xW-Ibl"/>
@@ -288,7 +288,7 @@ or creating a new account below.</string>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="X30-bo-oI8" secondAttribute="trailing" constant="30" id="2mD-Sc-e9A"/>
-                <constraint firstItem="eKu-i2-qj8" firstAttribute="top" secondItem="X30-bo-oI8" secondAttribute="bottom" constant="30" id="Jkn-CD-cpM"/>
+                <constraint firstItem="eKu-i2-qj8" firstAttribute="top" secondItem="X30-bo-oI8" secondAttribute="bottom" constant="20" id="Jkn-CD-cpM"/>
                 <constraint firstItem="phz-9H-llw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Svr-HZ-dtc"/>
                 <constraint firstItem="X30-bo-oI8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="yNh-c5-xNe"/>
                 <constraint firstItem="phz-9H-llw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zLw-ca-MhP"/>
