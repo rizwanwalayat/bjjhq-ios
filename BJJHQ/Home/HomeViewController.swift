@@ -94,6 +94,7 @@ class HomeViewController: BaseViewController {
         
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         setup()
+//        setupClient()
         APICalls()
     }
     
@@ -327,6 +328,7 @@ class HomeViewController: BaseViewController {
                 self.timePieChart.reloadPieChart()
                 
                 let timeArr = difference.dateToString("HH:mm:ss").components(separatedBy: ":")
+                
                 self.remainingTimeLabel.text = "\(timeArr[0])h \(timeArr[1])m \(timeArr[2])s"
                 difference = Calendar.current.date(byAdding: .second, value: -1, to: difference) ?? difference
             })

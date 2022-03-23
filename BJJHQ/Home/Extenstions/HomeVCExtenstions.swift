@@ -192,7 +192,7 @@ extension HomeViewController : commentsTableViewDelegate {
         
         let row = self.comments.firstIndex(where: {$0.comment!.id == superComment.comment!.id}) ?? 0
     
-        self.diLikeComment(commentId: id, row, true)
+        self.likeComment(commentId: id, row, true)
     }
     
     func didTapOnUnlike(_ superComment: Comments, subComment: CommentsReplies) {
@@ -200,8 +200,8 @@ extension HomeViewController : commentsTableViewDelegate {
         let id = subComment.comment?.id ?? 0
         
         let row = self.comments.firstIndex(where: {$0.comment!.id == superComment.comment!.id}) ?? 0
-    
-        self.likeComment(commentId: id, row, true)
+        
+        self.diLikeComment(commentId: id, row, true)
     }
     
     func didTapOnRepliy(_ superComment: Comments, subComment: CommentsReplies) {
@@ -234,7 +234,7 @@ extension HomeViewController {
                 self.productDataPopulate(info.current_product_id)
             }
             else {
-                self.showToast(message: message ?? "Data not fetched ")
+                self.showToast(message: message ?? "error")
             }
         })
         
@@ -247,7 +247,7 @@ extension HomeViewController {
             if success, let commentsData = data?.comments {
                 self.comments = commentsData
                 self.tableView.reloadData()
-                
+                subCommentTableView?.tableView.reloadData()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                     if self.comments.count > 0 {
                         let indexpAth = IndexPath(row: self.comments.count - 1, section: 0)
@@ -288,9 +288,10 @@ extension HomeViewController {
             
             viewModel?.sendComments(parentId, text, { success, message in
                 if success {
-                    self.fetchComments()
+                    
                     self.writeCommentsTF.text = ""
                     self.commentsParentId = nil
+                    self.fetchComments()
                 }
             })
         }
@@ -300,7 +301,7 @@ extension HomeViewController {
     func likeComment(commentId: Int, _ ofIndex: Int, _ isSubComment: Bool = false)
     {
         viewModel?.likeComment(commentId, { success, message in
-            self.fetchComments()
+           
             if success {
                
                 let obj = self.comments[ofIndex]
@@ -317,12 +318,13 @@ extension HomeViewController {
                 let indexpath = IndexPath(row: ofIndex, section: 0)
                 self.tableView.reloadRows(at: [indexpath], with: .automatic)
             }
+            self.fetchComments()
         })
     }
     
     func diLikeComment(commentId: Int, _ ofIndex: Int, _ isSubComment: Bool = false)
     {
-        self.fetchComments()
+        
         viewModel?.disLikeComment(commentId, { success, message in
             if success {
                 let obj = self.comments[ofIndex]
@@ -339,10 +341,12 @@ extension HomeViewController {
                 let indexpath = IndexPath(row: ofIndex, section: 0)
                 self.tableView.reloadRows(at: [indexpath], with: .automatic)
             }
+            
+            self.fetchComments()
         })
     }
     
-    fileprivate func productDataPopulate(_ productID: Double)
+    func productDataPopulate(_ productID: Double)
     {
         let id = productID as NSNumber
         self.pieChartTimeCal()
@@ -354,9 +358,6 @@ extension HomeViewController {
                 if let obj = data.items.first(where: { self.decodeId(id: $0.id) == id.stringValue }) {
                     
                     self.productModel = obj
-                    
-                    
-                    // dropdown integrations
                     
                     var titleArray = [String]()
                     var updatedTitleArray = [String]()
@@ -401,6 +402,8 @@ extension HomeViewController {
                 self.productPrice.text = self.productModel?.price ?? ""
                 let summary =  self.productModel?.summary ?? ""
                 self.descriptionDetial.text = summary.htmlToString
+                self.tableView.reloadData()
+                subCommentTableView?.tableView.reloadData()
                 self.collectionView.reloadData()
             }
         })
@@ -433,9 +436,6 @@ extension HomeViewController {
             print("Connected to \(self.client.url)")
                         
             
-//            self.currentDealChannel?.unsubscribe()
-//            self.commentschannel?.unsubscribe()
-//            self.reactionsChannel?.unsubscribe()
             
             // comments Channel
             let room_identifier = ["room" : "comment_channel"]
@@ -507,44 +507,45 @@ extension HomeViewController  {
         }
         
         self.commentschannel?.onReceive = {(data: Any?, error: Error?) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            
-            if let response = data as? [String:Any]
-            {
-                print(response)
-                if let comment = response["comment"] as? [String: Any], let ancestry = comment["ancestry"] as? NSNumber {
-                    
-                    if let row = self.comments.firstIndex(where: {$0.comment!.id == ancestry.intValue}) {
-                        let obj = self.comments[row]
-                        if let data = Mapper<CommentsReplies>().map(JSONObject: response ) {
-                            obj.replies?.append(data)
-                        }
-                        self.comments[row] = obj
-                        
-                        let indexpath = IndexPath(row: row, section: 0)
-                        self.tableView.reloadRows(at: [indexpath], with: .automatic)
-                    }
-                    
-                    if let commentObj = self.comments.first( where: {$0.comment!.id == ancestry.intValue} ) {
-
-                        if let data = Mapper<CommentsReplies>().map(JSONObject: response ) {
-                            commentObj.replies?.append(data)
-                        }
-                    }
-                }
-                else if let data = Mapper<Comments>().map(JSONObject: response ) {
-
-                    self.comments.append(data)
-                    
-                    let indexpath = IndexPath(row: self.comments.count - 1, section: 0)
-                    self.tableView.reloadRows(at: [indexpath], with: .automatic)
-                }
-                
-                self.tableView.reloadData()
-            }
+            self.fetchComments()
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//
+//            if let response = data as? [String:Any]
+//            {
+//                print(response)
+//                if let comment = response["comment"] as? [String: Any], let ancestry = comment["ancestry"] as? NSNumber {
+//
+//                    if let row = self.comments.firstIndex(where: {$0.comment!.id == ancestry.intValue}) {
+//                        let obj = self.comments[row]
+//                        if let data = Mapper<CommentsReplies>().map(JSONObject: response ) {
+//                            obj.replies?.append(data)
+//                        }
+//                        self.comments[row] = obj
+//
+//                        let indexpath = IndexPath(row: row, section: 0)
+//                        self.tableView.reloadRows(at: [indexpath], with: .automatic)
+//                    }
+//
+//                    if let commentObj = self.comments.first( where: {$0.comment!.id == ancestry.intValue} ) {
+//
+//                        if let data = Mapper<CommentsReplies>().map(JSONObject: response ) {
+//                            commentObj.replies?.append(data)
+//                        }
+//                    }
+//                }
+//                else if let data = Mapper<Comments>().map(JSONObject: response ) {
+//
+//                    self.comments.append(data)
+//
+//                    let indexpath = IndexPath(row: self.comments.count - 1, section: 0)
+//                    self.tableView.reloadRows(at: [indexpath], with: .automatic)
+//                }
+//
+//                self.tableView.reloadData()
+//            }
         }
         
         self.commentschannel?.onUnsubscribed = {
@@ -564,54 +565,55 @@ extension HomeViewController  {
         }
         
         self.reactionsChannel?.onReceive = {(data: Any?, error: Error?) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            if let response = data as? [String:Any]
-            {
-                print(response)
-                if let reacton = response["reaction"] as? [String: Any], let comment = reacton["comment"] as? [String:Any], let commentId =  reacton["comment_id"] as? NSNumber, let isLikedString = reacton["reaction"] as? String {
-                    
-                    var isLiked = false
-                    if isLikedString == "liked" {
-                        isLiked = true
-                    }
-                    else if isLikedString == "disliked"
-                    {
-                        isLiked = false
-                    }
-                    
-                    if let ancestry = comment["ancestry"] as? NSNumber {
-                        
-                        if let row = self.comments.firstIndex(where: {$0.comment!.id == ancestry.intValue}) {
-                            
-                            let obj = self.comments[row]
-                            
-                            if let replyRow = obj.replies?.firstIndex(where: {$0.comment!.id == commentId.intValue}) {
-                                
-                                let subObj = obj.replies?[replyRow]
-                                subObj?.isLiked = isLiked
-                            }
-                            let indexpath = IndexPath(row: row, section: 0)
-                            self.tableView.reloadRows(at: [indexpath], with: .automatic)
-                        }
-                    }
-                    else {
-                        
-                        if let row = self.comments.firstIndex(where: {$0.comment!.id == commentId.intValue}) {
-                            
-                            let obj = self.comments[row]
-                            obj.isLiked = isLiked
-                            let indexpath = IndexPath(row: row, section: 0)
-                            self.tableView.reloadRows(at: [indexpath], with: .automatic)
-                        }
-                            
-                    }
-                    
-                }
-                //self.tableView.reloadData()
-            }
+            self.fetchComments()
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//            if let response = data as? [String:Any]
+//            {
+//                print(response)
+//                if let reacton = response["reaction"] as? [String: Any], let comment = reacton["comment"] as? [String:Any], let commentId =  reacton["comment_id"] as? NSNumber, let isLikedString = reacton["reaction"] as? String {
+//
+//                    var isLiked = false
+//                    if isLikedString == "liked" {
+//                        isLiked = true
+//                    }
+//                    else if isLikedString == "disliked"
+//                    {
+//                        isLiked = false
+//                    }
+//
+//                    if let ancestry = comment["ancestry"] as? NSNumber {
+//
+//                        if let row = self.comments.firstIndex(where: {$0.comment!.id == ancestry.intValue}) {
+//
+//                            let obj = self.comments[row]
+//
+//                            if let replyRow = obj.replies?.firstIndex(where: {$0.comment!.id == commentId.intValue}) {
+//
+//                                let subObj = obj.replies?[replyRow]
+//                                subObj?.isLiked = isLiked
+//                            }
+//                            let indexpath = IndexPath(row: row, section: 0)
+//                            self.tableView.reloadRows(at: [indexpath], with: .automatic)
+//                        }
+//                    }
+//                    else {
+//
+//                        if let row = self.comments.firstIndex(where: {$0.comment!.id == commentId.intValue}) {
+//
+//                            let obj = self.comments[row]
+//                            obj.isLiked = isLiked
+//                            let indexpath = IndexPath(row: row, section: 0)
+//                            self.tableView.reloadRows(at: [indexpath], with: .automatic)
+//                        }
+//
+//                    }
+//
+//                }
+//                //self.tableView.reloadData()
+//            }
         }
         
         self.reactionsChannel?.onUnsubscribed = {

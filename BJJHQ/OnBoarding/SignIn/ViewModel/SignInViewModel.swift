@@ -45,6 +45,7 @@ final class SignInViewModel: BaseViewModel {
         }
     }
     func updateCustomer(email:String,userName:String,bio: String,firstName:String,lastName: String, completion: @escaping SignInCompletionHandler) {
+        if DataManager.shared.getUserAccessToekn() != nil {
         Client.shared.updateUser(accessToken: DataManager.shared.getUserAccessToekn()!, firstName: firstName, lastName: lastName, email: email) { responceOfSuccess, responceOfFailure in
             APIClient.shared.updateUser(firstName: firstName, lastName: lastName, bio: bio, username: userName) { headerData, responce,error,status,message  in
                 if error != nil {
@@ -59,6 +60,8 @@ final class SignInViewModel: BaseViewModel {
                     }
                 }
             }
+        }
+            
         }
     }
 

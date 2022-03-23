@@ -8,7 +8,7 @@
 
 import UIKit
 import SDWebImage
-
+var subCommentTableView : CommentsTableViewCell?
 protocol commentsTableViewDelegate {
     
     func didTapOnRepliy(_ superComment: Comments, subComment: CommentsReplies)
@@ -38,7 +38,7 @@ class CommentsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        subCommentTableView = self
         tableView.register(UINib(nibName: "SubCommentsTableViewCell", bundle: nil), forCellReuseIdentifier: "SubCommentsTableViewCell")
         tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableView.automaticDimension
