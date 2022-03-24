@@ -115,6 +115,9 @@
 		18FCF6C527BE951100D5DF17 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCF6C327BE951100D5DF17 /* SideMenuTableViewCell.swift */; };
 		18FCF6C627BE951100D5DF17 /* SideMenuTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 18FCF6C427BE951100D5DF17 /* SideMenuTableViewCell.xib */; };
 		4BCFFBC636F044FF8234FD2F /* Pods_BJJHQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5D9263BFB2A5B97C243957 /* Pods_BJJHQ.framework */; };
+		6946233027EC796700F7D2CF /* AuthorizationAppleIDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6946232F27EC796700F7D2CF /* AuthorizationAppleIDButton.swift */; };
+		6946233227EC79A000F7D2CF /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6946233127EC79A000F7D2CF /* AuthenticationServices.framework */; };
+		6946233427EC7B3A00F7D2CF /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6946233327EC7B3A00F7D2CF /* KeychainItem.swift */; };
 		9617354027BD0CB300E9FC3C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617353F27BD0CB300E9FC3C /* BaseViewModel.swift */; };
 		96DD6C3F27BFE84600DDA0DC /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD6C3D27BFE84600DDA0DC /* ContactUsViewController.swift */; };
 		96DD6C4027BFE84600DDA0DC /* ContactUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96DD6C3E27BFE84600DDA0DC /* ContactUsViewController.xib */; };
@@ -338,6 +341,9 @@
 		18D766C527BE8DE70076A12B /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		18FCF6C327BE951100D5DF17 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		18FCF6C427BE951100D5DF17 /* SideMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewCell.xib; sourceTree = "<group>"; };
+		6946232F27EC796700F7D2CF /* AuthorizationAppleIDButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationAppleIDButton.swift; sourceTree = "<group>"; };
+		6946233127EC79A000F7D2CF /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		6946233327EC7B3A00F7D2CF /* KeychainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
 		733A59A78DD90F2477EDCC2D /* Pods-BJJHQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJJHQ.release.xcconfig"; path = "Target Support Files/Pods-BJJHQ/Pods-BJJHQ.release.xcconfig"; sourceTree = "<group>"; };
 		9617353F27BD0CB300E9FC3C /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		9617354527BD16B200E9FC3C /* SignInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
@@ -446,6 +452,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6946233227EC79A000F7D2CF /* AuthenticationServices.framework in Frameworks */,
 				9A3714DD251B7B3500FE742B /* Pay in Frameworks */,
 				9A3714DF251B7B3500FE742B /* Buy in Frameworks */,
 				4BCFFBC636F044FF8234FD2F /* Pods_BJJHQ.framework in Frameworks */,
@@ -832,6 +839,7 @@
 		810E2562243D1F970025B670 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6946233127EC79A000F7D2CF /* AuthenticationServices.framework */,
 				EA5D9263BFB2A5B97C243957 /* Pods_BJJHQ.framework */,
 			);
 			name = Frameworks;
@@ -1077,6 +1085,7 @@
 		9AAFAB901E60D0F900864A17 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				6946232F27EC796700F7D2CF /* AuthorizationAppleIDButton.swift */,
 				9A9C92B41ED4B0B40027F049 /* Color.swift */,
 				9AFA3B861E6DFF530056C5AA /* SelectableCell.swift */,
 				9A9FFF2F1E8150F400F6DFF7 /* Buttons */,
@@ -1144,6 +1153,7 @@
 		9ADAD4691E563091008AC561 /* BJJHQ */ = {
 			isa = PBXGroup;
 			children = (
+				6946233327EC7B3A00F7D2CF /* KeychainItem.swift */,
 				9ADAD46A1E563091008AC561 /* AppDelegate.swift */,
 				183E639E27E8DBE800A44192 /* data.json */,
 				183E639D27E8DBE800A44192 /* loader.json */,
@@ -1563,6 +1573,7 @@
 				9A9FFF281E80172C00F6DFF7 /* ProductDetailsCell.xib in Sources */,
 				04FC4FFC27DBB04E00605C79 /* ColorsSelectionCollectionViewCell.swift in Sources */,
 				0481A26C27CCBA9900277E21 /* Constants.swift in Sources */,
+				6946233427EC7B3A00F7D2CF /* KeychainItem.swift in Sources */,
 				9ADAD4701E563091008AC561 /* Main.storyboard in Sources */,
 				18737E4827BE6DF700C4F438 /* MainNotificationTableViewCell.xib in Sources */,
 				18737E4D27BE7A5900C4F438 /* ChangePasswordViewController.xib in Sources */,
@@ -1579,6 +1590,7 @@
 				96DD6C4727C3790B00DDA0DC /* MyOrdersViewController.swift in Sources */,
 				04FC500327DBB53600605C79 /* HomeDataModel.swift in Sources */,
 				183E639B27E8DBCD00A44192 /* SplashViewController.swift in Sources */,
+				6946233027EC796700F7D2CF /* AuthorizationAppleIDButton.swift in Sources */,
 				1816884327BFCED900C9D962 /* SignUpViewController.xib in Sources */,
 				1847908127BE448A00D98451 /* MyAddressesViewController.xib in Sources */,
 				185C707A27BD069A008F2FB3 /* OrderSuccesFullViewController.xib in Sources */,
