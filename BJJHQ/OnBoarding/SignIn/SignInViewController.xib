@@ -124,7 +124,7 @@
                                                 <constraint firstAttribute="height" constant="1" id="3Nh-mD-izF"/>
                                             </constraints>
                                         </view>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="calistaring@gmail.com" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZKg-iq-jB4">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZKg-iq-jB4">
                                             <rect key="frame" x="10" y="0.0" width="354" height="49"/>
                                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="18"/>
@@ -156,7 +156,7 @@
                                                 <constraint firstAttribute="height" constant="1" id="STF-mU-t6c"/>
                                             </constraints>
                                         </view>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Haid3rAwan" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VrJ-Ak-Nii">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VrJ-Ak-Nii">
                                             <rect key="frame" x="10" y="0.0" width="319" height="49"/>
                                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="18"/>
