@@ -10,7 +10,7 @@ import ObjectMapper
 
 struct UserDataModel : Mappable {
     var user : UserData?
-	var message = ""
+    var message: Any?
     var avatar : String?
 	init?(map: Map) {
 

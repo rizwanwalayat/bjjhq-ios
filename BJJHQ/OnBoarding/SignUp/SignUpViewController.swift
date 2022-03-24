@@ -119,8 +119,17 @@ class SignUpViewController: BaseViewController {
             self.view.activityStopAnimating()
 
             if let result = response, error == nil {
-                self.showToast(message: result.message)
-                self.coordinator?.signInPage()
+                if result.message as? String == "Signed up successfully." {
+                    self.coordinator?.signInPage()
+                }
+                else {
+                    if let message = (result.message as? [String]) {
+                        self.showAlert(title: "Error", message: message.first ?? "Unknown Error")
+                    }
+                    else {
+                        self.showAlert(title: "Error", message: "Unknown Error")
+                    }
+                }
             }
             else {
 
