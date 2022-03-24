@@ -173,7 +173,7 @@ class SignUpViewController: BaseViewController {
             passwordTFStatus.text = ""
         }
         else if passwordTF.text!.count < 8 {
-            passwordTFStatus.text = "weak"
+            passwordTFStatus.text = "Weak"
             passwordTFStatus.textColor = UIColor(hexString: "#BB0808")
         }
         else if passwordTF.text!.count >= 8 {
@@ -197,12 +197,12 @@ class SignUpViewController: BaseViewController {
         }
         else if confirmPasswordTF.text! == passwordTF.text!
         {
-            comfirmPasswordTFStatus.text = "✓ Passwords Match"
+            comfirmPasswordTFStatus.text = "✓ Passwords match"
             comfirmPasswordTFStatus.textColor = UIColor(hexString: "#28A938")
         }
         else {
             
-            comfirmPasswordTFStatus.text = "! Passwords Not Matched"
+            comfirmPasswordTFStatus.text = "! Passwords not matched"
             comfirmPasswordTFStatus.textColor = UIColor(hexString: "#BB0808")
         }
     }
@@ -297,8 +297,8 @@ extension SignUpViewController : UITextFieldDelegate {
             if passwordTF.text!.count == 0{
                 passwordTFStatus.text = ""
             }
-            if passwordTF.text!.count < 8 {
-                passwordTFStatus.text = "weak"
+            if passwordTF.text!.count < 8 && passwordTF.text!.count > 0 {
+                passwordTFStatus.text = "Weak"
                 passwordTFStatus.textColor = UIColor(hexString: "#BB0808")
             }
             else if passwordTF.text!.count >= 8 {
@@ -324,8 +324,8 @@ extension SignUpViewController : UITextFieldDelegate {
             if passwordTF.text!.count == 0{
                 passwordTFStatus.text = ""
             }
-             if passwordTF.text!.count < 8 {
-                passwordTFStatus.text = "weak"
+             if passwordTF.text!.count < 8 && passwordTF.text!.count > 0 {
+                passwordTFStatus.text = "Weak"
                 passwordTFStatus.textColor = UIColor(hexString: "#BB0808")
             }
             else if passwordTF.text!.count >= 8 {
