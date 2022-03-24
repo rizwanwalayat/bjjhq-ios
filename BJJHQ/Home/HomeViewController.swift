@@ -308,12 +308,12 @@ class HomeViewController: BaseViewController {
         if let info = productInfo {
             
 //            guard let min = self.timeDifferenceInMin(recent: currentDate, previous: info.lastUpdateDate) else {  return }
-            
+//            
 //            dataList = [
 //                CSPieChartData(key: "time", value: Double(min)),
 //                CSPieChartData(key: "Empty", value: Double(info.time_interval))
 //            ]
-//
+
 //            timePieChart.show(animated: true)
 //            timePieChart.reloadPieChart()
             

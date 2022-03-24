@@ -41,8 +41,12 @@ class MyAddressesViewController: BaseViewController , addressAction {
         super.viewDidLoad()
         globalMyAddressesViewController = self
         self.view.activityStartAnimating()
-        setup()
+//        setup()
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setup()
     }
     func setup() {
         Client.shared.fetchAddress { responce,defaultAddress in

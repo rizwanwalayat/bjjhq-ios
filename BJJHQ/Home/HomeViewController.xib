@@ -258,7 +258,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" text="$40" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmG-ns-71x">
                                                     <rect key="frame" x="319" y="22.5" width="67" height="48"/>
                                                     <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="40"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="timespaleColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="gV0-Sx-sac">

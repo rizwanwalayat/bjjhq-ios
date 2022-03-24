@@ -134,7 +134,9 @@ class DeletePopUpViewController: BaseViewController {
        if isFromAddress {
             //delete address
             Client.shared.deleteUserAddress(accessToken: DataManager.shared.getUserAccessToekn()!, addressId: self.getAddress?.id ?? "") { pass, fail in
-                
+                defer {
+                    globalMyAddressesViewController?.tableView.reloadData()
+                }
                 self.hidePopup()
                 globalAddressBookPopUp?.hidePopup()
             }
