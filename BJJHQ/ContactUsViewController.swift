@@ -28,6 +28,8 @@ class ContactUsViewController: BaseViewController {
             APIClient.shared.ContactUs(body: self.contactTextView.text ?? "") { responce, result, error, statusCode, messsage in
                 self.view.activityStopAnimating()
                 if error == nil {
+                    self.contactTextView.text = ""
+                    self.wordCount.text = "0"
                     let vc = OrderSuccesFullViewController(nibName: "OrderSuccesFullViewController", bundle: nil)
                     vc.isFromFeedBack = true
                     vc.modalPresentationStyle = .overFullScreen

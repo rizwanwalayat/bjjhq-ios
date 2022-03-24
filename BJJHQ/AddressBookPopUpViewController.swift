@@ -114,7 +114,7 @@ class AddressBookPopUpViewController: BaseViewController {
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        if self.textView.text != "" && self.addressTF.text != "" && self.countryTF.text != "" && self.postalTF.text != "" && self.cityTF.text != "" && self.districtTF.text != "" {
+        if self.textView.text != "" && self.countryTF.text != "" && self.postalTF.text != "" && self.cityTF.text != "" && self.districtTF.text != "" {
             
             if isfromAddNewAddress {
                 self.view.activityStartAnimating()
@@ -132,6 +132,8 @@ class AddressBookPopUpViewController: BaseViewController {
                     globalMyAddressesViewController?.setup()
                 }
             }
+        } else {
+            showToast(message: "Please fill all the fields")
         }
     }
     
