@@ -118,13 +118,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Clear Cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0x-eT-aBn">
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Clear Cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0x-eT-aBn">
                                                     <rect key="frame" x="304.5" y="0.0" width="69.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="16"/>
                                                     <color key="textColor" name="borderColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2A-Tn-hoO">
+                                                <button hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2A-Tn-hoO">
                                                     <rect key="frame" x="304.5" y="0.0" width="69.5" height="19.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="14"/>
@@ -181,23 +181,24 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Pink Custom Name Hoodie for Men" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JcC-IJ-rdp">
-                                                            <rect key="frame" x="99" y="0.0" width="149.5" height="70"/>
+                                                            <rect key="frame" x="80" y="0.0" width="265" height="70"/>
                                                             <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFJ-jg-rwg">
-                                                            <rect key="frame" x="277" y="0.0" width="1" height="70"/>
+                                                            <rect key="frame" x="355" y="0.0" width="1" height="70"/>
                                                             <color key="backgroundColor" name="borderColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="1" id="f6C-La-hYH"/>
+                                                                <constraint firstAttribute="width" constant="1" id="1Ra-Vm-36H"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="$40" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wNE-Vx-Cld">
-                                                            <rect key="frame" x="307" y="0.0" width="67" height="70"/>
-                                                            <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="40"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="749" text="$500.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wNE-Vx-Cld">
+                                                            <rect key="frame" x="366" y="0.0" width="8" height="70"/>
+                                                            <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="30"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
+                                                            <size key="shadowOffset" width="0.0" height="0.0"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
@@ -257,7 +258,7 @@
                                                                 <constraint firstItem="9Bj-ef-y13" firstAttribute="centerY" secondItem="FyT-qa-fDZ" secondAttribute="centerY" id="soQ-lI-dlW"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="$ 000.00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="By3-PE-ThS">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="$ 000.00" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="By3-PE-ThS">
                                                             <rect key="frame" x="314" y="0.0" width="60" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="16"/>
                                                             <nil key="textColor"/>
@@ -303,7 +304,7 @@
                                                                 <constraint firstItem="UQ9-xS-sSZ" firstAttribute="leading" secondItem="S5O-LZ-9Xd" secondAttribute="leading" id="vmc-qM-KvJ"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="$ 000.00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXb-62-LUm">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="$ 000.00" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXb-62-LUm">
                                                             <rect key="frame" x="314" y="0.0" width="60" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="16"/>
                                                             <nil key="textColor"/>
@@ -349,7 +350,7 @@
                                                                 <constraint firstAttribute="trailing" secondItem="GUD-CG-5Ik" secondAttribute="trailing" id="red-HL-bMc"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="$ 00.00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZK-hf-qM9">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="$ 00.00" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZK-hf-qM9">
                                                             <rect key="frame" x="323" y="0.0" width="51" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="16"/>
                                                             <nil key="textColor"/>
