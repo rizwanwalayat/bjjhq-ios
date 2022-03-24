@@ -45,7 +45,11 @@ class CommentsTableViewCell: UITableViewCell {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
     }
-
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.commentsText.text = ""
+        
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
