@@ -45,11 +45,11 @@ class CommentsTableViewCell: UITableViewCell {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
     }
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.commentsText.text = ""
-        
-    }
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        self.commentsText.text = ""
+//        
+//    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -208,50 +208,50 @@ extension CommentsTableViewCell: UITableViewDataSource
         cell.replyButton.addTarget(self, action: #selector(replyPressed(_:)), for: .touchUpInside)
         
         
-        if let like = obj.isLiked {
-            
-            switch like {
-                
-            case true:
-                self.buttonLiked(cell.likeButton, cell.unlikeButton)
-            case false:
-                self.buttonDisliked(cell.unlikeButton, cell.likeButton)
-            }
-        }
-
-        
+//        if let like = obj.isLiked {
+//            
+//            switch like {
+//                
+//            case true:
+//                self.buttonLiked(cell.likeButton, cell.unlikeButton)
+//            case false:
+//                self.buttonDisliked(cell.unlikeButton, cell.likeButton)
+//            }
+//        }
+//
+//        
         return cell
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
-    
-    fileprivate func buttonLiked(_ sender: UIButton, _ disLikedButton: UIButton)
-    {
-        //sender.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
-        sender.setTitleColor(UIColor.white, for: .normal)
-        sender.tintColor = .white//UIColor(hexString: "5BD6CD")
-        sender.borderColor = UIColor(hexString: "5BD6CD")
-        sender.backgroundColor = UIColor(hexString: "5BD6CD")
-        
-        disLikedButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
-        disLikedButton.tintColor = UIColor(hexString: "252C44")
-        disLikedButton.borderColor = UIColor(hexString: "252C44")
-        disLikedButton.backgroundColor = .clear
-    }
-    
-    fileprivate func buttonDisliked(_ sender: UIButton, _ unlikeButton: UIButton)
-    {
-        sender.setTitleColor(UIColor.white, for: .normal)
-        sender.tintColor = .white//UIColor(hexString: "5BD6CD")
-        sender.borderColor = UIColor(hexString: "252C44")
-        sender.backgroundColor = UIColor(hexString: "252C44")
-        
-        unlikeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
-        unlikeButton.tintColor = UIColor(hexString: "5BD6CD")
-        unlikeButton.borderColor = UIColor(hexString: "5BD6CD")
-        unlikeButton.backgroundColor = .clear
-    }
-    
+//
+//    fileprivate func buttonLiked(_ sender: UIButton, _ disLikedButton: UIButton)
+//    {
+//        //sender.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
+//        sender.setTitleColor(UIColor.white, for: .normal)
+//        sender.tintColor = .white//UIColor(hexString: "5BD6CD")
+//        sender.borderColor = UIColor(hexString: "5BD6CD")
+//        sender.backgroundColor = UIColor(hexString: "5BD6CD")
+//
+//        disLikedButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
+//        disLikedButton.tintColor = UIColor(hexString: "252C44")
+//        disLikedButton.borderColor = UIColor(hexString: "252C44")
+//        disLikedButton.backgroundColor = .clear
+//    }
+//
+//    fileprivate func buttonDisliked(_ sender: UIButton, _ unlikeButton: UIButton)
+//    {
+//        sender.setTitleColor(UIColor.white, for: .normal)
+//        sender.tintColor = .white//UIColor(hexString: "5BD6CD")
+//        sender.borderColor = UIColor(hexString: "252C44")
+//        sender.backgroundColor = UIColor(hexString: "252C44")
+//
+//        unlikeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
+//        unlikeButton.tintColor = UIColor(hexString: "5BD6CD")
+//        unlikeButton.borderColor = UIColor(hexString: "5BD6CD")
+//        unlikeButton.backgroundColor = .clear
+//    }
+//
 }

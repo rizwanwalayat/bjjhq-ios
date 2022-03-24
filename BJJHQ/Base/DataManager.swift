@@ -31,6 +31,9 @@ class DataManager {
     func getProfilePic() -> Data? {
         return UserDefaults.standard.data(forKey: "profilePic")
     }
+    func removeProfilePic() {
+        return UserDefaults.standard.removeObject(forKey: "profilePic")
+    }
     
     func setLocalToken(value: String) {
         UserDefaults.standard.set(value, forKey: "token")

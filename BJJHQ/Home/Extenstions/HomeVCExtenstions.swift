@@ -36,7 +36,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
         
         if collectionView == self.collectionView {
             let index = self.collectionView.contentOffset.x / self.collectionView.frame.size.width
-            pagesIndicators.progress = index
+            self.pageControl.currentPage = Int(index)
+//            pagesIndicators.progress = index
         }
     }
     
@@ -72,7 +73,7 @@ extension HomeViewController: UICollectionViewDataSource
            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as! HomeCollectionViewCell
             
-            if let item = self.productModel?.images.items[indexPath.row] {
+            if let item = self.productModel?.images.items[indexPath.item] {
                 
                 self.setImage(imageView: cell.productImageView, url: item.url)
             }
@@ -82,10 +83,10 @@ extension HomeViewController: UICollectionViewDataSource
             
             return cell
         }
-        
+
         // for colors
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorsSelectionCollectionViewCell", for: indexPath) as! ColorsSelectionCollectionViewCell
-        
+
         cell.configCell(indexPath, selectedIndexPath: colorSelectedIndex, color: tempColorArray[indexPath.item])
         return cell
         
@@ -243,7 +244,9 @@ extension HomeViewController {
 
     }
     func fetchComments() {
+        self.view.activityStartAnimating()
         viewModel?.fetchComments({ success, data, message in
+            self.view.activityStopAnimating()
             if success, let commentsData = data?.comments {
                 self.comments.removeAll()
                 self.comments = commentsData
@@ -398,7 +401,10 @@ extension HomeViewController {
                     self.productModel = data.items.last
                 }
                 
-                //self.pagesIndicators.pageCount = self.productModel?.images.items.count ?? 0
+                self.pagesIndicators.pageCount = self.productModel?.images.items.count ?? 0
+//                self.pagesIndicators.contentMode = .center
+//                self.pagesIndicators.clipsToBounds = true
+                self.pageControl.numberOfPages = self.productModel?.images.items.count ?? 0
                 self.productTitle.text = self.productModel?.title ?? ""
                 self.productPrice.text = self.productModel?.price ?? ""
                 let summary =  self.productModel?.summary ?? ""

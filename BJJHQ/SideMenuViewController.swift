@@ -13,10 +13,16 @@ class SideMenuViewController: BaseViewController, SlideMenuControllerDelegate {
     @IBOutlet weak var firstNameLastNameLBL: UILabel!
     @IBOutlet weak var userNameLBL: UILabel!
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
+    var isguestUser = false
+    var array = ["Change Password","My Orders","Address Book","Contact Us","Notifications","Return Policy","FAQs"]
+    var array2 = ["Contact Us","Return Policy","FAQs"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if let url = URL(string:  DataManager.shared.getUser()?.avatar ?? "") {
             self.setImage(imageView: self.profileImage, url: url)
             if self.profileImage != nil {
@@ -43,13 +49,28 @@ class SideMenuViewController: BaseViewController, SlideMenuControllerDelegate {
     @IBAction func signOutAction(_ sender: Any) {
         let vc = DeletePopUpViewController(nibName: "DeletePopUpViewController", bundle: nil)
         vc.coordinator = self.coordinator
-        vc.isFromSignOut = true
+        if isguestUser {
+            vc.isFromSignIn = true
+        }
+        else {
+            vc.isFromSignOut = true
+        }
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: false, completion: nil)
         
     }
     
     func setup() {
+        if let userRole = DataManager.shared.getUser()?.user?.role {
+            if userRole == "guest" {
+                defer {
+                    self.signOutButton.setTitle("Sign In", for: .normal)
+                    self.tableView.reloadData()
+                }
+                self.isguestUser = true
+            }
+        }
+        
         self.profileImage.clipsToBounds = true
         if let user = DataManager.shared.getUser() {
             self.firstNameLastNameLBL.text = "\(user.user?.first_name ?? "") \(user.user?.last_name ?? "")"
@@ -60,12 +81,23 @@ class SideMenuViewController: BaseViewController, SlideMenuControllerDelegate {
 }
 extension SideMenuViewController : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        if isguestUser {
+            return self.array2.count
+        }
+        else {
+            return self.array.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.register(SideMenuTableViewCell.self, indexPath: indexPath)
-        cell.config(index: indexPath.row)
+        if isguestUser {
+            cell.config(index: indexPath.row, array: self.array2)
+        }
+        else {
+            cell.config(index: indexPath.row, array: self.array)
+        }
+       
         cell.selectionStyle = .none
         return cell
         
@@ -73,24 +105,39 @@ extension SideMenuViewController : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        switch indexPath.row {
-        case 0:
-            coordinator?.changePasswordPage()
-        case 1:
-            coordinator?.myOrdersPage()
-        case 2:
-            coordinator?.addressPage()
-        case 3:
-            coordinator?.contactUsPage()
-        case 4:
-            coordinator?.notificationPage()
-        case 5:
-            coordinator?.ReturnPolicyPage()
-        case 6:
-            coordinator?.FAQPage()
-        default :
-            print("Default")
+        if self.isguestUser {
+            switch indexPath.row {
+                case 0:
+                    coordinator?.contactUsPage()
+                case 1:
+                    coordinator?.ReturnPolicyPage()
+                case 2:
+                    coordinator?.FAQPage()
+                default :
+                    print("Default")
+                }
         }
+        else {
+            switch indexPath.row {
+            case 0:
+                coordinator?.changePasswordPage()
+            case 1:
+                coordinator?.myOrdersPage()
+            case 2:
+                coordinator?.addressPage()
+            case 3:
+                coordinator?.contactUsPage()
+            case 4:
+                coordinator?.notificationPage()
+            case 5:
+                coordinator?.ReturnPolicyPage()
+            case 6:
+                coordinator?.FAQPage()
+            default :
+                print("Default")
+            }
+        }
+    
     }
     
 }
