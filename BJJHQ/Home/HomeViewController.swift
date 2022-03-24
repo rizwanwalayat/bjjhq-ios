@@ -87,7 +87,7 @@ class HomeViewController: BaseViewController {
         if let url = URL(string:  DataManager.shared.getUser()?.avatar ?? "") {
             self.setImage(imageView: self.userImageComments, url: url)
         }
-        self.buyNowButton.alpha = 0.8
+        self.buyNowButton.backgroundColor = UIColor(hexString: "BDBDBD")
         
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
     }
@@ -98,7 +98,6 @@ class HomeViewController: BaseViewController {
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         setup()
         self.comments.removeAll()
-//        setupClient()
         APICalls()
     }
     
@@ -250,8 +249,7 @@ class HomeViewController: BaseViewController {
     }
     
     @IBAction func butNowAction(_ sender: UIButton) {
-        if buyNowButton.alpha == 1 {
-            
+        if buyNowButton.backgroundColor != UIColor(hexString: "BDBDBD") {
             let str = "\(Int(self.productInfo?.current_product_id ?? 0) )"
             let uploadedID = str.toBase64()
             coordinator?.myOrderDetail(size, uploadedID, productModel: self.productModel)
@@ -309,27 +307,27 @@ class HomeViewController: BaseViewController {
         
         if let info = productInfo {
             
-            guard let min = self.timeDifferenceInMin(recent: currentDate, previous: info.lastUpdateDate) else {  return }
+//            guard let min = self.timeDifferenceInMin(recent: currentDate, previous: info.lastUpdateDate) else {  return }
             
-            dataList = [
-                CSPieChartData(key: "time", value: Double(min)),
-                CSPieChartData(key: "Empty", value: Double(info.time_interval))
-            ]
-            
-            timePieChart.show(animated: true)
-            timePieChart.reloadPieChart()
+//            dataList = [
+//                CSPieChartData(key: "time", value: Double(min)),
+//                CSPieChartData(key: "Empty", value: Double(info.time_interval))
+//            ]
+//
+//            timePieChart.show(animated: true)
+//            timePieChart.reloadPieChart()
             
             guard let endDate = fetchPromotionEndTime(info.lastUpdateDate, minToAdd: info.time_interval) else {return }
             let interval = endDate.timeIntervalSince(currentDate)
             var difference = Date(timeIntervalSinceReferenceDate: interval)
             self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
                 
-                self.dataList = [
-                    CSPieChartData(key: "time", value: Double(min)),
-                    CSPieChartData(key: "Empty", value: Double(info.time_interval))
-                ]
-                self.timePieChart.show(animated: false)
-                self.timePieChart.reloadPieChart()
+//                self.dataList = [
+//                    CSPieChartData(key: "time", value: Double(min)),
+//                    CSPieChartData(key: "Empty", value: Double(info.time_interval))
+//                ]
+//                self.timePieChart.show(animated: false)
+//                self.timePieChart.reloadPieChart()
                 
                 let timeArr = difference.dateToString("HH:mm:ss").components(separatedBy: ":")
                 

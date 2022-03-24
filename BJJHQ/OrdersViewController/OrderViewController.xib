@@ -180,21 +180,26 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Pink Custom Name Hoodie for Men" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JcC-IJ-rdp">
-                                                            <rect key="frame" x="80" y="0.0" width="265" height="70"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JcC-IJ-rdp">
+                                                            <rect key="frame" x="86.5" y="0.0" width="149.5" height="70"/>
+                                                            <string key="text">Pink Custom Name 
+Hoodie for Men</string>
                                                             <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFJ-jg-rwg">
-                                                            <rect key="frame" x="355" y="0.0" width="1" height="70"/>
+                                                            <rect key="frame" x="252.5" y="0.0" width="1" height="70"/>
                                                             <color key="backgroundColor" name="borderColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="1" id="1Ra-Vm-36H"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="749" text="$500.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wNE-Vx-Cld">
-                                                            <rect key="frame" x="366" y="0.0" width="8" height="70"/>
+                                                            <rect key="frame" x="270" y="0.0" width="104" height="70"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="cdX-Z9-ywT"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="30"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>

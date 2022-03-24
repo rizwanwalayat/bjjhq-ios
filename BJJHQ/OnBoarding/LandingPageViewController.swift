@@ -30,11 +30,11 @@ class LandingPageViewController: BaseViewController, LoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        let loginButton = FBLoginButton()
-        loginButton.delegate = self
-        loginButton.center = view.center
-        loginButton.permissions = ["public_profile", "email"]
-        view.addSubview(loginButton)
+//        let loginButton = FBLoginButton()
+//        loginButton.delegate = self
+//        loginButton.center = view.center
+//        loginButton.permissions = ["public_profile", "email"]
+//        view.addSubview(loginButton)
     }
     
     

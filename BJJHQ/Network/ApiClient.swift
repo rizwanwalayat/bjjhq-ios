@@ -84,7 +84,7 @@ class APIClient: APIClientHandler {
     
     func guestUser(uuid: String, _ completionBlock: @escaping APIClientCompletionHandler)
     {
-        let userParams = ["uuid": uuid]
+        let userParams = ["user_mobile_id": uuid]
         let params = ["guest": userParams] as [String: AnyObject]
         
         _ = sendRequest(APIRoutes.guest , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
@@ -107,8 +107,8 @@ class APIClient: APIClientHandler {
     func SignIn(email: String, password: String, id : String, _ completionBlock: @escaping APIClientCompletionHandler)
     {
         let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
-        let userParams = ["email": email, "password": password, "shopify_customer_id": id,"fcm_token":Global.shared.FCMtoken, "user_mobile_id": uuid]
-        
+//        let userParams = ["email": email, "password": password, "shopify_customer_id": id,"fcm_token":Global.shared.FCMtoken, "user_mobile_id": uuid]
+        let userParams = ["email": email, "password": password,"fcm_token":Global.shared.FCMtoken, "user_mobile_id": uuid]
         let params = ["user": userParams] as [String: AnyObject]
         
         _ = sendRequest(APIRoutes.signin , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
@@ -205,7 +205,7 @@ class APIClient: APIClientHandler {
         let headers: HTTPHeaders = ["Authorization" : token]
         
         
-        _ = sendRequest(APIRoutes.dislike , parameters: params ,httpMethod: .post , headers: headers, completionBlock: completionBlock)
+        _ = sendRequest(APIRoutes.dislike , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
     }
     
     func likeComment(_ commentId: Int, _ completionBlock: @escaping APIClientCompletionHandler)
@@ -221,7 +221,7 @@ class APIClient: APIClientHandler {
         let token = DataManager.shared.getLocalToken() ?? ""
         let headers: HTTPHeaders = ["Authorization" : token]
         
-        _ = sendRequest(APIRoutes.like , parameters: params ,httpMethod: .post , headers: headers, completionBlock: completionBlock)
+        _ = sendRequest(APIRoutes.like , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
     }
     
     func fetchReactions(_ completionBlock: @escaping APIClientCompletionHandler)
@@ -229,7 +229,7 @@ class APIClient: APIClientHandler {
         let token = DataManager.shared.getLocalToken() ?? ""
         let headers: HTTPHeaders = ["Authorization" : token]
         
-        _ = sendRequest(APIRoutes.reactions , parameters: [:] ,httpMethod: .get , headers: headers, completionBlock: completionBlock)
+        _ = sendRequest(APIRoutes.reactions , parameters: [:] ,httpMethod: .get , headers: nil, completionBlock: completionBlock)
     }
     
     func sendComments(mobileId: String, userSystemId: String, parentCommentId: String = "",message: String, role: String,_ completionBlock: @escaping APIClientCompletionHandler)
@@ -244,7 +244,7 @@ class APIClient: APIClientHandler {
         
         let params = ["comment": userParams] as [String: AnyObject]
         
-        _ = sendRequest(APIRoutes.comments , parameters: params ,httpMethod: .post , headers: headers, completionBlock: completionBlock)
+        _ = sendRequest(APIRoutes.comments , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
     }
     
     func sendImageComments(mobileId: String, userSystemId: String, parentCommentId: String = "",message: String, role: String, image: UIImage, _ completionBlock: @escaping APIClientCompletionHandler)
@@ -260,7 +260,7 @@ class APIClient: APIClientHandler {
         let imageData = thumb2.jpegData(compressionQuality: 0.5)
         let imageStr = imageData?.base64EncodedString(options: .lineLength64Characters) ?? ""
         let params = ["comment": userParams, "image": ["data:image/png;base64,"+imageStr]] as [String: AnyObject]
-        _ = sendRequest(APIRoutes.comments , parameters: params ,httpMethod: .post , headers: headers, completionBlock: completionBlock)
+        _ = sendRequest(APIRoutes.comments , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
     }
     
 }

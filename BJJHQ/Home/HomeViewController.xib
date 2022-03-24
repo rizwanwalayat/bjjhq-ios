@@ -211,7 +211,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="KVu-NF-qM0">
+                                <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="KVu-NF-qM0">
                                     <rect key="frame" x="145.5" y="538.5" width="115.5" height="26"/>
                                     <color key="pageIndicatorTintColor" name="lightGrey"/>
                                     <color key="currentPageIndicatorTintColor" name="black"/>
@@ -643,7 +643,7 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kb-1r-x9a">
                             <rect key="frame" x="30" y="1344" width="346" height="50"/>
-                            <color key="backgroundColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="blue"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="XW7-LQ-RVn"/>
                             </constraints>
@@ -723,6 +723,9 @@
         </namedColor>
         <namedColor name="black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blue">
+            <color red="0.14499999582767487" green="0.17299999296665192" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="borderColor">
             <color red="0.35699999332427979" green="0.83899998664855957" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

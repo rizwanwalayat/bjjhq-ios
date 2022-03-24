@@ -387,12 +387,12 @@ extension HomeViewController {
                     self.dropDownTF.optionArray = updatedTitleArray
                     //Its Id Values and its optional
                     self.dropDownTF.optionIds = updatedIds
-
+//                    self.buyNowButton.backgroundColor = UIColor(hexString: "BDBDBD")
                     // The the Closure returns Selected Index and String
                     self.dropDownTF.didSelect{(selectedText , index ,id) in
                         self.size = id
                         self.dropDownFilled.text = selectedText
-                        self.buyNowButton.alpha = 1
+                        self.buyNowButton.backgroundColor = UIColor(named: "blue")
                         
                     }
                 }

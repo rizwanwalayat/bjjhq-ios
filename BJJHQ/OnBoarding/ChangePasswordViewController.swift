@@ -52,8 +52,7 @@ class ChangePasswordViewController: BaseViewController {
             if newPasswordTF.text == confirmPasswordTF.text {
                 guard let user = DataManager.shared.getUser(), let token = DataManager.shared.getUserAccessToekn() else {return}
                 self.view.activityStartAnimating()
-                APIClient.shared.SignIn(email: user.user?.email ?? "", password: self.currentPasswordTF.text ?? "", id: user.user?.shopify_customer_id ?? "") { responce, result, error, statusCode, messsage in
-                    
+                    Client.shared.login(email: user.user?.email ?? "", password: self.currentPasswordTF.text ?? "") { accessToken, error in
                     self.view.activityStopAnimating()
                     if error == nil {
                         self.view.activityStartAnimating()
@@ -77,7 +76,7 @@ class ChangePasswordViewController: BaseViewController {
                     }
                     
                     else {
-                        self.showToast(message: "Current password is wrong")
+                        self.showToast(message: error ?? "Wrong password" )
                     }
 
                 }
