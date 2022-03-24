@@ -455,14 +455,9 @@ extension HomeViewController {
             
             let currentDealIdentifier = ["room": "deal_channel"]
             self.currentDealChannel =  self.client.create("DealChannel", identifier: currentDealIdentifier, autoSubscribe: true, bufferActions: true)
-//            for _ in 0..<5 {
-//                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
                     self.commentsChannelsListener()
                     self.reactionsChannelsListener()
                     self.dealsChannelsListener()
-//                }
-//            }
-           
         }
         
         let token = DataManager.shared.getUserAccessToekn() ?? ""
