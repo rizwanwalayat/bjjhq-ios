@@ -57,14 +57,21 @@ class SignUpViewController: BaseViewController {
     
     //MARK: - IBAction
     
-    @IBAction func visibilityAction(_ sender: UIButton) {
+    @IBAction func passwordVisibilityAction(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
             self.passwordTF.isSecureTextEntry = false
-            self.confirmPasswordTF.isSecureTextEntry = false
         }
         else {
             self.passwordTF.isSecureTextEntry = true
+        }
+    }
+    @IBAction func confirmPasswordVisibilityAction(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected {
+            self.confirmPasswordTF.isSecureTextEntry = false
+        }
+        else {
             self.confirmPasswordTF.isSecureTextEntry = true
         }
     }
@@ -112,8 +119,17 @@ class SignUpViewController: BaseViewController {
             self.view.activityStopAnimating()
 
             if let result = response, error == nil {
-                self.showToast(message: result.message)
-                self.coordinator?.signInPage()
+                if result.message as? String == "Signed up successfully." {
+                    self.coordinator?.signInPage()
+                }
+                else {
+                    if let message = (result.message as? [String]) {
+                        self.showAlert(title: "Error", message: message.first ?? "Unknown Error")
+                    }
+                    else {
+                        self.showAlert(title: "Error", message: "Unknown Error")
+                    }
+                }
             }
             else {
 
@@ -157,7 +173,7 @@ class SignUpViewController: BaseViewController {
             passwordTFStatus.text = ""
         }
         else if passwordTF.text!.count < 8 {
-            passwordTFStatus.text = "weak"
+            passwordTFStatus.text = "Weak"
             passwordTFStatus.textColor = UIColor(hexString: "#BB0808")
         }
         else if passwordTF.text!.count >= 8 {
@@ -181,12 +197,12 @@ class SignUpViewController: BaseViewController {
         }
         else if confirmPasswordTF.text! == passwordTF.text!
         {
-            comfirmPasswordTFStatus.text = "✓ Passwords Match"
+            comfirmPasswordTFStatus.text = "✓ Passwords match"
             comfirmPasswordTFStatus.textColor = UIColor(hexString: "#28A938")
         }
         else {
             
-            comfirmPasswordTFStatus.text = "! Passwords Not Matched"
+            comfirmPasswordTFStatus.text = "! Passwords not matched"
             comfirmPasswordTFStatus.textColor = UIColor(hexString: "#BB0808")
         }
     }
@@ -281,8 +297,8 @@ extension SignUpViewController : UITextFieldDelegate {
             if passwordTF.text!.count == 0{
                 passwordTFStatus.text = ""
             }
-            if passwordTF.text!.count < 8 {
-                passwordTFStatus.text = "weak"
+            if passwordTF.text!.count < 8 && passwordTF.text!.count > 0 {
+                passwordTFStatus.text = "Weak"
                 passwordTFStatus.textColor = UIColor(hexString: "#BB0808")
             }
             else if passwordTF.text!.count >= 8 {
@@ -308,8 +324,8 @@ extension SignUpViewController : UITextFieldDelegate {
             if passwordTF.text!.count == 0{
                 passwordTFStatus.text = ""
             }
-             if passwordTF.text!.count < 8 {
-                passwordTFStatus.text = "weak"
+             if passwordTF.text!.count < 8 && passwordTF.text!.count > 0 {
+                passwordTFStatus.text = "Weak"
                 passwordTFStatus.textColor = UIColor(hexString: "#BB0808")
             }
             else if passwordTF.text!.count >= 8 {

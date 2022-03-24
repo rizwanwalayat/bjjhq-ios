@@ -140,7 +140,7 @@
                                             <rect key="frame" x="10" y="0.0" width="324" height="49"/>
                                             <color key="textColor" red="0.14509803921568626" green="0.17254901960784313" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="18"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             <connections>
                                                 <outlet property="delegate" destination="-1" id="7fO-Ii-xVA"/>
                                             </connections>
@@ -172,7 +172,7 @@
                                             <rect key="frame" x="10" y="0.0" width="324" height="49"/>
                                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="18"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             <connections>
                                                 <outlet property="delegate" destination="-1" id="uMj-CE-XcV"/>
                                             </connections>
@@ -204,7 +204,7 @@
                                             <rect key="frame" x="10" y="0.0" width="324" height="49"/>
                                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="18"/>
-                                            <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             <connections>
                                                 <outlet property="delegate" destination="-1" id="YYw-UF-xob"/>
                                             </connections>
@@ -236,7 +236,7 @@
                                             <rect key="frame" x="10" y="0.0" width="324" height="49"/>
                                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="18"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             <connections>
                                                 <outlet property="delegate" destination="-1" id="Ltq-Rb-BMN"/>
                                             </connections>
@@ -271,7 +271,7 @@
                                             </constraints>
                                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="18"/>
-                                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             <connections>
                                                 <action selector="passwordTFChanged:" destination="-1" eventType="editingChanged" id="7Iy-wJ-HI6"/>
                                                 <outlet property="delegate" destination="-1" id="kMx-fN-E81"/>
@@ -310,7 +310,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="visibilityAction:" destination="-1" eventType="touchUpInside" id="ipD-aO-XXm"/>
+                                                <action selector="passwordVisibilityAction:" destination="-1" eventType="touchUpInside" id="p4Q-Ik-wlp"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -347,7 +347,7 @@
                                             </constraints>
                                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="18"/>
-                                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             <connections>
                                                 <action selector="comfirmPasswordChanged:" destination="-1" eventType="editingChanged" id="aUv-AG-IOb"/>
                                                 <outlet property="delegate" destination="-1" id="yUW-LK-qfe"/>
@@ -386,7 +386,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="visibilityAction:" destination="-1" eventType="touchUpInside" id="Dro-hn-391"/>
+                                                <action selector="confirmPasswordVisibilityAction:" destination="-1" eventType="touchUpInside" id="WSF-iJ-RX0"/>
                                             </connections>
                                         </button>
                                     </subviews>
