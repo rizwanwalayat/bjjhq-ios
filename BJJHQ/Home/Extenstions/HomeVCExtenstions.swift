@@ -245,16 +245,17 @@ extension HomeViewController {
     func fetchComments() {
         viewModel?.fetchComments({ success, data, message in
             if success, let commentsData = data?.comments {
+                self.comments.removeAll()
                 self.comments = commentsData
                 self.tableView.reloadData()
                 subCommentTableView?.tableView.reloadData()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                    if self.comments.count > 0 {
-                        let indexpAth = IndexPath(row: self.comments.count - 1, section: 0)
-                        self.tableView.reloadRows(at: [indexpAth], with: .automatic)
-                        print("relaod data after delegate")
-                    }
-                }
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+//                    if self.comments.count > 0 {
+//                        let indexpAth = IndexPath(row: self.comments.count - 1, section: 0)
+//                        self.tableView.reloadRows(at: [indexpAth], with: .automatic)
+//                        print("relaod data after delegate")
+//                    }
+//                }
                 
             }
         })

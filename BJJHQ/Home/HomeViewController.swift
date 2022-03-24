@@ -83,7 +83,6 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.buyNowButton.isEnabled = false
         self.buyNowButton.alpha = 0.5
         
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
@@ -91,9 +90,10 @@ class HomeViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.navigationController?.navigationBar.isHidden = true
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         setup()
+        self.comments.removeAll()
 //        setupClient()
         APICalls()
     }

@@ -27,7 +27,7 @@
 import UIKit
 import WebKit
 
-class WebViewController: BaseViewController {
+class WebViewController: BaseViewController, WKNavigationDelegate{
     
     let url: URL
     let accessToken: String?
@@ -49,8 +49,25 @@ class WebViewController: BaseViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        print("Start loading")
+    }
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        webView.evaluateJavaScript("document.documentElement.outerHTML.toString()",
+                                   completionHandler: { (html: Any?, error: Error?) in
+            let stringHtml = html as? String
+            let contains = stringHtml?.contains("Thank you \(DataManager.shared.getUser()!.user!.first_name)")
+            if contains ?? false {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    self.coordinator?.homePage()
+                }
+            }
+        })
+    }
     
     private func initialize() {
+        self.webView.navigationDelegate = self
         self.webView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.webView)
         

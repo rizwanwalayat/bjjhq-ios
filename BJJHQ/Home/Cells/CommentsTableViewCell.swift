@@ -39,6 +39,7 @@ class CommentsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         subCommentTableView = self
+        self.replies.removeAll()
         tableView.register(UINib(nibName: "SubCommentsTableViewCell", bundle: nil), forCellReuseIdentifier: "SubCommentsTableViewCell")
         tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableView.automaticDimension
