@@ -13,15 +13,14 @@ class SideMenuTableViewCell: UITableViewCell {
     @IBOutlet weak var sideMenuImage: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
     
-    var array = ["Change Password","My Orders","Address Book","Contact Us","Notifications","Return Policy","FAQs"]
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func config(index:Int) {
+    func config(index:Int,array:[String]) {
         self.sideMenuImage.image = UIImage(named: "\(index)")
-        self.titleLbl.text = self.array[index]
+        self.titleLbl.text = array[index]
         
     }
 

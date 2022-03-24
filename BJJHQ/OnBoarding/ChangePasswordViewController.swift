@@ -53,6 +53,7 @@ class ChangePasswordViewController: BaseViewController {
                 guard let user = DataManager.shared.getUser(), let token = DataManager.shared.getUserAccessToekn() else {return}
                 self.view.activityStartAnimating()
                 APIClient.shared.SignIn(email: user.user?.email ?? "", password: self.currentPasswordTF.text ?? "", id: user.user?.shopify_customer_id ?? "") { responce, result, error, statusCode, messsage in
+                    
                     self.view.activityStopAnimating()
                     if error == nil {
                         self.view.activityStartAnimating()

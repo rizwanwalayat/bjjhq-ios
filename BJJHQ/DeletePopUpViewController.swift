@@ -24,6 +24,7 @@ class DeletePopUpViewController: BaseViewController {
     //MARK: - Variables
     
     var isFromSignOut = false
+    var isFromSignIn = false
     var isFromAddress = false
     var isFromRemoveCart = false
     var getAddress : Addresses?
@@ -54,8 +55,13 @@ class DeletePopUpViewController: BaseViewController {
             self.titleLbl.isHidden = true
             self.descriptionLbl.text = "This item will be removed from your cart, do you wish to proceed?"
         }
+        else if isFromSignIn {
+            self.imgvvView.isHidden = true
+            self.titleLbl.text = "Sign In"
+            self.descriptionLbl.text = "You can enable full access with sign in"
+        }
         else {
-            // Default
+            
         }
         
         viewModel = DeleteLogoutViewModel()
@@ -102,6 +108,13 @@ class DeletePopUpViewController: BaseViewController {
         hidePopup()
     }
     @IBAction func yesAction(_ sender: Any) {
+        if isFromSignIn {
+            DataManager.shared.deleteUser()
+            DataManager.shared.removeUserAccessToken()
+            DataManager.shared.removeProfilePic()
+            self.hidePopup()
+            self.coordinator?.signInPage()
+        }
         if isFromSignOut {
             self.view.activityStartAnimating()
             viewModel?.logoutUser({ success, message in
@@ -109,6 +122,7 @@ class DeletePopUpViewController: BaseViewController {
                 if success {
                     DataManager.shared.deleteUser()
                     DataManager.shared.removeUserAccessToken()
+                    DataManager.shared.removeProfilePic()
                     self.hidePopup()
                     self.coordinator?.landingPage()
                 }

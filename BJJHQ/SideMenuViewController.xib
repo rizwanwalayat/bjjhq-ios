@@ -25,6 +25,8 @@
             <connections>
                 <outlet property="firstNameLastNameLBL" destination="gbb-Aa-eFU" id="fbA-I8-T6Z"/>
                 <outlet property="profileImage" destination="XTj-jq-M13" id="Bbo-lO-BgW"/>
+                <outlet property="signOutButton" destination="fSF-pt-Bd5" id="hYh-e6-uOd"/>
+                <outlet property="tableView" destination="uvx-mh-2ET" id="Zeo-sY-RAi"/>
                 <outlet property="userNameLBL" destination="OSq-8f-0xM" id="Q2z-yd-OYE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

@@ -59,9 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //MARK: - UserState
     
 //        if DataManager.shared.getUser() != nil {
-
+//
 //            coordinator?.splashPage()
-
+//
 //        }
 //        else {
 //            coordinator?.landingPage()

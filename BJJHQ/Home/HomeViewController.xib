@@ -43,6 +43,7 @@
                 <outlet property="imageCommentHolder" destination="dx4-SS-0F0" id="grk-xR-EEa"/>
                 <outlet property="mainHolderView" destination="DaM-DD-p99" id="ffe-8x-7dH"/>
                 <outlet property="menuButton" destination="99v-ID-U4B" id="Qd5-tX-E1N"/>
+                <outlet property="pageControl" destination="KVu-NF-qM0" id="iuI-ET-b9n"/>
                 <outlet property="pagesIndicators" destination="QE1-lT-9Qo" id="uHu-27-dsb"/>
                 <outlet property="productPrice" destination="PmG-ns-71x" id="YmY-RB-i6M"/>
                 <outlet property="productTitle" destination="PZt-ek-SB3" id="2V8-zk-tbA"/>
@@ -74,7 +75,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYT-MR-Fu8" userLabel="TopView">
                             <rect key="frame" x="0.0" y="0.0" width="406" height="574.5"/>
                             <subviews>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qm3-Ud-Qyj">
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qm3-Ud-Qyj">
                                     <rect key="frame" x="0.0" y="94" width="406" height="480.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="3QT-9D-ahm">
@@ -180,7 +181,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QE1-lT-9Qo" customClass="PillPageControl" customModule="PageControls">
+                                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QE1-lT-9Qo" customClass="PillPageControl" customModule="PageControls">
                                     <rect key="frame" x="166" y="544.5" width="74" height="10"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -210,6 +211,11 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
+                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="KVu-NF-qM0">
+                                    <rect key="frame" x="145.5" y="538.5" width="115.5" height="26"/>
+                                    <color key="pageIndicatorTintColor" name="lightGrey"/>
+                                    <color key="currentPageIndicatorTintColor" name="black"/>
+                                </pageControl>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -217,11 +223,13 @@
                                 <constraint firstItem="m9g-tH-DKA" firstAttribute="centerY" secondItem="i5a-ex-oGL" secondAttribute="centerY" id="2gz-4S-0r2"/>
                                 <constraint firstAttribute="bottom" secondItem="QE1-lT-9Qo" secondAttribute="bottom" constant="20" id="4QB-Lz-P2o"/>
                                 <constraint firstItem="m9g-tH-DKA" firstAttribute="leading" secondItem="hYT-MR-Fu8" secondAttribute="leading" constant="20" id="Cm7-gu-bVX"/>
+                                <constraint firstItem="KVu-NF-qM0" firstAttribute="centerX" secondItem="qm3-Ud-Qyj" secondAttribute="centerX" id="I8t-e6-PE0"/>
                                 <constraint firstItem="qm3-Ud-Qyj" firstAttribute="top" secondItem="m9g-tH-DKA" secondAttribute="bottom" id="PD1-OU-pyt"/>
                                 <constraint firstAttribute="bottom" secondItem="qm3-Ud-Qyj" secondAttribute="bottom" id="T5R-L6-Tcw"/>
                                 <constraint firstItem="qm3-Ud-Qyj" firstAttribute="leading" secondItem="hYT-MR-Fu8" secondAttribute="leading" id="VYq-2L-2CH"/>
                                 <constraint firstAttribute="trailing" secondItem="qm3-Ud-Qyj" secondAttribute="trailing" id="WlJ-QT-uM1"/>
                                 <constraint firstAttribute="trailing" secondItem="i5a-ex-oGL" secondAttribute="trailing" constant="20" id="awU-cv-C9D"/>
+                                <constraint firstAttribute="bottom" secondItem="KVu-NF-qM0" secondAttribute="bottom" constant="10" id="kMJ-Zf-EXj"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEM-bb-Uil" userLabel="BottomView">

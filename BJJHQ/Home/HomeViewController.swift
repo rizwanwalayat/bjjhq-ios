@@ -23,6 +23,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var remainingTimeLabel: UILabel!
     @IBOutlet weak var pagesIndicators: PillPageControl!
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var upButton: UIButton!
     @IBOutlet weak var productTitle: UILabel!
     @IBOutlet weak var productPrice: UILabel!
@@ -83,7 +84,10 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.buyNowButton.alpha = 0.5
+        if let url = URL(string:  DataManager.shared.getUser()?.avatar ?? "") {
+            self.setImage(imageView: self.userImageComments, url: url)
+        }
+        self.buyNowButton.alpha = 0.8
         
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
     }
