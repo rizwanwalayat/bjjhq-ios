@@ -124,7 +124,7 @@ or creating a new account below.</string>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="tJB-MR-qwZ">
-                            <rect key="frame" x="30" y="693" width="354" height="105"/>
+                            <rect key="frame" x="30" y="618" width="354" height="180"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Qq-8G-ZKL">
                                     <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
@@ -222,11 +222,54 @@ or creating a new account below.</string>
                                         <action selector="facebookAction:" destination="-1" eventType="touchUpInside" id="S15-wG-xBo"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xK-v3-U8f" customClass="AuthorizationAppleIDButton" customModule="BJJHQ" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="130" width="354" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="6rG-UC-w3V"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="14"/>
+                                    <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="16"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                            <real key="value" value="0.10000000000000001"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                            <size key="value" width="0.0" height="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="authButtonType">
+                                            <integer key="value" value="0"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="authButtonStyle">
+                                            <integer key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="appleSignInAction:" destination="-1" eventType="touchUpInside" id="6Vx-cx-ScA"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="8xK-v3-U8f" secondAttribute="trailing" id="2Qu-1t-N1R"/>
                                 <constraint firstAttribute="trailing" secondItem="2Qq-8G-ZKL" secondAttribute="trailing" id="8cL-QY-Tlf"/>
                                 <constraint firstAttribute="trailing" secondItem="hFh-Ee-ljD" secondAttribute="trailing" id="ANR-pU-Hjv"/>
                                 <constraint firstItem="2Qq-8G-ZKL" firstAttribute="leading" secondItem="tJB-MR-qwZ" secondAttribute="leading" id="OSa-La-RzV"/>
+                                <constraint firstItem="8xK-v3-U8f" firstAttribute="leading" secondItem="tJB-MR-qwZ" secondAttribute="leading" id="TDZ-yF-GLz"/>
                                 <constraint firstItem="hFh-Ee-ljD" firstAttribute="leading" secondItem="tJB-MR-qwZ" secondAttribute="leading" id="qJo-55-OhD"/>
                             </constraints>
                         </stackView>
@@ -298,6 +341,11 @@ or creating a new account below.</string>
             <point key="canvasLocation" x="139" y="96"/>
         </view>
     </objects>
+    <designables>
+        <designable name="8xK-v3-U8f">
+            <size key="intrinsicContentSize" width="30" height="29"/>
+        </designable>
+    </designables>
     <resources>
         <image name="welcome" width="293.5" height="194.5"/>
         <systemColor name="systemBackgroundColor">
