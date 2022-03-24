@@ -55,6 +55,7 @@ class UserProfileViewController: BaseViewController {
             SignInViewModel().updateCustomer(email: emailTextField.text!, userName: userNameTextField.text!, bio:desciptionTextView.text! , firstName:nameTextField.text! , lastName: lastNameTextField.text!, completion: { accessToken, error in
                 self.view.activityStopAnimating()
                 if accessToken != nil {
+                    self.showToast(message: "Changes Saved Successfully")
                     self.setup()
                 }
             })
@@ -119,7 +120,7 @@ extension UserProfileViewController : UITextViewDelegate{
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer"
+            textView.text = ""
             textView.textColor = UIColor.lightGray
         }
     }

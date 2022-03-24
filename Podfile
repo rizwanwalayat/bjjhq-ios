@@ -21,6 +21,8 @@ pod 'Firebase/Core'
 pod "CSPieChart"
 pod 'lottie-ios'
 pod 'FBSDKLoginKit'
+pod 'ADCountryPicker', '~> 2.1.0'
+
 #pod 'FirebaseUI'
 #pod 'FirebaseUI/Facebook'
 end
