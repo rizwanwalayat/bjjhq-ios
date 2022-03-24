@@ -57,14 +57,21 @@ class SignUpViewController: BaseViewController {
     
     //MARK: - IBAction
     
-    @IBAction func visibilityAction(_ sender: UIButton) {
+    @IBAction func passwordVisibilityAction(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
             self.passwordTF.isSecureTextEntry = false
-            self.confirmPasswordTF.isSecureTextEntry = false
         }
         else {
             self.passwordTF.isSecureTextEntry = true
+        }
+    }
+    @IBAction func confirmPasswordVisibilityAction(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected {
+            self.confirmPasswordTF.isSecureTextEntry = false
+        }
+        else {
             self.confirmPasswordTF.isSecureTextEntry = true
         }
     }
