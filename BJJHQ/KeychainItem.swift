@@ -105,7 +105,9 @@ struct KeychainItem {
         let status = SecItemDelete(query as CFDictionary)
         
         // Throw an error if an unexpected status was returned.
-        guard status == noErr || status == errSecItemNotFound else { throw KeychainError.unhandledError }
+        guard status == noErr || status == errSecItemNotFound else {
+            throw KeychainError.unhandledError
+        }
     }
     
     // MARK: Convenience
@@ -132,7 +134,7 @@ struct KeychainItem {
      */
     static var currentUserIdentifier: String {
         do {
-            let storedIdentifier = try KeychainItem(service: "com.example.apple-samplecode.juice", account: "userIdentifier").readItem()
+            let storedIdentifier = try KeychainItem(service: BUNDLE_IDENTIFIER, account: "userIdentifier").readItem()
             return storedIdentifier
         } catch {
             return ""
@@ -141,7 +143,7 @@ struct KeychainItem {
     
     static func deleteUserIdentifierFromKeychain() {
         do {
-            try KeychainItem(service: "com.example.apple-samplecode.juice", account: "userIdentifier").deleteItem()
+            try KeychainItem(service: BUNDLE_IDENTIFIER, account: "userIdentifier").deleteItem()
         } catch {
             print("Unable to delete userIdentifier from keychain")
         }
