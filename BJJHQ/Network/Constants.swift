@@ -9,6 +9,7 @@
 import UIKit
 
 
+let BUNDLE_IDENTIFIER = "com.shopify.bjjhq"
 struct APIRoutes {
 
     static var baseUrl = "https://bjjhq.phaedrasolutions.com/api/" 
