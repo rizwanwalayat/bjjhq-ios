@@ -36,25 +36,29 @@ class SubCommentsTableViewCell: UITableViewCell {
     
     func config(_ commentsData : CommentsReplies)
     {
-        guard let url = URL(string: commentsData.commentor_avatar) else {return }
-        setImage(imageView: self.userProfile, url: url)
+        
         self.userName.text = commentsData.comment?.name ?? ""
         self.commentsText.text = commentsData.comment?.message ?? ""
         let time = commentsData.comment?.createdDate.timeCalculation(isShowTime: false)
         self.timeLabel.text =  time
         self.likeButton.setTitle("\(commentsData.comment_likes)", for: .normal)
         self.unlikeButton.setTitle("\(commentsData.comment_dislikes)", for: .normal)
-        
         if let image = commentsData.images.first {
-            guard let url = URL(string: image) else {return }
-            self.imageHolderView.isHidden = false
-            setImage(imageView: self.commentImage, url: url)
-            //self.imageComment.image = image
+            if let url = URL(string: image) {
+                
+                self.imageHolderView.isHidden = false
+                setImage(imageView: self.commentImage, url: url)
+            }
         }
         else {
             self.imageHolderView.isHidden = true
             self.commentImage.image = nil
         }
+        if let url = URL(string: commentsData.commentor_avatar) {
+            
+            setImage(imageView: self.userProfile, url: url)
+        }
+        self.contentView.layoutIfNeeded()
     }
     
     func setImage(imageView:UIImageView,url:URL,placeHolder : String = "default")  {
