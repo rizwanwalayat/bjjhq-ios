@@ -9,11 +9,15 @@
 import UIKit
 import Buy
 
+enum SignupType {
+    case apple, facebook, manual
+}
 
 class SignUpViewController: BaseViewController {
     
     var viewModel: SignUpViewModel?
-        
+    var signupType: SignupType?
+    
     //MARK: - IBOutlets
     
     @IBOutlet weak var confirmPasswordView: UIView!
@@ -47,6 +51,19 @@ class SignUpViewController: BaseViewController {
     //MARK: - Functions
     
     func setup() {
+        if let signupType = signupType {
+            switch signupType {
+            case .apple:
+                let appleUser = DataManager.shared.getAppleUser()
+                firstNameTF.text = appleUser?.firstName
+                lastNameTF.text = appleUser?.lastName
+                emailTF.text = appleUser?.email
+            case .facebook:
+                break
+            case .manual:
+                break
+            }
+        }
         skipButton.setTitle("", for: .normal)
         setupButtonUnderlineText(skipButton, "SKIP", color: "BCBFCC")
         signInButton.setTitle("", for: .normal)

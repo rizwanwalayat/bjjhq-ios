@@ -103,7 +103,7 @@ class SignInViewController: BaseViewController {
     }
     
     @IBAction func signUpAction(_ sender: Any) {
-        coordinator?.signUpPage()
+        coordinator?.signUpPage(signupType: SignupType.manual)
     }
     
     @IBAction func forgetPasswordAction(_ sender: Any) {
