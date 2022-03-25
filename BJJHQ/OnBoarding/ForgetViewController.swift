@@ -34,7 +34,7 @@ class ForgetViewController: BaseViewController {
         skipButton.setTitle("", for: .normal)
         setupButtonUnderlineText(skipButton, "SKIP", color: "BCBFCC")
         skipButton.setTitle("", for: .normal)
-        setupButtonUnderlineText(signInBUtton, "Try Signing In", color: "#5BD6CD",1.0)
+        setupButtonUnderlineText(signInBUtton, "Try signing in again", color: "#5BD6CD",1.0)
         changeButtonState(state: true)
     }
     

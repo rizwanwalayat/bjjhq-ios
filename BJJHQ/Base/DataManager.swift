@@ -84,7 +84,7 @@ class DataManager {
     //MARK: - Apple Sign In Data
     func setAppleUser(idToken: String, nameComponents: PersonNameComponents, email: String) {
         
-        var dataForAppleSignIn = AppleUser()
+        var dataForAppleSignIn = SocialUser()
         dataForAppleSignIn.idToken = idToken
         dataForAppleSignIn.firstName = "\(nameComponents.namePrefix ?? "") \(nameComponents.givenName ?? "")"
         dataForAppleSignIn.lastName = "\(nameComponents.middleName ?? "") \(nameComponents.familyName ?? "") \(nameComponents.nameSuffix ?? "")"
@@ -92,23 +92,42 @@ class DataManager {
         let dataDictionaryForAppleSignIn = dataForAppleSignIn.dictionary
         UserDefaults.standard.set(dataDictionaryForAppleSignIn, forKey: UserDefaultKeys.appleSignInUser)
     }
-    func getAppleUser() -> AppleUser? {
-        var user: AppleUser?
+    func getAppleUser() -> SocialUser? {
+        var user: SocialUser?
         if let data = UserDefaults.standard.dictionary(forKey: UserDefaultKeys.appleSignInUser) {
             if let dataDict = data as? [String: String] {
-                user = getAppleUserFrom(dictionary: dataDict)
+                user = getUserFrom(dictionary: dataDict)
             }
         }
         return user
     }
-    private func getAppleUserFrom(dictionary: [String: String?]) -> AppleUser {
+    func setFacebookUser(idToken: String, firstName: String, lastName: String, email: String) {
+        
+        var dataForFacebookSignIn = SocialUser()
+        dataForFacebookSignIn.idToken = idToken
+        dataForFacebookSignIn.firstName = firstName
+        dataForFacebookSignIn.lastName = lastName
+        dataForFacebookSignIn.email = email
+        let dataDictionaryForFacebookSignIn = dataForFacebookSignIn.dictionary
+        UserDefaults.standard.set(dataDictionaryForFacebookSignIn, forKey: UserDefaultKeys.facebookSignInUser)
+    }
+    func getFacebookUser() -> SocialUser? {
+        var user: SocialUser?
+        if let data = UserDefaults.standard.dictionary(forKey: UserDefaultKeys.facebookSignInUser) {
+            if let dataDict = data as? [String: String] {
+                user = getUserFrom(dictionary: dataDict)
+            }
+        }
+        return user
+    }
+    private func getUserFrom(dictionary: [String: String?]) -> SocialUser {
         
         let idToken = dictionary["idToken"] as? String
         let firstName = dictionary["firstName"] as? String
         let lastName = dictionary["lastName"] as? String
         let email = dictionary["email"] as? String
        
-        var appleUser = AppleUser()
+        var appleUser = SocialUser()
         appleUser.idToken = idToken ?? ""
         appleUser.firstName = firstName ?? ""
         appleUser.lastName = lastName ?? ""

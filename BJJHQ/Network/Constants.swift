@@ -45,4 +45,5 @@ struct FireBaseVariables {
 
 struct UserDefaultKeys {
     static let appleSignInUser = "appleSignInUser"
+    static let facebookSignInUser = "facebookSignInUser"
 }

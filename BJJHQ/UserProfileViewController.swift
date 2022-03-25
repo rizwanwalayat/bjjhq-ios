@@ -61,6 +61,9 @@ class UserProfileViewController: BaseViewController {
                 }
             })
         }
+        else {
+            self.showToast(message: "Input fields are empty")
+        }
     }
     
     @IBAction func backAction(_ sender: Any) {

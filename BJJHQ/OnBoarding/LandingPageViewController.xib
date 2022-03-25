@@ -126,19 +126,19 @@ or creating a new account below.</string>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="tJB-MR-qwZ">
-                            <rect key="frame" x="30" y="693" width="354" height="105"/>
+                            <rect key="frame" x="20" y="693" width="374" height="105"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Qq-8G-ZKL">
-                                    <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QQn-2p-aBh">
-                                            <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r5a-Fs-Rks">
-                                                    <rect key="frame" x="0.0" y="0.0" width="118" height="30"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="124.5" height="30"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfn-Yr-KUN">
-                                                            <rect key="frame" x="0.0" y="14.5" width="118" height="1"/>
+                                                            <rect key="frame" x="0.0" y="14.5" width="124.5" height="1"/>
                                                             <color key="backgroundColor" red="0.88627450980392153" green="0.8901960784313725" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="mxr-Ax-qQr"/>
@@ -153,16 +153,16 @@ or creating a new account below.</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VV7-Z2-cEc">
-                                                    <rect key="frame" x="118" y="0.0" width="118" height="30"/>
+                                                    <rect key="frame" x="124.5" y="0.0" width="125" height="30"/>
                                                     <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="22"/>
                                                     <color key="textColor" red="0.88627450980392153" green="0.8901960784313725" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zg9-Qc-nFu">
-                                                    <rect key="frame" x="236" y="0.0" width="118" height="30"/>
+                                                    <rect key="frame" x="249.5" y="0.0" width="124.5" height="30"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oOr-EL-f7a">
-                                                            <rect key="frame" x="0.0" y="14.5" width="118" height="1"/>
+                                                            <rect key="frame" x="0.0" y="14.5" width="124.5" height="1"/>
                                                             <color key="backgroundColor" red="0.8862745098" green="0.89019607840000003" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="iqq-uC-cLF"/>
@@ -189,7 +189,7 @@ or creating a new account below.</string>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xK-v3-U8f" customClass="AuthorizationAppleIDButton" customModule="BJJHQ" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="55" width="354" height="50"/>
+                                    <rect key="frame" x="7" y="55" width="360" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="6rG-UC-w3V"/>
                                     </constraints>
@@ -231,10 +231,10 @@ or creating a new account below.</string>
                                 </button>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="8xK-v3-U8f" secondAttribute="trailing" id="2Qu-1t-N1R"/>
+                                <constraint firstAttribute="trailing" secondItem="8xK-v3-U8f" secondAttribute="trailing" constant="7" id="2Qu-1t-N1R"/>
                                 <constraint firstAttribute="trailing" secondItem="2Qq-8G-ZKL" secondAttribute="trailing" id="8cL-QY-Tlf"/>
                                 <constraint firstItem="2Qq-8G-ZKL" firstAttribute="leading" secondItem="tJB-MR-qwZ" secondAttribute="leading" id="OSa-La-RzV"/>
-                                <constraint firstItem="8xK-v3-U8f" firstAttribute="leading" secondItem="tJB-MR-qwZ" secondAttribute="leading" id="TDZ-yF-GLz"/>
+                                <constraint firstItem="8xK-v3-U8f" firstAttribute="leading" secondItem="tJB-MR-qwZ" secondAttribute="leading" constant="7" id="TDZ-yF-GLz"/>
                             </constraints>
                         </stackView>
                     </subviews>
@@ -247,7 +247,7 @@ or creating a new account below.</string>
                         <constraint firstItem="VVv-fW-tyh" firstAttribute="top" secondItem="eKu-i2-qj8" secondAttribute="bottom" constant="12" id="9t9-M6-o9H"/>
                         <constraint firstItem="8GX-wx-y6t" firstAttribute="top" secondItem="VVv-fW-tyh" secondAttribute="bottom" constant="30" id="Caq-Vs-nIA"/>
                         <constraint firstItem="eKu-i2-qj8" firstAttribute="centerX" secondItem="phz-9H-llw" secondAttribute="centerX" id="I8i-iq-f8S"/>
-                        <constraint firstAttribute="trailing" secondItem="tJB-MR-qwZ" secondAttribute="trailing" constant="30" id="J2b-iI-hRA"/>
+                        <constraint firstAttribute="trailing" secondItem="tJB-MR-qwZ" secondAttribute="trailing" constant="20" id="J2b-iI-hRA"/>
                         <constraint firstItem="8GX-wx-y6t" firstAttribute="height" secondItem="phz-9H-llw" secondAttribute="height" multiplier="0.2" id="Jbg-ck-Mw7"/>
                         <constraint firstAttribute="trailing" secondItem="eKu-i2-qj8" secondAttribute="trailing" constant="20" id="YuF-oI-u2g"/>
                         <constraint firstAttribute="bottom" secondItem="tJB-MR-qwZ" secondAttribute="bottom" constant="20" id="dqZ-QL-nU6"/>
@@ -256,7 +256,7 @@ or creating a new account below.</string>
                         <constraint firstItem="8GX-wx-y6t" firstAttribute="width" secondItem="phz-9H-llw" secondAttribute="width" multiplier="0.6" id="p1L-xW-Ibl"/>
                         <constraint firstItem="8GX-wx-y6t" firstAttribute="centerX" secondItem="phz-9H-llw" secondAttribute="centerX" id="p61-7w-0fv"/>
                         <constraint firstAttribute="trailing" secondItem="oAd-9i-AMC" secondAttribute="trailing" constant="30" id="shb-Zw-Wt7"/>
-                        <constraint firstItem="tJB-MR-qwZ" firstAttribute="leading" secondItem="phz-9H-llw" secondAttribute="leading" constant="30" id="skk-Iz-FiU"/>
+                        <constraint firstItem="tJB-MR-qwZ" firstAttribute="leading" secondItem="phz-9H-llw" secondAttribute="leading" constant="20" id="skk-Iz-FiU"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X30-bo-oI8">
