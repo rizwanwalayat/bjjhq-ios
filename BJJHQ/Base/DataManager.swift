@@ -79,4 +79,41 @@ class DataManager {
          UserDefaults.standard.set(nil, forKey: "user_Notifications")
         
     }
+    
+    
+    //MARK: - Apple Sign In Data
+    func setAppleUser(idToken: String, nameComponents: PersonNameComponents, email: String) {
+        
+        var dataForAppleSignIn = AppleUser()
+        dataForAppleSignIn.idToken = idToken
+        dataForAppleSignIn.firstName = "\(nameComponents.namePrefix ?? "") \(nameComponents.givenName ?? "")"
+        dataForAppleSignIn.lastName = "\(nameComponents.middleName ?? "") \(nameComponents.familyName ?? "") \(nameComponents.nameSuffix ?? "")"
+        dataForAppleSignIn.email = email
+        let dataDictionaryForAppleSignIn = dataForAppleSignIn.dictionary
+        UserDefaults.standard.set(dataDictionaryForAppleSignIn, forKey: UserDefaultKeys.appleSignInUser)
+    }
+    func getAppleUser() -> AppleUser? {
+        var user: AppleUser?
+        if let data = UserDefaults.standard.dictionary(forKey: UserDefaultKeys.appleSignInUser) {
+            if let dataDict = data as? [String: String] {
+                user = getAppleUserFrom(dictionary: dataDict)
+            }
+        }
+        return user
+    }
+    private func getAppleUserFrom(dictionary: [String: String?]) -> AppleUser {
+        
+        let idToken = dictionary["idToken"] as? String
+        let firstName = dictionary["firstName"] as? String
+        let lastName = dictionary["lastName"] as? String
+        let email = dictionary["email"] as? String
+       
+        var appleUser = AppleUser()
+        appleUser.idToken = idToken ?? ""
+        appleUser.firstName = firstName ?? ""
+        appleUser.lastName = lastName ?? ""
+        appleUser.email = email ?? ""
+        
+        return appleUser
+    }
 }

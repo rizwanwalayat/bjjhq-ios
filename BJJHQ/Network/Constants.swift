@@ -42,3 +42,7 @@ struct APIRoutes {
 struct FireBaseVariables {
     static var fireBaseToken = ""
 }
+
+struct UserDefaultKeys {
+    static let appleSignInUser = "appleSignInUser"
+}

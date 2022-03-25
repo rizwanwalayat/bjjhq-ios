@@ -93,7 +93,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         application.registerForRemoteNotifications()
-        
+        let connectionManager = ConnectionManager.shared
+        connectionManager.startMonitoring()
 
         return true
     }

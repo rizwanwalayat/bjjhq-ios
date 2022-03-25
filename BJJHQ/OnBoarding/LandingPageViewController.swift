@@ -18,11 +18,26 @@ struct fbData {
     var email : String?
     var pictureUrl : Any?
 }
+struct AppleUser {
+    var idToken = ""
+    var firstName = ""
+    var lastName = ""
+    var email = ""
+    
+    var dictionary: [String: String] {
+        return ["idToken": idToken,
+                "firstName": firstName,
+                "lastName": lastName,
+                "email": email]
+    }
+}
 class LandingPageViewController: BaseViewController, LoginButtonDelegate {
     
 
     
     var dataForUser = fbData()
+    let appleIDProvider = ASAuthorizationAppleIDProvider()
+    
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var signInButtonsStackView: UIStackView!
     @IBOutlet weak var appleSignInButton: AuthorizationAppleIDButton!
@@ -45,28 +60,7 @@ class LandingPageViewController: BaseViewController, LoginButtonDelegate {
         loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         signInButtonsStackView.addArrangedSubview(loginButton)
         
-//        do {
-//             KeychainItem.deleteUserIdentifierFromKeychain()
-//        } catch {
-//            print("Unable to save userIdentifier to keychain.")
-//        }
-        
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
-            appleIDProvider.getCredentialState(forUserID: KeychainItem.currentUserIdentifier) { (credentialState, error) in
-                switch credentialState {
-                case .authorized:
-                    print("authorized")
-                    break
-                case .revoked:
-                    print("revoked")
-                    break
-                case .notFound:
-                    print("not found")
-                    break
-                default:
-                    break
-                }
-            }
+        setAppleButtonUI()
     }
     
     
@@ -78,7 +72,20 @@ class LandingPageViewController: BaseViewController, LoginButtonDelegate {
         setupButtonUnderlineText(skipButton, "SKIP", color: "BCBFCC")
     }
     
-    
+    private func setAppleButtonUI() {
+        appleIDProvider.getCredentialState(forUserID: KeychainItem.currentUserIdentifier) { (credentialState, error) in
+            switch credentialState {
+            case .authorized:
+                self.appleSignInButton.authButtonType = 1
+            case .revoked:
+                self.appleSignInButton.authButtonType = 0
+            case .notFound:
+                self.appleSignInButton.authButtonType = 0
+            default:
+                break
+            }
+        }
+    }
     //MARK: - IBAction
     
     
@@ -87,7 +94,7 @@ class LandingPageViewController: BaseViewController, LoginButtonDelegate {
     }
     
     @IBAction func signUpAction(_ sender: Any) {
-        coordinator?.signUpPage()
+        coordinator?.signUpPage(signupType: SignupType.manual)
     }
     
     @IBAction func facebookAction(_ sender: UIButton) {
@@ -120,14 +127,24 @@ class LandingPageViewController: BaseViewController, LoginButtonDelegate {
     
     @IBAction func appleSignInAction(_ sender: AuthorizationAppleIDButton) {
         
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
-        let request = appleIDProvider.createRequest()
-        request.requestedScopes = [.fullName, .email]
-        
-        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-        authorizationController.delegate = self
-        authorizationController.presentationContextProvider = self
-        authorizationController.performRequests()
+        appleIDProvider.getCredentialState(forUserID: KeychainItem.currentUserIdentifier) { (credentialState, error) in
+            switch credentialState {
+            case .authorized:
+                DispatchQueue.main.async {
+                    self.coordinator?.signUpPage(signupType: SignupType.apple)
+                }
+                break
+            default:
+                let appleIDProvider = ASAuthorizationAppleIDProvider()
+                let request = appleIDProvider.createRequest()
+                request.requestedScopes = [.fullName, .email]
+                
+                let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+                authorizationController.delegate = self
+                authorizationController.presentationContextProvider = self
+                authorizationController.performRequests()
+            }
+        }
     }
     
     @IBAction func skipAction(_ sender: Any) {
@@ -234,16 +251,16 @@ extension LandingPageViewController: ASAuthorizationControllerDelegate {
             
             // Create an account in your system.
             let userIdentifier = appleIDCredential.user
-            let fullName = appleIDCredential.fullName
+            let fullName = appleIDCredential.fullName!
             let email = appleIDCredential.email
             
             // For the purpose of this demo app, store the `userIdentifier` in the keychain.
             self.saveUserInKeychain(userIdentifier)
             
-            // For the purpose of this demo app, show the Apple ID credential information in the `ResultViewController`.
-//            self.showResultViewController(userIdentifier: userIdentifier, fullName: fullName, email: email)
-            self.showAlert(title: "User Data", message: "\(fullName) \(email)")
-        
+            setAppleButtonUI()
+            DataManager.shared.setAppleUser(idToken: userIdentifier, nameComponents: fullName, email: email ?? "")
+            coordinator?.signUpPage(signupType: SignupType.apple)
+            
         case let passwordCredential as ASPasswordCredential:
         
             // Sign in using an existing iCloud Keychain credential.
@@ -267,25 +284,6 @@ extension LandingPageViewController: ASAuthorizationControllerDelegate {
             print("Unable to save userIdentifier to keychain.")
         }
     }
-    
-//    private func showResultViewController(userIdentifier: String, fullName: PersonNameComponents?, email: String?) {
-//        guard let viewController = self.presentingViewController as? ResultViewController
-//            else { return }
-//
-//        DispatchQueue.main.async {
-//            viewController.userIdentifierLabel.text = userIdentifier
-//            if let givenName = fullName?.givenName {
-//                viewController.givenNameLabel.text = givenName
-//            }
-//            if let familyName = fullName?.familyName {
-//                viewController.familyNameLabel.text = familyName
-//            }
-//            if let email = email {
-//                viewController.emailLabel.text = email
-//            }
-//            self.dismiss(animated: true, completion: nil)
-//        }
-//    }
     
     private func showPasswordCredentialAlert(username: String, password: String) {
         let message = "The app has received your selected credential from the keychain. \n\n Username: \(username)\n Password: \(password)"

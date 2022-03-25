@@ -101,7 +101,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="XTj-jq-M13" firstAttribute="centerX" secondItem="679-pi-Ci9" secondAttribute="centerX" id="0M9-6A-5pl"/>
                                         <constraint firstAttribute="height" constant="80" id="6eU-yE-Tu8"/>
@@ -123,7 +123,7 @@
                                             <color key="value" red="0.35686274509999999" green="0.83921568629999999" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                            <real key="value" value="3"/>
+                                            <real key="value" value="0.0"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>

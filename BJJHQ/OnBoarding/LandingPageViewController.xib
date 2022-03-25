@@ -188,42 +188,6 @@ or creating a new account below.</string>
                                         <constraint firstAttribute="bottom" secondItem="QQn-2p-aBh" secondAttribute="bottom" id="guE-n2-7Ev"/>
                                     </constraints>
                                 </view>
-                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFh-Ee-ljD">
-                                    <rect key="frame" x="0.0" y="42.5" width="354" height="50"/>
-                                    <color key="backgroundColor" red="0.92156862745098034" green="0.28627450980392155" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="PS2-P1-Di2"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="14"/>
-                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="Sign up quickly with your Instagram info">
-                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="16"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                            <real key="value" value="2"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                            <real key="value" value="0.10000000000000001"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                            <size key="value" width="0.0" height="2"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="facebookAction:" destination="-1" eventType="touchUpInside" id="S15-wG-xBo"/>
-                                    </connections>
-                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xK-v3-U8f" customClass="AuthorizationAppleIDButton" customModule="BJJHQ" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="55" width="354" height="50"/>
                                     <constraints>
@@ -269,10 +233,8 @@ or creating a new account below.</string>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="8xK-v3-U8f" secondAttribute="trailing" id="2Qu-1t-N1R"/>
                                 <constraint firstAttribute="trailing" secondItem="2Qq-8G-ZKL" secondAttribute="trailing" id="8cL-QY-Tlf"/>
-                                <constraint firstAttribute="trailing" secondItem="hFh-Ee-ljD" secondAttribute="trailing" id="ANR-pU-Hjv"/>
                                 <constraint firstItem="2Qq-8G-ZKL" firstAttribute="leading" secondItem="tJB-MR-qwZ" secondAttribute="leading" id="OSa-La-RzV"/>
                                 <constraint firstItem="8xK-v3-U8f" firstAttribute="leading" secondItem="tJB-MR-qwZ" secondAttribute="leading" id="TDZ-yF-GLz"/>
-                                <constraint firstItem="hFh-Ee-ljD" firstAttribute="leading" secondItem="tJB-MR-qwZ" secondAttribute="leading" id="qJo-55-OhD"/>
                             </constraints>
                         </stackView>
                     </subviews>

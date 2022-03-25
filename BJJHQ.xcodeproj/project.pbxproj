@@ -118,6 +118,10 @@
 		6946233027EC796700F7D2CF /* AuthorizationAppleIDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6946232F27EC796700F7D2CF /* AuthorizationAppleIDButton.swift */; };
 		6946233227EC79A000F7D2CF /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6946233127EC79A000F7D2CF /* AuthenticationServices.framework */; };
 		6946233427EC7B3A00F7D2CF /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6946233327EC7B3A00F7D2CF /* KeychainItem.swift */; };
+		6946233A27EDCE4400F7D2CF /* NoNetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6946233827EDCE4400F7D2CF /* NoNetworkViewController.swift */; };
+		6946233B27EDCE4400F7D2CF /* NoNetworkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6946233927EDCE4400F7D2CF /* NoNetworkViewController.xib */; };
+		6946233D27EDD28F00F7D2CF /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6946233C27EDD28F00F7D2CF /* ConnectionManager.swift */; };
+		6946233F27EDD2CB00F7D2CF /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6946233E27EDD2CB00F7D2CF /* UIApplication.swift */; };
 		9617354027BD0CB300E9FC3C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617353F27BD0CB300E9FC3C /* BaseViewModel.swift */; };
 		96DD6C3F27BFE84600DDA0DC /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD6C3D27BFE84600DDA0DC /* ContactUsViewController.swift */; };
 		96DD6C4027BFE84600DDA0DC /* ContactUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96DD6C3E27BFE84600DDA0DC /* ContactUsViewController.xib */; };
@@ -344,6 +348,10 @@
 		6946232F27EC796700F7D2CF /* AuthorizationAppleIDButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationAppleIDButton.swift; sourceTree = "<group>"; };
 		6946233127EC79A000F7D2CF /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		6946233327EC7B3A00F7D2CF /* KeychainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
+		6946233827EDCE4400F7D2CF /* NoNetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNetworkViewController.swift; sourceTree = "<group>"; };
+		6946233927EDCE4400F7D2CF /* NoNetworkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoNetworkViewController.xib; sourceTree = "<group>"; };
+		6946233C27EDD28F00F7D2CF /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
+		6946233E27EDD2CB00F7D2CF /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		733A59A78DD90F2477EDCC2D /* Pods-BJJHQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJJHQ.release.xcconfig"; path = "Target Support Files/Pods-BJJHQ/Pods-BJJHQ.release.xcconfig"; sourceTree = "<group>"; };
 		9617353F27BD0CB300E9FC3C /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		9617354527BD16B200E9FC3C /* SignInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
@@ -494,6 +502,7 @@
 		0481A26727CCBA9900277E21 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				6946233C27EDD28F00F7D2CF /* ConnectionManager.swift */,
 				0481A26527CCBA9900277E21 /* Constants.swift */,
 				0481A26827CCBA9900277E21 /* ApiClient.swift */,
 				0481A26927CCBA9900277E21 /* ApiResponseHandler.swift */,
@@ -836,6 +845,15 @@
 			name = SideMenu;
 			sourceTree = "<group>";
 		};
+		6946233727EDCE2400F7D2CF /* NoNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				6946233827EDCE4400F7D2CF /* NoNetworkViewController.swift */,
+				6946233927EDCE4400F7D2CF /* NoNetworkViewController.xib */,
+			);
+			name = NoNetwork;
+			sourceTree = "<group>";
+		};
 		810E2562243D1F970025B670 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1036,6 +1054,7 @@
 		9AAFAB781E60BD5800864A17 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6946233727EDCE2400F7D2CF /* NoNetwork */,
 				04460F4827C5010100D9DDDE /* Faq */,
 				049F854027C4F3E100848214 /* OrdersViewController */,
 				049F854127C4F40600848214 /* UserProfile */,
@@ -1078,6 +1097,7 @@
 				9AAFAB931E60D2D000864A17 /* NSObject+Name.swift */,
 				9AFA3B7E1E6DC5FD0056C5AA /* Storyboard+ViewController.swift */,
 				9A9FFF291E8044BC00F6DFF7 /* String+HTML.swift */,
+				6946233E27EDD2CB00F7D2CF /* UIApplication.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -1303,6 +1323,7 @@
 			files = (
 				04460F4F27C5010100D9DDDE /* FaqTableViewCell.xib in Resources */,
 				0487AC3827C4C47D00A3422B /* Barlow-Light.ttf in Resources */,
+				6946233B27EDCE4400F7D2CF /* NoNetworkViewController.xib in Resources */,
 				0487AC3E27C4C47D00A3422B /* Barlow-Italic.ttf in Resources */,
 				183E639C27E8DBCD00A44192 /* SplashViewController.xib in Resources */,
 				0487AC3927C4C47D00A3422B /* Barlow-SemiBoldItalic.ttf in Resources */,
@@ -1373,6 +1394,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BJJHQ/Pods-BJJHQ-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ADCountryPicker/ADCountryPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/ActionCableClient/ActionCableClient.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CSPieChart/CSPieChart.framework",
@@ -1400,6 +1422,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ADCountryPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionCableClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CSPieChart.framework",
@@ -1450,6 +1473,7 @@
 				04FC4FFA27DBB04E00605C79 /* SubCommentsTableViewCell.swift in Sources */,
 				18958BD827BE6BDE00696B8E /* ErrorViewController.swift in Sources */,
 				9AAFAB861E60C15300864A17 /* ProductViewModel.swift in Sources */,
+				6946233F27EDD2CB00F7D2CF /* UIApplication.swift in Sources */,
 				0481A27027CCBA9900277E21 /* ApiClientHandler.swift in Sources */,
 				9AAFAB7E1E60BE6500864A17 /* ViewModeling.swift in Sources */,
 				9ABEB3D6212446F000A373F2 /* GiftCardViewModel.swift in Sources */,
@@ -1492,6 +1516,7 @@
 				9A4EDDDD2126EA330071BA56 /* Fragment+OrderLineItemConnectionQuery.swift in Sources */,
 				9ABEB3F221260C3900A373F2 /* LoginViewController.swift in Sources */,
 				9AB421AB1E93C781005098C4 /* PaymentViewModel.swift in Sources */,
+				6946233A27EDCE4400F7D2CF /* NoNetworkViewController.swift in Sources */,
 				18D766C327BE8D290076A12B /* SideMenuViewController.swift in Sources */,
 				9AEF61CC1E606EFE0067FA90 /* Fragment+ProductConnectionQuery.swift in Sources */,
 				9A4069D61E8EEDC9000254CD /* ShippingRateViewModel.swift in Sources */,
@@ -1593,6 +1618,7 @@
 				6946233027EC796700F7D2CF /* AuthorizationAppleIDButton.swift in Sources */,
 				1816884327BFCED900C9D962 /* SignUpViewController.xib in Sources */,
 				1847908127BE448A00D98451 /* MyAddressesViewController.xib in Sources */,
+				6946233D27EDD28F00F7D2CF /* ConnectionManager.swift in Sources */,
 				185C707A27BD069A008F2FB3 /* OrderSuccesFullViewController.xib in Sources */,
 				9A4EDDE721270F620071BA56 /* OrderCell.xib in Sources */,
 				188E5A7527BD518B003FB613 /* NotificationPopUpViewController.xib in Sources */,

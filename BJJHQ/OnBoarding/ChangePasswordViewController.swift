@@ -12,9 +12,13 @@ class ChangePasswordViewController: BaseViewController {
     @IBOutlet weak var currentPasswordTF: UITextField!
     @IBOutlet weak var newPasswordTF: UITextField!
     @IBOutlet weak var confirmPasswordTF: UITextField!
+    @IBOutlet weak var currentPasswordBottomLine: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        currentPasswordTF.delegate = self
+        newPasswordTF.delegate = self
+        confirmPasswordTF.delegate = self
     }
     @IBAction func backAction(_ sender: Any) {
         coordinator?.popVc()
@@ -76,7 +80,18 @@ class ChangePasswordViewController: BaseViewController {
                     }
                     
                     else {
-                        self.showToast(message: error ?? "Wrong password" )
+                        if let _ = error {
+                            if error! == "Wrong email or password" {
+                                self.showAlert(title: "Error", message: "Please enter valid current password")
+                                self.currentPasswordBottomLine.backgroundColor = .red
+                            }
+                            else {
+                                self.showToast(message: error! )
+                            }
+                        }
+                        else {
+                            self.showToast(message: error ?? "Wrong password" )
+                        }
                     }
 
                 }
@@ -90,6 +105,19 @@ class ChangePasswordViewController: BaseViewController {
             self.showToast(message: "Please fill all fields")
         }
         }
+}
 
+extension ChangePasswordViewController: UITextFieldDelegate {
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string ==  " "{
+            return false
+        }
+        return true
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == currentPasswordTF {
+            self.currentPasswordBottomLine.backgroundColor = UIColor(named: "sky")
+        }
+    }
 }

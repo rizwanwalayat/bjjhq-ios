@@ -12,7 +12,7 @@ protocol Coordinator {
     var navigationController: UINavigationController { get set }
     func landingPage()
     func homePage()
-    func signUpPage()
+    func signUpPage(signupType: SignupType)
     func signInPage()
     func emailPage()
     func addressPage()
@@ -30,7 +30,7 @@ protocol Coordinator {
 }
 
 class MainCoordinator: Coordinator {
-    
+
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     
@@ -86,8 +86,9 @@ class MainCoordinator: Coordinator {
     }
     
     
-    func signUpPage() {
+    func signUpPage(signupType: SignupType) {
         let vc = SignUpViewController()
+        vc.signupType = signupType
         vc.coordinator = self
         vc.viewModel = SignUpViewModel.init()
         navigationController.pushViewController(vc, animated: true)
