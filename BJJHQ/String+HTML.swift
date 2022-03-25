@@ -70,4 +70,7 @@ extension String {
         let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
     }
+    var isReallyEmpty: Bool {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
 }

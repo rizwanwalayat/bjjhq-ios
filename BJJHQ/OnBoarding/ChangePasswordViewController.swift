@@ -15,6 +15,9 @@ class ChangePasswordViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        currentPasswordTF.delegate = self
+        newPasswordTF.delegate = self
+        confirmPasswordTF.delegate = self
     }
     @IBAction func backAction(_ sender: Any) {
         coordinator?.popVc()
@@ -90,6 +93,14 @@ class ChangePasswordViewController: BaseViewController {
             self.showToast(message: "Please fill all fields")
         }
         }
+}
 
+extension ChangePasswordViewController: UITextFieldDelegate {
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string.isReallyEmpty {
+            return false
+        }
+        return true
+    }
 }
