@@ -67,12 +67,7 @@ class SignInViewController: BaseViewController {
         
         if ((emailTF.text?.isValidEmail()) != nil) {
             if passwordTF.text != "" {
-                if passwordTF.text?.count ?? 0 >= 8  {
-                    apiCall()
-                }
-                else {
-                    self.showToast(message: "Password must be greater then 8 digits")
-                }
+                apiCall()
             }
             else {
                 self.showToast(message: "Please enter a password")

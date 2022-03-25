@@ -12,6 +12,7 @@ class ChangePasswordViewController: BaseViewController {
     @IBOutlet weak var currentPasswordTF: UITextField!
     @IBOutlet weak var newPasswordTF: UITextField!
     @IBOutlet weak var confirmPasswordTF: UITextField!
+    @IBOutlet weak var currentPasswordBottomLine: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,7 +80,18 @@ class ChangePasswordViewController: BaseViewController {
                     }
                     
                     else {
-                        self.showToast(message: error ?? "Wrong password" )
+                        if let _ = error {
+                            if error! == "Wrong email or password" {
+                                self.showAlert(title: "Error", message: "Please enter valid current password")
+                                self.currentPasswordBottomLine.backgroundColor = .red
+                            }
+                            else {
+                                self.showToast(message: error! )
+                            }
+                        }
+                        else {
+                            self.showToast(message: error ?? "Wrong password" )
+                        }
                     }
 
                 }
@@ -102,5 +114,10 @@ extension ChangePasswordViewController: UITextFieldDelegate {
             return false
         }
         return true
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == currentPasswordTF {
+            self.currentPasswordBottomLine.backgroundColor = UIColor(named: "sky")
+        }
     }
 }
