@@ -1,6 +1,7 @@
 PODS:
   - ActionCableClient (0.2.4):
     - Starscream (~> 3.0.3)
+  - ADCountryPicker (2.1.0)
   - Alamofire (4.9.1)
   - CSPieChart (1.0)
   - FBAEMKit (13.0.0):
@@ -125,6 +126,7 @@ PODS:
 
 DEPENDENCIES:
   - ActionCableClient (from `https://github.com/danielrhodes/Swift-ActionCableClient.git`)
+  - ADCountryPicker (~> 2.1.0)
   - Alamofire (~> 4.2)
   - CSPieChart
   - FBSDKLoginKit
@@ -141,6 +143,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - ADCountryPicker
     - Alamofire
     - CSPieChart
     - FBAEMKit
@@ -179,6 +182,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ActionCableClient: 098e6217c2882ff28677c01b9f804e7199857a77
+  ADCountryPicker: 502cee76a30ea1c3834eb0df170ce635691655c9
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   CSPieChart: 45cb050fb963603995490a6ee825b075211f0d3e
   FBAEMKit: 11a0bcdc7a88e26ed764bcf56372afc6cbbbdcd9
@@ -206,6 +210,6 @@ SPEC CHECKSUMS:
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: ca9aafce193debcfcaa98a38b8b330416384cede
+PODFILE CHECKSUM: 09bcbd1add98a3d32d0d297d7900b9d312d87239
 
 COCOAPODS: 1.11.2
