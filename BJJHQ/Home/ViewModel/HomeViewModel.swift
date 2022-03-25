@@ -159,6 +159,49 @@ class HomeViewModel: BaseViewModel {
             }
         }
     }
+    func editComment(_ commentId: Int, _ completionHandler: @escaping(_ success: Bool, _ message : String?) -> Void)
+    {
+        
+        APIClient.shared.editComment(commentId) { response, result, error, code, message  in
+            
+            if let response = result {
+                
+                if let success = response["status"] as? Bool {
+                    
+                    completionHandler(success, message)
+                }
+                else {
+                    completionHandler(false,  error?.localizedDescription ?? message)
+                }
+            }
+            else {
+                
+                completionHandler(false, error?.localizedDescription ?? message)
+            }
+        }
+    }
+    
+    func deleteComment(_ commentId: Int, _ completionHandler: @escaping(_ success: Bool, _ message : String?) -> Void)
+    {
+        
+        APIClient.shared.deleteComment(commentId) { response, result, error, code, message  in
+            
+            if let response = result {
+                
+                if let success = response["status"] as? Bool {
+                    
+                    completionHandler(success, message)
+                }
+                else {
+                    completionHandler(false,  error?.localizedDescription ?? message)
+                }
+            }
+            else {
+                
+                completionHandler(false, error?.localizedDescription ?? message)
+            }
+        }
+    }
     
     func likeComment(_ commentId: Int,_ completionHandler: @escaping(_ success: Bool, _ message : String?) -> Void)
     {

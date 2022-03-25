@@ -9,7 +9,6 @@
 import UIKit
 import ObjectMapper
 
-var globalCollectionViewCell :MainNotificationTableViewCell?
 protocol notificatioSwitch {
     func switchState(state:Bool,index:Int)
 }
@@ -36,6 +35,7 @@ class MainNotificationTableViewCell: UITableViewCell {
     var detailArray = ["Basic alert for our standard 24-hour deals (published daily at 11pm EST)","Turn OFF if you want to pause notifications during our rapid-fire Rolling Deals events","Turn ON if you want alerts when other HQ users interact with your posts on the wall.","Time zone issues? Hitting the hay before 11pm? 'Snooze' provides options for delayed alerts, so you get a reminder when you want 'em."]
     
     
+    
     //MARK: - IBOutlets
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -45,7 +45,6 @@ class MainNotificationTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        globalCollectionViewCell = self
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -66,6 +65,14 @@ class MainNotificationTableViewCell: UITableViewCell {
     //MARK: - Functions
     
     func config(index:Int,data:NotificationModel?) {
+        for (i,index) in array2.enumerated() {
+            guard let time = DataManager.shared.getNotification()?.notificationSetting?.daily_deal_reminder_time else {return}
+            if time == index {
+                self.selectedIndex = i
+                collectionView.reloadData()
+                break
+            }
+        }
         if index == 0 {
             collectionView.isHidden = false
             self.stackViewHeight.constant = 50

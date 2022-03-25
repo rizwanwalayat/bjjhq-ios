@@ -54,7 +54,7 @@ struct UserData : Mappable {
         user_name <- map["user_name"]
         shopify_customer_id <- map["shopify_customer_id"]
         shopify_authorization_token <- map["shopify_authorization_token"]
-        uuid <- map["uuid"]
+        uuid <- map["user_mobile_id"]
         role <- map["role"]
         bio <- map["bio"]
         

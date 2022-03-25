@@ -107,8 +107,8 @@ class APIClient: APIClientHandler {
     func SignIn(email: String, password: String, id : String, _ completionBlock: @escaping APIClientCompletionHandler)
     {
         let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
-//        let userParams = ["email": email, "password": password, "shopify_customer_id": id,"fcm_token":Global.shared.FCMtoken, "user_mobile_id": uuid]
-        let userParams = ["email": email, "password": password,"fcm_token":Global.shared.FCMtoken, "user_mobile_id": uuid]
+        let userParams = ["email": email, "password": password, "shopify_customer_id": id,"fcm_token":Global.shared.FCMtoken, "user_mobile_id": uuid]
+//        let userParams = ["email": email, "password": password,"fcm_token":Global.shared.FCMtoken, "user_mobile_id": uuid]
         let params = ["user": userParams] as [String: AnyObject]
         
         _ = sendRequest(APIRoutes.signin , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
@@ -206,6 +206,38 @@ class APIClient: APIClientHandler {
         
         
         _ = sendRequest(APIRoutes.dislike , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
+    }
+    
+    func editComment(_ commentId: Int,_ completionBlock: @escaping APIClientCompletionHandler)
+    {
+        let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        let role = DataManager.shared.getUser()?.user?.role ?? "user"
+        let userId = DataManager.shared.getUser()?.user?.id ?? 0
+        
+        let userParams = ["user_mobile_id": uuid, "user_system_id": userId, "comment_id": commentId, "role": role] as [String : Any]
+        let params = ["reaction": userParams] as [String: AnyObject]
+        
+        let token = DataManager.shared.getLocalToken() ?? ""
+        let headers: HTTPHeaders = ["Authorization" : token]
+        
+        
+        _ = sendRequest(APIRoutes.editComment , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
+    }
+    
+    func deleteComment(_ commentId: Int,_ completionBlock: @escaping APIClientCompletionHandler)
+    {
+        let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        let role = DataManager.shared.getUser()?.user?.role ?? "user"
+        let userId = DataManager.shared.getUser()?.user?.id ?? 0
+        
+        let userParams = ["user_mobile_id": uuid, "user_system_id": userId, "comment_id": commentId, "role": role] as [String : Any]
+        let params = ["reaction": userParams] as [String: AnyObject]
+        
+        let token = DataManager.shared.getLocalToken() ?? ""
+        let headers: HTTPHeaders = ["Authorization" : token]
+        
+        
+        _ = sendRequest(APIRoutes.deleteComment , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
     }
     
     func likeComment(_ commentId: Int, _ completionBlock: @escaping APIClientCompletionHandler)

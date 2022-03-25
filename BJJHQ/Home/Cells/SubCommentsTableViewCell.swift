@@ -36,7 +36,7 @@ class SubCommentsTableViewCell: UITableViewCell {
     
     func config(_ commentsData : CommentsReplies)
     {
-        
+        print("calling replies")
         self.userName.text = commentsData.comment?.name ?? ""
         self.commentsText.text = commentsData.comment?.message ?? ""
         let time = commentsData.comment?.createdDate.timeCalculation(isShowTime: false)

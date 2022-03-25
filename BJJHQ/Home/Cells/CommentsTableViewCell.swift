@@ -76,6 +76,7 @@ class CommentsTableViewCell: UITableViewCell {
     
     func config(_ commentsData : Comments)
     {
+        print("calling comment")
         superComment = commentsData
         self.userName.text = commentsData.comment?.name ?? ""
         if let url = URL(string: commentsData.commentor_avatar) {
@@ -102,6 +103,10 @@ class CommentsTableViewCell: UITableViewCell {
         if let reply =  commentsData.replies{
             if reply.count > 0 {
                 replies = reply
+                tableView.reloadData()
+            }
+            else {
+                replies.removeAll()
                 tableView.reloadData()
             }
         }

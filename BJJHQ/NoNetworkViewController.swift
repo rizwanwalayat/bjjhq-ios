@@ -15,7 +15,7 @@ class NoNetworkViewController: UIViewController {
 
     }
     @IBAction func tryAgainButtonAction(_ sender: UIButton) {
-        if ConnectionManager.shared.isConnected {
+        if Reachability.isConnectedToNetwork() {
             self.navigationController?.popViewController(animated: true)
         }
     }

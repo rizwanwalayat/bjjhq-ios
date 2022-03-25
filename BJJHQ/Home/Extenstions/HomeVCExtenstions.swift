@@ -142,7 +142,7 @@ extension HomeViewController: UITableViewDataSource
             case true:
                 self.buttonLiked(cell.likeButton, cell.unlikeButton)
             case false:
-                self.buttonDisliked(cell.unlikeButton, cell.likeButton)
+                self.buttonDisliked(cell.likeButton, cell.unlikeButton)
             }
         }
             
@@ -332,6 +332,52 @@ extension HomeViewController {
     {
         
         viewModel?.disLikeComment(commentId, { success, message in
+            if success {
+                let obj = self.comments[ofIndex]
+                if !isSubComment {
+                    obj.isLiked = true
+                }
+                else {
+                    if let row = obj.replies?.firstIndex(where: {$0.comment!.id == commentId})
+                    {
+                        let replyObj = obj.replies?[row]
+                        replyObj?.isLiked = false
+                    }
+                }
+                let indexpath = IndexPath(row: ofIndex, section: 0)
+                self.tableView.reloadRows(at: [indexpath], with: .automatic)
+            }
+            
+            self.fetchComments()
+        })
+    }
+    func editComment(commentId: Int, _ ofIndex: Int, _ isSubComment: Bool = false)
+    {
+        
+        viewModel?.editComment(commentId, { success, message in
+            if success {
+                let obj = self.comments[ofIndex]
+                if !isSubComment {
+                    obj.isLiked = true
+                }
+                else {
+                    if let row = obj.replies?.firstIndex(where: {$0.comment!.id == commentId})
+                    {
+                        let replyObj = obj.replies?[row]
+                        replyObj?.isLiked = false
+                    }
+                }
+                let indexpath = IndexPath(row: ofIndex, section: 0)
+                self.tableView.reloadRows(at: [indexpath], with: .automatic)
+            }
+            
+            self.fetchComments()
+        })
+    }
+    func deleteComment(commentId: Int, _ ofIndex: Int, _ isSubComment: Bool = false)
+    {
+        
+        viewModel?.deleteComment(commentId, { success, message in
             if success {
                 let obj = self.comments[ofIndex]
                 if !isSubComment {

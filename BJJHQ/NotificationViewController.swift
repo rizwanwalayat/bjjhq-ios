@@ -46,43 +46,28 @@ class NotificationViewController: BaseViewController, notificatioSwitch {
             
             if data?.notificationSetting?.daily_deal_reminder_time == 2 {
                 Global.shared.selectedIndex = 0
-                globalCollectionViewCell?.selectedIndex = 0
-                globalCollectionViewCell?.collectionView.reloadData()
             }
             else if data?.notificationSetting?.daily_deal_reminder_time == 4 {
                 Global.shared.selectedIndex = 1
-                globalCollectionViewCell?.selectedIndex = 1
-                globalCollectionViewCell?.collectionView.reloadData()
             }
             else if data?.notificationSetting?.daily_deal_reminder_time == 6 {
                 Global.shared.selectedIndex = 2
-                globalCollectionViewCell?.selectedIndex = 2
-                globalCollectionViewCell?.collectionView.reloadData()
             }
             else if data?.notificationSetting?.daily_deal_reminder_time == 8 {
                 Global.shared.selectedIndex = 3
-                globalCollectionViewCell?.selectedIndex = 3
-                globalCollectionViewCell?.collectionView.reloadData()
             }
             else if data?.notificationSetting?.daily_deal_reminder_time == 10 {
                 Global.shared.selectedIndex = 4
-                globalCollectionViewCell?.selectedIndex = 4
-                globalCollectionViewCell?.collectionView.reloadData()
             }
             else {
                 Global.shared.selectedIndex = 5
-                globalCollectionViewCell?.selectedIndex = 5
-                globalCollectionViewCell?.collectionView.reloadData()
             }
             Global.shared.notificationSetting = data
             DataManager.shared.setNotification(notifications: data?.toJSONString() ?? "")
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                globalCollectionViewCell?.collectionView.reloadData()
-                print(Global.shared.notificationSetting as Any)
             }
         }
-        globalCollectionViewCell?.collectionView.reloadData()
         
     }
     @IBAction func backAction(_ sender: Any) {
