@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import ADCountryPicker
+
 var globalAddressBookPopUp : AddressBookPopUpViewController?
 class AddressBookPopUpViewController: BaseViewController {
     
@@ -98,9 +100,27 @@ class AddressBookPopUpViewController: BaseViewController {
         }) { (success) in
             
             self.dismiss(animated: false, completion: nil)
-            
         }
     }
+    
+    func showCountryPicker(){
+        
+        let picker = ADCountryPicker()
+        picker.showCallingCodes = false
+        picker.defaultCountryCode = getAddress?.country ?? "US"
+        picker.font = UIFont(name: "NeusaNextStd-CompactRegular", size: 15)
+        picker.searchBarBackgroundColor = UIColor.lightGray
+
+        picker.didSelectCountryClosure = { name, code in
+       
+            self.countryTF.text = name
+            picker.dismiss(animated: true, completion: nil)
+        }
+        
+        let pickerNavigationController = UINavigationController(rootViewController: picker)
+        self.present(pickerNavigationController, animated: true, completion: nil)
+    }
+    
     @IBAction func crossAction(_ sender: Any) {
         hidePopup()
     }
@@ -136,6 +156,10 @@ class AddressBookPopUpViewController: BaseViewController {
             showToast(message: "Please fill all the fields")
         }
     }
+    @IBAction func countryPickerAction(_ sender: Any) {
+        showCountryPicker()
+    }
+    
     
 }
 
