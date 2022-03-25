@@ -22,6 +22,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LandingPageViewController" customModule="BJJHQ" customModuleProvider="target">
             <connections>
+                <outlet property="appleSignInButton" destination="8xK-v3-U8f" id="i8w-Dg-FM9"/>
+                <outlet property="signInButtonsStackView" destination="tJB-MR-qwZ" id="pyM-tc-ABv"/>
                 <outlet property="skipButton" destination="X30-bo-oI8" id="MSg-uP-pFG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -124,7 +126,7 @@ or creating a new account below.</string>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="tJB-MR-qwZ">
-                            <rect key="frame" x="30" y="618" width="354" height="180"/>
+                            <rect key="frame" x="30" y="693" width="354" height="105"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Qq-8G-ZKL">
                                     <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
@@ -186,8 +188,8 @@ or creating a new account below.</string>
                                         <constraint firstAttribute="bottom" secondItem="QQn-2p-aBh" secondAttribute="bottom" id="guE-n2-7Ev"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFh-Ee-ljD">
-                                    <rect key="frame" x="0.0" y="55" width="354" height="50"/>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFh-Ee-ljD">
+                                    <rect key="frame" x="0.0" y="42.5" width="354" height="50"/>
                                     <color key="backgroundColor" red="0.92156862745098034" green="0.28627450980392155" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="PS2-P1-Di2"/>
@@ -223,7 +225,7 @@ or creating a new account below.</string>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xK-v3-U8f" customClass="AuthorizationAppleIDButton" customModule="BJJHQ" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="130" width="354" height="50"/>
+                                    <rect key="frame" x="0.0" y="55" width="354" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="6rG-UC-w3V"/>
                                     </constraints>
@@ -277,7 +279,6 @@ or creating a new account below.</string>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="eKu-i2-qj8" firstAttribute="leading" secondItem="phz-9H-llw" secondAttribute="leading" constant="20" id="04d-Ld-5Rv"/>
-                        <constraint firstItem="tJB-MR-qwZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oAd-9i-AMC" secondAttribute="bottom" constant="20" id="0E7-Ev-rF0"/>
                         <constraint firstItem="oAd-9i-AMC" firstAttribute="leading" secondItem="phz-9H-llw" secondAttribute="leading" constant="30" id="1ia-UU-x75"/>
                         <constraint firstAttribute="trailing" secondItem="VVv-fW-tyh" secondAttribute="trailing" constant="20" id="2Ry-yq-J5t"/>
                         <constraint firstItem="VVv-fW-tyh" firstAttribute="centerX" secondItem="phz-9H-llw" secondAttribute="centerX" id="5r1-qF-Zoa"/>

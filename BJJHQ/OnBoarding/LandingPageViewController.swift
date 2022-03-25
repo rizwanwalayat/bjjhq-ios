@@ -24,17 +24,49 @@ class LandingPageViewController: BaseViewController, LoginButtonDelegate {
     
     var dataForUser = fbData()
     @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var signInButtonsStackView: UIStackView!
+    @IBOutlet weak var appleSignInButton: AuthorizationAppleIDButton!
     
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-//        let loginButton = FBLoginButton()
-//        loginButton.delegate = self
+        let loginButton = FBLoginButton()
+        loginButton.delegate = self
 //        loginButton.center = view.center
-//        loginButton.permissions = ["public_profile", "email"]
+        loginButton.permissions = ["public_profile", "email"]
 //        view.addSubview(loginButton)
+        loginButton.layer.cornerRadius = 5
+        loginButton.layer.masksToBounds = true
+        loginButton.removeConstraints(loginButton.constraints)
+        loginButton.setImage(UIImage(named: ""), for: .normal)
+        loginButton.widthAnchor.constraint(equalToConstant: appleSignInButton.frame.width).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        signInButtonsStackView.addArrangedSubview(loginButton)
+        
+//        do {
+//             KeychainItem.deleteUserIdentifierFromKeychain()
+//        } catch {
+//            print("Unable to save userIdentifier to keychain.")
+//        }
+        
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+            appleIDProvider.getCredentialState(forUserID: KeychainItem.currentUserIdentifier) { (credentialState, error) in
+                switch credentialState {
+                case .authorized:
+                    print("authorized")
+                    break
+                case .revoked:
+                    print("revoked")
+                    break
+                case .notFound:
+                    print("not found")
+                    break
+                default:
+                    break
+                }
+            }
     }
     
     
@@ -135,35 +167,60 @@ class LandingPageViewController: BaseViewController, LoginButtonDelegate {
     }
     
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
-        if error == nil {
-            let token = result?.authenticationToken?.tokenString
-            let request = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields":"email, name"], tokenString: token, version: nil, httpMethod: .get)
+        if let token = AccessToken.current,
+           !token.isExpired {
+            let token = token.tokenString
+            let request = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields":"email, first_name,last_name,short_name ,picture"], tokenString: token, version: nil, httpMethod: .get)
             request.start { connection, result, error in
-                if error == nil {
-                    if let r = result as? [String:Any] {
-                        var fbData = fbData()
-                        fbData.email = r["email"] as? String
-                        fbData.id = r["id"] as? Int
-                        fbData.userName = r["short_name"] as? String
-                        fbData.firstName = r["first_name"] as? String
-                        fbData.lastName  = r["last_name"] as? String
-                        let picture = r["picture"] as! [String:Any]
-                        let pictureData = picture["data"] as! [String:Any]
-                        fbData.pictureUrl = pictureData["url"] as? String
-                        self.dataForUser = fbData
-                        Global.shared.dataForFaceBookUser = fbData
-                    }
- 
+                if let r = result as? [String:Any] {
+                    var fbData = fbData()
+                    fbData.email = r["email"] as? String
+                    fbData.id = r["id"] as? Int
+                    fbData.userName = r["short_name"] as? String
+                    fbData.firstName = r["first_name"] as? String
+                    fbData.lastName  = r["last_name"] as? String
+                    let picture = r["picture"] as! [String:Any]
+                    let pictureData = picture["data"] as! [String:Any]
+                    fbData.pictureUrl = pictureData["url"] as? String
+                    self.dataForUser = fbData
+                    Global.shared.dataForFaceBookUser = fbData
                 }
-                else {
-                    self.showToast(message: "Facebook authentication failed")
+                
+            }
+        }
+        else {
+            if error == nil {
+                let token = result?.authenticationToken?.tokenString
+                let request = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields":"email, name"], tokenString: token, version: nil, httpMethod: .get)
+                request.start { connection, result, error in
+                    if error == nil {
+                        if let r = result as? [String:Any] {
+                            var fbData = fbData()
+                            fbData.email = r["email"] as? String
+                            fbData.id = r["id"] as? Int
+                            fbData.userName = r["short_name"] as? String
+                            fbData.firstName = r["first_name"] as? String
+                            fbData.lastName  = r["last_name"] as? String
+                            let picture = r["picture"] as! [String:Any]
+                            let pictureData = picture["data"] as! [String:Any]
+                            fbData.pictureUrl = pictureData["url"] as? String
+                            self.dataForUser = fbData
+                            Global.shared.dataForFaceBookUser = fbData
+                        }
+     
+                    }
+                    else {
+                        self.showToast(message: "Facebook authentication failed")
+                    }
                 }
             }
+            
         }
         
     }
     
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        loginButton.setImage(UIImage(named: ""), for: .normal)
         self.showToast(message: "Logged out")
     }
     
