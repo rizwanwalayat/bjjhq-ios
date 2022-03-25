@@ -18,7 +18,7 @@ struct fbData {
     var email : String?
     var pictureUrl : Any?
 }
-struct AppleUser {
+struct SocialUser {
     var idToken = ""
     var firstName = ""
     var lastName = ""
@@ -37,30 +37,20 @@ class LandingPageViewController: BaseViewController, LoginButtonDelegate {
     
     var dataForUser = fbData()
     let appleIDProvider = ASAuthorizationAppleIDProvider()
+    let fbLoginButton = FBLoginButton()
     
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var signInButtonsStackView: UIStackView!
     @IBOutlet weak var appleSignInButton: AuthorizationAppleIDButton!
+    let continueFacebookButton = UIButton()
     
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        let loginButton = FBLoginButton()
-        loginButton.delegate = self
-//        loginButton.center = view.center
-        loginButton.permissions = ["public_profile", "email"]
-//        view.addSubview(loginButton)
-        loginButton.layer.cornerRadius = 5
-        loginButton.layer.masksToBounds = true
-        loginButton.removeConstraints(loginButton.constraints)
-        loginButton.setImage(UIImage(named: ""), for: .normal)
-        loginButton.widthAnchor.constraint(equalToConstant: appleSignInButton.frame.width).isActive = true
-        loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        signInButtonsStackView.addArrangedSubview(loginButton)
-        
         setAppleButtonUI()
+        setFacebookButtonUI()
     }
     
     
@@ -86,6 +76,40 @@ class LandingPageViewController: BaseViewController, LoginButtonDelegate {
             }
         }
     }
+    private func setFacebookButtonUI() {
+        if let token = AccessToken.current,
+           !token.isExpired {
+            
+            continueFacebookButton.backgroundColor = UIColor(named: "fbBackground")
+            continueFacebookButton.layer.cornerRadius = 5
+            continueFacebookButton.layer.masksToBounds = true
+            continueFacebookButton.translatesAutoresizingMaskIntoConstraints = false
+            continueFacebookButton.widthAnchor.constraint(equalToConstant: signInButtonsStackView.bounds.width).isActive = true
+            continueFacebookButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            continueFacebookButton.setAttributedTitle(NSAttributedString(string: "Continue with Facebook"), for: .normal)
+            continueFacebookButton.setTitleColor(.white, for: .normal)
+            continueFacebookButton.addTarget(self, action: #selector(continueWithFacebookPressed), for: .touchUpInside)
+            fbLoginButton.removeFromSuperview()
+            signInButtonsStackView.addArrangedSubview(continueFacebookButton)
+        }
+        else {
+            fbLoginButton.delegate = self
+            fbLoginButton.permissions = ["public_profile", "email"]
+            fbLoginButton.layer.cornerRadius = 5
+            fbLoginButton.layer.masksToBounds = true
+            fbLoginButton.removeConstraints(fbLoginButton.constraints)
+            fbLoginButton.setImage(UIImage(named: ""), for: .normal)
+            fbLoginButton.widthAnchor.constraint(equalToConstant: signInButtonsStackView.bounds.width).isActive = true
+            fbLoginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            
+            continueFacebookButton.removeFromSuperview()
+            signInButtonsStackView.addArrangedSubview(fbLoginButton)
+        }
+    }
+    @objc func continueWithFacebookPressed() {
+        self.coordinator?.signUpPage(signupType: SignupType.facebook)
+    }
+    
     //MARK: - IBAction
     
     
@@ -186,6 +210,7 @@ class LandingPageViewController: BaseViewController, LoginButtonDelegate {
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         if let token = AccessToken.current,
            !token.isExpired {
+        
             let token = token.tokenString
             let request = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields":"email, first_name,last_name,short_name ,picture"], tokenString: token, version: nil, httpMethod: .get)
             request.start { connection, result, error in
@@ -201,6 +226,9 @@ class LandingPageViewController: BaseViewController, LoginButtonDelegate {
                     fbData.pictureUrl = pictureData["url"] as? String
                     self.dataForUser = fbData
                     Global.shared.dataForFaceBookUser = fbData
+                    self.setFacebookButtonUI()
+                    DataManager.shared.setFacebookUser(idToken: "\(fbData.id ?? 0)", firstName: fbData.firstName ?? "", lastName: fbData.lastName ?? "", email: fbData.email ?? "")
+                    self.coordinator?.signUpPage(signupType: SignupType.facebook)
                 }
                 
             }

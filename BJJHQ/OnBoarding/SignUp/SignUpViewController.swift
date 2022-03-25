@@ -59,7 +59,10 @@ class SignUpViewController: BaseViewController {
                 lastNameTF.text = appleUser?.lastName
                 emailTF.text = appleUser?.email
             case .facebook:
-                break
+                let fbUser = Global.shared.dataForFaceBookUser
+                firstNameTF.text = fbUser.firstName
+                lastNameTF.text = fbUser.lastName
+                emailTF.text = fbUser.email
             case .manual:
                 break
             }
