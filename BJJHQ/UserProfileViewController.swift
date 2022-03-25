@@ -36,6 +36,7 @@ class UserProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        self.desciptionTextView.text = ""
         self.emailTextField.isUserInteractionEnabled = false
         self.emailTextField.alpha = 0.5
         let numberOfChars = desciptionTextView.text.count // for Swift use count(newText)

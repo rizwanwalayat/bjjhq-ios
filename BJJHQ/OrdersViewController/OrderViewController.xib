@@ -104,7 +104,7 @@
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="CH1-Aa-3cz">
-                            <rect key="frame" x="20" y="156" width="374" height="150.5"/>
+                            <rect key="frame" x="20" y="156" width="374" height="418.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="qqZ-7q-hfh">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="150.5"/>
@@ -225,32 +225,32 @@ Hoodie for Men</string>
                                         </view>
                                     </subviews>
                                 </stackView>
-                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aB2-Dj-ED8">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aB2-Dj-ED8">
+                                    <rect key="frame" x="0.0" y="180.5" width="374" height="19.5"/>
                                     <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="16"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Qpi-lm-lN8">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Qpi-lm-lN8">
+                                    <rect key="frame" x="0.0" y="230" width="374" height="98.5"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G5e-SE-Urg">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="19.5"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uBa-Tu-mMD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="19.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Subtotal" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crW-aq-aCE">
-                                                            <rect key="frame" x="0.0" y="0.0" width="59.5" height="0.0"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="59.5" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FyT-qa-fDZ">
-                                                            <rect key="frame" x="102" y="0.0" width="170" height="0.0"/>
+                                                            <rect key="frame" x="102" y="0.0" width="170" height="19.5"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line-checkout" translatesAutoresizingMaskIntoConstraints="NO" id="9Bj-ef-y13">
-                                                                    <rect key="frame" x="0.0" y="-0.5" width="170" height="1"/>
+                                                                    <rect key="frame" x="0.0" y="9.5" width="170" height="1"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="yct-KQ-W9p"/>
                                                                     </constraints>
@@ -264,7 +264,7 @@ Hoodie for Men</string>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="$ 000.00" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="By3-PE-ThS">
-                                                            <rect key="frame" x="314" y="0.0" width="60" height="0.0"/>
+                                                            <rect key="frame" x="314" y="0.0" width="60" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -281,22 +281,22 @@ Hoodie for Men</string>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZW-Wf-5DD">
-                                            <rect key="frame" x="0.0" y="20" width="374" height="0.0"/>
+                                            <rect key="frame" x="0.0" y="39.5" width="374" height="19.5"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gRW-IW-ZR9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="19.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Shipping" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4r-M2-6vH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="61.5" height="0.0"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="61.5" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S5O-LZ-9Xd">
-                                                            <rect key="frame" x="84" y="0.0" width="207.5" height="0.0"/>
+                                                            <rect key="frame" x="84" y="0.0" width="207.5" height="19.5"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line-checkout" translatesAutoresizingMaskIntoConstraints="NO" id="UQ9-xS-sSZ">
-                                                                    <rect key="frame" x="0.0" y="-0.5" width="207.5" height="1"/>
+                                                                    <rect key="frame" x="0.0" y="9.5" width="207.5" height="1"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="Bfj-yP-c59"/>
                                                                     </constraints>
@@ -310,7 +310,7 @@ Hoodie for Men</string>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="$ 000.00" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXb-62-LUm">
-                                                            <rect key="frame" x="314" y="0.0" width="60" height="0.0"/>
+                                                            <rect key="frame" x="314" y="0.0" width="60" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -327,22 +327,22 @@ Hoodie for Men</string>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qEr-CF-6sn">
-                                            <rect key="frame" x="0.0" y="40" width="374" height="0.0"/>
+                                            <rect key="frame" x="0.0" y="79" width="374" height="19.5"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tbD-Kb-6gz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="19.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="VAT(15%)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYT-LN-sb2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="63" height="0.0"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="63" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="Barlow-Medium" family="Barlow" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9hI-j2-7QT">
-                                                            <rect key="frame" x="89.5" y="0.0" width="207.5" height="0.0"/>
+                                                            <rect key="frame" x="89.5" y="0.0" width="207.5" height="19.5"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" image="line-checkout" translatesAutoresizingMaskIntoConstraints="NO" id="GUD-CG-5Ik">
-                                                                    <rect key="frame" x="0.0" y="-0.5" width="207.5" height="1"/>
+                                                                    <rect key="frame" x="0.0" y="9.5" width="207.5" height="1"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="pdj-NP-2V3"/>
                                                                     </constraints>
@@ -356,7 +356,7 @@ Hoodie for Men</string>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="$ 00.00" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZK-hf-qM9">
-                                                            <rect key="frame" x="323" y="0.0" width="51" height="0.0"/>
+                                                            <rect key="frame" x="323" y="0.0" width="51" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -374,8 +374,8 @@ Hoodie for Men</string>
                                         </view>
                                     </subviews>
                                 </stackView>
-                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mhl-tG-jM8">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mhl-tG-jM8">
+                                    <rect key="frame" x="0.0" y="358.5" width="374" height="60"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQk-Yu-7bz">
                                             <rect key="frame" x="20" y="0.0" width="39" height="60"/>

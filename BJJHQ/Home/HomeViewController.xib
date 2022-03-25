@@ -259,7 +259,7 @@
                                                     <rect key="frame" x="319" y="22.5" width="67" height="48"/>
                                                     <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="40"/>
                                                     <color key="textColor" name="timespaleColor"/>
-                                                    <nil key="highlightedColor"/>
+                                                    <color key="highlightedColor" red="0.90980392156862744" green="0.41176470588235292" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="gV0-Sx-sac">
                                                     <rect key="frame" x="20" y="103" width="366" height="763.5"/>
@@ -530,7 +530,7 @@
                                                                                     </connections>
                                                                                 </button>
                                                                             </subviews>
-                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstItem="JsE-y2-bIc" firstAttribute="centerY" secondItem="tF3-MN-R9c" secondAttribute="centerY" id="6Wx-ba-Xdg"/>
                                                                                 <constraint firstAttribute="trailing" secondItem="JsE-y2-bIc" secondAttribute="trailing" constant="11" id="7nL-ML-hoA"/>

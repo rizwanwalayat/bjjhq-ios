@@ -16,9 +16,7 @@ class DeletePopUpViewController: BaseViewController {
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
-    
     @IBOutlet weak var descriptionLbl: UILabel!
-    //@IBOutlet weak var heightMultiplier: NSLayoutConstraint!
     @IBOutlet weak var imgvvView: UIView!
     
     //MARK: - Variables
@@ -29,6 +27,7 @@ class DeletePopUpViewController: BaseViewController {
     var isFromRemoveCart = false
     var getAddress : Addresses?
     var viewModel : DeleteLogoutViewModel?
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -135,6 +134,7 @@ class DeletePopUpViewController: BaseViewController {
        if isFromAddress {
             //delete address
             Client.shared.deleteUserAddress(accessToken: DataManager.shared.getUserAccessToekn()!, addressId: self.getAddress?.id ?? "") { pass, fail in
+                NotificationCenter.default.post(name: Notification.Name("refresh"), object: nil)
                 defer {
                     globalMyAddressesViewController?.tableView.reloadData()
                 }

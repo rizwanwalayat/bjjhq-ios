@@ -39,16 +39,19 @@ class MyAddressesViewController: BaseViewController , addressAction {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        globalMyAddressesViewController = self
-        self.view.activityStartAnimating()
-//        setup()
-        
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         setup()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.localNotificationTapped(notification:)), name: Notification.Name("refresh"), object: nil)
+        globalMyAddressesViewController = self
     }
+    
+    // MARK:- Selectors
+        @objc func localNotificationTapped(notification: Notification){
+            setup()
+            
+        }
+    
     func setup() {
+        self.view.activityStartAnimating()
         Client.shared.fetchAddress { responce,defaultAddress in
             self.defaultAddress = defaultAddress
             self.address = responce

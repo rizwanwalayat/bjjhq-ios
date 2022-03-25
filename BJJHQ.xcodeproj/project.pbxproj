@@ -100,6 +100,7 @@
 		18737E4D27BE7A5900C4F438 /* ChangePasswordViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 18737E4B27BE7A5900C4F438 /* ChangePasswordViewController.xib */; };
 		1874397127D2202A00BA41CF /* OrdeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1874397027D2202A00BA41CF /* OrdeViewModel.swift */; };
 		1883444527D74FA2001D7759 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1883444427D74FA2001D7759 /* GoogleService-Info.plist */; };
+		188B515A27EDECED003FC71C /* UPDATED LOADER.json in Resources */ = {isa = PBXBuildFile; fileRef = 188B515927EDECED003FC71C /* UPDATED LOADER.json */; };
 		188E5A6F27BD4A98003FB613 /* NotificationHoursCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E5A6D27BD4A98003FB613 /* NotificationHoursCollectionViewCell.swift */; };
 		188E5A7027BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 188E5A6E27BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib */; };
 		188E5A7427BD518B003FB613 /* NotificationPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E5A7227BD518A003FB613 /* NotificationPopUpViewController.swift */; };
@@ -327,6 +328,7 @@
 		18737E4B27BE7A5900C4F438 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
 		1874397027D2202A00BA41CF /* OrdeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdeViewModel.swift; sourceTree = "<group>"; };
 		1883444427D74FA2001D7759 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		188B515927EDECED003FC71C /* UPDATED LOADER.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "UPDATED LOADER.json"; sourceTree = "<group>"; };
 		188E5A6D27BD4A98003FB613 /* NotificationHoursCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHoursCollectionViewCell.swift; sourceTree = "<group>"; };
 		188E5A6E27BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationHoursCollectionViewCell.xib; sourceTree = "<group>"; };
 		188E5A7227BD518A003FB613 /* NotificationPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPopUpViewController.swift; sourceTree = "<group>"; };
@@ -1176,6 +1178,7 @@
 				6946233327EC7B3A00F7D2CF /* KeychainItem.swift */,
 				9ADAD46A1E563091008AC561 /* AppDelegate.swift */,
 				183E639E27E8DBE800A44192 /* data.json */,
+				188B515927EDECED003FC71C /* UPDATED LOADER.json */,
 				183E639D27E8DBE800A44192 /* loader.json */,
 				0481A26727CCBA9900277E21 /* Network */,
 				9A9FFEFB1E78431C00F6DFF7 /* Formatters */,
@@ -1355,6 +1358,7 @@
 				0487AC4427C4C47D00A3422B /* Barlow-Bold.ttf in Resources */,
 				04460F4E27C5010100D9DDDE /* FaqViewController.xib in Resources */,
 				96DD6C4627C3790B00DDA0DC /* MyOrdersViewController.xib in Resources */,
+				188B515A27EDECED003FC71C /* UPDATED LOADER.json in Resources */,
 				04E692D427C385D100DF3750 /* UserProfileViewController.xib in Resources */,
 				04FC4FF727DBB04E00605C79 /* CommentsTableViewCell.xib in Resources */,
 				18B598D527E2176E008B7B72 /* ReturnPolicyTableViewCell.xib in Resources */,

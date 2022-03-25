@@ -10,8 +10,8 @@ import UIKit
 import ADCountryPicker
 
 var globalAddressBookPopUp : AddressBookPopUpViewController?
+
 class AddressBookPopUpViewController: BaseViewController {
-    
     
     //MARK: - IBOutlets
 
@@ -33,12 +33,11 @@ class AddressBookPopUpViewController: BaseViewController {
     @IBOutlet weak var addressTF: UITextField!
     
     //MARK: - Variables
-    
+    var refreshTrue = false
     var isfromAddNewAddress = false
     var textForNow = ""
     var descriptionMessage : String?
     var getAddress : Addresses?
-    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -91,6 +90,7 @@ class AddressBookPopUpViewController: BaseViewController {
     }
     
     func hidePopup() {
+
         popUpView.alpha = 1
         UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: [], animations: {
             
