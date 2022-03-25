@@ -56,16 +56,33 @@ class ForgetViewController: BaseViewController {
     
     @IBAction func submitAction(_ sender: Any) {
 
-        if ((emailTF.text?.isValidEmail()) != nil) && emailTF.text != "" {
-            APIClient.shared.checkEmail(email: emailTF.text!) { responce, result, error, statusCode, messsage in
-                print(messsage)
-                Client.shared.applyForReset(email: self.emailTF.text ?? "") { done in
-                    
+        if emailTF.text!.isValidEmail() && emailTF.text != "" {
+            self.view.activityStartAnimating()
+            APIClient.shared.checkEmail(email: emailTF.text!) { responce, result, error, statusCode, message in
+                self.view.activityStopAnimating()
+                let new = result as! [String:String]
+                guard let mes = new["message"] else {self.showToast(message: "Error sending email")
+                    return }
+                print(mes)
+                if mes == "email available" {
+                    self.view.activityStartAnimating()
+                    Client.shared.applyForReset(email: self.emailTF.text ?? "") { done in
+                        self.view.activityStopAnimating()
+                        self.showAlert(title: "Reset", message: "Please check your email inbox to reset password")
+                    }
+                }
+                else {
+                    self.showToast(message: "Email not available")
                 }
             }
         }
         else {
-            self.showToast(message: "You have entered an invalid email")
+            if emailTF.text == "" {
+                self.showToast(message: "Please enter email")
+            }
+            else {
+                self.showToast(message: "You have entered an invalid email")
+            }
         }
     }
     
@@ -86,5 +103,10 @@ extension ForgetViewController : UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.emailView.backgroundColor = UIColor(named: "lightGrey")
     }
-    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string == " " {
+            return false
+        }
+        return true
+    }
 }
