@@ -36,6 +36,7 @@ class DeletePopUpViewController: BaseViewController {
         self.popUpView.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
         
         if isFromSignOut {
+            
             //self.heightMultiplier =  heightMultiplier.setMultiplier(multiplier: 0.3)
             self.imgvvView.isHidden = true
             self.titleLbl.text = "Sign Out"
