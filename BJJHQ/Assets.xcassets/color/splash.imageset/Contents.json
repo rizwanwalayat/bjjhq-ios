@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Group 6558.png",
+      "filename" : "Splash Screen New.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Group 6558@2x.png",
+      "filename" : "Splash Screen New-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Group 6558@3x.png",
+      "filename" : "Splash Screen New-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
