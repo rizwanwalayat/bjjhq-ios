@@ -23,6 +23,6 @@ class NotificationHoursCollectionViewCell: UICollectionViewCell {
     
     func config(index:Int) {
         
-        self.titleLbl.text = String(array[index])
+        self.titleLbl.text = "\(String(array[index])) hrs"
     }
 }

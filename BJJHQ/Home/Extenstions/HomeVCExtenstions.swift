@@ -46,9 +46,24 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
             
             self.colorSelectedIndex = indexPath
         }
+        else if collectionView == self.collectionView {
+            var pictures = [CollieGalleryPicture]()
+            if self.productModel?.images.items.count ?? 0 > 0 {
+                if let itemsOfPicture = self.productModel?.images.items {
+                    for i in itemsOfPicture {
+                        pictures.append(CollieGalleryPicture(url: i.url.absoluteString, placeholder: UIImage.init(named: "AppDefulter")!, title: i.url.lastPathComponent, caption: "BJJHQ"))
+                    }
+                }
+                
+                let gallery = CollieGallery(pictures: pictures)
+                gallery.presentInViewController(self)
+            }
+
+        }
         
         // for colors
         self.colorsCollectionView.reloadData()
+        
     }
 }
 

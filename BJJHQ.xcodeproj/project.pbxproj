@@ -112,6 +112,21 @@
 		18D766C327BE8D290076A12B /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D766C127BE8D290076A12B /* SideMenuViewController.swift */; };
 		18D766C427BE8D290076A12B /* SideMenuViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 18D766C227BE8D290076A12B /* SideMenuViewController.xib */; };
 		18D766C627BE8DE70076A12B /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D766C527BE8DE70076A12B /* SlideMenuController.swift */; };
+		18DE66AC27F23A6B00524DFD /* CollieGalleryTransitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE669D27F23A6B00524DFD /* CollieGalleryTransitionType.swift */; };
+		18DE66AD27F23A6B00524DFD /* CollieGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE669E27F23A6B00524DFD /* CollieGalleryView.swift */; };
+		18DE66AE27F23A6B00524DFD /* CollieGalleryTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE669F27F23A6B00524DFD /* CollieGalleryTransitionManager.swift */; };
+		18DE66AF27F23A6B00524DFD /* CollieGalleryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66A027F23A6B00524DFD /* CollieGalleryDelegate.swift */; };
+		18DE66B027F23A6B00524DFD /* CollieGalleryTransitionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66A127F23A6B00524DFD /* CollieGalleryTransitionProtocol.swift */; };
+		18DE66B127F23A6B00524DFD /* CollieGalleryDefaultTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66A227F23A6B00524DFD /* CollieGalleryDefaultTransition.swift */; };
+		18DE66B227F23A6B00524DFD /* CollieGalleryOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66A327F23A6B00524DFD /* CollieGalleryOptions.swift */; };
+		18DE66B327F23A6B00524DFD /* CollieGalleryPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66A427F23A6B00524DFD /* CollieGalleryPicture.swift */; };
+		18DE66B427F23A6B00524DFD /* CollieGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66A527F23A6B00524DFD /* CollieGallery.swift */; };
+		18DE66B527F23A6B00524DFD /* CollieGalleryAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66A627F23A6B00524DFD /* CollieGalleryAppearance.swift */; };
+		18DE66B627F23A6B00524DFD /* CollieGalleryCustomAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66A727F23A6B00524DFD /* CollieGalleryCustomAction.swift */; };
+		18DE66B727F23A6B00524DFD /* CollieGalleryCaptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66A827F23A6B00524DFD /* CollieGalleryCaptionView.swift */; };
+		18DE66B827F23A6B00524DFD /* CollieGalleryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66A927F23A6B00524DFD /* CollieGalleryViewDelegate.swift */; };
+		18DE66B927F23A6B00524DFD /* CollieGalleryZoomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66AA27F23A6B00524DFD /* CollieGalleryZoomTransition.swift */; };
+		18DE66BA27F23A6B00524DFD /* CollieGalleryTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE66AB27F23A6B00524DFD /* CollieGalleryTheme.swift */; };
 		18FCF6C527BE951100D5DF17 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCF6C327BE951100D5DF17 /* SideMenuTableViewCell.swift */; };
 		18FCF6C627BE951100D5DF17 /* SideMenuTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 18FCF6C427BE951100D5DF17 /* SideMenuTableViewCell.xib */; };
 		4BCFFBC636F044FF8234FD2F /* Pods_BJJHQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5D9263BFB2A5B97C243957 /* Pods_BJJHQ.framework */; };
@@ -343,6 +358,21 @@
 		18D766C127BE8D290076A12B /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		18D766C227BE8D290076A12B /* SideMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuViewController.xib; sourceTree = "<group>"; };
 		18D766C527BE8DE70076A12B /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
+		18DE669D27F23A6B00524DFD /* CollieGalleryTransitionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollieGalleryTransitionType.swift; sourceTree = "<group>"; };
+		18DE669E27F23A6B00524DFD /* CollieGalleryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollieGalleryView.swift; sourceTree = "<group>"; };
+		18DE669F27F23A6B00524DFD /* CollieGalleryTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollieGalleryTransitionManager.swift; sourceTree = "<group>"; };
+		18DE66A027F23A6B00524DFD /* CollieGalleryDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollieGalleryDelegate.swift; sourceTree = "<group>"; };
+		18DE66A127F23A6B00524DFD /* CollieGalleryTransitionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollieGalleryTransitionProtocol.swift; sourceTree = "<group>"; };
+		18DE66A227F23A6B00524DFD /* CollieGalleryDefaultTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollieGalleryDefaultTransition.swift; sourceTree = "<group>"; };
+		18DE66A327F23A6B00524DFD /* CollieGalleryOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollieGalleryOptions.swift; sourceTree = "<group>"; };
+		18DE66A427F23A6B00524DFD /* CollieGalleryPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollieGalleryPicture.swift; sourceTree = "<group>"; };
+		18DE66A527F23A6B00524DFD /* CollieGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollieGallery.swift; sourceTree = "<group>"; };
+		18DE66A627F23A6B00524DFD /* CollieGalleryAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollieGalleryAppearance.swift; sourceTree = "<group>"; };
+		18DE66A727F23A6B00524DFD /* CollieGalleryCustomAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollieGalleryCustomAction.swift; sourceTree = "<group>"; };
+		18DE66A827F23A6B00524DFD /* CollieGalleryCaptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollieGalleryCaptionView.swift; sourceTree = "<group>"; };
+		18DE66A927F23A6B00524DFD /* CollieGalleryViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollieGalleryViewDelegate.swift; sourceTree = "<group>"; };
+		18DE66AA27F23A6B00524DFD /* CollieGalleryZoomTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollieGalleryZoomTransition.swift; sourceTree = "<group>"; };
+		18DE66AB27F23A6B00524DFD /* CollieGalleryTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollieGalleryTheme.swift; sourceTree = "<group>"; };
 		18FCF6C327BE951100D5DF17 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		18FCF6C427BE951100D5DF17 /* SideMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewCell.xib; sourceTree = "<group>"; };
 		6946232F27EC796700F7D2CF /* AuthorizationAppleIDButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationAppleIDButton.swift; sourceTree = "<group>"; };
@@ -750,6 +780,7 @@
 		1863835E27BB9BFD0080FC80 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				18DE669C27F23A6B00524DFD /* Colie */,
 				18D766C527BE8DE70076A12B /* SlideMenuController.swift */,
 				18A6679A27BBB9BC005FE8C1 /* UIView.swift */,
 				1863835F27BB9BFD0080FC80 /* DataManager.swift */,
@@ -843,6 +874,28 @@
 				1841B74E27E21576008820E7 /* ReturnPolicyViewController.xib */,
 			);
 			name = SideMenu;
+			sourceTree = "<group>";
+		};
+		18DE669C27F23A6B00524DFD /* Colie */ = {
+			isa = PBXGroup;
+			children = (
+				18DE669D27F23A6B00524DFD /* CollieGalleryTransitionType.swift */,
+				18DE669E27F23A6B00524DFD /* CollieGalleryView.swift */,
+				18DE669F27F23A6B00524DFD /* CollieGalleryTransitionManager.swift */,
+				18DE66A027F23A6B00524DFD /* CollieGalleryDelegate.swift */,
+				18DE66A127F23A6B00524DFD /* CollieGalleryTransitionProtocol.swift */,
+				18DE66A227F23A6B00524DFD /* CollieGalleryDefaultTransition.swift */,
+				18DE66A327F23A6B00524DFD /* CollieGalleryOptions.swift */,
+				18DE66A427F23A6B00524DFD /* CollieGalleryPicture.swift */,
+				18DE66A527F23A6B00524DFD /* CollieGallery.swift */,
+				18DE66A627F23A6B00524DFD /* CollieGalleryAppearance.swift */,
+				18DE66A727F23A6B00524DFD /* CollieGalleryCustomAction.swift */,
+				18DE66A827F23A6B00524DFD /* CollieGalleryCaptionView.swift */,
+				18DE66A927F23A6B00524DFD /* CollieGalleryViewDelegate.swift */,
+				18DE66AA27F23A6B00524DFD /* CollieGalleryZoomTransition.swift */,
+				18DE66AB27F23A6B00524DFD /* CollieGalleryTheme.swift */,
+			);
+			path = Colie;
 			sourceTree = "<group>";
 		};
 		6946233727EDCE2400F7D2CF /* NoNetwork */ = {
@@ -1475,6 +1528,7 @@
 				9AAFAB861E60C15300864A17 /* ProductViewModel.swift in Sources */,
 				6946233F27EDD2CB00F7D2CF /* UIApplication.swift in Sources */,
 				0481A27027CCBA9900277E21 /* ApiClientHandler.swift in Sources */,
+				18DE66B927F23A6B00524DFD /* CollieGalleryZoomTransition.swift in Sources */,
 				9AAFAB7E1E60BE6500864A17 /* ViewModeling.swift in Sources */,
 				9ABEB3D6212446F000A373F2 /* GiftCardViewModel.swift in Sources */,
 				9A27C32A1E8FDF7C00218EE8 /* Fragment+CheckoutQuery.swift in Sources */,
@@ -1493,7 +1547,10 @@
 				9A4EDDD22126116E0071BA56 /* CustomerCoordinator.swift in Sources */,
 				04460F5027C5010100D9DDDE /* FaqTableViewCell.swift in Sources */,
 				9A67117A2166801A00A57A3F /* Fragment+DiscountAllocation.swift in Sources */,
+				18DE66AE27F23A6B00524DFD /* CollieGalleryTransitionManager.swift in Sources */,
 				9AAFAB921E60D11000864A17 /* StorefrontCollectionView.swift in Sources */,
+				18DE66B627F23A6B00524DFD /* CollieGalleryCustomAction.swift in Sources */,
+				18DE66B027F23A6B00524DFD /* CollieGalleryTransitionProtocol.swift in Sources */,
 				9AE776342166AB6700A02112 /* ManualCodeViewModel.swift in Sources */,
 				1863836E27BB9BFE0080FC80 /* ImagePickerVC.swift in Sources */,
 				9A9FFF4C1E81B61200F6DFF7 /* CartItem.swift in Sources */,
@@ -1505,6 +1562,7 @@
 				04FC4FFF27DBB04E00605C79 /* HomeVCExtenstions.swift in Sources */,
 				9A27C3241E8FDA4900218EE8 /* AddressViewModel.swift in Sources */,
 				1863836F27BB9BFE0080FC80 /* Coordinator.swift in Sources */,
+				18DE66B527F23A6B00524DFD /* CollieGalleryAppearance.swift in Sources */,
 				1841B74F27E21576008820E7 /* ReturnPolicyViewController.swift in Sources */,
 				9A9C92B51ED4B0B40027F049 /* Color.swift in Sources */,
 				9AE776302166AB3700A02112 /* DiscountApplication.swift in Sources */,
@@ -1558,12 +1616,14 @@
 				188E5A6F27BD4A98003FB613 /* NotificationHoursCollectionViewCell.swift in Sources */,
 				9A21F29A1E7AD4FD00E00F4B /* ParallaxViewController.swift in Sources */,
 				9A9FFF1C1E7FF3A800F6DFF7 /* ImageViewModel.swift in Sources */,
+				18DE66B427F23A6B00524DFD /* CollieGallery.swift in Sources */,
 				9A27C3201E8FD99200218EE8 /* CheckoutViewModel.swift in Sources */,
 				9AAFAB801E60BE9800864A17 /* ViewModelConfigurable.swift in Sources */,
 				9A9FFF2C1E8144F300F6DFF7 /* RoundedButton.swift in Sources */,
 				9617354027BD0CB300E9FC3C /* BaseViewModel.swift in Sources */,
 				9A4EDDF4212B30510071BA56 /* WebViewController.swift in Sources */,
 				0481A27927CD04A500277E21 /* DeleteLogoutViewModel.swift in Sources */,
+				18DE66BA27F23A6B00524DFD /* CollieGalleryTheme.swift in Sources */,
 				0481A26F27CCBA9900277E21 /* ApiResponseHandler.swift in Sources */,
 				9AEF61CE1E606F100067FA90 /* Fragment+ImageConnectionQuery.swift in Sources */,
 				184790A727BE462700D98451 /* AddressTableViewCell.swift in Sources */,
@@ -1581,13 +1641,16 @@
 				9A8E885A1E719EB20042879D /* ClientQuery.swift in Sources */,
 				9AFA3B7F1E6DC5FD0056C5AA /* Storyboard+ViewController.swift in Sources */,
 				1816886427BFD13200C9D962 /* OrderViewController.swift in Sources */,
+				18DE66AC27F23A6B00524DFD /* CollieGalleryTransitionType.swift in Sources */,
 				9A7E3F6F1E89615E00713740 /* UICollectionView+Touch.swift in Sources */,
+				18DE66B827F23A6B00524DFD /* CollieGalleryViewDelegate.swift in Sources */,
 				9ADCC88B1E82FE2900F5B6DD /* TotalsViewController.swift in Sources */,
 				9AB421AF1E93C800005098C4 /* CreditCardViewModel.swift in Sources */,
 				18737E4227BE6D3A00C4F438 /* NotificationViewController.swift in Sources */,
 				185C707F27BD38EA008F2FB3 /* DeletePopUpViewController.xib in Sources */,
 				9ADAD4751E563091008AC561 /* LaunchScreen.storyboard in Sources */,
 				18D766C427BE8D290076A12B /* SideMenuViewController.xib in Sources */,
+				18DE66B127F23A6B00524DFD /* CollieGalleryDefaultTransition.swift in Sources */,
 				96DD6C4927C3790B00DDA0DC /* MyOrdersTableViewCell.swift in Sources */,
 				0481A27127CCBA9900277E21 /* FileTSAPIClient.swift in Sources */,
 				1863836827BB9BFE0080FC80 /* LandingPageViewController.xib in Sources */,
@@ -1601,6 +1664,7 @@
 				6946233427EC7B3A00F7D2CF /* KeychainItem.swift in Sources */,
 				9ADAD4701E563091008AC561 /* Main.storyboard in Sources */,
 				18737E4827BE6DF700C4F438 /* MainNotificationTableViewCell.xib in Sources */,
+				18DE66AD27F23A6B00524DFD /* CollieGalleryView.swift in Sources */,
 				18737E4D27BE7A5900C4F438 /* ChangePasswordViewController.xib in Sources */,
 				18737E4327BE6D3A00C4F438 /* NotificationViewController.xib in Sources */,
 				9A9FFF231E800D9600F6DFF7 /* ProductHeaderCell.xib in Sources */,
@@ -1609,6 +1673,7 @@
 				18958BD927BE6BDE00696B8E /* ErrorViewController.xib in Sources */,
 				1816884527BFCED900C9D962 /* SignInViewController.xib in Sources */,
 				1835898C27BD564600F293B6 /* AddressBookPopUpViewController.xib in Sources */,
+				18DE66AF27F23A6B00524DFD /* CollieGalleryDelegate.swift in Sources */,
 				188E5A7027BD4A98003FB613 /* NotificationHoursCollectionViewCell.xib in Sources */,
 				9AC583D01E81BF96005DB319 /* CartCell.xib in Sources */,
 				185C707527BCEF41008F2FB3 /* EmailUpdateViewController.xib in Sources */,
@@ -1623,12 +1688,15 @@
 				9A4EDDE721270F620071BA56 /* OrderCell.xib in Sources */,
 				188E5A7527BD518B003FB613 /* NotificationPopUpViewController.xib in Sources */,
 				1842EDF327BBE84800A4DA1D /* ForgetViewController.xib in Sources */,
+				18DE66B227F23A6B00524DFD /* CollieGalleryOptions.swift in Sources */,
 				18FCF6C627BE951100D5DF17 /* SideMenuTableViewCell.xib in Sources */,
 				04FC500027DBB04E00605C79 /* HomeViewController.swift in Sources */,
 				04E692D327C385D100DF3750 /* UserProfileViewController.swift in Sources */,
+				18DE66B327F23A6B00524DFD /* CollieGalleryPicture.swift in Sources */,
 				9A9FFF2E1E8150F100F6DFF7 /* SubtitleButton.swift in Sources */,
 				9AC583D21E81C165005DB319 /* CartNavigationController.swift in Sources */,
 				1863836B27BB9BFE0080FC80 /* Global.swift in Sources */,
+				18DE66B727F23A6B00524DFD /* CollieGalleryCaptionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
