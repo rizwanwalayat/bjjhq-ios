@@ -230,9 +230,11 @@ class HomeViewController: BaseViewController {
     
     @IBAction func sendCommentsAction(_ sender: Any) {
         
-        if writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0{
+        if let comment = writeCommentsTF.text?.trimmingCharacters(in: .whitespacesAndNewlines), comment.count > 0 || imageComment.image != nil {
             
-            sendComment(writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines))
+            sendComment(comment)
+        } else {
+            showToast(message: "Please enter some text or image to share")
         }
     }
     
