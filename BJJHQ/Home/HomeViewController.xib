@@ -522,7 +522,6 @@
                                                                                         <constraint firstAttribute="height" constant="22" id="Scr-pY-5kV"/>
                                                                                         <constraint firstAttribute="width" secondItem="JsE-y2-bIc" secondAttribute="height" multiplier="1:1" id="fSn-Pr-iKj"/>
                                                                                     </constraints>
-                                                                                    <color key="tintColor" name="borderColor"/>
                                                                                     <state key="normal" title="Button"/>
                                                                                     <buttonConfiguration key="configuration" style="plain" image="camera-icon"/>
                                                                                     <connections>
