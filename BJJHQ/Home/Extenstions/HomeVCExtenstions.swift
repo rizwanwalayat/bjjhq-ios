@@ -447,11 +447,25 @@ extension HomeViewController {
                         }
                     }
                     
-                    self.dropDownTF.optionArray = updatedTitleArray
-                    //Its Id Values and its optional
-                    self.dropDownTF.optionIds = updatedIds
-//                    self.buyNowButton.backgroundColor = UIColor(hexString: "BDBDBD")
-                    // The the Closure returns Selected Index and String
+                    self.dropDownTF.optionArray = titleArray
+                    self.dropDownTF.optionIds = ids
+                    self.dropDownTF.hideOptionsWhenSelect = true
+                    self.dropDownTF.arrayForChangeColor = updatedTitleArray
+//                    if self.dropDownTF.table != nil {
+//                        
+//                        self.dropDownTF.table.reloadData()
+//                    }
+//                    for (i,_) in titleArray.enumerated() {
+//                        for (j,_) in updatedTitleArray.enumerated() {
+//                            if i == j {
+//
+//                            }
+//                            else {
+//                                self.dropDownTF.rowBackgroundColor = .red
+//
+//                            }
+//                        }
+//                    }
                     self.dropDownTF.didSelect{(selectedText , index ,id) in
                         self.size = id
                         self.dropDownFilled.text = selectedText

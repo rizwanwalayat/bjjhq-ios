@@ -7,13 +7,15 @@
 //  Copyright © 2018 JRiOSdev. All rights reserved.
 //
 import UIKit
+//import SwiftyJSON
 
 open class DropDown : UITextField{
 
     var arrow : Arrow!
-    var table : UITableView!
+    public var table : UITableView!
     var shadow : UIView!
-    public  var selectedIndex: Int?
+    public var selectedIndex: Int?
+    public var arrayForChangeColor : [String]?
 
 
     //MARK: IBInspectable
@@ -393,6 +395,7 @@ extension DropDown: UITableViewDataSource {
             cell?.backgroundColor = selectedRowColor
         }
 
+
         if self.imageArray.count > indexPath.row {
             cell!.imageView!.image = UIImage(named: imageArray[indexPath.row])
         }
@@ -400,7 +403,21 @@ extension DropDown: UITableViewDataSource {
         cell!.accessoryType = (indexPath.row == selectedIndex) && checkMarkEnabled  ? .checkmark : .none
         cell!.selectionStyle = .none
         cell?.textLabel?.font = self.font
+        
         cell?.textLabel?.textAlignment = self.textAlignment
+        let check = arrayForChangeColor?.contains {
+            $0 == dataArray[indexPath.row]
+            
+        }
+        
+        if check ?? false {
+            cell?.backgroundColor = .white
+            cell?.isUserInteractionEnabled = true
+        }
+        else {
+            cell?.backgroundColor = .lightGray
+            cell?.isUserInteractionEnabled = false
+        }
         return cell!
     }
 }
