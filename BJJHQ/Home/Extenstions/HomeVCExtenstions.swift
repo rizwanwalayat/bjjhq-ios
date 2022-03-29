@@ -588,8 +588,8 @@ extension HomeViewController {
             
             let currentDealIdentifier = ["room": "deal_channel"]
             self.currentDealChannel =  self.client.create("DealChannel", identifier: currentDealIdentifier, autoSubscribe: true, bufferActions: true)
-                    self.commentsChannelsListener()
-                    self.reactionsChannelsListener()
+//                    self.commentsChannelsListener()
+//                    self.reactionsChannelsListener()
                     self.dealsChannelsListener()
         }
         
@@ -762,7 +762,20 @@ extension HomeViewController  {
         }
         
         self.currentDealChannel?.onReceive = {(data: Any?, error: Error?) in
-            
+//            self.view.activityStartAnimating()
+//            self.viewModel?.fetchCurrentDeal({ success, homeData, message in
+//                self.view.activityStopAnimating()
+//                if let data = homeData, let info = data.response, success {
+//
+//                    self.productInfo = info
+//
+//                    self.productDataPopulate(info.current_product_id)
+//                }
+//                else {
+//                    self.showToast(message: message ?? "error")
+//                }
+//            })
+            self.timer.invalidate()
             if let error = error {
                 print(error.localizedDescription)
                 return

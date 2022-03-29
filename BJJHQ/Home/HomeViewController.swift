@@ -12,7 +12,7 @@ import ActionCableClient
 import CSPieChart
 
 class HomeViewController: BaseViewController {
-
+    
     
     // MARK: - Outlets -
     
@@ -68,6 +68,7 @@ class HomeViewController: BaseViewController {
     var isfromEditComment = false
     var isfromChild = false
     var size = 0
+    var countForRefresh = 0
     // socket related
     let client = ActionCableClient(url: URL(string:"wss://bjjhq.phaedrasolutions.com/cable")!)
     var commentschannel: Channel?
@@ -95,12 +96,13 @@ class HomeViewController: BaseViewController {
         
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         setup()
+        //        setupClient()
         self.comments.removeAll()
         APICalls()
     }
@@ -110,10 +112,10 @@ class HomeViewController: BaseViewController {
         
         tableView.removeObserver(self, forKeyPath: "contentSize")
         timer.invalidate()
-//        self.client.disconnect()
-//        self.currentDealChannel?.unsubscribe()
-//        self.commentschannel?.unsubscribe()
-//        self.reactionsChannel?.unsubscribe()
+        //        self.client.disconnect()
+        //        self.currentDealChannel?.unsubscribe()
+        //        self.commentschannel?.unsubscribe()
+        //        self.reactionsChannel?.unsubscribe()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -122,10 +124,10 @@ class HomeViewController: BaseViewController {
         bottomView.roundCornersTopView(36)
         bottomView.addGradient(colors: [UIColor(hexString: "#DEDFE3").cgColor, UIColor(hexString: "#FFFFFF").cgColor])
         
-
-//        setupClient()
+        
+        //        setupClient()
     }
-
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?)
     {
         if keyPath == "contentSize"
@@ -223,9 +225,9 @@ class HomeViewController: BaseViewController {
         } completion: { completed in
             
             self.isDetailOpend = !self.isDetailOpend
-           
+            
         }
-
+        
     }
     @IBAction func uploadImageAction(_ sender: Any) {
         
@@ -238,12 +240,12 @@ class HomeViewController: BaseViewController {
             if isfromEditComment {
                 
                 editComment(comment)
-//                isfromEditComment = false
-                        }
+                //                isfromEditComment = false
+            }
             else {
                 sendComment(comment)
-                            
-                        }
+                
+            }
         } else {
             showToast(message: "Please enter some text or image to share")
         }
@@ -296,7 +298,7 @@ class HomeViewController: BaseViewController {
         let id = obj.comment?.id ?? 0
         diLikeComment(commentId: id, sender.tag)
         
-    
+        
         //let indexpath = IndexPath(row: sender.tag, section: 0)
         tableView.reloadData()//reloadRows(at: [indexpath], with: .automatic)
         
@@ -346,28 +348,43 @@ class HomeViewController: BaseViewController {
         
         if let info = productInfo {
             
-//            guard let min = self.timeDifferenceInMin(recent: currentDate, previous: info.lastUpdateDate) else {  return }
-//            
-//            dataList = [
-//                CSPieChartData(key: "time", value: Double(min)),
-//                CSPieChartData(key: "Empty", value: Double(info.time_interval))
-//            ]
-
-//            timePieChart.show(animated: true)
-//            timePieChart.reloadPieChart()
+            //            guard let min = self.timeDifferenceInMin(recent: currentDate, previous: info.lastUpdateDate) else {  return }
+            //
+            //            dataList = [
+            //                CSPieChartData(key: "time", value: Double(min)),
+            //                CSPieChartData(key: "Empty", value: Double(info.time_interval))
+            //            ]
+            
+            //            timePieChart.show(animated: true)
+            //            timePieChart.reloadPieChart()
             
             guard let endDate = fetchPromotionEndTime(info.lastUpdateDate, minToAdd: info.time_interval) else {return }
             let interval = endDate.timeIntervalSince(currentDate)
             var difference = Date(timeIntervalSinceReferenceDate: interval)
             self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
                 
-//                self.dataList = [
-//                    CSPieChartData(key: "time", value: Double(min)),
-//                    CSPieChartData(key: "Empty", value: Double(info.time_interval))
-//                ]
-//                self.timePieChart.show(animated: false)
-//                self.timePieChart.reloadPieChart()
-                
+                //                self.dataList = [
+                //                    CSPieChartData(key: "time", value: Double(min)),
+                //                    CSPieChartData(key: "Empty", value: Double(info.time_interval))
+                //                ]
+                //                self.timePieChart.show(animated: false)
+                //                self.timePieChart.reloadPieChart()
+                self.countForRefresh = self.countForRefresh + 1
+                if self.countForRefresh == 10 {
+                    self.viewModel?.fetchCurrentDeal({ success, homeData, message in
+                        if let data = homeData, let info = data.response, success {
+                            if self.productInfo?.current_product_id != info.current_product_id {
+                                self.timer.invalidate()
+                                self.productInfo = info
+                                self.productDataPopulate(info.current_product_id)
+                            }
+                        }
+                        else {
+                            self.showToast(message: message ?? "error")
+                        }
+                    })
+                    self.countForRefresh = 0
+                }
                 let timeArr = difference.dateToString("HH:mm:ss").components(separatedBy: ":")
                 
                 self.remainingTimeLabel.text = "\(timeArr[0])h \(timeArr[1])m \(timeArr[2])s"
