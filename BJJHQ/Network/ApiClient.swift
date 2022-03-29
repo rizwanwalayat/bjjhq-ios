@@ -279,12 +279,12 @@ class APIClient: APIClientHandler {
         _ = sendRequest(APIRoutes.comments , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
     }
     
-    func editComments(mobileId: String, userSystemId: String, parentCommentId: String = "",message: String, role: String,_ completionBlock: @escaping APIClientCompletionHandler)
+    func editComments(mobileId: String, commentID: String,userSystemId: String, parentCommentId: String = "",message: String, role: String,_ completionBlock: @escaping APIClientCompletionHandler)
     {
         let token = DataManager.shared.getLocalToken() ?? ""
         let headers: HTTPHeaders = ["Authorization" : token]
         
-        var userParams = ["user_mobile_id": mobileId, "user_system_id": userSystemId, "message": message, "role": role]
+        var userParams = ["user_mobile_id": mobileId, "user_system_id": userSystemId, "message": message, "role": role,"comment_id":commentID]
         if parentCommentId.count > 0 {
             userParams["parent_comment_id"] = parentCommentId
         }

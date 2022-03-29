@@ -182,13 +182,14 @@ class HomeViewModel: BaseViewModel {
             }
         }
     }
-    func editComments(_ parentCommentId: String,_ message: String, _ completionHandler: @escaping(_ success: Bool, _ message : String?) -> Void) {
+    func editComments(_ parentCommentId: String,commentId:String,_ message: String, _ completionHandler: @escaping(_ success: Bool, _ message : String?) -> Void) {
         
         let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
         let role = DataManager.shared.getUser()?.user?.role ?? "user"
         let userId = DataManager.shared.getUser()?.user?.id ?? 0
         
-        APIClient.shared.editComments(mobileId: uuid, userSystemId: "\(userId)", parentCommentId: parentCommentId, message: message, role: role) { responce, result, error, statusCode, messsage in
+        
+        APIClient.shared.editComments(mobileId: uuid, commentID: commentId, userSystemId: "\(userId)", parentCommentId: parentCommentId, message: message, role: role) { responce, result, error, statusCode, messsage in
             
             if let response = result {
                 

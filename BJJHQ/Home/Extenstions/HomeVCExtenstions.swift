@@ -204,11 +204,22 @@ extension HomeViewController: UITableViewDataSource
 // MARK: - Custom TableView Delegate  -
 
 extension HomeViewController : commentsTableViewDelegate {
-    func didTapOnEdit(_ superComment: Comments, subComment: CommentsReplies) {
-        commentsParentId = "\(superComment.comment?.id ?? 0)"
-        if writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0{
-            editComment(writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines))
+    
+    func didTapOnEdit(_ superComment: Comments, subComment: CommentsReplies, fromChild: Bool) {
+        if fromChild {
+            commentsId = "\(subComment.comment?.id ?? 0)"
+            commentsParentId = "\(superComment.comment?.id ?? 0)"
+            self.isfromChild = true
         }
+        else {
+            commentsId = "\(superComment.comment?.id ?? 0)"
+        }
+        self.writeCommentsTF.becomeFirstResponder()
+        self.writeCommentsTF.text = subComment.comment?.message
+//        if writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0{
+//            editComment(writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines))
+//        }
+        
     }
     
     func didTapOnDelete(_ superComment: Comments, subComment: CommentsReplies) {
@@ -245,13 +256,7 @@ extension HomeViewController : commentsTableViewDelegate {
         
         commentsParentId = "\(superComment.comment?.id ?? 0)"
         if writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0{
-//            if isfromEditComment {
-//                editComment(writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines))
-//            }
-//            else {
                 sendComment(writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines))
-//            }
-            
         }
     }
     
@@ -288,6 +293,7 @@ extension HomeViewController {
         self.view.activityStartAnimating()
         viewModel?.fetchComments({ success, data, message in
             self.view.activityStopAnimating()
+            self.isfromEditComment = false
             if success, let commentsData = data?.comments {
                 self.comments.removeAll()
                 self.comments = commentsData
@@ -347,11 +353,13 @@ extension HomeViewController {
     func editComment(_ text : String)
     {
         let parentId = commentsParentId ?? ""
-        
+        let commentID = commentsId ?? ""
         if let image = imageComment.image {
             
             viewModel?.sendImageEditComment(parentId, text, image: image, { success, message in
-                
+                self.writeCommentsTF.text = ""
+                self.commentsParentId = nil
+                self.commentsId = nil
                 if success {
                     self.fetchComments()
                     self.writeCommentsTF.text = ""
@@ -370,11 +378,12 @@ extension HomeViewController {
         }
         else {
             
-            viewModel?.editComments(parentId, text, { success, message in
+            viewModel?.editComments(parentId, commentId: commentID, text, { success, message in
                 if success {
                     
                     self.writeCommentsTF.text = ""
                     self.commentsParentId = nil
+                    self.commentsId = nil
                     self.fetchComments()
                 }
             })

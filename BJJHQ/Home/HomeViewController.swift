@@ -64,7 +64,9 @@ class HomeViewController: BaseViewController {
     var productInfo : ProductInfo?
     var timer = Timer()
     var commentsParentId : String?
-//    var isfromEditComment = false
+    var commentsId : String?
+    var isfromEditComment = false
+    var isfromChild = false
     var size = 0
     // socket related
     let client = ActionCableClient(url: URL(string:"wss://bjjhq.phaedrasolutions.com/cable")!)
@@ -233,8 +235,15 @@ class HomeViewController: BaseViewController {
     @IBAction func sendCommentsAction(_ sender: Any) {
         
         if let comment = writeCommentsTF.text?.trimmingCharacters(in: .whitespacesAndNewlines), comment.count > 0 || imageComment.image != nil {
-            
-            sendComment(comment)
+            if isfromEditComment {
+                
+                editComment(comment)
+//                isfromEditComment = false
+                        }
+            else {
+                sendComment(comment)
+                            
+                        }
         } else {
             showToast(message: "Please enter some text or image to share")
         }
@@ -303,9 +312,10 @@ class HomeViewController: BaseViewController {
     @objc func editPressed (_ sender: UIButton)
     {
         let obj = comments[sender.tag]
+        self.commentsId = "\(comments[sender.tag].comment?.id ?? 0)"
         commentsParentId = "\(obj.comment?.id ?? 0)"
         writeCommentsTF.becomeFirstResponder()
-//        self.isfromEditComment = true
+        self.isfromEditComment = true
         self.writeCommentsTF.text = obj.comment?.message
     }
     

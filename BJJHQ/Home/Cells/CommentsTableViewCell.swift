@@ -14,7 +14,7 @@ protocol commentsTableViewDelegate {
     func didTapOnRepliy(_ superComment: Comments, subComment: CommentsReplies)
     func didTapOnLike(_ superComment: Comments, subComment: CommentsReplies)
     func didTapOnUnlike(_ superComment: Comments, subComment: CommentsReplies)
-    func didTapOnEdit(_ superComment: Comments, subComment: CommentsReplies)
+    func didTapOnEdit(_ superComment: Comments, subComment: CommentsReplies,fromChild:Bool)
     func didTapOnDelete(_ superComment: Comments, subComment: CommentsReplies)
 }
 
@@ -204,7 +204,7 @@ class CommentsTableViewCell: UITableViewCell {
         if let mainComment = superComment {
 
         let obj = replies[sender.tag]
-        delegate?.didTapOnEdit(mainComment, subComment: obj)
+            delegate?.didTapOnEdit(mainComment, subComment: obj, fromChild: true)
         }
     }
     @objc fileprivate func deletePressed (_ sender: UIButton)
@@ -242,11 +242,13 @@ extension CommentsTableViewCell: UITableViewDataSource
         cell.likeButton.tag = indexPath.row
         cell.unlikeButton.tag = indexPath.row
         cell.replyButton.tag = indexPath.row
+        cell.editButton.tag = indexPath.row
+        cell.deleteButton.tag = indexPath.row
         cell.likeButton.addTarget(self, action: #selector(likeButtonPressed(_:)), for: .touchUpInside)
         cell.unlikeButton.addTarget(self, action: #selector(unLikeButtonPressed(_:)), for: .touchUpInside)
         cell.replyButton.addTarget(self, action: #selector(replyPressed(_:)), for: .touchUpInside)
-//        cell.editButton.addTarget(self, action: #selector(editPressed(_:)), for: .touchUpInside)
-//        cell.deleteButton.addTarget(self, action: #selector(deletePressed(_:)), for: .touchUpInside)
+        cell.editButton.addTarget(self, action: #selector(editPressed(_:)), for: .touchUpInside)
+        cell.deleteButton.addTarget(self, action: #selector(deletePressed(_:)), for: .touchUpInside)
         
         
         if let like = obj.isLiked {
