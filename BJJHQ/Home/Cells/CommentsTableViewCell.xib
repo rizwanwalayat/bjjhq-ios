@@ -189,7 +189,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="z4r-k5-tgd">
-                                <rect key="frame" x="38" y="299" width="331" height="0.0"/>
+                                <rect key="frame" x="38" y="299" width="336" height="0.0"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="Cf3-Wx-gpg"/>
@@ -299,11 +299,11 @@
                             <constraint firstAttribute="trailing" secondItem="Jap-eL-aYb" secondAttribute="trailing" constant="5" id="ail-Ve-86q"/>
                             <constraint firstAttribute="bottom" secondItem="z4r-k5-tgd" secondAttribute="bottom" constant="8" id="bNo-o8-k7s"/>
                             <constraint firstAttribute="trailing" secondItem="pCi-nJ-cCg" secondAttribute="trailing" constant="20" id="bdT-MF-FUd"/>
+                            <constraint firstItem="z4r-k5-tgd" firstAttribute="trailing" secondItem="Jap-eL-aYb" secondAttribute="trailing" id="c8r-bC-8Uy"/>
                             <constraint firstItem="Cgp-wX-YUP" firstAttribute="top" secondItem="fWv-rF-3D5" secondAttribute="bottom" constant="20" id="cUm-zg-mCD"/>
                             <constraint firstItem="ZUn-ab-L7g" firstAttribute="leading" secondItem="xJP-pG-s79" secondAttribute="trailing" constant="10" id="cYs-dk-YbH"/>
                             <constraint firstItem="pCi-nJ-cCg" firstAttribute="top" secondItem="Jap-eL-aYb" secondAttribute="top" constant="20" id="eLR-tF-eef"/>
                             <constraint firstItem="fWv-rF-3D5" firstAttribute="top" secondItem="xJP-pG-s79" secondAttribute="bottom" constant="11" id="jVb-3x-L6Q"/>
-                            <constraint firstItem="z4r-k5-tgd" firstAttribute="trailing" secondItem="fWv-rF-3D5" secondAttribute="trailing" id="jzw-P9-kDp"/>
                             <constraint firstItem="Jap-eL-aYb" firstAttribute="leading" secondItem="ZUn-ab-L7g" secondAttribute="trailing" constant="5" id="onS-t3-V1Z"/>
                             <constraint firstItem="Cgp-wX-YUP" firstAttribute="leading" secondItem="fWv-rF-3D5" secondAttribute="leading" id="ond-Oy-D4c"/>
                         </constraints>
