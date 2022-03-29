@@ -32,7 +32,7 @@ class MainNotificationTableViewCell: UITableViewCell {
     var notificationModel : NotificationModel?
     var delegagte : notificatioSwitch?
     var array = ["Daily Deals Notifications","Rolling Deals Notifications","Snooze Alert","Comments Notifications"]
-    var detailArray = ["Snooze Delay Alerts Time zone issues? Hitting the hay before 11pm? 'Snooze' provides options for delayed alerts, so you get a reminder when you want 'em","Turn OFF if you want to pause notifications during our rapid-fire Rolling Deals events","Turn ON if you want alerts when other HQ users interact with your posts on the wall.","Time zone issues? Hitting the hay before 11pm? 'Snooze' provides options for delayed alerts, so you get a reminder when you want 'em."]
+    var detailArray = ["Basic alert for our standard 24-hour deals (published daily at 11pm EST)","Turn OFF if you want to pause notifications during our rapid-fire Rolling Deals events","Turn ON if you want alerts when other HQ users interact with your posts on the wall.","Time zone issues? Hitting the hay before 11pm? 'Snooze' provides options for delayed alerts, so you get a reminder when you want 'em."]
     
     
     

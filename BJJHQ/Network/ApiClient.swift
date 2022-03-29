@@ -208,21 +208,21 @@ class APIClient: APIClientHandler {
         _ = sendRequest(APIRoutes.dislike , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
     }
     
-    func editComment(_ commentId: Int,_ completionBlock: @escaping APIClientCompletionHandler)
-    {
-        let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
-        let role = DataManager.shared.getUser()?.user?.role ?? "user"
-        let userId = DataManager.shared.getUser()?.user?.id ?? 0
-        
-        let userParams = ["user_mobile_id": uuid, "user_system_id": userId, "comment_id": commentId, "role": role] as [String : Any]
-        let params = ["reaction": userParams] as [String: AnyObject]
-        
-        let token = DataManager.shared.getLocalToken() ?? ""
-        let headers: HTTPHeaders = ["Authorization" : token]
-        
-        
-        _ = sendRequest(APIRoutes.editComment , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
-    }
+//    func editComment(_ commentId: Int,_ completionBlock: @escaping APIClientCompletionHandler)
+//    {
+//        let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+//        let role = DataManager.shared.getUser()?.user?.role ?? "user"
+//        let userId = DataManager.shared.getUser()?.user?.id ?? 0
+//
+//        let userParams = ["user_mobile_id": uuid, "user_system_id": userId, "comment_id": commentId, "role": role] as [String : Any]
+//        let params = ["comment": userParams] as [String: AnyObject]
+//
+//        let token = DataManager.shared.getLocalToken() ?? ""
+//        let headers: HTTPHeaders = ["Authorization" : token]
+//
+//
+//        _ = sendRequest(APIRoutes.editComment , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
+//    }
     
     func deleteComment(_ commentId: Int,_ completionBlock: @escaping APIClientCompletionHandler)
     {
@@ -231,7 +231,7 @@ class APIClient: APIClientHandler {
         let userId = DataManager.shared.getUser()?.user?.id ?? 0
         
         let userParams = ["user_mobile_id": uuid, "user_system_id": userId, "comment_id": commentId, "role": role] as [String : Any]
-        let params = ["reaction": userParams] as [String: AnyObject]
+        let params = ["comment": userParams] as [String: AnyObject]
         
         let token = DataManager.shared.getLocalToken() ?? ""
         let headers: HTTPHeaders = ["Authorization" : token]
@@ -279,6 +279,21 @@ class APIClient: APIClientHandler {
         _ = sendRequest(APIRoutes.comments , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
     }
     
+    func editComments(mobileId: String, userSystemId: String, parentCommentId: String = "",message: String, role: String,_ completionBlock: @escaping APIClientCompletionHandler)
+    {
+        let token = DataManager.shared.getLocalToken() ?? ""
+        let headers: HTTPHeaders = ["Authorization" : token]
+        
+        var userParams = ["user_mobile_id": mobileId, "user_system_id": userSystemId, "message": message, "role": role]
+        if parentCommentId.count > 0 {
+            userParams["parent_comment_id"] = parentCommentId
+        }
+        
+        let params = ["comment": userParams] as [String: AnyObject]
+        
+        _ = sendRequest(APIRoutes.editComment , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
+    }
+    
     func sendImageComments(mobileId: String, userSystemId: String, parentCommentId: String = "",message: String, role: String, image: UIImage, _ completionBlock: @escaping APIClientCompletionHandler)
     {
         let token = DataManager.shared.getLocalToken() ?? ""
@@ -293,6 +308,21 @@ class APIClient: APIClientHandler {
         let imageStr = imageData?.base64EncodedString(options: .lineLength64Characters) ?? ""
         let params = ["comment": userParams, "image": ["data:image/png;base64,"+imageStr]] as [String: AnyObject]
         _ = sendRequest(APIRoutes.comments , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
+    }
+    func sendImageEditComments(mobileId: String, userSystemId: String, parentCommentId: String = "",message: String, role: String, image: UIImage, _ completionBlock: @escaping APIClientCompletionHandler)
+    {
+        let token = DataManager.shared.getLocalToken() ?? ""
+        let headers: HTTPHeaders = ["Authorization" : token]
+        
+        var userParams = ["user_mobile_id": mobileId, "user_system_id": userSystemId, "message": message, "role": role]
+        if parentCommentId.count > 0{
+            userParams["parent_comment_id"] = parentCommentId
+        }
+        let thumb2 = image.resized(toWidth: 50.0)!
+        let imageData = thumb2.jpegData(compressionQuality: 0.5)
+        let imageStr = imageData?.base64EncodedString(options: .lineLength64Characters) ?? ""
+        let params = ["comment": userParams, "image": ["data:image/png;base64,"+imageStr]] as [String: AnyObject]
+        _ = sendRequest(APIRoutes.editComment , parameters: params ,httpMethod: .post , headers: nil, completionBlock: completionBlock)
     }
     
 }

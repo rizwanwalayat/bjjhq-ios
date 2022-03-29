@@ -50,6 +50,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var constTableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var timePieChart: CSPieChart!
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
     // MARK: - Variables -
@@ -63,6 +64,7 @@ class HomeViewController: BaseViewController {
     var productInfo : ProductInfo?
     var timer = Timer()
     var commentsParentId : String?
+//    var isfromEditComment = false
     var size = 0
     // socket related
     let client = ActionCableClient(url: URL(string:"wss://bjjhq.phaedrasolutions.com/cable")!)
@@ -250,6 +252,14 @@ class HomeViewController: BaseViewController {
         }
     }
     
+    @IBAction func shareAction(_ sender: Any) {
+        
+        self.view.activityStartAnimating()
+        Client.shared.fetchShopURL { url in
+            self.view.activityStopAnimating()
+            self.presentUIActivityControl(url: url?.absoluteString ?? "BJJHQ")
+        }
+    }
     @IBAction func butNowAction(_ sender: UIButton) {
         if buyNowButton.backgroundColor != UIColor(hexString: "BDBDBD") {
             let str = "\(Int(self.productInfo?.current_product_id ?? 0) )"
@@ -276,6 +286,7 @@ class HomeViewController: BaseViewController {
         let obj = comments[sender.tag]
         let id = obj.comment?.id ?? 0
         diLikeComment(commentId: id, sender.tag)
+        
     
         //let indexpath = IndexPath(row: sender.tag, section: 0)
         tableView.reloadData()//reloadRows(at: [indexpath], with: .automatic)
@@ -287,6 +298,22 @@ class HomeViewController: BaseViewController {
         let obj = comments[sender.tag]
         commentsParentId = "\(obj.comment?.id ?? 0)"
         writeCommentsTF.becomeFirstResponder()
+    }
+    
+    @objc func editPressed (_ sender: UIButton)
+    {
+        let obj = comments[sender.tag]
+        commentsParentId = "\(obj.comment?.id ?? 0)"
+        writeCommentsTF.becomeFirstResponder()
+//        self.isfromEditComment = true
+        self.writeCommentsTF.text = obj.comment?.message
+    }
+    
+    @objc func deletePressed (_ sender: UIButton)
+    {
+        let obj = comments[sender.tag]
+        commentsParentId = "\(obj.comment?.id ?? 0)"
+        deleteComment(commentId: obj.comment?.id ?? 0, sender.tag)
     }
     
     override func imageSelectedFromGalleryOrCamera(selectedImage: UIImage) {

@@ -111,6 +111,29 @@ class HomeViewModel: BaseViewModel {
             }
         }
     }
+    func sendImageEditComment(_ parentCommentId: String,_ message: String, image: UIImage, _ completionHandler: @escaping(_ success: Bool, _ message : String?) -> Void) {
+        
+        let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        let role = DataManager.shared.getUser()?.user?.role ?? "user"
+        let userId = DataManager.shared.getUser()?.user?.id ?? 0
+        
+        APIClient.shared.sendImageEditComments(mobileId: uuid, userSystemId: "\(userId)", message: message, role: role, image: image) { responce, result, error, statusCode, messsage in
+            
+            if let response = result {
+                if let success = response["status"] as? Bool {
+                    
+                    completionHandler(success, message)
+                }
+                else {
+                    completionHandler(false,  error?.localizedDescription ?? message)
+                }
+            }
+            else {
+                
+                completionHandler(false, error?.localizedDescription ?? message)
+            }
+        }
+    }
     
     func fetchSignleProduct(_ productId: String, _ completion: @escaping(_ data: Storefront.Product?) -> Void )
     {
@@ -159,10 +182,13 @@ class HomeViewModel: BaseViewModel {
             }
         }
     }
-    func editComment(_ commentId: Int, _ completionHandler: @escaping(_ success: Bool, _ message : String?) -> Void)
-    {
+    func editComments(_ parentCommentId: String,_ message: String, _ completionHandler: @escaping(_ success: Bool, _ message : String?) -> Void) {
         
-        APIClient.shared.editComment(commentId) { response, result, error, code, message  in
+        let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        let role = DataManager.shared.getUser()?.user?.role ?? "user"
+        let userId = DataManager.shared.getUser()?.user?.id ?? 0
+        
+        APIClient.shared.editComments(mobileId: uuid, userSystemId: "\(userId)", parentCommentId: parentCommentId, message: message, role: role) { responce, result, error, statusCode, messsage in
             
             if let response = result {
                 

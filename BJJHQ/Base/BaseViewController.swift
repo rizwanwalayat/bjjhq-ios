@@ -119,10 +119,10 @@ open class BaseViewController: UIViewController {
     }
     
     
-    func presentUIActivityControl() {
+    func presentUIActivityControl(url:String) {
         
-        let text = Global.shared.shareString + "\n" + Global.shared.shareUrl
-        let textToShare = [ text ]
+//        let text = Global.shared.shareString + "\n" + Global.shared.shareUrl
+        let textToShare = [ url ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
         activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.postToFacebook ]

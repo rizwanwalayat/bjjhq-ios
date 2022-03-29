@@ -36,12 +36,13 @@ class ReturnPolicyViewController: BaseViewController {
 extension ReturnPolicyViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.register(ReturnPolicyTableViewCell.self, indexPath: indexPath)
         cell.selectionStyle = .none
+        cell.config(index: indexPath.row)
         return cell
         
     }

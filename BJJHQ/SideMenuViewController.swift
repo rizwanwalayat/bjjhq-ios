@@ -17,7 +17,7 @@ class SideMenuViewController: BaseViewController, SlideMenuControllerDelegate {
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
     var isguestUser = false
-    var array = ["Change Password","My Orders","Address Book","Contact Us","Notifications","Return Policy","FAQs"]
+    var array = ["Change Password","My Orders","Address Book","Contact Us","Notifications","Shipping & Returns","FAQs"]
     var array2 = ["Contact Us","Return Policy","FAQs"]
     
     override func viewDidLoad() {

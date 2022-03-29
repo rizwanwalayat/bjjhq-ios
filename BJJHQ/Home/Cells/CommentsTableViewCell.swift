@@ -14,10 +14,13 @@ protocol commentsTableViewDelegate {
     func didTapOnRepliy(_ superComment: Comments, subComment: CommentsReplies)
     func didTapOnLike(_ superComment: Comments, subComment: CommentsReplies)
     func didTapOnUnlike(_ superComment: Comments, subComment: CommentsReplies)
+    func didTapOnEdit(_ superComment: Comments, subComment: CommentsReplies)
+    func didTapOnDelete(_ superComment: Comments, subComment: CommentsReplies)
 }
 
 class CommentsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var dropDownButton: UIButton!
     @IBOutlet weak var mainHolderView: UIView!
     @IBOutlet weak var userProfile: UIImageView!
     @IBOutlet weak var userName: UILabel!
@@ -29,6 +32,9 @@ class CommentsTableViewCell: UITableViewCell {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var constTableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var imageCommentHolder: UIView!
+    @IBOutlet weak var editDeleteView: UIView!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var imageComment: UIImageView!
     
     
@@ -38,6 +44,7 @@ class CommentsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        editDeleteView.isHidden = true
         subCommentTableView = self
         self.replies.removeAll()
         tableView.register(UINib(nibName: "SubCommentsTableViewCell", bundle: nil), forCellReuseIdentifier: "SubCommentsTableViewCell")
@@ -73,6 +80,16 @@ class CommentsTableViewCell: UITableViewCell {
             }
         }
     }
+    @IBAction func dropDownAction(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected {
+            editDeleteView.isHidden = false
+            
+        }
+        else {
+            editDeleteView.isHidden = true
+        }
+    }
     
     func config(_ commentsData : Comments)
     {
@@ -87,7 +104,7 @@ class CommentsTableViewCell: UITableViewCell {
         self.timeLabel.text =  time
         self.likeButton.setTitle("\(commentsData.comment_likes)", for: .normal)
         self.unlikeButton.setTitle("\(commentsData.comment_dislikes)", for: .normal)
-        
+
         if let image = commentsData.images.first {
             
             if let url = URL(string: image) {
@@ -98,6 +115,14 @@ class CommentsTableViewCell: UITableViewCell {
         else {
             self.imageCommentHolder.isHidden = true
             self.imageComment.image = nil
+        }
+        
+        if DataManager.shared.getUser()?.user?.id ?? 0 == commentsData.comment?.user_id {
+            self.dropDownButton.isHidden = false
+        }
+        else {
+            self.dropDownButton.isHidden = true
+            self.editDeleteView.isHidden = true
         }
         
         if let reply =  commentsData.replies{
@@ -173,10 +198,22 @@ class CommentsTableViewCell: UITableViewCell {
         let obj = replies[sender.tag]
         delegate?.didTapOnRepliy(mainComment, subComment: obj)
         }
-//        let obj = comments[sender.tag]
-//        replayComment = obj
-//        writeCommentsTF.text = obj.userName
-//        writeCommentsTF.becomeFirstResponder()
+    }
+    @objc fileprivate func editPressed (_ sender: UIButton)
+    {
+        if let mainComment = superComment {
+
+        let obj = replies[sender.tag]
+        delegate?.didTapOnEdit(mainComment, subComment: obj)
+        }
+    }
+    @objc fileprivate func deletePressed (_ sender: UIButton)
+    {
+        if let mainComment = superComment {
+
+        let obj = replies[sender.tag]
+        delegate?.didTapOnDelete(mainComment, subComment: obj)
+        }
     }
     
     
@@ -208,6 +245,8 @@ extension CommentsTableViewCell: UITableViewDataSource
         cell.likeButton.addTarget(self, action: #selector(likeButtonPressed(_:)), for: .touchUpInside)
         cell.unlikeButton.addTarget(self, action: #selector(unLikeButtonPressed(_:)), for: .touchUpInside)
         cell.replyButton.addTarget(self, action: #selector(replyPressed(_:)), for: .touchUpInside)
+//        cell.editButton.addTarget(self, action: #selector(editPressed(_:)), for: .touchUpInside)
+//        cell.deleteButton.addTarget(self, action: #selector(deletePressed(_:)), for: .touchUpInside)
         
         
         if let like = obj.isLiked {

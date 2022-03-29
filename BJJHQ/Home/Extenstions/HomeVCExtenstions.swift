@@ -134,9 +134,14 @@ extension HomeViewController: UITableViewDataSource
         cell.likeButton.tag = indexPath.row
         cell.unlikeButton.tag = indexPath.row
         cell.replyButton.tag = indexPath.row
+        cell.editButton.tag = indexPath.row
+        cell.deleteButton.tag = indexPath.row
+        cell.editDeleteView.tag = indexPath.row
         cell.likeButton.addTarget(self, action: #selector(likeButtonPressed(_:)), for: .touchUpInside)
         cell.unlikeButton.addTarget(self, action: #selector(unLikeButtonPressed(_:)), for: .touchUpInside)
         cell.replyButton.addTarget(self, action: #selector(replyPressed(_:)), for: .touchUpInside)
+        cell.editButton.addTarget(self, action: #selector(editPressed(_:)), for: .touchUpInside)
+        cell.deleteButton.addTarget(self, action: #selector(deletePressed(_:)), for: .touchUpInside)
         
         cell.delegate = self
         
@@ -199,6 +204,22 @@ extension HomeViewController: UITableViewDataSource
 // MARK: - Custom TableView Delegate  -
 
 extension HomeViewController : commentsTableViewDelegate {
+    func didTapOnEdit(_ superComment: Comments, subComment: CommentsReplies) {
+        commentsParentId = "\(superComment.comment?.id ?? 0)"
+        if writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0{
+            editComment(writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines))
+        }
+    }
+    
+    func didTapOnDelete(_ superComment: Comments, subComment: CommentsReplies) {
+        commentsParentId = "\(superComment.comment?.id ?? 0)"
+        let id = subComment.comment?.id ?? 0
+        
+        let row = self.comments.firstIndex(where: {$0.comment!.id == superComment.comment!.id}) ?? 0
+    
+        self.deleteComment(commentId: id, row, true)
+    }
+    
     
     func didTapOnLike(_ superComment: Comments, subComment: CommentsReplies) {
         
@@ -224,8 +245,13 @@ extension HomeViewController : commentsTableViewDelegate {
         
         commentsParentId = "\(superComment.comment?.id ?? 0)"
         if writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0{
+//            if isfromEditComment {
+//                editComment(writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines))
+//            }
+//            else {
+                sendComment(writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines))
+//            }
             
-            sendComment(writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines))
         }
     }
     
@@ -318,6 +344,43 @@ extension HomeViewController {
         }
         
     }
+    func editComment(_ text : String)
+    {
+        let parentId = commentsParentId ?? ""
+        
+        if let image = imageComment.image {
+            
+            viewModel?.sendImageEditComment(parentId, text, image: image, { success, message in
+                
+                if success {
+                    self.fetchComments()
+                    self.writeCommentsTF.text = ""
+                    self.commentsParentId = nil
+                    
+                    self.imageComment.image = nil
+                    
+                    UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: []) {
+                        
+                        self.imageCommentHolder.isHidden = true
+                    } completion: { animated in
+                        self.view.layoutIfNeeded()
+                    }
+                }
+            })
+        }
+        else {
+            
+            viewModel?.editComments(parentId, text, { success, message in
+                if success {
+                    
+                    self.writeCommentsTF.text = ""
+                    self.commentsParentId = nil
+                    self.fetchComments()
+                }
+            })
+        }
+        
+    }
     
     func likeComment(commentId: Int, _ ofIndex: Int, _ isSubComment: Bool = false)
     {
@@ -366,29 +429,7 @@ extension HomeViewController {
             self.fetchComments()
         })
     }
-    func editComment(commentId: Int, _ ofIndex: Int, _ isSubComment: Bool = false)
-    {
-        
-        viewModel?.editComment(commentId, { success, message in
-            if success {
-                let obj = self.comments[ofIndex]
-                if !isSubComment {
-                    obj.isLiked = true
-                }
-                else {
-                    if let row = obj.replies?.firstIndex(where: {$0.comment!.id == commentId})
-                    {
-                        let replyObj = obj.replies?[row]
-                        replyObj?.isLiked = false
-                    }
-                }
-                let indexpath = IndexPath(row: ofIndex, section: 0)
-                self.tableView.reloadRows(at: [indexpath], with: .automatic)
-            }
-            
-            self.fetchComments()
-        })
-    }
+
     func deleteComment(commentId: Int, _ ofIndex: Int, _ isSubComment: Bool = false)
     {
         

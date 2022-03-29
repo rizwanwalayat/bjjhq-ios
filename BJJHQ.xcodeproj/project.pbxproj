@@ -513,9 +513,9 @@
 		04460F4827C5010100D9DDDE /* Faq */ = {
 			isa = PBXGroup;
 			children = (
+				04460F4D27C5010100D9DDDE /* FaqViewController.swift */,
 				04460F4927C5010100D9DDDE /* FaqViewController.xib */,
 				04460F4A27C5010100D9DDDE /* Views */,
-				04460F4D27C5010100D9DDDE /* FaqViewController.swift */,
 			);
 			path = Faq;
 			sourceTree = "<group>";

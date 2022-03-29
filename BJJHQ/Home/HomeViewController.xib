@@ -19,6 +19,9 @@
         <array key="Barlow-Regular.ttf">
             <string>Barlow-Regular</string>
         </array>
+        <array key="FredokaOne-Regular.ttf">
+            <string>FredokaOne-Regular</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="BJJHQ" customModuleProvider="target">
@@ -181,7 +184,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QE1-lT-9Qo" customClass="PillPageControl" customModule="PageControls">
+                                <view alpha="0.0" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QE1-lT-9Qo" customClass="PillPageControl" customModule="PageControls">
                                     <rect key="frame" x="166" y="544.5" width="74" height="10"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -216,17 +219,68 @@
                                     <color key="pageIndicatorTintColor" name="lightGrey"/>
                                     <color key="currentPageIndicatorTintColor" name="black"/>
                                 </pageControl>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rh3-PO-Ly3" userLabel="buttonShadowView" customClass="CcardView" customModule="BJJHQ" customModuleProvider="target">
+                                    <rect key="frame" x="306" y="59" width="35" height="35"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LS9-cl-gdi">
+                                            <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" name="FredokaOne-Regular" family="Fredoka One" pointSize="14"/>
+                                            <color key="tintColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" image="shareBJJHQ">
+                                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="0.0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                    <real key="value" value="0.0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                    <real key="value" value="0.0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                    <size key="value" width="0.0" height="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="shareAction:" destination="-1" eventType="touchUpInside" id="NOV-II-mZd"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="LS9-cl-gdi" secondAttribute="bottom" id="24T-Od-cYN"/>
+                                        <constraint firstAttribute="height" constant="35" id="6WU-fn-SBF"/>
+                                        <constraint firstItem="LS9-cl-gdi" firstAttribute="leading" secondItem="rh3-PO-Ly3" secondAttribute="leading" id="DaI-QQ-3yM"/>
+                                        <constraint firstAttribute="trailing" secondItem="LS9-cl-gdi" secondAttribute="trailing" id="fgJ-98-dYp"/>
+                                        <constraint firstAttribute="width" secondItem="rh3-PO-Ly3" secondAttribute="height" multiplier="1:1" id="qFD-qi-Yl0"/>
+                                        <constraint firstItem="LS9-cl-gdi" firstAttribute="top" secondItem="rh3-PO-Ly3" secondAttribute="top" id="xe2-eh-dXw"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="4"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                            <color key="value" name="ShadowColor"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="QE1-lT-9Qo" firstAttribute="centerX" secondItem="hYT-MR-Fu8" secondAttribute="centerX" id="26T-xr-49J"/>
                                 <constraint firstItem="m9g-tH-DKA" firstAttribute="centerY" secondItem="i5a-ex-oGL" secondAttribute="centerY" id="2gz-4S-0r2"/>
                                 <constraint firstAttribute="bottom" secondItem="QE1-lT-9Qo" secondAttribute="bottom" constant="20" id="4QB-Lz-P2o"/>
+                                <constraint firstItem="rh3-PO-Ly3" firstAttribute="centerY" secondItem="99v-ID-U4B" secondAttribute="centerY" id="7X8-uJ-j4l"/>
                                 <constraint firstItem="m9g-tH-DKA" firstAttribute="leading" secondItem="hYT-MR-Fu8" secondAttribute="leading" constant="20" id="Cm7-gu-bVX"/>
                                 <constraint firstItem="KVu-NF-qM0" firstAttribute="centerX" secondItem="qm3-Ud-Qyj" secondAttribute="centerX" id="I8t-e6-PE0"/>
                                 <constraint firstItem="qm3-Ud-Qyj" firstAttribute="top" secondItem="m9g-tH-DKA" secondAttribute="bottom" id="PD1-OU-pyt"/>
+                                <constraint firstItem="i5a-ex-oGL" firstAttribute="leading" secondItem="rh3-PO-Ly3" secondAttribute="trailing" constant="10" id="SuU-8U-7Iv"/>
                                 <constraint firstAttribute="bottom" secondItem="qm3-Ud-Qyj" secondAttribute="bottom" id="T5R-L6-Tcw"/>
                                 <constraint firstItem="qm3-Ud-Qyj" firstAttribute="leading" secondItem="hYT-MR-Fu8" secondAttribute="leading" id="VYq-2L-2CH"/>
+                                <constraint firstItem="rh3-PO-Ly3" firstAttribute="width" secondItem="rh3-PO-Ly3" secondAttribute="height" multiplier="1:1" id="W7p-6h-UhL"/>
                                 <constraint firstAttribute="trailing" secondItem="qm3-Ud-Qyj" secondAttribute="trailing" id="WlJ-QT-uM1"/>
                                 <constraint firstAttribute="trailing" secondItem="i5a-ex-oGL" secondAttribute="trailing" constant="20" id="awU-cv-C9D"/>
                                 <constraint firstAttribute="bottom" secondItem="KVu-NF-qM0" secondAttribute="bottom" constant="10" id="kMJ-Zf-EXj"/>
@@ -702,11 +756,6 @@
             <point key="canvasLocation" x="131.8840579710145" y="278.57142857142856"/>
         </view>
     </objects>
-    <designables>
-        <designable name="QE1-lT-9Qo">
-            <size key="intrinsicContentSize" width="74" height="5"/>
-        </designable>
-    </designables>
     <resources>
         <image name="addComment" width="16" height="16"/>
         <image name="camera-icon" width="18" height="15"/>
@@ -715,6 +764,7 @@
         <image name="home_menu" width="20" height="14"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="product backgorund" width="375" height="452"/>
+        <image name="shareBJJHQ" width="16.5" height="14.5"/>
         <image name="timelapse_icon" width="23" height="23"/>
         <image name="topArrow" width="13.5" height="8"/>
         <namedColor name="ShadowColor">
