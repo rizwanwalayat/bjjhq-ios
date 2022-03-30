@@ -124,7 +124,7 @@ class DeletePopUpViewController: BaseViewController {
         if isFromSignOut {
             self.view.activityStartAnimating()
             viewModel?.logoutUser({ success, message in
-
+                self.view.activityStopAnimating()
                 if success {
                     DataManager.shared.deleteUser()
                     DataManager.shared.removeUserAccessToken()

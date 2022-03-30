@@ -229,7 +229,16 @@ class HomeViewController: BaseViewController,deleteComment {
     // MARK: - Actions -
     
     @IBAction func menuAction(_ sender: Any) {
-        openRight()
+        if DataManager.shared.getUser()?.user == nil {
+            let vc = DeletePopUpViewController(nibName: "DeletePopUpViewController", bundle: nil)
+            vc.coordinator = self.coordinator
+            vc.isFromSignIn = true
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: false, completion: nil)
+        }
+        else {
+            openRight()
+        }
     }
     
     @IBAction func upButtonAction(_ sender: Any) {

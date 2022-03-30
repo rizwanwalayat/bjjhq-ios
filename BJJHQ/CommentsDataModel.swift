@@ -125,6 +125,9 @@ class CommentsReplies : Mappable {
         {
             isLiked = false
         }
+        else {
+            isLiked = nil
+        }
     }
 
 }

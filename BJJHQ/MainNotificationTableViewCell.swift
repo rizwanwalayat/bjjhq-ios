@@ -17,12 +17,13 @@ class MainNotificationTableViewCell: UITableViewCell {
     
     
     //MARK: - IBOutlets
-
+    
     @IBOutlet weak var detailText: UILabel!
     @IBOutlet weak var switchButton: UISwitch!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var stackViewHeight: NSLayoutConstraint!
     @IBOutlet weak var bottomHeight: NSLayoutConstraint!
+    @IBOutlet weak var extraText: UILabel!
     
     
     //MARK: - Variables
@@ -37,9 +38,9 @@ class MainNotificationTableViewCell: UITableViewCell {
     
     
     //MARK: - IBOutlets
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
-
+    
     
     //MARK: - LifeCycle
     
@@ -81,10 +82,19 @@ class MainNotificationTableViewCell: UITableViewCell {
         else {
             collectionView.isHidden = true
             self.stackViewHeight.constant = 0
-            self.bottomHeight.constant = 0
+            self.bottomHeight.constant = -20
+            self.extraText.text = ""
         }
         if index == 0 {
             self.switchButton.isOn = DataManager.shared.getNotification()?.notificationSetting?.dailyDealNotifications ?? false
+            if self.switchButton.isOn  {
+                self.collectionView.alpha = 1
+                self.collectionView.isUserInteractionEnabled = true
+            }
+            else {
+                self.collectionView.alpha = 0.8
+                self.collectionView.isUserInteractionEnabled = false
+            }
         }
         else if index == 1 {
             self.switchButton.isOn = DataManager.shared.getNotification()?.notificationSetting?.rolling_deal_notifications ?? false
@@ -140,7 +150,7 @@ extension MainNotificationTableViewCell : UICollectionViewDelegate, UICollection
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndex = indexPath.item
-       
+        
         SignInViewModel().notificationSettingUpdate(comments: Global.shared.notificationSetting?.notificationSetting?.comment_notifications, dailyDealNotification: Global.shared.notificationSetting?.notificationSetting?.dailyDealNotifications, dailyDealReminder: self.array2[selectedIndex], rollingDealNotification: Global.shared.notificationSetting?.notificationSetting?.rolling_deal_notifications, rollingDealReminder: Global.shared.notificationSetting?.notificationSetting?.rolling_deal_reminder_time, snoozeAlert: Global.shared.notificationSetting?.notificationSetting?.snooze_alert) { success in
             if success != nil {
                 Global.shared.notificationSetting = success

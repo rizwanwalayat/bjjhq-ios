@@ -261,6 +261,9 @@ extension CommentsTableViewCell: UITableViewDataSource
                 self.buttonDisliked(cell.unlikeButton, cell.likeButton)
             }
         }
+        else {
+            self.buttonNil(cell.likeButton, cell.unlikeButton)
+        }
 
         
         return cell
@@ -293,6 +296,18 @@ extension CommentsTableViewCell: UITableViewDataSource
         disLikedButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
         disLikedButton.tintColor = UIColor(hexString: "5BD6CD")
         disLikedButton.borderColor = UIColor(hexString: "5BD6CD")
+        disLikedButton.backgroundColor = .clear
+    }
+    fileprivate func buttonNil(_ sender: UIButton, _ disLikedButton: UIButton)
+    {
+        sender.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
+        sender.tintColor = UIColor(hexString: "5BD6CD")
+        sender.borderColor = UIColor(hexString: "5BD6CD")
+        sender.backgroundColor = .clear
+        
+        disLikedButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
+        disLikedButton.tintColor = UIColor(hexString: "252C44")
+        disLikedButton.borderColor = UIColor(hexString: "252C44")
         disLikedButton.backgroundColor = .clear
     }
 }

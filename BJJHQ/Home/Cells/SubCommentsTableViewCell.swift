@@ -29,6 +29,8 @@ class SubCommentsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.editDeleteView.isHidden = true
+        self.likeButton.backgroundColor = .clear
+        self.unlikeButton.backgroundColor = .clear
         // Initialization code
     }
 
@@ -74,7 +76,10 @@ class SubCommentsTableViewCell: UITableViewCell {
             self.dropDownButton.isHidden = true
             self.editDeleteView.isHidden = true
         }
-        self.contentView.layoutIfNeeded()
+        if commentsData.isLiked == nil {
+            self.likeButton.backgroundColor = .clear
+            self.unlikeButton.backgroundColor = .clear
+        }
     }
     @IBAction func dropDownButton(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
