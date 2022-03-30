@@ -41,6 +41,7 @@ class SubCommentsTableViewCell: UITableViewCell {
     
     func config(_ commentsData : CommentsReplies)
     {
+        
         self.dropDownButton.isHidden = true
         self.editDeleteView.isHidden = true
         print("calling replies")

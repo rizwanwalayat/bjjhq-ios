@@ -258,7 +258,7 @@ extension CommentsTableViewCell: UITableViewDataSource
             case true:
                 self.buttonLiked(cell.likeButton, cell.unlikeButton)
             case false:
-                self.buttonDisliked(cell.likeButton,cell.unlikeButton)
+                self.buttonDisliked(cell.unlikeButton, cell.likeButton)
             }
         }
 
@@ -272,31 +272,27 @@ extension CommentsTableViewCell: UITableViewDataSource
 
     fileprivate func buttonLiked(_ sender: UIButton, _ disLikedButton: UIButton)
     {
-//        sender.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
-        sender.setTitleColor(.white, for: .normal)
-        sender.setTitleColor(.white, for: .selected)
-        sender.tintColor = .white//UIColor(hexString: "5BD6CD")
+        sender.setTitleColor(UIColor.white, for: .normal)
+        sender.tintColor = .white
         sender.borderColor = UIColor(hexString: "5BD6CD")
         sender.backgroundColor = UIColor(hexString: "5BD6CD")
-
+        
         disLikedButton.setTitleColor(UIColor(hexString: "252C44"), for: .normal)
         disLikedButton.tintColor = UIColor(hexString: "252C44")
         disLikedButton.borderColor = UIColor(hexString: "252C44")
         disLikedButton.backgroundColor = .clear
     }
-
-    fileprivate func buttonDisliked(_ sender: UIButton, _ unlikeButton: UIButton)
+    
+    fileprivate func buttonDisliked(_ sender: UIButton, _ disLikedButton: UIButton)
     {
         sender.setTitleColor(UIColor.white, for: .normal)
-        sender.setTitleColor(.white, for: .normal)
-        sender.setTitleColor(.white, for: .selected)
+        sender.tintColor = .white
         sender.borderColor = UIColor(hexString: "252C44")
         sender.backgroundColor = UIColor(hexString: "252C44")
-
-        unlikeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
-        unlikeButton.tintColor = UIColor(hexString: "5BD6CD")
-        unlikeButton.borderColor = UIColor(hexString: "5BD6CD")
-        unlikeButton.backgroundColor = .clear
+        
+        disLikedButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
+        disLikedButton.tintColor = UIColor(hexString: "5BD6CD")
+        disLikedButton.borderColor = UIColor(hexString: "5BD6CD")
+        disLikedButton.backgroundColor = .clear
     }
-//
 }

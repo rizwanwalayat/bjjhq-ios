@@ -224,12 +224,17 @@ extension HomeViewController : commentsTableViewDelegate {
     }
     
     func didTapOnDelete(_ superComment: Comments, subComment: CommentsReplies) {
-        commentsParentId = "\(superComment.comment?.id ?? 0)"
-        let id = subComment.comment?.id ?? 0
-        
-        let row = self.comments.firstIndex(where: {$0.comment!.id == superComment.comment!.id}) ?? 0
-    
-        self.deleteComment(commentId: id, row, true)
+        defer {
+            let vc = DeletePopUpViewController(nibName: "DeletePopUpViewController", bundle: nil)
+            vc.coordinator = self.coordinator
+            vc.delegate = self
+            vc.isFromDeleteComment = true
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: false, completion: nil)
+        }
+        self.isFromDleeteChild = true
+        self.superComment = superComment
+        self.subComment = subComment
     }
     
     

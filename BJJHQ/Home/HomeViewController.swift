@@ -11,7 +11,25 @@ import iOSDropDown
 import ActionCableClient
 import CSPieChart
 
-class HomeViewController: BaseViewController {
+class HomeViewController: BaseViewController,deleteComment {
+    func delComment() {
+        if isFromDleeteChild {
+            commentsParentId = "\(self.superComment?.comment?.id ?? 0)"
+            let id = subComment?.comment?.id ?? 0
+            let row = self.comments.firstIndex(where: {$0.comment!.id == self.superComment?.comment!.id}) ?? 0
+            self.deleteComment(commentId: id, row, true)
+            self.isFromDleeteChild = false
+        }
+        else {
+            if let sender = self.deleteButton {
+                let obj = comments[sender.tag]
+                commentsParentId = "\(obj.comment?.id ?? 0)"
+                deleteComment(commentId: obj.comment?.id ?? 0, sender.tag)
+                self.deleteButton = nil
+            }
+        }
+    }
+    
     
     
     // MARK: - Outlets -
@@ -67,6 +85,11 @@ class HomeViewController: BaseViewController {
     var commentsId : String?
     var isfromEditComment = false
     var isfromChild = false
+    var isFromDleeteChild = false
+    var superComment: Comments?
+    var subComment: CommentsReplies?
+    
+    var deleteButton : UIButton?
     var size = 0
     var countForRefresh = 0
     // socket related
@@ -323,9 +346,13 @@ class HomeViewController: BaseViewController {
     
     @objc func deletePressed (_ sender: UIButton)
     {
-        let obj = comments[sender.tag]
-        commentsParentId = "\(obj.comment?.id ?? 0)"
-        deleteComment(commentId: obj.comment?.id ?? 0, sender.tag)
+        self.deleteButton = sender
+        let vc = DeletePopUpViewController(nibName: "DeletePopUpViewController", bundle: nil)
+        vc.coordinator = self.coordinator
+        vc.delegate = self
+        vc.isFromDeleteComment = true
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: false, completion: nil)
     }
     
     override func imageSelectedFromGalleryOrCamera(selectedImage: UIImage) {

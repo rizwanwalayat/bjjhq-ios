@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+protocol deleteComment {
+    func delComment()
+}
 class DeletePopUpViewController: BaseViewController {
 
     
@@ -25,8 +27,10 @@ class DeletePopUpViewController: BaseViewController {
     var isFromSignIn = false
     var isFromAddress = false
     var isFromRemoveCart = false
+    var isFromDeleteComment = false
     var getAddress : Addresses?
     var viewModel : DeleteLogoutViewModel?
+    var delegate : deleteComment?
     
     //MARK: - LifeCycle
     
@@ -60,8 +64,10 @@ class DeletePopUpViewController: BaseViewController {
             self.titleLbl.text = "Sign In"
             self.descriptionLbl.text = "You can enable full access with sign in"
         }
-        else {
-            
+        else if isFromDeleteComment {
+            self.imgvvView.isHidden = true
+            self.titleLbl.text = "Delete Comment"
+            self.descriptionLbl.text = "Are you sure you want to delete"
         }
         
         viewModel = DeleteLogoutViewModel()
@@ -145,6 +151,10 @@ class DeletePopUpViewController: BaseViewController {
         if isFromRemoveCart {
             self.hidePopup()
             coordinator?.homePage()
+        }
+        if isFromDeleteComment {
+            self.hidePopup()
+            delegate?.delComment()
         }
     }
     
