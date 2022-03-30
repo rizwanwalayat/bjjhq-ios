@@ -296,16 +296,16 @@ extension HomeViewController {
 
     }
     func fetchComments() {
-        self.view.activityStartAnimating()
+//        self.view.activityStartAnimating()
         viewModel?.fetchComments({ success, data, message in
-            self.view.activityStopAnimating()
+//            self.view.activityStopAnimating()
             self.isfromEditComment = false
             if success, let commentsData = data?.comments {
                 self.comments.removeAll()
                 self.comments = commentsData
                 self.tableView.reloadData()
                 subCommentTableView?.tableView.reloadData()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     if self.comments.count > 0 {
                         let indexpAth = IndexPath(row: self.comments.count - 1, section: 0)
                         self.tableView.reloadRows(at: [indexpAth], with: .automatic)

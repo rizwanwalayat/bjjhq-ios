@@ -91,7 +91,7 @@
                             <rect key="frame" x="20" y="80" width="374" height="128"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="679-pi-Ci9">
-                                    <rect key="frame" x="30" y="24" width="80" height="80"/>
+                                    <rect key="frame" x="10" y="24" width="80" height="80"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="XTj-jq-M13">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -129,9 +129,9 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pip-cU-V19">
-                                    <rect key="frame" x="130" y="37" width="119" height="54"/>
+                                    <rect key="frame" x="110" y="37" width="119" height="54"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Alexis Enache" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbb-Aa-eFU">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Alexis Enache" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gbb-Aa-eFU">
                                             <rect key="frame" x="0.0" y="0.0" width="109.5" height="22"/>
                                             <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="18"/>
                                             <color key="textColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -184,8 +184,8 @@
                             </subviews>
                             <color key="backgroundColor" red="0.35686274509999999" green="0.83921568629999999" blue="0.80392156859999997" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstItem="kRj-7E-eEi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pip-cU-V19" secondAttribute="trailing" constant="20" id="9ha-AX-FCw"/>
-                                <constraint firstItem="679-pi-Ci9" firstAttribute="leading" secondItem="EGS-aL-wfv" secondAttribute="leading" constant="30" id="Fcv-ac-s31"/>
+                                <constraint firstItem="kRj-7E-eEi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pip-cU-V19" secondAttribute="trailing" constant="5" id="9ha-AX-FCw"/>
+                                <constraint firstItem="679-pi-Ci9" firstAttribute="leading" secondItem="EGS-aL-wfv" secondAttribute="leading" constant="10" id="Fcv-ac-s31"/>
                                 <constraint firstItem="kRj-7E-eEi" firstAttribute="centerY" secondItem="pip-cU-V19" secondAttribute="centerY" id="K5c-eJ-aGl"/>
                                 <constraint firstItem="pip-cU-V19" firstAttribute="leading" secondItem="679-pi-Ci9" secondAttribute="trailing" constant="20" id="PCd-Bl-TZq"/>
                                 <constraint firstAttribute="trailing" secondItem="kRj-7E-eEi" secondAttribute="trailing" constant="20" id="a3m-k8-KTt"/>

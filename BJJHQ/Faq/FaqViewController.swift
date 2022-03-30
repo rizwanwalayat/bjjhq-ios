@@ -73,7 +73,7 @@ extension FaqViewController : UITableViewDelegate,UITableViewDataSource{
         label.textColor = .black
         if section == 0
         {
-            label.text = "About BJJHQ O"
+            label.text = "About BJJHQ"
         }
         else
         {

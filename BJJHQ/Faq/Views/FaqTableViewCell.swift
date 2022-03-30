@@ -16,7 +16,7 @@ class FaqTableViewCell: UITableViewCell {
     @IBOutlet weak var questionLabel: UILabel!
     var questionArray = ["What is BJJHQ?","When should I check BJJHQ?","What product is coming next?","What am I going to find on BJJHQ?","How did BJJHQ get here?","Can I talk to BJJHQ on the phone?","I missed the deal, can I still get it?","Why is there a limit of 1 quantity per order?","HQ Community Wall","Payments","Fraud Protection Policy"]
     var answerArray = ["The original Daily Deal site. We sell one product at a time. Limited quantity. Exceptional price.",
-        """
+"""
 We publish a new deal at 11 pm EST every day. Each featured product runs for 24 hours.
 We often have limited quantities, so if it sells out before the 24-hour slot expires. . . you can check back in at 11 pm EST until the next one pops up.
 

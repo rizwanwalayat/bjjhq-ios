@@ -20,7 +20,6 @@ US orders are normally 2-7 business days transit, barring weather exceptions or 
 International orders may take longer (average 7-21 calendar days), as Customs/Border delays are beyond our control. While rare, any Customs charges placed by your country are not the responsibility of BJJHQ.
 If your order is determined to be lost, we’ll help you sort it out.
 You can check your order status via the app, but we’ll send an Order Confirmation email and then a Shipping / Tracking email.
-
 """,
 """
 Absolutely not! Our impressive prices are NOT the byproduct of damaged, defective, or imitation gear. Your purchase will be in tip-top shape and brand new. Mistakes can happen, so if you receive a product that has a scuff mark or we sent the wrong size, let us know and we’ll help you out 100%.
@@ -66,7 +65,6 @@ We do our best to reduce the likelihood that BJJHQ shoppers will have added cust
 BJJHQ is not responsible for, nor can we offer, any specific advice regarding any customs related fees that you may incur. For specific information, please consult with your local government import office.
 
 We charge Sales Tax only when required by law.
-
 """]
     override func awakeFromNib() {
         super.awakeFromNib()
