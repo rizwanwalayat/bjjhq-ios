@@ -296,9 +296,9 @@ extension HomeViewController {
 
     }
     func fetchComments() {
-//        self.view.activityStartAnimating()
+        self.view.activityStartAnimating()
         viewModel?.fetchComments({ success, data, message in
-//            self.view.activityStopAnimating()
+            self.view.activityStopAnimating()
             self.isfromEditComment = false
             if success, let commentsData = data?.comments {
                 self.comments.removeAll()

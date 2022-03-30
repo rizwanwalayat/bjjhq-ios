@@ -26,14 +26,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="226"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="How do I return the product?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZS-kT-LnT">
-                        <rect key="frame" x="20" y="21" width="198.5" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="How do I return the product?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7ZS-kT-LnT">
+                        <rect key="frame" x="20" y="21" width="384" height="19.5"/>
                         <fontDescription key="fontDescription" name="Barlow-BlackItalic" family="Barlow" pointSize="16"/>
                         <color key="textColor" name="blue"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2v-sp-4yy">
-                        <rect key="frame" x="20" y="41" width="394" height="174"/>
+                        <rect key="frame" x="20" y="50.5" width="394" height="164.5"/>
                         <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</string>
                         <fontDescription key="fontDescription" name="Barlow-Regular" family="Barlow" pointSize="14"/>
                         <color key="textColor" red="0.14509803921568626" green="0.17254901960784313" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -42,11 +42,12 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="A2v-sp-4yy" secondAttribute="trailing" id="0VQ-ss-WWD"/>
-                    <constraint firstItem="A2v-sp-4yy" firstAttribute="top" secondItem="7ZS-kT-LnT" secondAttribute="bottom" id="2Qv-SS-za9"/>
+                    <constraint firstItem="A2v-sp-4yy" firstAttribute="top" secondItem="7ZS-kT-LnT" secondAttribute="bottom" constant="10" id="2Qv-SS-za9"/>
                     <constraint firstItem="A2v-sp-4yy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="NkI-Pb-Eo4"/>
                     <constraint firstItem="7ZS-kT-LnT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="OKN-qg-vRK"/>
                     <constraint firstAttribute="bottomMargin" secondItem="A2v-sp-4yy" secondAttribute="bottom" id="OwS-WX-gS9"/>
                     <constraint firstItem="7ZS-kT-LnT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="cy4-2l-FLk"/>
+                    <constraint firstAttribute="trailing" secondItem="7ZS-kT-LnT" secondAttribute="trailing" constant="10" id="eai-5Y-YWt"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
