@@ -24,6 +24,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SideMenuViewController" customModule="BJJHQ" customModuleProvider="target">
             <connections>
                 <outlet property="firstNameLastNameLBL" destination="gbb-Aa-eFU" id="fbA-I8-T6Z"/>
+                <outlet property="profileEditButton" destination="kRj-7E-eEi" id="CQL-V8-085"/>
                 <outlet property="profileImage" destination="XTj-jq-M13" id="Bbo-lO-BgW"/>
                 <outlet property="signOutButton" destination="fSF-pt-Bd5" id="hYh-e6-uOd"/>
                 <outlet property="tableView" destination="uvx-mh-2ET" id="Zeo-sY-RAi"/>

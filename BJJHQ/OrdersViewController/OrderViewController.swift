@@ -89,7 +89,7 @@ class OrderViewController: BaseViewController {
     {
         Client.shared.webCheckOut(id: self.productModel?.variants.items[size].id ?? "") { pass, fail in
             if fail == nil {
-                self.coordinator?.openWKWebViewControllerFor(pass!, token: DataManager.shared.getUserAccessToekn()!)
+                self.coordinator?.openWKWebViewControllerFor(pass!, token: "")
             }
         }
     }

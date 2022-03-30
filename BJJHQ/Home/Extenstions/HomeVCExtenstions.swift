@@ -162,7 +162,7 @@ extension HomeViewController: UITableViewDataSource
             case true:
                 self.buttonLiked(cell.likeButton, cell.unlikeButton)
             case false:
-                self.buttonDisliked(cell.likeButton, cell.unlikeButton)
+                self.buttonDisliked(cell.unlikeButton, cell.likeButton)
             }
         }
             
@@ -207,6 +207,7 @@ extension HomeViewController : commentsTableViewDelegate {
     
     func didTapOnEdit(_ superComment: Comments, subComment: CommentsReplies, fromChild: Bool) {
         if fromChild {
+            self.isfromEditComment = true
             commentsId = "\(subComment.comment?.id ?? 0)"
             commentsParentId = "\(superComment.comment?.id ?? 0)"
             self.isfromChild = true

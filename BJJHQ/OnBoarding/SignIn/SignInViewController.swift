@@ -64,18 +64,23 @@ class SignInViewController: BaseViewController {
     }
     
     @IBAction func signInAction(_ sender: Any) {
-        
-        if ((emailTF.text?.isValidEmail()) != nil) {
-            if passwordTF.text != "" {
-                apiCall()
+        if emailTF.text != "" && passwordTF.text != "" {
+            if ((emailTF.text?.isValidEmail()) != nil) {
+                if passwordTF.text?.count ?? 0 >= 8 {
+                    apiCall()
+                }
+                else {
+                    self.showToast(message: " Password must be Minimum 8 characters at least 1 Alphabet and 1 Number ", ScreenSize.SCREEN_HEIGHT, 60)
+                }
             }
             else {
-                self.showToast(message: "Please enter a password")
+                self.showToast(message: "You have entered an invalid email")
             }
         }
         else {
-            self.showToast(message: "You have entered an invalid email")
+            self.showToast(message: "Please fill all fields")
         }
+
     }
     
     func apiCall() {

@@ -71,7 +71,7 @@ class SignUpViewController: BaseViewController {
         setupButtonUnderlineText(skipButton, "SKIP", color: "BCBFCC")
         signInButton.setTitle("", for: .normal)
         setupButtonUnderlineText(signInButton, "Sign In", color: "5BD6CD",1.0)
-//        changeButtonState(state: true)
+        //        changeButtonState(state: true)
     }
     
     
@@ -103,8 +103,8 @@ class SignUpViewController: BaseViewController {
     @IBAction func signUpAction(_ sender: Any) {
         
         if ((emailTF.text?.isValidEmail()) != nil && emailTF.text ?? "" != "") {
-            if passwordTF.text == confirmPasswordTF.text {
-                if passwordTF.text != "" && passwordTF.text?.count ?? 0 >= 8 {
+            if passwordTF.text != "" && passwordTF.text?.count ?? 0 >= 8 && confirmPasswordTF.text != "" && confirmPasswordTF.text?.count ?? 0 >= 8{
+                if passwordTF.text == confirmPasswordTF.text {
                     if firstNameTF.text != "" && lastNameTF.text != "" && userNameTF.text != "" {
                         if self.passwordTF.text!.isValidPassword() {
                             self.callApi()
@@ -118,26 +118,27 @@ class SignUpViewController: BaseViewController {
                     }
                 }
                 else {
-                    self.showToast(message: "Please enter a password")
+                    self.showToast(message: "Password not matched")
+                    
                 }
                 
             }
             else {
-                self.showToast(message: "Password not matched")
+                self.showToast(message: "Please enter a password")
             }
             
         }
         else {
-            self.showToast(message: "You have entered an invalid email")
+            self.showToast(message: "Please fill all fields")
         }
-
+        
     }
     func callApi() {
         self.view.activityStartAnimating()
         viewModel?.signUpCustomer(fName: firstNameTF.text!, lName: lastNameTF.text!, uName: userNameTF.text!, email: emailTF.text!, password: passwordTF.text!, cPassword: confirmPasswordTF.text!, fcmToken: Global.shared.FCMtoken, completion: { response, error in
-
+            
             self.view.activityStopAnimating()
-
+            
             if let result = response, error == nil {
                 if result.message as? String == "Signed up successfully." {
                     self.coordinator?.signInPage()
@@ -152,7 +153,7 @@ class SignUpViewController: BaseViewController {
                 }
             }
             else {
-
+                
                 self.showToast(message: error?.localizedDescription ?? "Something went wrong, please try again later")
             }
         })
@@ -165,10 +166,10 @@ class SignUpViewController: BaseViewController {
     @IBAction func skipAction(_ sender: Any) {
         self.view.activityStartAnimating()
         viewModel?.guestUser( { success in
-
+            
             self.view.activityStopAnimating()
             if success {
-
+                
                 self.coordinator?.homePage()
             }
         })
@@ -239,33 +240,33 @@ class SignUpViewController: BaseViewController {
     }
     
     func checkTextSufficientComplexity(text : String) -> Bool{
-
-
+        
+        
         let capitalLetterRegEx  = ".*[A-Z]+.*"
         let texttest = NSPredicate(format:"SELF MATCHES %@", capitalLetterRegEx)
         let capitalresult = texttest.evaluate(with: text)
         print(capitalresult)
-
-
+        
+        
         let numberRegEx  = ".*[0-9]+.*"
         let texttest1 = NSPredicate(format:"SELF MATCHES %@", numberRegEx)
         let numberresult = texttest1.evaluate(with: text)
         print(numberresult)
-
-
+        
+        
         let specialCharacterRegEx  = ".*[!&^%$#@()/]+.*"
         let texttest2 = NSPredicate(format:"SELF MATCHES %@", specialCharacterRegEx)
-
+        
         let specialresult = texttest2.evaluate(with: text)
         print(numberresult)
-
+        
         return capitalresult || numberresult || specialresult
-
+        
     }
     func checkPassword(_ password:String) -> Bool{
         let specialCharacterRegEx  = ".*[!&^%$#@()/]+.*"
         let textPassword = NSPredicate(format:"SELF MATCHES %@", specialCharacterRegEx)
-
+        
         let specialPasswordresult = textPassword.evaluate(with: password)
         return specialPasswordresult
     }
@@ -344,7 +345,7 @@ extension SignUpViewController : UITextFieldDelegate {
             if passwordTF.text!.count == 0{
                 passwordTFStatus.text = ""
             }
-             if passwordTF.text!.count < 8 && passwordTF.text!.count > 0 {
+            if passwordTF.text!.count < 8 && passwordTF.text!.count > 0 {
                 passwordTFStatus.text = "Weak"
                 passwordTFStatus.textColor = UIColor(hexString: "#BB0808")
             }
@@ -366,12 +367,12 @@ extension SignUpViewController : UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-            self.firstNameView.backgroundColor = UIColor(named: "lightGrey")
-            self.lastNameView.backgroundColor = UIColor(named: "lightGrey")
-            self.emailView.backgroundColor = UIColor(named: "lightGrey")
-            self.userNameview.backgroundColor = UIColor(named: "lightGrey")
-            self.passwordView.backgroundColor = UIColor(named: "lightGrey")
-            self.confirmPasswordView.backgroundColor = UIColor(named: "lightGrey")
+        self.firstNameView.backgroundColor = UIColor(named: "lightGrey")
+        self.lastNameView.backgroundColor = UIColor(named: "lightGrey")
+        self.emailView.backgroundColor = UIColor(named: "lightGrey")
+        self.userNameview.backgroundColor = UIColor(named: "lightGrey")
+        self.passwordView.backgroundColor = UIColor(named: "lightGrey")
+        self.confirmPasswordView.backgroundColor = UIColor(named: "lightGrey")
     }
     
 }

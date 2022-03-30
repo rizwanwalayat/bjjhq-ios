@@ -92,6 +92,7 @@
 		1863836D27BB9BFE0080FC80 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863836227BB9BFD0080FC80 /* Utility.swift */; };
 		1863836E27BB9BFE0080FC80 /* ImagePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863836327BB9BFD0080FC80 /* ImagePickerVC.swift */; };
 		1863836F27BB9BFE0080FC80 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863836427BB9BFD0080FC80 /* Coordinator.swift */; };
+		186D6E7127F4702F008D5B9F /* LoaderAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186D6E7027F4702F008D5B9F /* LoaderAnimation.swift */; };
 		18737E4227BE6D3A00C4F438 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18737E4027BE6D3A00C4F438 /* NotificationViewController.swift */; };
 		18737E4327BE6D3A00C4F438 /* NotificationViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 18737E4127BE6D3A00C4F438 /* NotificationViewController.xib */; };
 		18737E4727BE6DF700C4F438 /* MainNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18737E4527BE6DF700C4F438 /* MainNotificationTableViewCell.swift */; };
@@ -334,6 +335,7 @@
 		1863836227BB9BFD0080FC80 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		1863836327BB9BFD0080FC80 /* ImagePickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerVC.swift; sourceTree = "<group>"; };
 		1863836427BB9BFD0080FC80 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		186D6E7027F4702F008D5B9F /* LoaderAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderAnimation.swift; sourceTree = "<group>"; };
 		18737E4027BE6D3A00C4F438 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		18737E4127BE6D3A00C4F438 /* NotificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationViewController.xib; sourceTree = "<group>"; };
 		18737E4527BE6DF700C4F438 /* MainNotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNotificationTableViewCell.swift; sourceTree = "<group>"; };
@@ -1147,6 +1149,7 @@
 			children = (
 				9A7E3F6E1E89615E00713740 /* UICollectionView+Touch.swift */,
 				9AAFAB8E1E60C6AC00864A17 /* UIImageView+Remote.swift */,
+				186D6E7027F4702F008D5B9F /* LoaderAnimation.swift */,
 				9AAFAB931E60D2D000864A17 /* NSObject+Name.swift */,
 				9AFA3B7E1E6DC5FD0056C5AA /* Storyboard+ViewController.swift */,
 				9A9FFF291E8044BC00F6DFF7 /* String+HTML.swift */,
@@ -1644,6 +1647,7 @@
 				18DE66AC27F23A6B00524DFD /* CollieGalleryTransitionType.swift in Sources */,
 				9A7E3F6F1E89615E00713740 /* UICollectionView+Touch.swift in Sources */,
 				18DE66B827F23A6B00524DFD /* CollieGalleryViewDelegate.swift in Sources */,
+				186D6E7127F4702F008D5B9F /* LoaderAnimation.swift in Sources */,
 				9ADCC88B1E82FE2900F5B6DD /* TotalsViewController.swift in Sources */,
 				9AB421AF1E93C800005098C4 /* CreditCardViewModel.swift in Sources */,
 				18737E4227BE6D3A00C4F438 /* NotificationViewController.swift in Sources */,

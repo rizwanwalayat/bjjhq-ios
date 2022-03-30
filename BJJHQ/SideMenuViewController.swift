@@ -12,13 +12,14 @@ class SideMenuViewController: BaseViewController, SlideMenuControllerDelegate {
 
     @IBOutlet weak var firstNameLastNameLBL: UILabel!
     @IBOutlet weak var userNameLBL: UILabel!
+    @IBOutlet weak var profileEditButton: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
     var isguestUser = false
     var array = ["Change Password","My Orders","Address Book","Contact Us","Notifications","Shipping & Returns","FAQs"]
-    var array2 = ["Contact Us","Return Policy","FAQs"]
+    var array2 = ["Shipping & Returns","FAQs"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +43,16 @@ class SideMenuViewController: BaseViewController, SlideMenuControllerDelegate {
         side?.closeRight()
     }
     @IBAction func editProfile(_ sender: Any) {
-        
-        coordinator?.profilePage()
+        if isguestUser {
+            let vc = DeletePopUpViewController(nibName: "DeletePopUpViewController", bundle: nil)
+            vc.coordinator = self.coordinator
+            vc.isFromSignIn = true
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: false, completion: nil)
+        }
+        else {
+            coordinator?.profilePage()
+        }
     }
     
     @IBAction func signOutAction(_ sender: Any) {
@@ -61,6 +70,17 @@ class SideMenuViewController: BaseViewController, SlideMenuControllerDelegate {
     }
     
     func setup() {
+//        defer {
+//            if isguestUser {
+//
+//                self.profilewEditButton.isEnabled = false
+//            }
+//
+//            else {
+//                self.profileEditButton.isEnabled = true
+//            }
+//
+//        }
         if let userRole = DataManager.shared.getUser()?.user?.role {
             if userRole == "guest" {
                 defer {
@@ -92,7 +112,7 @@ extension SideMenuViewController : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.register(SideMenuTableViewCell.self, indexPath: indexPath)
         if isguestUser {
-            cell.config(index: indexPath.row, array: self.array2)
+            cell.guestConfig(index: indexPath.row, array: self.array2)
         }
         else {
             cell.config(index: indexPath.row, array: self.array)
@@ -108,10 +128,8 @@ extension SideMenuViewController : UITableViewDelegate,UITableViewDataSource{
         if self.isguestUser {
             switch indexPath.row {
                 case 0:
-                    coordinator?.contactUsPage()
-                case 1:
                     coordinator?.ReturnPolicyPage()
-                case 2:
+                case 1:
                     coordinator?.FAQPage()
                 default :
                     print("Default")

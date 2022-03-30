@@ -23,5 +23,11 @@ class SideMenuTableViewCell: UITableViewCell {
         self.titleLbl.text = array[index]
         
     }
+    
+    func guestConfig(index:Int,array:[String]) {
+        self.sideMenuImage.image = UIImage(named: "\(5+index)")
+        self.titleLbl.text = array[index]
+        
+    }
 
 }
