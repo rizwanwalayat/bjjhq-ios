@@ -66,14 +66,8 @@ class MainNotificationTableViewCell: UITableViewCell {
     //MARK: - Functions
     
     func config(index:Int,data:NotificationModel?) {
-        for (i,index) in array2.enumerated() {
-            guard let time = DataManager.shared.getNotification()?.notificationSetting?.daily_deal_reminder_time else {return}
-            if time == index {
-                self.selectedIndex = i
-                collectionView.reloadData()
-                break
-            }
-        }
+        self.titleLbl.text = array[index]
+        self.detailText.text = detailArray[index]
         if index == 0 {
             collectionView.isHidden = false
             self.stackViewHeight.constant = 50
@@ -88,12 +82,24 @@ class MainNotificationTableViewCell: UITableViewCell {
         if index == 0 {
             self.switchButton.isOn = DataManager.shared.getNotification()?.notificationSetting?.dailyDealNotifications ?? false
             if self.switchButton.isOn  {
+                for (i,index) in array2.enumerated() {
+                    guard let time = DataManager.shared.getNotification()?.notificationSetting?.daily_deal_reminder_time else {return}
+                    if time == index {
+                        self.selectedIndex = i
+                        collectionView.reloadData()
+                        break
+                    }
+                }
                 self.collectionView.alpha = 1
                 self.collectionView.isUserInteractionEnabled = true
             }
             else {
-                self.collectionView.alpha = 0.8
+                self.collectionView.backgroundColor = .clear
+                self.selectedIndex = -1
+                self.collectionView.alpha = 0.5
                 self.collectionView.isUserInteractionEnabled = false
+                
+                collectionView.reloadData()
             }
         }
         else if index == 1 {
@@ -105,8 +111,7 @@ class MainNotificationTableViewCell: UITableViewCell {
         else if index == 3 {
             self.switchButton.isOn = DataManager.shared.getNotification()?.notificationSetting?.comment_notifications ?? false
         }
-        self.titleLbl.text = array[index]
-        self.detailText.text = detailArray[index]
+        
         findingAndReplacing(index: index)
         
     }

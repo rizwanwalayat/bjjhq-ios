@@ -96,7 +96,9 @@ class UserProfileViewController: BaseViewController {
     @objc override func imageSelectedFromGalleryOrCamera(selectedImage:UIImage) {
         let image  = ["avatar":[selectedImage]]
         DataManager.shared.saveProfilePic(value: selectedImage.pngData())
+        self.view.activityStartAnimating()
         SignInViewModel().updateUserImage(image: image, { responce in
+            self.view.activityStopAnimating()
             guard let image = UIImage(data: DataManager.shared.getProfilePic() ?? Data()) else {return}
             self.profilePicImageView.image =  image
         })
