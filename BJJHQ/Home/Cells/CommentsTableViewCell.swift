@@ -94,6 +94,7 @@ class CommentsTableViewCell: UITableViewCell {
     func config(_ commentsData : Comments)
     {
         print("calling comment")
+        editDeleteView.isHidden = true
         superComment = commentsData
         self.userName.text = commentsData.comment?.name ?? ""
         if let url = URL(string: commentsData.commentor_avatar) {
@@ -238,7 +239,7 @@ extension CommentsTableViewCell: UITableViewDataSource
         
         let obj = replies[indexPath.row]
         cell.config(obj)
-        
+        cell.editDeleteView.isHidden = true
         cell.likeButton.tag = indexPath.row
         cell.unlikeButton.tag = indexPath.row
         cell.replyButton.tag = indexPath.row

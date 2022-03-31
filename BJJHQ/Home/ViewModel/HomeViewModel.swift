@@ -94,7 +94,7 @@ class HomeViewModel: BaseViewModel {
         let role = DataManager.shared.getUser()?.user?.role ?? "user"
         let userId = DataManager.shared.getUser()?.user?.id ?? 0
         
-        APIClient.shared.sendImageComments(mobileId: uuid, userSystemId: "\(userId)", message: message, role: role, image: image) { responce, result, error, statusCode, messsage in
+        APIClient.shared.sendImageComments(mobileId: uuid, userSystemId: "\(userId)", parentCommentId: parentCommentId, message: message, role: role, image: image) { responce, result, error, statusCode, messsage in
             
             if let response = result {
                 if let success = response["status"] as? Bool {
@@ -111,13 +111,13 @@ class HomeViewModel: BaseViewModel {
             }
         }
     }
-    func sendImageEditComment(_ parentCommentId: String,_ message: String, image: UIImage, _ completionHandler: @escaping(_ success: Bool, _ message : String?) -> Void) {
+    func sendImageEditComment(_ parentCommentId: String,_ message: String, image: UIImage,commentID:String, _ completionHandler: @escaping(_ success: Bool, _ message : String?) -> Void) {
         
         let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
         let role = DataManager.shared.getUser()?.user?.role ?? "user"
         let userId = DataManager.shared.getUser()?.user?.id ?? 0
         
-        APIClient.shared.sendImageEditComments(mobileId: uuid, userSystemId: "\(userId)", message: message, role: role, image: image) { responce, result, error, statusCode, messsage in
+        APIClient.shared.sendImageEditComments(mobileId: uuid, userSystemId: "\(userId)", parentCommentId: parentCommentId, message: message, role: role,commentID: commentID, image: image) { responce, result, error, statusCode, messsage in
             
             if let response = result {
                 if let success = response["status"] as? Bool {

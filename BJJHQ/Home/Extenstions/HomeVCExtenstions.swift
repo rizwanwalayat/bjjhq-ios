@@ -305,7 +305,7 @@ extension HomeViewController {
                 self.comments = commentsData
                 self.tableView.reloadData()
                 subCommentTableView?.tableView.reloadData()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                     if self.comments.count > 0 {
                         let indexpAth = IndexPath(row: self.comments.count - 1, section: 0)
                         self.tableView.reloadRows(at: [indexpAth], with: .automatic)
@@ -362,7 +362,7 @@ extension HomeViewController {
         let commentID = commentsId ?? ""
         if let image = imageComment.image {
             
-            viewModel?.sendImageEditComment(parentId, text, image: image, { success, message in
+            viewModel?.sendImageEditComment(parentId, text, image: image, commentID: commentID, { success, message in
                 self.writeCommentsTF.text = ""
                 self.commentsParentId = nil
                 self.commentsId = nil

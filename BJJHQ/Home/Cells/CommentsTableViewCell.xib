@@ -29,7 +29,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n19-jG-W0v" userLabel="MainHolderView">
                         <rect key="frame" x="0.0" y="0.0" width="379" height="307"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xJP-pG-s79">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default User" translatesAutoresizingMaskIntoConstraints="NO" id="xJP-pG-s79">
                                 <rect key="frame" x="8" y="8" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xJP-pG-s79" secondAttribute="height" multiplier="1:1" id="F6w-19-Enr"/>
@@ -339,6 +339,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="default User" width="15" height="15"/>
         <image name="like" width="14.5" height="13.5"/>
         <image name="options" width="24" height="24"/>
         <image name="unlike" width="14.5" height="13.5"/>
