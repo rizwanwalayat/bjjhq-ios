@@ -259,7 +259,7 @@ extension HomeViewController : commentsTableViewDelegate {
     }
     
     func didTapOnRepliy(_ superComment: Comments, subComment: CommentsReplies) {
-        
+        self.writeCommentsTF.becomeFirstResponder()
         commentsParentId = "\(superComment.comment?.id ?? 0)"
         if writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0{
                 sendComment(writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines))

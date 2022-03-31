@@ -269,19 +269,22 @@ class HomeViewController: BaseViewController,deleteComment {
     @IBAction func sendCommentsAction(_ sender: Any) {
         
         if let comment = writeCommentsTF.text?.trimmingCharacters(in: .whitespacesAndNewlines), comment.count > 0 || imageComment.image != nil {
+//        if let comment = writeCommentsTF.text?.trimmingCharacters(in: .whitespacesAndNewlines), comment.count > 0 || imageComment.image != nil {
+        if writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0{
             if isfromEditComment {
-                
-                editComment(comment)
-                //                isfromEditComment = false
+                editComment(writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines))
             }
             else {
-                sendComment(comment)
+                sendComment(writeCommentsTF.text!.trimmingCharacters(in: .whitespacesAndNewlines))
                 
             }
         } else {
-            showToast(message: "Please enter some text or image to share")
+            showToast(message: "Please enter some text")
         }
+        }
+        
     }
+    
     
     @IBAction func crossImageAction(_ sender: Any) {
         

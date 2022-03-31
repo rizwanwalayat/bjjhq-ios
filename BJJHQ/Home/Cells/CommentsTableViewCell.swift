@@ -238,6 +238,7 @@ extension CommentsTableViewCell: UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubCommentsTableViewCell", for: indexPath) as! SubCommentsTableViewCell
         
         let obj = replies[indexPath.row]
+        cell.commentImage.image = nil
         cell.config(obj)
         cell.editDeleteView.isHidden = true
         cell.likeButton.tag = indexPath.row
