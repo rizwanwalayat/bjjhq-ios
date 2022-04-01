@@ -52,6 +52,11 @@ class CommentsTableViewCell: UITableViewCell {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
     }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.likeButton.tintColor = .white
+        self.unlikeButton.tintColor = .white
+    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -154,6 +159,8 @@ class CommentsTableViewCell: UITableViewCell {
     
     @objc fileprivate func likeButtonPressed (_ sender: UIButton)
     {
+        self.editDeleteView.isHidden = true
+        self.editButton.isSelected = false
         if let mainComment = superComment {
 
         let obj = replies[sender.tag]
@@ -174,6 +181,8 @@ class CommentsTableViewCell: UITableViewCell {
     
     @objc fileprivate func unLikeButtonPressed (_ sender: UIButton)
     {
+        self.editDeleteView.isHidden = true
+        self.editButton.isSelected = false
         if let mainComment = superComment {
 
         let obj = replies[sender.tag]
@@ -194,6 +203,8 @@ class CommentsTableViewCell: UITableViewCell {
     
     @objc fileprivate func replyPressed (_ sender: UIButton)
     {
+        self.editDeleteView.isHidden = true
+        self.editButton.isSelected = false
         if let mainComment = superComment {
 
         let obj = replies[sender.tag]
@@ -202,14 +213,19 @@ class CommentsTableViewCell: UITableViewCell {
     }
     @objc fileprivate func editPressed (_ sender: UIButton)
     {
+        self.editDeleteView.isHidden = true
+        self.editButton.isSelected = false
         if let mainComment = superComment {
 
         let obj = replies[sender.tag]
+            
             delegate?.didTapOnEdit(mainComment, subComment: obj, fromChild: true)
         }
     }
     @objc fileprivate func deletePressed (_ sender: UIButton)
     {
+        self.editDeleteView.isHidden = true
+        self.editButton.isSelected = false
         if let mainComment = superComment {
 
         let obj = replies[sender.tag]

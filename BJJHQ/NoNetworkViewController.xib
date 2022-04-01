@@ -85,6 +85,12 @@
                         <action selector="tryAgainButtonAction:" destination="-1" eventType="touchUpInside" id="1qW-DV-Qem"/>
                     </connections>
                 </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="r6i-1L-O1U">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="Ilp-T0-7Kx"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="white"/>
@@ -94,16 +100,20 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MqM-GP-we2" secondAttribute="trailing" constant="26" id="RF1-jH-N4p"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="N3o-ea-6hw" secondAttribute="bottom" constant="12" id="S9A-uS-KAm"/>
                 <constraint firstItem="UC0-HH-4gH" firstAttribute="top" secondItem="TH9-SA-y1P" secondAttribute="bottom" constant="18" id="Tl7-Di-3Zo"/>
+                <constraint firstItem="r6i-1L-O1U" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UXr-rk-m2y"/>
                 <constraint firstItem="TH9-SA-y1P" firstAttribute="top" secondItem="MqM-GP-we2" secondAttribute="bottom" constant="78" id="Zuh-dZ-tq6"/>
                 <constraint firstItem="MqM-GP-we2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="26" id="aHk-CZ-6sb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="N3o-ea-6hw" secondAttribute="trailing" constant="34" id="dKo-rD-GgO"/>
                 <constraint firstItem="N3o-ea-6hw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="34" id="jWQ-Ep-6Tu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="r6i-1L-O1U" secondAttribute="trailing" id="sLj-jx-lqm"/>
                 <constraint firstItem="TH9-SA-y1P" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="w1y-x1-Gpd"/>
+                <constraint firstItem="r6i-1L-O1U" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="yOp-IO-f7k"/>
             </constraints>
             <point key="canvasLocation" x="133" y="80"/>
         </view>
     </objects>
     <resources>
+        <image name="Header" width="187.5" height="66"/>
         <image name="no-network-" width="321.5" height="209"/>
         <namedColor name="blue">
             <color red="0.14499999582767487" green="0.17299999296665192" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

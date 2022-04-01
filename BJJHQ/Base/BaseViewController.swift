@@ -365,11 +365,6 @@ extension Date {
     
     func timeCalculation( isShowTime : Bool) -> String?
     {
-//        if PostDate == ""
-//        {
-//            return ""
-//        }
-//        let date = Date(timeIntervalSince1970: TimeInterval(Double(PostDate ?? "") ?? 0.0))
         
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .full
@@ -474,16 +469,22 @@ extension Date {
         /// for mins
         
         if let mints = components.minute {
-            
-            if mints > 0 && mints < 2
-            {
-                return "\(mints)" + " mint"
+            if mints == 0 {
+                return "just now"
             }
-            else if mints > 1
-            {
-                return "\(mints)" + " mints"
+            else {
+                if mints > 0 && mints < 2
+                {
+                    return "\(mints)" + " mint"
+                }
+                else if mints > 1
+                {
+                    return "\(mints)" + " mints"
+                }
             }
+
         }
+
             
         return ""
     }

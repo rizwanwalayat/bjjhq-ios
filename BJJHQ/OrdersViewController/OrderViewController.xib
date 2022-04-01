@@ -45,13 +45,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwW-ZO-ajL">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <rect key="frame" x="0.0" y="70" width="414" height="826"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BmD-GE-lya" userLabel="HeaderView">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="26"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiY-XF-AnD">
-                                    <rect key="frame" x="20" y="64" width="40" height="40"/>
+                                    <rect key="frame" x="20" y="-6" width="40" height="40"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="iiY-XF-AnD" secondAttribute="height" multiplier="1:1" id="JGR-tM-oaa"/>
@@ -89,7 +89,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6Z-eL-nAK">
-                                    <rect key="frame" x="161.5" y="72" width="91" height="24"/>
+                                    <rect key="frame" x="161.5" y="2" width="91" height="24"/>
                                     <fontDescription key="fontDescription" name="Barlow-BoldItalic" family="Barlow" pointSize="20"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -104,7 +104,7 @@
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="CH1-Aa-3cz">
-                            <rect key="frame" x="20" y="156" width="374" height="418.5"/>
+                            <rect key="frame" x="20" y="86" width="374" height="418.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="qqZ-7q-hfh">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="150.5"/>
@@ -415,7 +415,7 @@ Hoodie for Men</string>
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LjV-6e-amb">
-                            <rect key="frame" x="20" y="796" width="374" height="50"/>
+                            <rect key="frame" x="20" y="726" width="374" height="50"/>
                             <color key="backgroundColor" red="0.1450980392" green="0.17254901959999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="NuA-sh-8GF"/>
@@ -454,20 +454,30 @@ Hoodie for Men</string>
                         <constraint firstAttribute="trailing" secondItem="CH1-Aa-3cz" secondAttribute="trailing" constant="20" id="yHD-IB-p3T"/>
                     </constraints>
                 </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="l6h-wn-vP6">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="lrp-7p-iVP"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="dwW-ZO-ajL" secondAttribute="bottom" id="0wd-By-wy6"/>
                 <constraint firstItem="dwW-ZO-ajL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="366-hv-Vuf"/>
+                <constraint firstItem="dwW-ZO-ajL" firstAttribute="top" secondItem="l6h-wn-vP6" secondAttribute="bottom" constant="-30" id="4Bn-Na-5Hg"/>
                 <constraint firstAttribute="trailing" secondItem="dwW-ZO-ajL" secondAttribute="trailing" id="5q1-1n-Jmd"/>
-                <constraint firstItem="dwW-ZO-ajL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RNl-f0-1Q8"/>
+                <constraint firstItem="l6h-wn-vP6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="OKR-y3-a9q"/>
+                <constraint firstItem="l6h-wn-vP6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZQX-9T-i2P"/>
                 <constraint firstItem="iiY-XF-AnD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="fqq-Hy-I6w"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="l6h-wn-vP6" secondAttribute="trailing" id="z2V-cg-Soy"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="81.696428571428569"/>
         </view>
     </objects>
     <resources>
+        <image name="Header" width="187.5" height="66"/>
         <image name="backButton" width="8" height="14.5"/>
         <image name="hood" width="71" height="71"/>
         <image name="line-checkout" width="170" height="1"/>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,12 +37,21 @@
                     <color key="textColor" name="blue"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="sc8-WM-Rll">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="WaH-ec-rA8"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="ezw-h7-WrX" firstAttribute="top" secondItem="LbD-cQ-xTc" secondAttribute="bottom" constant="10" id="08r-QU-xBp"/>
+                <constraint firstItem="sc8-WM-Rll" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3Jo-3j-9rd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sc8-WM-Rll" secondAttribute="trailing" id="IAx-18-Olv"/>
                 <constraint firstItem="ezw-h7-WrX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LmA-Iq-UgO"/>
+                <constraint firstItem="sc8-WM-Rll" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TY1-PX-zAu"/>
                 <constraint firstItem="LbD-cQ-xTc" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-50" id="dTv-wb-5uh"/>
                 <constraint firstItem="ezw-h7-WrX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="gon-hD-TvU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ezw-h7-WrX" secondAttribute="trailing" constant="10" id="mZW-Rg-gQB"/>
@@ -52,6 +61,7 @@
         </view>
     </objects>
     <resources>
+        <image name="Header" width="187.5" height="66"/>
         <image name="success" width="144" height="144"/>
         <namedColor name="blue">
             <color red="0.14499999582767487" green="0.17299999296665192" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

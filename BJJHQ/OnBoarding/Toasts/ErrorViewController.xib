@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -71,16 +71,25 @@ Check your connection.</string>
                     <color key="textColor" red="0.29803921568627451" green="0.30196078431372547" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="jLl-kw-Xbr">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="g8B-TU-6yX"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="ADv-Bk-POl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="0WU-MJ-uMM"/>
+                <constraint firstItem="jLl-kw-Xbr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0ab-sY-L8I"/>
                 <constraint firstItem="NdT-sq-HuH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cVN-ds-hHQ" secondAttribute="bottom" constant="10" id="3Ys-fY-25O"/>
                 <constraint firstItem="Z6z-Tp-DWo" firstAttribute="top" secondItem="ADv-Bk-POl" secondAttribute="bottom" constant="30" id="KHg-Ml-E9K"/>
                 <constraint firstItem="Z6z-Tp-DWo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Kkc-Hs-wZ7"/>
                 <constraint firstItem="ADv-Bk-POl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="L06-FP-FGV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jLl-kw-Xbr" secondAttribute="trailing" id="QAG-ZH-tw7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="NdT-sq-HuH" secondAttribute="bottom" constant="50" id="QwG-vd-4oZ"/>
+                <constraint firstItem="jLl-kw-Xbr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RXX-gz-WOX"/>
                 <constraint firstAttribute="trailing" secondItem="NdT-sq-HuH" secondAttribute="trailing" constant="30" id="TPt-bC-lrc"/>
                 <constraint firstItem="ADv-Bk-POl" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.299107" id="V9p-zu-vjN"/>
                 <constraint firstItem="cVN-ds-hHQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XWf-MY-QBR"/>
@@ -94,7 +103,8 @@ Check your connection.</string>
         </view>
     </objects>
     <resources>
-        <image name="welcome" width="293.5" height="194.5"/>
+        <image name="Header" width="187.5" height="66"/>
+        <image name="welcome" width="169.5" height="190"/>
         <namedColor name="blue">
             <color red="0.14499999582767487" green="0.17299999296665192" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

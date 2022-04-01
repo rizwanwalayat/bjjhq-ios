@@ -142,9 +142,6 @@ extension HomeViewController: UITableViewDataSource
         cell.replyButton.addTarget(self, action: #selector(replyPressed(_:)), for: .touchUpInside)
         cell.editButton.addTarget(self, action: #selector(editPressed(_:)), for: .touchUpInside)
         cell.deleteButton.addTarget(self, action: #selector(deletePressed(_:)), for: .touchUpInside)
-        
-        cell.delegate = self
-        
         cell.likeButton.setTitleColor(UIColor(hexString: "5BD6CD"), for: .normal)
         cell.likeButton.tintColor = UIColor(hexString: "5BD6CD")
         cell.likeButton.borderColor = UIColor(hexString: "5BD6CD")
@@ -154,6 +151,10 @@ extension HomeViewController: UITableViewDataSource
         cell.unlikeButton.tintColor = UIColor(hexString: "252C44")
         cell.unlikeButton.borderColor = UIColor(hexString: "252C44")
         cell.likeButton.backgroundColor = .clear
+        
+        cell.delegate = self
+        
+        
         
         if let like = obj.isLiked {
             
@@ -360,6 +361,7 @@ extension HomeViewController {
     {
         let parentId = commentsParentId ?? ""
         let commentID = commentsId ?? ""
+        self.writeCommentsTF.text = ""
         if let image = imageComment.image {
             
             viewModel?.sendImageEditComment(parentId, text, image: image, commentID: commentID, { success, message in
@@ -400,7 +402,7 @@ extension HomeViewController {
     func likeComment(commentId: Int, _ ofIndex: Int, _ isSubComment: Bool = false)
     {
         viewModel?.likeComment(commentId, { success, message in
-           
+            self.writeCommentsTF.text = ""
             if success {
                
                 let obj = self.comments[ofIndex]
@@ -423,7 +425,7 @@ extension HomeViewController {
     
     func diLikeComment(commentId: Int, _ ofIndex: Int, _ isSubComment: Bool = false)
     {
-        
+        self.writeCommentsTF.text = ""
         viewModel?.disLikeComment(commentId, { success, message in
             if success {
                 let obj = self.comments[ofIndex]
@@ -449,6 +451,9 @@ extension HomeViewController {
     {
         
         viewModel?.deleteComment(commentId, { success, message in
+            self.writeCommentsTF.text = ""
+            self.commentsId = nil
+            self.commentsParentId = nil
             if success {
                 let obj = self.comments[ofIndex]
                 if !isSubComment {

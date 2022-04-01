@@ -39,7 +39,11 @@ class SubCommentsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.likeButton.tintColor = .white
+        self.unlikeButton.tintColor = .white
+    }
     
     func config(_ commentsData : CommentsReplies)
     {
